@@ -1,0 +1,49 @@
+/* Style fixes for mobile menu and footer */
+
+/* Hide duplicate buttons in footer */
+footer .login-button,
+footer .register-button,
+footer .guest-button,
+footer .mobile-only-buttons {
+    display: none !important;
+}
+
+/* Ensure mobile menu buttons are properly styled */
+.mobile-menu .login-button,
+.mobile-menu .register-button,
+.mobile-menu .guest-button {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Fix for any other duplicate elements */
+.duplicate-element {
+    display: none !important;
+}
+
+/* Ensure footer is clean */
+footer {
+    overflow: hidden;
+}
+
+/* Mobile menu styling improvements */
+.mobile-menu {
+    padding: 60px 20px;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+/* Fix for any z-index issues */
+.mobile-menu {
+    z-index: 1000;
+}
+
+footer {
+    z-index: 10;
+    position: relative;
+}
