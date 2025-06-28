@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض توضيحي - نظام الإشعارات المحسن</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/psychological-ux.css">
+    <link rel="stylesheet" href="css/tether-branding.css">
+    <style>
+        .demo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-button {
+            background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+        
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 132, 98, 0.3);
+        }
+        
+        .demo-button.secondary {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        }
+        
+        .demo-button.warning {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+        
+        .demo-button.danger {
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+        }
+        
+        .demo-button.promotion {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+        }
+        
+        .control-panel {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 9998;
+        }
+        
+        .position-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin: 10px 0;
+        }
+        
+        .position-btn {
+            padding: 8px;
+            border: 2px solid #E5E7EB;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .position-btn.active {
+            border-color: #26A17B;
+            background: #F0FDF4;
+            color: #1A8462;
+        }
+        
+        .stats-display {
+            font-size: 12px;
+            color: #6B7280;
+            border-top: 1px solid #E5E7EB;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-green-600 to-green-700 text-white py-6">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold text-center">
+                <i class="fas fa-bell mr-3"></i>
+                نظام الإشعارات المحسن
+            </h1>
+            <p class="text-center text-green-100 mt-2">
+                عرض توضيحي تفاعلي لجميع أنواع الإشعارات والتحكم بها
+            </p>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        
+        <!-- إشعارات الحالة الأساسية -->
+        <div class="demo-section">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                إشعارات الحالة الأساسية
+            </h2>
+            <p class="text-gray-600 mb-6">إشعارات للحالات المختلفة مع تصميم مناسب لكل نوع</p>
+            
+            <div class="flex flex-wrap gap-3">
+                <button class="demo-button" onclick="showTestSuccess()">
+                    <i class="fas fa-check mr-2"></i>
+                    نجح
+                </button>
+                <button class="demo-button danger" onclick="showTestError()">
+                    <i class="fas fa-times mr-2"></i>
+                    خطأ
+                </button>
+                <button class="demo-button warning" onclick="showTestWarning()">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    تحذير
+                </button>
+                <button class="demo-button secondary" onclick="showTestInfo()">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    معلومة
+                </button>
+            </div>
+        </div>
+
+        <!-- إشعارات العروض والترويج -->
+        <div class="demo-section">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-gift text-purple-500 mr-2"></i>
+                إشعارات العروض والترويج
+            </h2>
+            <p class="text-gray-600 mb-6">إشعارات خاصة للعروض التجارية مع تأثيرات جذابة</p>
+            
+            <div class="flex flex-wrap gap-3">
+                <button class="demo-button promotion" onclick="showTestPromotion()">
+                    <i class="fas fa-star mr-2"></i>
+                    عرض خاص
+                </button>
+                <button class="demo-button promotion" onclick="showTestDiscount()">
+                    <i class="fas fa-percent mr-2"></i>
+                    خصم 25%
+                </button>
+                <button class="demo-button promotion" onclick="showTestFreeBonus()">
+                    <i class="fas fa-gift mr-2"></i>
+                    مكافأة مجانية
+                </button>
+            </div>
+        </div>
+
+        <!-- إشعارات النشاط المباشر -->
+        <div class="demo-section">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-users text-green-600 mr-2"></i>
+                إشعارات النشاط المباشر
+            </h2>
+            <p class="text-gray-600 mb-6">إشعارات تظهر نشاط المستخدمين في الوقت الفعلي</p>
+            
+            <div class="flex flex-wrap gap-3">
+                <button class="demo-button" onclick="showTestLiveActivity()">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    عملية شراء
+                </button>
+                <button class="demo-button" onclick="showTestUserJoined()">
+                    <i class="fas fa-user-plus mr-2"></i>
+                    مستخدم جديد
+                </button>
+                <button class="demo-button" onclick="showTestReview()">
+                    <i class="fas fa-star mr-2"></i>
+                    تقييم جديد
+                </button>
+            </div>
+        </div>
+
+        <!-- إشعارات متقدمة مع أزرار -->
+        <div class="demo-section">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-cogs text-blue-500 mr-2"></i>
+                إشعارات متقدمة مع أزرار التحكم
+            </h2>
+            <p class="text-gray-600 mb-6">إشعارات تفاعلية مع إمكانية اتخاذ إجراءات مباشرة</p>
+            
+            <div class="flex flex-wrap gap-3">
+                <button class="demo-button secondary" onclick="showTestConfirmation()">
+                    <i class="fas fa-question-circle mr-2"></i>
+                    تأكيد إجراء
+                </button>
+                <button class="demo-button" onclick="showTestVerification()">
+                    <i class="fas fa-shield-check mr-2"></i>
+                    طلب تحقق
+                </button>
+                <button class="demo-button promotion" onclick="showTestLimitedOffer()">
+                    <i class="fas fa-clock mr-2"></i>
+                    عرض محدود
+                </button>
+            </div>
+        </div>
+
+        <!-- إشعارات خاصة -->
+        <div class="demo-section">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-magic text-yellow-500 mr-2"></i>
+                إشعارات خاصة وتأثيرات متقدمة
+            </h2>
+            <p class="text-gray-600 mb-6">إشعارات مع تأثيرات بصرية وصوتية متقدمة</p>
+            
+            <div class="flex flex-wrap gap-3">
+                <button class="demo-button danger" onclick="showTestUrgent()">
+                    <i class="fas fa-exclamation mr-2"></i>
+                    إشعار عاجل
+                </button>
+                <button class="demo-button promotion" onclick="showTestCelebration()">
+                    <i class="fas fa-trophy mr-2"></i>
+                    إشعار احتفالي
+                </button>
+                <button class="demo-button" onclick="showTestPersistent()">
+                    <i class="fas fa-thumbtack mr-2"></i>
+                    إشعار دائم
+                </button>
+                <button class="demo-button secondary" onclick="showTestCustom()">
+                    <i class="fas fa-paint-brush mr-2"></i>
+                    إشعار مخصص
+                </button>
+            </div>
+        </div>
+
+        <!-- اختبار التحميل -->
+        <div class="demo-section">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">
+                <i class="fas fa-tachometer-alt text-red-500 mr-2"></i>
+                اختبار التحميل والأداء
+            </h2>
+            <p class="text-gray-600 mb-6">اختبار سلوك النظام مع عدد كبير من الإشعارات</p>
+            
+            <div class="flex flex-wrap gap-3">
+                <button class="demo-button secondary" onclick="showMultipleNotifications()">
+                    <i class="fas fa-clone mr-2"></i>
+                    إشعارات متعددة
+                </button>
+                <button class="demo-button warning" onclick="showRapidNotifications()">
+                    <i class="fas fa-fast-forward mr-2"></i>
+                    إشعارات سريعة
+                </button>
+                <button class="demo-button danger" onclick="clearAllNotifications()">
+                    <i class="fas fa-trash mr-2"></i>
+                    مسح الكل
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- لوحة التحكم -->
+    <div class="control-panel">
+        <h3 class="font-bold text-sm mb-2">لوحة التحكم</h3>
+        
+        <div class="mb-3">
+            <label class="block text-xs font-medium text-gray-700 mb-1">موضع الإشعارات:</label>
+            <div class="position-selector">
+                <button class="position-btn" data-position="top-left">أعلى يسار</button>
+                <button class="position-btn" data-position="top-center">أعلى وسط</button>
+                <button class="position-btn active" data-position="top-right">أعلى يمين</button>
+                <button class="position-btn" data-position="center-left">وسط يسار</button>
+                <button class="position-btn" data-position="center">وسط</button>
+                <button class="position-btn" data-position="center-right">وسط يمين</button>
+                <button class="position-btn" data-position="bottom-left">أسفل يسار</button>
+                <button class="position-btn" data-position="bottom-center">أسفل وسط</button>
+                <button class="position-btn" data-position="bottom-right">أسفل يمين</button>
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label class="flex items-center">
+                <input type="checkbox" id="enableSound" checked class="mr-2">
+                <span class="text-xs">تفعيل الصوت</span>
+            </label>
+        </div>
+        
+        <div class="mb-3">
+            <label class="block text-xs font-medium text-gray-700 mb-1">الحد الأقصى:</label>
+            <select id="maxNotifications" class="w-full text-xs border border-gray-300 rounded px-2 py-1">
+                <option value="1">1 إشعار</option>
+                <option value="2">2 إشعار</option>
+                <option value="3" selected>3 إشعارات</option>
+                <option value="5">5 إشعارات</option>
+                <option value="10">10 إشعارات</option>
+            </select>
+        </div>
+        
+        <div class="stats-display">
+            <div>المعروض: <span id="activeCount">0</span></div>
+            <div>المجموع: <span id="totalCount">0</span></div>
+        </div>
+    </div>
+
+    <!-- تحميل المكتبات -->
+    <script src="js/enhanced-notifications.js"></script>
+    <script src="js/psychological-ux.js"></script>
+    
+    <script>
+        // متغيرات التحكم
+        let totalNotifications = 0;
+        
+        // دوال الاختبار
+        function showTestSuccess() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.success('تم حفظ البيانات بنجاح!', {
+                meta: 'قبل لحظات',
+                duration: 4000
+            });
+        }
+        
+        function showTestError() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.error('فشل في الاتصال بالخادم. يرجى المحاولة مرة أخرى.', {
+                meta: 'خطأ في الاتصال',
+                duration: 6000
+            });
+        }
+        
+        function showTestWarning() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.warning('انتباه: يرجى مراجعة البيانات المدخلة قبل المتابعة.', {
+                meta: 'تحقق مطلوب',
+                duration: 5000
+            });
+        }
+        
+        function showTestInfo() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.info('تم تحديث النظام إلى الإصدار 2.1.0 بنجاح.', {
+                meta: 'معلومة النظام',
+                duration: 4000
+            });
+        }
+        
+        function showTestPromotion() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.promotion('احصل على خصم 50% على جميع الباقات لفترة محدودة!', {
+                actions: [
+                    {
+                        text: 'استفد الآن',
+                        type: 'primary',
+                        icon: 'fas fa-shopping-cart',
+                        handler: 'alert("تم النقر على استفد الآن!")'
+                    },
+                    {
+                        text: 'لاحقاً',
+                        type: 'secondary',
+                        handler: 'console.log("اختار المستخدم لاحقاً")'
+                    }
+                ],
+                duration: 8000
+            });
+        }
+        
+        function showTestDiscount() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.promotion('كود خصم حصري: SAVE25 للحصول على خصم إضافي!', {
+                title: '💰 كود خصم خاص',
+                meta: 'صالح لمدة 24 ساعة',
+                duration: 10000
+            });
+        }
+        
+        function showTestFreeBonus() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.promotion('🎁 مكافأة خاصة: احصل على 100 USDT-FLASH مجاناً مع أي طلب!', {
+                celebration: true,
+                duration: 7000
+            });
+        }
+        
+        function showTestLiveActivity() {
+            totalNotifications++;
+            updateStats();
+            const names = ['أحمد محمد', 'فاطمة عبدالله', 'محمد العلي', 'سارة حسن', 'علي أحمد'];
+            const amounts = ['500', '1000', '2500', '750', '1200'];
+            const name = names[Math.floor(Math.random() * names.length)];
+            const amount = amounts[Math.floor(Math.random() * amounts.length)];
+            
+            notificationSystem.liveActivity(`${name} اشترى للتو ${amount} USDT-FLASH`, {
+                meta: `${Math.floor(Math.random() * 5) + 1} دقائق مضت`,
+                duration: 6000
+            });
+        }
+        
+        function showTestUserJoined() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.liveActivity('انضم 15 مستخدم جديد في آخر ساعة', {
+                title: '👥 مستخدمين جدد',
+                meta: 'الآن',
+                duration: 5000
+            });
+        }
+        
+        function showTestReview() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.liveActivity('تقييم جديد 5 نجوم: "خدمة ممتازة وسريعة جداً!"', {
+                title: '⭐ تقييم جديد',
+                meta: '2 دقائق مضت',
+                duration: 6000
+            });
+        }
+        
+        function showTestConfirmation() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.show({
+                type: 'warning',
+                title: 'تأكيد الإجراء',
+                message: 'هل أنت متأكد من رغبتك في حذف هذا العنصر؟',
+                actions: [
+                    {
+                        text: 'تأكيد',
+                        type: 'primary',
+                        icon: 'fas fa-check',
+                        handler: 'alert("تم التأكيد!"); notificationSystem.success("تم الحذف بنجاح");'
+                    },
+                    {
+                        text: 'إلغاء',
+                        type: 'secondary',
+                        handler: 'console.log("تم الإلغاء")'
+                    }
+                ],
+                duration: 10000
+            });
+        }
+        
+        function showTestVerification() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.show({
+                type: 'info',
+                title: '🛡️ تحقق من الهوية',
+                message: 'لحماية حسابك، يرجى التحقق من هويتك لإتمام هذه العملية.',
+                actions: [
+                    {
+                        text: 'تحقق الآن',
+                        type: 'primary',
+                        icon: 'fas fa-shield-check',
+                        handler: 'alert("توجيه إلى صفحة التحقق")'
+                    }
+                ],
+                duration: 12000
+            });
+        }
+        
+        function showTestLimitedOffer() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.show({
+                type: 'promotion',
+                title: '⏰ عرض محدود',
+                message: 'باقية فقط 3 ساعات على انتهاء عرض الخصم الكبير!',
+                actions: [
+                    {
+                        text: 'اطلب الآن',
+                        type: 'primary',
+                        icon: 'fas fa-bolt',
+                        handler: 'alert("توجيه إلى الطلب")'
+                    }
+                ],
+                urgent: true,
+                duration: 15000
+            });
+        }
+        
+        function showTestUrgent() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.show({
+                type: 'error',
+                title: '🚨 إشعار عاجل',
+                message: 'تم اكتشاف محاولة دخول مشبوهة لحسابك. يرجى تغيير كلمة المرور فوراً.',
+                urgent: true,
+                actions: [
+                    {
+                        text: 'تغيير كلمة المرور',
+                        type: 'primary',
+                        icon: 'fas fa-key',
+                        handler: 'alert("توجيه إلى تغيير كلمة المرور")'
+                    }
+                ],
+                duration: 20000
+            });
+        }
+        
+        function showTestCelebration() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.show({
+                type: 'success',
+                title: '🎉 تهانينا!',
+                message: 'لقد أصبحت عضواً VIP! استمتع بمزايا حصرية وخصومات إضافية.',
+                celebration: true,
+                actions: [
+                    {
+                        text: 'استكشف المزايا',
+                        type: 'primary',
+                        icon: 'fas fa-crown',
+                        handler: 'alert("توجيه إلى صفحة المزايا")'
+                    }
+                ],
+                duration: 10000
+            });
+        }
+        
+        function showTestPersistent() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.show({
+                type: 'info',
+                title: '📌 إشعار مثبت',
+                message: 'هذا إشعار دائم لن يختفي تلقائياً. يمكنك إغلاقه يدوياً.',
+                persistent: true,
+                actions: [
+                    {
+                        text: 'فهمت',
+                        type: 'primary',
+                        handler: 'notificationSystem.hide(this.closest(".enhanced-notification").dataset.id)'
+                    }
+                ]
+            });
+        }
+        
+        function showTestCustom() {
+            totalNotifications++;
+            updateStats();
+            notificationSystem.show({
+                type: 'info',
+                title: '🎨 إشعار مخصص',
+                message: 'هذا إشعار بتصميم مخصص مع مدة عرض قصيرة.',
+                duration: 2000,
+                onClick: (notification) => {
+                    alert('تم النقر على الإشعار المخصص!');
+                },
+                onShow: (notification) => {
+                    console.log('تم عرض الإشعار:', notification);
+                },
+                onHide: (notification) => {
+                    console.log('تم إخفاء الإشعار:', notification);
+                }
+            });
+        }
+        
+        function showMultipleNotifications() {
+            const messages = [
+                'الإشعار الأول من مجموعة الاختبار',
+                'الإشعار الثاني - اختبار التراكم',
+                'الإشعار الثالث - مراقبة الأداء',
+                'الإشعار الرابع - اختبار التحميل',
+                'الإشعار الخامس - نهاية الاختبار'
+            ];
+            
+            messages.forEach((message, index) => {
+                setTimeout(() => {
+                    totalNotifications++;
+                    updateStats();
+                    notificationSystem.info(message, {
+                        title: `اختبار ${index + 1}/5`,
+                        duration: 3000
+                    });
+                }, index * 500);
+            });
+        }
+        
+        function showRapidNotifications() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    totalNotifications++;
+                    updateStats();
+                    notificationSystem.success(`إشعار سريع رقم ${i + 1}`, {
+                        duration: 2000
+                    });
+                }, i * 100);
+            }
+        }
+        
+        function clearAllNotifications() {
+            if (typeof notificationSystem !== 'undefined') {
+                notificationSystem.clearAll();
+                updateStats();
+            }
+        }
+        
+        // تحديث الإحصائيات
+        function updateStats() {
+            document.getElementById('totalCount').textContent = totalNotifications;
+            const activeCount = document.querySelectorAll('.enhanced-notification').length;
+            document.getElementById('activeCount').textContent = activeCount;
+        }
+        
+        // مراقبة التغييرات
+        const observer = new MutationObserver(updateStats);
+        observer.observe(document.body, { childList: true, subtree: true });
+        
+        // إعداد لوحة التحكم
+        document.addEventListener('DOMContentLoaded', function() {
+            // أزرار المواضع
+            document.querySelectorAll('.position-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.position-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const position = this.dataset.position;
+                    if (typeof notificationSystem !== 'undefined') {
+                        notificationSystem.updateSettings({ position });
+                    }
+                });
+            });
+            
+            // تفعيل/إلغاء تفعيل الصوت
+            document.getElementById('enableSound').addEventListener('change', function() {
+                if (typeof notificationSystem !== 'undefined') {
+                    notificationSystem.updateSettings({ enableSound: this.checked });
+                }
+            });
+            
+            // تغيير الحد الأقصى
+            document.getElementById('maxNotifications').addEventListener('change', function() {
+                if (typeof notificationSystem !== 'undefined') {
+                    notificationSystem.updateSettings({ maxNotifications: parseInt(this.value) });
+                }
+            });
+            
+            // تحديث الإحصائيات كل ثانية
+            setInterval(updateStats, 1000);
+            
+            // إشعار ترحيب
+            setTimeout(() => {
+                showTestSuccess();
+                setTimeout(() => {
+                    notificationSystem.info('جرب الأزرار المختلفة لاستكشاف جميع أنواع الإشعارات!', {
+                        title: '💡 نصيحة',
+                        duration: 6000
+                    });
+                }, 2000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

