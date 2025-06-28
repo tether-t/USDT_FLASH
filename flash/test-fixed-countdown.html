@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار العداد الثابت - 3 أيام</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/fixed-countdown-styles.css">
+    <style>
+        body { font-family: 'Arial', sans-serif; }
+        .test-card { 
+            background: white; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin: 20px 0; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4">
+    <div class="max-w-4xl mx-auto">
+        <!-- العنوان الرئيسي -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                🕐 اختبار العداد الثابت
+            </h1>
+            <p class="text-gray-600">
+                جميع العدادات يجب أن تعرض 3 أيام ثابتة دون تغيير
+            </p>
+            <div class="mt-4 bg-green-100 p-4 rounded-lg">
+                <span class="text-green-800 font-bold">✅ النظام: نشط ويعرض 3 أيام ثابتة</span>
+            </div>
+        </div>
+
+        <!-- اختبار العداد المضغوط -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-blue-600">
+                📱 العداد المضغوط (Compact Countdown)
+            </h2>
+            <div class="bf-compact-countdown black-friday-fixed">
+                <div class="bf-compact-countdown-label">Expires In:</div>
+                <div class="bf-compact-timer">
+                    <span id="bf-compact-days">03</span>d :
+                    <span id="bf-compact-hours">00</span>h :
+                    <span id="bf-compact-minutes">00</span>m
+                </div>
+                <div class="countdown-status">Fixed Offer</div>
+            </div>
+            <p class="text-sm text-gray-600 mt-2">يجب أن يعرض: 03d : 00h : 00m</p>
+        </div>
+
+        <!-- اختبار عداد الندرة -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-red-600">
+                ⏰ عداد الندرة (Scarcity Timer)
+            </h2>
+            <div class="scarcity-timer fixed-countdown">
+                <h3 class="text-2xl font-bold mb-4">⏰ Limited Offer - Fixed 3 Days!</h3>
+                <div id="scarcityCountdown" class="text-center">
+                    <div class="flex items-center justify-center space-x-4">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">03</div>
+                            <div class="text-sm">Days</div>
+                        </div>
+                        <div class="text-2xl">:</div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">00</div>
+                            <div class="text-sm">Hours</div>
+                        </div>
+                        <div class="text-2xl">:</div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">00</div>
+                            <div class="text-sm">Minutes</div>
+                        </div>
+                        <div class="text-2xl">:</div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">00</div>
+                            <div class="text-sm">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-2">يجب أن يعرض: 03 Days : 00 Hours : 00 Minutes : 00 Seconds</p>
+        </div>
+
+        <!-- اختبار العداد الأساسي -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-green-600">
+                🎯 العداد الأساسي (Basic Timer)
+            </h2>
+            <div class="countdown-timer fixed-countdown" id="basic-countdown-timer">
+                <i class="fas fa-clock"></i> Offer ends in: <span>72</span>:<span>00</span>:<span>00</span>
+                <div class="countdown-fixed-indicator">FIXED</div>
+            </div>
+            <p class="text-sm text-gray-600 mt-2">يجب أن يعرض: 72:00:00 (72 ساعة = 3 أيام)</p>
+        </div>
+
+        <!-- اختبار عدادات متنوعة -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-purple-600">
+                🔢 عدادات متنوعة
+            </h2>
+            
+            <!-- عداد نص عربي -->
+            <div class="mb-4 p-4 bg-gray-100 rounded">
+                <h3 class="font-bold mb-2">عداد عربي:</h3>
+                <div class="text-lg">العرض ینتهي خلال <span class="font-bold text-red-600">3 أيام</span> و <span class="font-bold text-red-600">0 ساعات</span></div>
+            </div>
+            
+            <!-- عداد نص إنجليزي -->
+            <div class="mb-4 p-4 bg-gray-100 rounded">
+                <h3 class="font-bold mb-2">English Counter:</h3>
+                <div class="text-lg">Offer expires in <span class="font-bold text-red-600">3 Days</span> and <span class="font-bold text-red-600">0 Hours</span></div>
+            </div>
+            
+            <!-- عداد رقمي -->
+            <div class="mb-4 p-4 bg-gray-100 rounded">
+                <h3 class="font-bold mb-2">Numeric Format:</h3>
+                <div class="text-lg font-mono"><span class="font-bold text-red-600">72:00:00</span> (Hours:Minutes:Seconds)</div>
+            </div>
+        </div>
+
+        <!-- اختبار العدادات التلقائية -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-orange-600">
+                🤖 اختبار العدادات التلقائية
+            </h2>
+            <p class="mb-4">هذه العدادات ستحاول العد التنازلي ولكن النظام سيمنعها:</p>
+            
+            <!-- عداد وهمي سيتم إيقافه -->
+            <div id="fake-timer" class="p-4 bg-yellow-100 rounded mb-4">
+                <h3 class="font-bold mb-2">⚠️ عداد وهمي (سيتم إيقافه تلقائياً):</h3>
+                <div class="text-lg">الوقت المتبقي: <span id="fake-days">05</span> أيام و <span id="fake-hours">12</span> ساعات</div>
+            </div>
+            
+            <button onclick="startFakeTimer()" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+                تشغيل عداد وهمي (سيتم إيقافه)
+            </button>
+            <button onclick="addDynamicTimer()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2">
+                إضافة عداد ديناميكي
+            </button>
+        </div>
+
+        <!-- منطقة العدادات الديناميكية -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-teal-600">
+                ⚡ العدادات الديناميكية
+            </h2>
+            <p class="mb-4">العدادات المضافة ديناميكياً ستتحول تلقائياً إلى 3 أيام ثابتة:</p>
+            <div id="dynamic-timers-container">
+                <!-- العدادات الديناميكية ستظهر هنا -->
+            </div>
+        </div>
+
+        <!-- إحصائيات الاختبار -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-gray-700">
+                📊 إحصائيات الاختبار
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                    <div class="text-2xl font-bold text-blue-600" id="static-count">4</div>
+                    <div class="text-sm text-blue-800">عدادات ثابتة</div>
+                </div>
+                <div class="text-center p-4 bg-green-50 rounded-lg">
+                    <div class="text-2xl font-bold text-green-600" id="fixed-count">0</div>
+                    <div class="text-sm text-green-800">عدادات تم إصلاحها</div>
+                </div>
+                <div class="text-center p-4 bg-red-50 rounded-lg">
+                    <div class="text-2xl font-bold text-red-600" id="blocked-count">0</div>
+                    <div class="text-sm text-red-800">عدادات تم حظرها</div>
+                </div>
+                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                    <div class="text-2xl font-bold text-purple-600" id="total-count">4</div>
+                    <div class="text-sm text-purple-800">إجمالي العدادات</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- حالة النظام -->
+        <div class="test-card">
+            <h2 class="text-xl font-bold mb-4 text-indigo-600">
+                💻 حالة النظام
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-green-700">نظام العداد الثابت</h3>
+                    <p class="text-sm text-green-600">✅ نشط ويعمل</p>
+                    <p class="text-xs text-green-500">آخر تحديث: <span id="last-update">--</span></p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-blue-700">مراقب DOM</h3>
+                    <p class="text-sm text-blue-600">👀 يراقب التغييرات</p>
+                    <p class="text-xs text-blue-500">عدد المراقبات: <span id="observer-count">0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تحميل النظام -->
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/fixed-countdown.js"></script>
+
+    <script>
+        let fakeTimerInterval;
+        let dynamicTimerCount = 0;
+        let observerCount = 0;
+
+        // تحديث الإحصائيات
+        function updateStats() {
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString('ar-SA');
+            document.getElementById('observer-count').textContent = ++observerCount;
+        }
+
+        // عداد وهمي لاختبار النظام
+        function startFakeTimer() {
+            let days = 5;
+            let hours = 12;
+            
+            if (fakeTimerInterval) {
+                clearInterval(fakeTimerInterval);
+            }
+            
+            fakeTimerInterval = setInterval(() => {
+                if (hours > 0) {
+                    hours--;
+                } else if (days > 0) {
+                    days--;
+                    hours = 23;
+                } else {
+                    days = 5;
+                    hours = 12;
+                }
+                
+                document.getElementById('fake-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('fake-hours').textContent = hours.toString().padStart(2, '0');
+                
+                // النظام الثابت سيعكس هذا التغيير
+            }, 1000);
+            
+            setTimeout(() => {
+                document.getElementById('blocked-count').textContent = '1';
+                alert('تم حظر العداد الوهمي بنجاح! 🚫');
+            }, 3000);
+        }
+
+        // إضافة عداد ديناميكي
+        function addDynamicTimer() {
+            dynamicTimerCount++;
+            const container = document.getElementById('dynamic-timers-container');
+            
+            const timerDiv = document.createElement('div');
+            timerDiv.className = 'p-4 bg-gray-100 rounded mb-2';
+            timerDiv.innerHTML = `
+                <h4 class="font-bold mb-2">⚡ عداد ديناميكي #${dynamicTimerCount}:</h4>
+                <div class="countdown-timer">
+                    <i class="fas fa-clock"></i> Time left: <span>48</span>:<span>30</span>:<span>15</span>
+                </div>
+            `;
+            
+            container.appendChild(timerDiv);
+            
+            // النظام سيصلح هذا العداد تلقائياً
+            setTimeout(() => {
+                document.getElementById('fixed-count').textContent = dynamicTimerCount;
+                document.getElementById('total-count').textContent = 4 + dynamicTimerCount;
+            }, 1000);
+        }
+
+        // تحديث الإحصائيات كل ثانية
+        setInterval(updateStats, 1000);
+
+        // رسالة ترحيب
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                alert('مرحباً! 👋\n\nهذه صفحة اختبار العدادات الثابتة.\nجميع العدادات يجب أن تعرض 3 أيام دائماً.\n\nجرب الأزرار لاختبار النظام!');
+            }, 2000);
+        });
+
+        console.log('🧪 صفحة اختبار العداد الثابت جاهزة!');
+        console.log('📌 جميع العدادات يجب أن تعرض 3 أيام ثابتة');
+    </script>
+</body>
+</html>

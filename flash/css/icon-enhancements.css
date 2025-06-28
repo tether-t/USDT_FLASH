@@ -1,0 +1,320 @@
+/* تحسينات الأيقونات - تنسيق محسن للأيقونات مع الشاشة */
+
+/* تحسين حجم وتأثيرات الأيقونات */
+.package-icon {
+    font-size: 2.5rem !important;
+    height: 80px;
+    width: 80px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(38, 161, 123, 0.1) 0%, rgba(38, 161, 123, 0.05) 100%);
+    box-shadow: 0 10px 20px rgba(38, 161, 123, 0.1);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: visible;
+}
+
+/* تأثير توهج للأيقونات */
+.package-icon::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    background: conic-gradient(
+        rgba(38, 161, 123, 0),
+        rgba(38, 161, 123, 0.1),
+        rgba(38, 161, 123, 0.2),
+        rgba(38, 161, 123, 0.1),
+        rgba(38, 161, 123, 0)
+    );
+    animation: rotate-glow 4s linear infinite;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.package-card:hover .package-icon::before {
+    opacity: 1;
+}
+
+/* تأثير دوران للأيقونات عند التحويم */
+.package-card:hover .package-icon {
+    transform: translateY(-5px) scale(1.1) !important;
+    box-shadow: 0 15px 30px rgba(38, 161, 123, 0.2);
+}
+
+/* تأثيرات خاصة لكل باقة */
+.package-card:nth-child(1) .package-icon {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+}
+
+.package-card:nth-child(2) .package-icon {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+}
+
+.package-card:nth-child(3) .package-icon {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+}
+
+.package-card:nth-child(4) .package-icon {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+}
+
+/* تأثير نبض للأيقونات */
+@keyframes pulse-icon {
+    0% {
+        box-shadow: 0 0 0 0 rgba(38, 161, 123, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(38, 161, 123, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(38, 161, 123, 0);
+    }
+}
+
+@keyframes rotate-glow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* تأثير عائم للأيقونات */
+.package-icon i {
+    position: relative;
+    animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* تحسين أيقونات الميزات */
+.package-feature i {
+    font-size: 1rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    margin-right: 0.75rem !important;
+    transition: all 0.3s ease;
+}
+
+.package-feature:hover i {
+    transform: scale(1.2);
+    background-color: rgba(16, 185, 129, 0.2);
+}
+
+/* تحسين أيقونات الميزات غير المتوفرة */
+.package-feature i.fa-times, 
+.package-feature i.fa-phone-slash,
+.package-feature i.fa-user-tie {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+/* تحسين أيقونات الجدول */
+.comparison-table .check-icon,
+.comparison-table .x-icon {
+    font-size: 1.25rem;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.comparison-table .check-icon {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.comparison-table .x-icon {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+.comparison-table tr:hover .check-icon {
+    transform: scale(1.2);
+    background-color: rgba(16, 185, 129, 0.2);
+}
+
+.comparison-table tr:hover .x-icon {
+    transform: scale(1.2);
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+/* تحسين أيقونات الأسعار */
+.bg-green-100 {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-green-100 i {
+    margin-right: 0.25rem;
+    animation: pulse-tag 2s infinite;
+}
+
+@keyframes pulse-tag {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* تحسين أيقونات الشعار */
+.tether-seal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-image: url('../img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.package-card:hover .tether-seal {
+    transform: rotate(15deg);
+    opacity: 0.3;
+}
+
+/* تحسين شارة التحقق */
+.verified-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, rgba(38, 161, 123, 0.9) 0%, rgba(38, 161, 123, 0.8) 100%);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.verified-badge i {
+    margin-right: 0.25rem;
+    font-size: 0.7rem;
+}
+
+.package-card:hover .package-icon .verified-badge {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* تحسين الأيقونات في الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .package-icon {
+        font-size: 2rem !important;
+        height: 60px;
+        width: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .package-feature i {
+        font-size: 0.875rem;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .comparison-table .check-icon,
+    .comparison-table .x-icon {
+        font-size: 1rem;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* تحسين أيقونات الميزات المحددة */
+.package-feature i.fa-coins {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+}
+
+.package-feature i.fa-headset {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+}
+
+.package-feature i.fa-envelope-open-text {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.package-feature i.fa-phone {
+    background-color: rgba(139, 92, 246, 0.1);
+    color: #8B5CF6;
+}
+
+.package-feature i.fa-user-tie {
+    background-color: rgba(236, 72, 153, 0.1);
+    color: #EC4899;
+}
+
+.package-feature i.fa-shield-alt {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+/* تحسين أيقونات الجدول */
+.comparison-table i.fa-check {
+    color: #10B981;
+}
+
+.comparison-table i.fa-times {
+    color: #EF4444;
+}
+
+/* تحسين أيقونات الأزرار */
+.package-btn i {
+    margin-right: 0.5rem;
+}
+
+/* تأثير نبض للأيقونات في الأزرار */
+@keyframes pulse-btn-icon {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.package-btn:hover i {
+    animation: pulse-btn-icon 1s infinite;
+}
