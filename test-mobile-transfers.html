@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار نظام المعاملات المحمول</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/live-transfers-mobile.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .test-container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .test-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .test-description {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .test-instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        
+        .test-instructions h3 {
+            margin-top: 0;
+            color: #ffd700;
+        }
+        
+        .test-instructions ul {
+            text-align: right;
+            padding-right: 20px;
+        }
+        
+        .test-instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .demo-button {
+            background: linear-gradient(135deg, #10b981, #047857);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+        }
+        
+        .device-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        @media (min-width: 769px) {
+            .desktop-warning {
+                background: rgba(255, 193, 7, 0.2);
+                border: 2px solid #ffc107;
+                padding: 20px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .desktop-warning h3 {
+                color: #ffc107;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">🔴 اختبار نظام المعاملات المحمول</h1>
+        
+        <div class="desktop-warning" style="display: none;">
+            <h3>⚠️ تحذير</h3>
+            <p>هذا النظام مصمم للهواتف المحمولة فقط. لن تظهر الأيقونة العائمة على الشاشات الكبيرة.</p>
+            <p>يرجى فتح هذه الصفحة على هاتفك المحمول لرؤية النظام يعمل.</p>
+        </div>
+        
+        <p class="test-description">
+            نظام عرض المعاملات المباشرة للهواتف المحمولة مع أيقونة عائمة تعرض آخر المعاملات في الوقت الفعلي.
+        </p>
+        
+        <div class="test-instructions">
+            <h3>📱 تعليمات الاستخدام:</h3>
+            <ul>
+                <li>ستظهر أيقونة حمراء عائمة في منتصف يمين الشاشة</li>
+                <li>اضغط على الأيقونة لفتح نافذة المعاملات</li>
+                <li>ستظهر المعاملات المباشرة مع التفاصيل</li>
+                <li>اضغط مطولاً على الأيقونة لإعادة تعيين العداد</li>
+                <li>ستتحدث المعاملات تلقائياً كل 15-45 ثانية</li>
+            </ul>
+        </div>
+        
+        <button class="demo-button" onclick="addTestTransfer()">
+            <i class="fas fa-plus"></i>
+            إضافة معاملة تجريبية
+        </button>
+        
+        <button class="demo-button" onclick="toggleSystem()">
+            <i class="fas fa-power-off"></i>
+            تشغيل/إيقاف النظام
+        </button>
+        
+        <div class="device-info">
+            <strong>معلومات الجهاز:</strong><br>
+            العرض: <span id="screen-width"></span>px<br>
+            النوع: <span id="device-type"></span><br>
+            الحالة: <span id="system-status">جاري التحميل...</span>
+        </div>
+    </div>
+
+    <script src="js/live-transfers-mobile.js"></script>
+    <script>
+        // عرض معلومات الجهاز
+        document.getElementById('screen-width').textContent = window.innerWidth;
+        document.getElementById('device-type').textContent = window.innerWidth <= 768 ? 'هاتف محمول' : 'سطح مكتب';
+        
+        // إظهار تحذير للشاشات الكبيرة
+        if (window.innerWidth > 768) {
+            document.querySelector('.desktop-warning').style.display = 'block';
+        }
+        
+        // متغير لحالة النظام
+        let systemActive = true;
+        
+        // دالة إضافة معاملة تجريبية
+        function addTestTransfer() {
+            if (window.addMobileTransfer) {
+                window.addMobileTransfer();
+                document.getElementById('system-status').textContent = 'نشط - تمت إضافة معاملة';
+            } else {
+                document.getElementById('system-status').textContent = 'خطأ - النظام غير متاح';
+            }
+        }
+        
+        // دالة تشغيل/إيقاف النظام
+        function toggleSystem() {
+            systemActive = !systemActive;
+            const icon = document.querySelector('.live-transfers-mobile-icon');
+            
+            if (icon) {
+                if (systemActive) {
+                    icon.style.display = 'flex';
+                    document.getElementById('system-status').textContent = 'نشط';
+                } else {
+                    icon.style.display = 'none';
+                    document.getElementById('system-status').textContent = 'متوقف';
+                }
+            }
+        }
+        
+        // تحديث حالة النظام
+        setTimeout(() => {
+            const icon = document.querySelector('.live-transfers-mobile-icon');
+            if (icon) {
+                document.getElementById('system-status').textContent = 'نشط ويعمل';
+            } else {
+                document.getElementById('system-status').textContent = 'غير متاح (شاشة كبيرة)';
+            }
+        }, 3000);
+        
+        // تحديث العرض عند تغيير حجم الشاشة
+        window.addEventListener('resize', () => {
+            document.getElementById('screen-width').textContent = window.innerWidth;
+            document.getElementById('device-type').textContent = window.innerWidth <= 768 ? 'هاتف محمول' : 'سطح مكتب';
+            
+            if (window.innerWidth > 768) {
+                document.querySelector('.desktop-warning').style.display = 'block';
+            } else {
+                document.querySelector('.desktop-warning').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
