@@ -1,0 +1,261 @@
+/* Enhanced Packages Styling */
+
+.package-card {
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.package-card h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8), 0 0 10px rgba(255,255,255,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    position: relative;
+    padding: 2rem;
+    border-radius: 16px;
+    background-image: url('../img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: 70px 70px;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: logoSpin 4s linear infinite;
+}
+
+.package-card h3 i {
+    font-size: 1.4rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    z-index: 2;
+    position: relative;
+}
+
+.package-card h3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    z-index: 1;
+    backdrop-filter: blur(1px);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes logoSpin {
+    0% { background-position: center; }
+    25% { background-position: center, transform: rotate(90deg); }
+    50% { background-position: center, transform: rotate(180deg); }
+    75% { background-position: center, transform: rotate(270deg); }
+    100% { background-position: center, transform: rotate(360deg); }
+}
+
+@keyframes logoFloat {
+    0%, 100% { background-size: 80px 80px; }
+    50% { background-size: 90px 90px; }
+}
+
+@keyframes logoPulse {
+    0%, 100% { 
+        background-size: 80px 80px;
+        filter: brightness(1);
+    }
+    50% { 
+        background-size: 95px 95px;
+        filter: brightness(1.2);
+    }
+}
+
+.package-card:hover h3 {
+    animation: logoPulse 1s ease-in-out infinite;
+    transform: scale(1.05);
+}
+
+.package-card h3 * {
+    position: relative;
+    z-index: 2;
+}
+
+.package-basic h3 {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 78, 175, 0.1)), url('../img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: cover, 70px 70px;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    color: #1e40af;
+    border: 3px solid rgba(59, 130, 246, 0.4);
+    animation: logoSpin 4s linear infinite, logoFloat 2s ease-in-out infinite;
+}
+
+.package-pro h3 {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(185, 28, 28, 0.1)), url('../img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: cover, 70px 70px;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    color: #b91c1c;
+    border: 3px solid rgba(239, 68, 68, 0.4);
+    animation: logoSpin 3s linear infinite, logoFloat 2.5s ease-in-out infinite;
+}
+
+.package-enterprise h3 {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(109, 40, 217, 0.1)), url('../img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: cover, 70px 70px;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    color: #6d28d9;
+    border: 3px solid rgba(139, 92, 246, 0.4);
+    animation: logoSpin 3.5s linear infinite, logoFloat 1.8s ease-in-out infinite;
+}
+
+.package-card .subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.package-card .price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    line-height: 1;
+}
+
+.package-card .amount {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.package-card .features {
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.package-card .features li {
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.package-card .features li:last-child {
+    border-bottom: none;
+}
+
+.package-card .features i {
+    color: #10b981;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.package-card button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.package-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Most Popular Badge */
+.most-popular-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    animation: pulse 2s infinite;
+}
+
+/* Package Colors */
+.package-basic {
+    border: 2px solid #3b82f6;
+}
+
+.package-basic .price {
+    color: #3b82f6;
+}
+
+.package-basic button {
+    background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    color: white;
+}
+
+.package-pro {
+    border: 2px solid #ef4444;
+    position: relative;
+}
+
+.package-pro .price {
+    color: #ef4444;
+}
+
+.package-pro button {
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.package-enterprise {
+    border: 2px solid #8b5cf6;
+}
+
+.package-enterprise .price {
+    color: #8b5cf6;
+}
+
+.package-enterprise button {
+    background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+    color: white;
+}
+
+/* Original Price Styling */
+.original-price {
+    text-decoration: line-through;
+    color: #ef4444;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .package-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .package-card .price {
+        font-size: 2rem;
+    }
+    
+    .package-card .features li {
+        font-size: 0.9rem;
+    }
+}
