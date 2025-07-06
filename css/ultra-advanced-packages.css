@@ -1,0 +1,350 @@
+/* 🚀 Ultra Advanced Package Cards - Revolutionary Design */
+
+.packages-container {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    align-items: start;
+    justify-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.package-card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    overflow: visible;
+    height: auto;
+    min-height: 850px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 380px;
+}
+
+/* Holographic Effect */
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        #ff0080, #ff8c00, #40e0d0, #ff0080, 
+        #8a2be2, #00ff00, #ff1493, #00bfff);
+    background-size: 400% 400%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: holographic 4s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.package-card:hover::before {
+    opacity: 0.7;
+}
+
+@keyframes holographic {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* 3D Hover Effect */
+.package-card:hover {
+    transform: rotateY(5deg) rotateX(5deg) translateZ(50px);
+    box-shadow: 
+        0 50px 100px rgba(0, 0, 0, 0.2),
+        0 0 50px rgba(59, 130, 246, 0.3),
+        inset 0 0 50px rgba(255, 255, 255, 0.1);
+}
+
+/* Floating Particles */
+.package-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 2px, transparent 2px),
+        radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.3) 2px, transparent 2px),
+        radial-gradient(circle at 40% 60%, rgba(239, 68, 68, 0.3) 1px, transparent 1px);
+    background-size: 50px 50px, 30px 30px, 20px 20px;
+    animation: floatingParticles 20s linear infinite;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.package-card:hover::after {
+    opacity: 1;
+}
+
+@keyframes floatingParticles {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-20px) rotate(360deg); }
+}
+
+/* Neural Network Background */
+.package-card .neural-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.package-card:hover .neural-bg {
+    opacity: 1;
+    animation: neuralPulse 2s ease-in-out infinite;
+}
+
+@keyframes neuralPulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.6; }
+}
+
+/* Quantum Glow Effect */
+.package-card .quantum-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+}
+
+.package-card:hover .quantum-glow {
+    transform: translate(-50%, -50%) scale(1);
+    animation: quantumRotate 8s linear infinite;
+}
+
+@keyframes quantumRotate {
+    0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) scale(1) rotate(360deg); }
+}
+
+/* Price Morphing Effect */
+.package-card .price-morph {
+    position: relative;
+    overflow: hidden;
+}
+
+.package-card .price-morph::before {
+    content: attr(data-price);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: priceShimmer 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.package-card:hover .price-morph::before {
+    opacity: 1;
+}
+
+@keyframes priceShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Magnetic Field Effect */
+.package-card .magnetic-field {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background: 
+        repeating-conic-gradient(from 0deg at 50% 50%, 
+            transparent 0deg, 
+            rgba(59, 130, 246, 0.03) 10deg, 
+            transparent 20deg);
+    animation: magneticRotate 15s linear infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.package-card:hover .magnetic-field {
+    opacity: 1;
+}
+
+@keyframes magneticRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Energy Pulse */
+.package-card .energy-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #3b82f6;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.package-card:hover .energy-pulse {
+    opacity: 1;
+    animation: energyExpand 2s ease-out infinite;
+}
+
+@keyframes energyExpand {
+    0% {
+        width: 4px;
+        height: 4px;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+/* Hologram Scan Lines */
+.package-card .scan-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 255, 0.03) 2px,
+        rgba(0, 255, 255, 0.03) 4px
+    );
+    animation: scanMove 2s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.package-card:hover .scan-lines {
+    opacity: 1;
+}
+
+@keyframes scanMove {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Quantum Entanglement Effect */
+.packages-container:hover .package-card:not(:hover) {
+    transform: scale(0.95) translateZ(-20px);
+    opacity: 0.7;
+    filter: blur(1px);
+}
+
+/* Button Quantum Effect */
+.package-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.package-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.package-btn:hover::before {
+    left: 100%;
+}
+
+.package-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive Quantum Effects */
+@media (max-width: 768px) {
+    .package-card {
+        min-height: 750px;
+        max-width: 100%;
+    }
+    
+    .package-card:hover {
+        transform: translateZ(20px);
+    }
+    
+    .packages-container {
+        perspective: 800px;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .package-card {
+        min-height: 700px;
+        padding: 1rem;
+    }
+    
+    .packages-container {
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+/* Performance Optimization */
+.package-card {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .package-card,
+    .package-card::before,
+    .package-card::after,
+    .quantum-glow,
+    .magnetic-field,
+    .energy-pulse,
+    .scan-lines {
+        animation: none !important;
+        transition: none !important;
+    }
+}
