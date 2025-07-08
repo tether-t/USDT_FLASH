@@ -1,0 +1,327 @@
+/* تنظيم عرض الباقات لتكون متسلسلة وبينها مسافات مناسبة */
+
+/* تحسين تخطيط الباقات */
+.packages-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    margin: 0 auto !important;
+    max-width: 1400px !important;
+    padding: 20px 10px !important;
+    grid-template-columns: none !important;
+}
+
+/* تقليص حجم بطاقات الباقات - جميع الحزم بنفس الأبعاد */
+.package-card {
+    width: 240px !important;
+    max-width: 240px !important;
+    min-height: 480px !important;
+    max-height: 520px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    margin: 0 !important;
+    transform: none !important;
+    scale: 1 !important;
+    overflow: hidden !important;
+}
+
+/* تنظيم المحتوى داخل البطاقات */
+.package-card .p-6 {
+    padding: 0.75rem !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+/* تقليص المسافات بين العناصر */
+.package-card .mb-8 {
+    margin-bottom: 0.75rem !important;
+}
+
+.package-card .mb-4 {
+    margin-bottom: 0.5rem !important;
+}
+
+.package-card .my-4 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* تقليص المساحات الداخلية */
+.package-card .py-4 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+
+/* تقليص حجم الخط والأيقونات */
+.package-card .text-4xl {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+}
+
+.package-card .text-gray-500 {
+    font-size: 0.75rem !important;
+}
+
+/* إزالة أيقونة الباقة فوق السعر */
+.package-card .package-icon {
+    display: none !important;
+}
+
+/* تقليص المسافات في قائمة الميزات */
+.package-card .space-y-2 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.package-card .package-feature {
+    padding: 0.15rem 0 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+}
+
+.package-card .package-feature i {
+    font-size: 0.85rem !important;
+    min-width: 16px !important;
+}
+
+/* تنسيق زر اختيار الباقة */
+.package-card .package-btn {
+    margin-top: auto !important;
+    padding: 0.4rem 0.75rem !important;
+    font-size: 0.85rem !important;
+}
+
+.package-card .package-btn i {
+    font-size: 0.85rem !important;
+}
+
+/* تحسين مظهر الباقات عند التحويم */
+.package-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* تنسيق خاص لباقة Pro - مع الحفاظ على نفس الأبعاد */
+.pro-package-highlight {
+    transform: scale(1.05) !important;
+    z-index: 10 !important;
+    /* الحفاظ على نفس الأبعاد رغم التمدد */
+    width: 240px !important;
+    max-width: 240px !important;
+    min-width: 240px !important;
+}
+
+.pro-package-highlight:hover {
+    transform: translateY(-5px) scale(1.05) !important;
+}
+
+/* تنسيق موحد لجميع الحزم - نفس الأبعاد */
+/* فرض نفس الأبعاد لجميع الحزم بغض النظر عن المحتوى */
+.package-card:nth-child(1),
+.package-card:nth-child(2), 
+.package-card:nth-child(3) {
+    width: 240px !important;
+    max-width: 240px !important;
+    min-width: 240px !important;
+    min-height: 480px !important;
+    max-height: 520px !important;
+    height: auto !important;
+}
+
+/* توحيد العناوين لجميع الحزم */
+.package-card h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.3 !important;
+    padding: 0.75rem 0.5rem !important;
+}
+
+/* تنسيق العناوين */
+.package-card h3 {
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+}
+
+/* تنسيق الشارات */
+.verified-badge {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.3rem !important;
+    top: 5px !important;
+    right: 5px !important;
+}
+
+.best-value-badge {
+    top: 35px !important;
+    right: -32px !important;
+    width: 120px !important;
+    font-size: 0.6rem !important;
+    padding: 0.15rem 0 !important;
+}
+
+.limited-offer-badge {
+    top: 5px !important;
+    left: 5px !important;
+    font-size: 0.55rem !important;
+    padding: 0.15rem 0.3rem !important;
+}
+
+/* تنسيق العداد التنازلي */
+.countdown-timer {
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+    font-size: 0.65rem !important;
+    padding: 3px !important;
+}
+
+.countdown-timer span {
+    padding: 2px 3px !important;
+    min-width: 18px !important;
+    margin: 0 1px !important;
+}
+
+.countdown-timer i {
+    font-size: 0.7rem !important;
+}
+
+/* تنسيق الميزة الحصرية */
+.exclusive-bonus {
+    margin-top: 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+    padding: 4px !important;
+}
+
+.exclusive-bonus-title {
+    font-size: 0.65rem !important;
+    margin-bottom: 2px !important;
+}
+
+.exclusive-bonus-content {
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
+}
+
+/* تنسيق الشارات الإضافية */
+.bg-green-100 {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.3rem !important;
+    margin-bottom: 0.3rem !important;
+}
+
+/* تنسيق متجاوب للشاشات المختلفة */
+@media (max-width: 1200px) {
+    .packages-container {
+        gap: 15px !important;
+    }
+    
+    .package-card,
+    .package-card:nth-child(1),
+    .package-card:nth-child(2), 
+    .package-card:nth-child(3) {
+        width: 220px !important;
+        max-width: 220px !important;
+        min-width: 220px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .packages-container {
+        gap: 12px !important;
+    }
+    
+    .package-card,
+    .package-card:nth-child(1),
+    .package-card:nth-child(2), 
+    .package-card:nth-child(3) {
+        width: 200px !important;
+        max-width: 200px !important;
+        min-width: 200px !important;
+        min-height: 450px !important;
+    }
+    
+    .package-card .package-feature {
+        font-size: 0.7rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .packages-container {
+        gap: 10px !important;
+        justify-content: center !important;
+    }
+    
+    .package-card,
+    .package-card:nth-child(1),
+    .package-card:nth-child(2), 
+    .package-card:nth-child(3) {
+        width: 180px !important;
+        max-width: 180px !important;
+        min-width: 180px !important;
+        min-height: 420px !important;
+    }
+    
+    .package-card .p-6 {
+        padding: 0.5rem !important;
+    }
+    
+    .pro-package-highlight {
+        transform: scale(1.03) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .packages-container {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .package-card {
+        width: 280px !important;
+        max-width: 280px !important;
+        min-height: 0 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .pro-package-highlight {
+        order: -1 !important;
+        margin-bottom: 25px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .package-card,
+    .package-card:nth-child(1),
+    .package-card:nth-child(2), 
+    .package-card:nth-child(3) {
+        width: 100% !important;
+        max-width: 300px !important;
+        min-width: auto !important;
+    }
+}
+
+/* قاعدة شاملة نهائية لتوحيد أبعاد جميع الحزم */
+.packages-container .package-card {
+    width: 240px !important;
+    max-width: 240px !important;
+    min-width: 240px !important;
+    min-height: 480px !important;
+    max-height: 520px !important;
+    flex: 0 0 240px !important;
+    box-sizing: border-box !important;
+}
+
+/* إزالة أي تخصيص خاص لأي حزمة - قاعدة قوية */
+.package-card:first-child,
+.package-card:nth-child(2),
+.package-card:nth-child(3),
+.package-card:last-child,
+.package-card.pro-package-highlight {
+    width: 240px !important;
+    max-width: 240px !important;
+    min-width: 240px !important;
+    min-height: 480px !important;
+    max-height: 520px !important;
+}
