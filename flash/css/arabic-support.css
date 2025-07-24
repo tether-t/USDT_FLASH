@@ -1,0 +1,169 @@
+/* 🇸🇦 Arabic Language Support & Typography */
+/* دعم اللغة العربية والطباعة */
+
+/* خطوط عربية محسنة */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+/* تحسين النصوص العربية */
+.buyer-name, .user-name, .wallet-name, .wallet-name-notification {
+    font-family: 'Tajawal', 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: 0 !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+/* تحسين النصوص العربية في النشاط المباشر */
+.buyer-name:lang(ar), .user-name:lang(ar) {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    font-weight: 600 !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* تحسين الأسماء العربية في الإشعارات */
+.user-name:lang(ar), .wallet-name-notification:lang(ar) {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+}
+
+/* الحروف الأولى العربية في الصورة الرمزية */
+.user-avatar {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+}
+
+/* تحسين عرض النصوص العربية */
+*:lang(ar) {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    direction: rtl !important;
+}
+
+/* تحسين النصوص المختلطة (عربي/إنجليزي) */
+.mixed-text {
+    unicode-bidi: bidi-override !important;
+    direction: ltr !important;
+}
+
+/* تحسين الأرقام العربية */
+.arabic-numbers {
+    font-feature-settings: "numr" 1, "dnom" 1 !important;
+}
+
+/* تحسين التباعد للنصوص العربية */
+.buyer-name:lang(ar), .user-name:lang(ar) {
+    line-height: 1.4 !important;
+    letter-spacing: 0.2px !important;
+}
+
+/* تحسين النصوص في الخلفيات الملونة */
+.package-tag:lang(ar) {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+/* تحسين النصوص في حقول البيانات */
+.country-name:lang(ar) {
+    font-family: 'Tajawal', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+/* تحسين عرض الوقت والتاريخ */
+.time-ago:lang(ar) {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 10px !important;
+}
+
+/* تحسين النصوص في الإشعارات */
+.notification-content *:lang(ar) {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+}
+
+/* تحسين النصوص الطويلة */
+.user-name:lang(ar) {
+    max-width: 120px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* تحسين الخط في المعاملات */
+.transaction-header .buyer-name:lang(ar) {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+    line-height: 1.3 !important;
+}
+
+/* تحسين النصوص في حالات مختلفة */
+.activity-item:hover .buyer-name:lang(ar),
+.activity-item:hover .user-name:lang(ar) {
+    color: #059669 !important;
+    transition: color 0.2s ease !important;
+}
+
+/* تحسين النصوص في الخلفيات الداكنة */
+.notification-header *:lang(ar) {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
+}
+
+/* تحسين النصوص للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .buyer-name:lang(ar), .user-name:lang(ar) {
+        font-size: 12px !important;
+        max-width: 100px !important;
+    }
+}
+
+/* تحسين التباين والوضوح */
+.buyer-name:lang(ar), .user-name:lang(ar) {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+/* تحسين النصوص في الحالات التفاعلية */
+.wallet-transaction:hover .buyer-name:lang(ar) {
+    transform: translateX(2px) !important;
+    transition: transform 0.2s ease !important;
+}
+
+/* إضافة تأثيرات خاصة للنصوص العربية */
+.buyer-name:lang(ar)::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -1px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, #10b981, transparent) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.activity-item:hover .buyer-name:lang(ar)::after {
+    opacity: 0.5 !important;
+}
+
+/* تحسين المحاذاة للنصوص المختلطة */
+.transaction-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+/* تحسين النصوص في العناصر المختلفة */
+.buyer-name:lang(ar) {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.transaction-amount {
+    flex-shrink: 0 !important;
+    margin-left: 8px !important;
+}
