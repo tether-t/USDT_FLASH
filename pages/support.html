@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Support - USDT FLASH</title>
+    <!-- <link rel="icon" type="image/x-icon" href="../assets/favicon.ico"> -->
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Support Page Styles -->
+    <link rel="stylesheet" href="../css/support.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+            transition: all 0.3s ease;
+        }
+        
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.5));
+            transform: scale(1.05);
+        }
+        
+        .upload-area {
+            border: 2px dashed #cbd5e0;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+        
+        .upload-area.dragover {
+            border-color: #059669;
+            background-color: #ecfdf5;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .success-animation {
+            animation: successPulse 2s ease-in-out;
+        }
+        
+        @keyframes successPulse {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div id="page-content">
+    <!-- Header -->
+    <header class="gradient-bg shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="flex items-center bg-white bg-opacity-20 rounded-xl p-3 glass-effect hover:bg-opacity-30 transition-all duration-300 group cursor-pointer">
+                        <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT FLASH Logo" class="h-10 w-10 mr-3 logo-glow group-hover:scale-110 transition-transform">
+                        <div class="text-white">
+                            <h1 class="text-xl font-bold group-hover:text-green-200 transition-colors">USDT-FLASH</h1>
+                            <div class="flex items-center text-xs opacity-90">
+                                <i class="fas fa-check-circle mr-1 text-green-300"></i>
+                                <span>Official Partner</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <div class="hidden lg:block w-px h-12 bg-white bg-opacity-30"></div>
+                    
+                    <!-- Support Section -->
+                    <div class="flex items-center space-x-3">
+                        <div class="glass-effect rounded-full p-3 animate-pulse">
+                            <i class="fas fa-headset text-white text-2xl"></i>
+                        </div>
+                        <div class="text-white">
+                            <h2 class="text-xl md:text-2xl font-bold" data-translate="header_title">Technical Support</h2>
+                            <p class="text-sm opacity-90" data-translate="header_subtitle">We're here to help you</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="flex items-center">
+                    <a href="../index.html" class="glass-effect hover:bg-white hover:bg-opacity-30 text-white px-3 md:px-4 py-2 rounded-lg transition-all duration-300 flex items-center group">
+                        <i class="fas fa-home text-lg mr-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="hidden md:inline" data-translate="back_to_home">Back to Home</span>
+                    </a>
+                    
+                    <!-- Language Switcher -->
+                    <button id="lang-switcher" class="ml-4 glass-effect hover:bg-white hover:bg-opacity-30 text-white px-3 py-2 rounded-lg transition-all duration-300 flex items-center group">
+                        <i class="fas fa-globe text-lg mr-2 group-hover:scale-110 transition-transform"></i>
+                        <span id="lang-text" class="hidden md:inline"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Support Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 fade-in">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-green-500 mb-3">
+                        <i class="fas fa-clock text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2" data-translate="stats_response_time">Response Time</h3>
+                    <p class="text-2xl font-bold text-green-600" data-translate="stats_response_time_value">< 24 Hours</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-green-500 mb-3">
+                        <i class="fas fa-users text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2" data-translate="stats_customers_served">Customers Served</h3>
+                    <p class="text-2xl font-bold text-green-600" data-translate="stats_customers_served_value">+10,000</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center">
+                    <div class="text-green-500 mb-3">
+                        <i class="fas fa-star text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2" data-translate="stats_satisfaction_rate">Satisfaction Rate</h3>
+                    <p class="text-2xl font-bold text-green-600" data-translate="stats_satisfaction_rate_value">98%</p>
+                </div>
+            </div>
+
+            <!-- Support Form -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in">
+                <!-- Form Header -->
+                <div class="gradient-bg px-8 py-6">
+                    <h2 class="text-2xl font-bold text-white flex items-center" data-translate="form_header_title">
+                        <i class="fas fa-envelope mr-3"></i>
+                        Submit Support Request
+                    </h2>
+                    <p class="text-white opacity-90 mt-2 mb-4">
+                        <span data-translate="form_header_subtitle">Fill out the form below and we'll get back to you as soon as possible</span>
+                    </p>
+                    
+                    <!-- Contact Email Section -->
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4 flex items-center justify-between">
+                        <div class="flex items-center">
+                            <div class="bg-white bg-opacity-30 rounded-full p-2 mr-3">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm opacity-90" data-translate="form_email_info">You can also email us directly at:</p>
+                                <p class="text-white font-semibold">system@tether.to</p>
+                            </div>
+                        </div>
+                        <button onclick="copyEmail()" class="bg-white bg-opacity-30 hover:bg-opacity-40 text-white px-4 py-2 rounded-lg transition-all text-sm">
+                            <i class="fas fa-copy mr-1"></i>
+                            <span data-translate="form_copy_button">Copy</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Form Body -->
+                <div class="p-8">
+                    <form id="supportForm" class="space-y-6">
+                        <!-- Personal Information -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-user mr-2 text-green-500"></i>
+                                    <span data-translate="form_full_name">Full Name *</span>
+                                </label>
+                                <input type="text" id="fullName" name="fullName" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                                    placeholder="Enter your full name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-envelope mr-2 text-green-500"></i>
+                                    <span data-translate="form_email">Email Address *</span>
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                                    placeholder="example@email.com">
+                            </div>
+                        </div>
+
+                        <!-- Issue Category -->
+                        <div>
+                            <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-tags mr-2 text-green-500"></i>
+                                <span data-translate="form_issue_type">Issue Type *</span>
+                            </label>
+                            <select id="category" name="category" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all">
+                                <option value="" data-translate="form_issue_type_select">Select issue type</option>
+                                <option value="payment" data-translate="form_issue_type_payment">Payment & Purchase Issues</option>
+                                <option value="wallet" data-translate="form_issue_type_wallet">Wallet & Transfer Issues</option>
+                                <option value="account" data-translate="form_issue_type_account">Account Issues</option>
+                                <option value="technical" data-translate="form_issue_type_technical">Technical Issues</option>
+                                <option value="trading" data-translate="form_issue_type_trading">Trading Inquiries</option>
+                                <option value="other" data-translate="form_issue_type_other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Issue Priority -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-3">
+                                <i class="fas fa-exclamation-triangle mr-2 text-orange-500"></i>
+                                <span data-translate="form_priority">Issue Priority *</span>
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="priority" value="low" required class="mr-3">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-medium" data-translate="form_priority_low">Low</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="priority" value="medium" required class="mr-3">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-medium" data-translate="form_priority_medium">Medium</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="priority" value="high" required class="mr-3">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-medium" data-translate="form_priority_high">High</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Issue Description -->
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-comment-alt mr-2 text-green-500"></i>
+                                <span data-translate="form_description">Detailed Issue Description *</span>
+                            </label>
+                            <textarea id="description" name="description" rows="6" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
+                                placeholder="Describe your issue in detail... The more detailed your description, the better we can assist you"></textarea>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-sm text-gray-500" data-translate="form_min_chars">Minimum: 20 characters</span>
+                                <span id="charCount" class="text-sm text-gray-400">0 characters</span>
+                            </div>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-paperclip mr-2 text-green-500"></i>
+                                <span data-translate="form_attach_file">Attach Image or File (Optional)</span>
+                            </label>
+                            <div id="uploadArea" class="upload-area rounded-lg p-8 text-center cursor-pointer">
+                                <div id="uploadContent">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                                    <p class="text-lg font-medium text-gray-600 mb-2" data-translate="form_upload_prompt">Drag file here or click to select</p>
+                                    <p class="text-sm text-gray-500" data-translate="form_upload_types">PNG, JPG, GIF, PDF up to 10MB</p>
+                                </div>
+                                <input type="file" id="fileUpload" name="attachment" accept="image/*,.pdf" class="hidden">
+                            </div>
+                            <div id="filePreview" class="hidden mt-4"></div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" id="submitBtn" 
+                                class="w-full btn-primary text-white py-4 px-6 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Submit Support Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-12 bg-white rounded-xl shadow-xl overflow-hidden fade-in">
+                <div class="gradient-bg px-8 py-4">
+                    <h3 class="text-xl font-bold text-white flex items-center" data-translate="faq_title">
+                        <i class="fas fa-question-circle mr-3"></i>
+                        Frequently Asked Questions
+                    </h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq1_q">How long does it take to respond to a support request?</h4>
+                            <p class="text-gray-600 text-sm" data-translate="faq1_a">We respond to all requests within 24 hours maximum. For urgent requests, we may respond within a few hours.</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq2_q">What file types are supported?</h4>
+                            <p class="text-gray-600 text-sm" data-translate="faq2_a">You can upload images (PNG, JPG, GIF) and PDF files with a maximum size of 10MB per file.</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq3_q">Can I track the status of my request?</h4>
+                            <p class="text-gray-600 text-sm" data-translate="faq3_a">We'll send you an email notification once we receive your request, and we'll keep you updated on your request status.</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq4_q">Is the trial package available?</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-translate="faq4_a">Important notice for all trial package subscribers! Demand for the package has exceeded all expectations. To ensure you receive your USDT FLASH without any delay, please use this exclusive link for instant collection.</p>
+                            <a href="../pages/payment.html?package=trial&amount=49&flash=4500" class="inline-block w-full btn-primary text-white text-center py-3 px-4 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all">
+                                <i class="fas fa-shopping-cart mr-2"></i>
+                                <span data-translate="faq4_button">Get Trial Package - $149 for 4500 USDT FLASH</span>
+                            </a>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq5_q">How can I contact you directly?</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-translate="faq5_a">You can email us directly at:</p>
+                            <div class="flex items-center justify-between bg-gray-50 rounded-lg p-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope text-green-500 mr-2"></i>
+                                    <span class="font-mono text-sm text-gray-800">system@tether.to</span>
+                                </div>
+                                <button onclick="copyEmail()" class="text-green-500 hover:text-green-700 text-sm px-2 py-1 rounded hover:bg-green-50 transition-colors">
+                                    <i class="fas fa-copy mr-1"></i>
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md mx-4 success-animation">
+            <div class="text-center p-8">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="success_title">Request Submitted Successfully!</h3>
+                <p class="text-gray-600 mb-6">
+                    <span data-translate="success_message">Thank you for contacting us. We will review your request and respond within 24 hours.</span>
+                </p>
+                <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                    <p class="text-sm text-blue-800">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <span data-translate="success_note">Check your email for the tracking number</span>
+                    </p>
+                </div>
+                <button onclick="closeSuccessModal()" 
+                    class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors" data-translate="success_button">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const translations = {
+            en: {
+                header_title: "Technical Support",
+                header_subtitle: "We're here to help you",
+                back_to_home: "Back to Home",
+                lang_switcher_en: "English",
+                lang_switcher_ar: "العربية",
+                stats_response_time: "Response Time",
+                stats_response_time_value: "< 24 Hours",
+                stats_customers_served: "Customers Served",
+                stats_customers_served_value: "+10,000",
+                stats_satisfaction_rate: "Satisfaction Rate",
+                stats_satisfaction_rate_value: "98%",
+                form_header_title: "Submit Support Request",
+                form_header_subtitle: "Fill out the form below and we'll get back to you as soon as possible",
+                form_email_info: "You can also email us directly at:",
+                form_copy_button: "Copy",
+                form_full_name: "Full Name *",
+                form_full_name_placeholder: "Enter your full name",
+                form_email: "Email Address *",
+                form_email_placeholder: "example@email.com",
+                form_issue_type: "Issue Type *",
+                form_issue_type_select: "Select issue type",
+                form_issue_type_payment: "Payment & Purchase Issues",
+                form_issue_type_wallet: "Wallet & Transfer Issues",
+                form_issue_type_account: "Account Issues",
+                form_issue_type_technical: "Technical Issues",
+                form_issue_type_trading: "Trading Inquiries",
+                form_issue_type_other: "Other",
+                form_priority: "Issue Priority *",
+                form_priority_low: "Low",
+                form_priority_medium: "Medium",
+                form_priority_high: "High",
+                form_description: "Detailed Issue Description *",
+                form_description_placeholder: "Describe your issue in detail... The more detailed your description, the better we can assist you",
+                form_min_chars: "Minimum: 20 characters",
+                form_char_count: "characters",
+                form_attach_file: "Attach Image or File (Optional)",
+                form_upload_prompt: "Drag file here or click to select",
+                form_upload_types: "PNG, JPG, GIF, PDF up to 10MB",
+                form_submit_button: "Submit Support Request",
+                faq_title: "Frequently Asked Questions",
+                faq1_q: "How long does it take to respond to a support request?",
+                faq1_a: "We respond to all requests within 24 hours maximum. For urgent requests, we may respond within a few hours.",
+                faq2_q: "What file types are supported?",
+                faq2_a: "You can upload images (PNG, JPG, GIF) and PDF files with a maximum size of 10MB per file.",
+                faq3_q: "Can I track the status of my request?",
+                faq3_a: "We'll send you an email notification once we receive your request, and we'll keep you updated on your request status.",
+                faq4_q: "Is the trial package available?",
+                faq4_a: "Important notice for all trial package subscribers! Demand for the package has exceeded all expectations. To ensure you receive your USDT FLASH without any delay, please use this exclusive link for instant collection.",
+                faq4_button: "<strong>Reclaim Your Funds!</strong> Get 4000 USDT FLASH for only <strong>$75</strong>",
+                faq5_q: "How can I contact you directly?",
+                faq5_a: "You can email us directly at:",
+                success_title: "Request Submitted Successfully!",
+                success_message: "Thank you for contacting us. We will review your request and respond within 24 hours.",
+                success_note: "Check your email for the tracking number",
+                success_button: "OK"
+            },
+            ar: {
+                header_title: "الدعم الفني",
+                header_subtitle: "نحن هنا لمساعدتك",
+                back_to_home: "العودة للرئيسية",
+                lang_switcher_en: "English",
+                lang_switcher_ar: "العربية",
+                stats_response_time: "وقت الاستجابة",
+                stats_response_time_value: "< 24 ساعة",
+                stats_customers_served: "العملاء الذين تمت خدمتهم",
+                stats_customers_served_value: "+10,000",
+                stats_satisfaction_rate: "معدل الرضا",
+                stats_satisfaction_rate_value: "98%",
+                form_header_title: "إرسال طلب دعم",
+                form_header_subtitle: "املأ النموذج أدناه وسنعاود الاتصال بك في أقرب وقت ممكن",
+                form_email_info: "يمكنك أيضًا مراسلتنا مباشرة على:",
+                form_copy_button: "نسخ",
+                form_full_name: "الاسم الكامل *",
+                form_full_name_placeholder: "أدخل اسمك الكامل",
+                form_email: "عنوان البريد الإلكتروني *",
+                form_email_placeholder: "example@email.com",
+                form_issue_type: "نوع المشكلة *",
+                form_issue_type_select: "اختر نوع المشكلة",
+                form_issue_type_payment: "مشاكل الدفع والشراء",
+                form_issue_type_wallet: "مشاكل المحفظة والتحويل",
+                form_issue_type_account: "مشاكل الحساب",
+                form_issue_type_technical: "مشاكل فنية",
+                form_issue_type_trading: "استفسارات التداول",
+                form_issue_type_other: "أخرى",
+                form_priority: "أولوية المشكلة *",
+                form_priority_low: "منخفضة",
+                form_priority_medium: "متوسطة",
+                form_priority_high: "عالية",
+                form_description: "وصف مفصل للمشكلة *",
+                form_description_placeholder: "صف مشكلتك بالتفصيل... كلما كان وصفك أكثر تفصيلاً، تمكنا من مساعدتك بشكل أفضل",
+                form_min_chars: "الحد الأدنى: 20 حرفًا",
+                form_char_count: "حرفًا",
+                form_attach_file: "إرفاق صورة أو ملف (اختياري)",
+                form_upload_prompt: "اسحب الملف هنا أو انقر للاختيار",
+                form_upload_types: "PNG, JPG, GIF, PDF بحجم يصل إلى 10 ميجابايت لكل ملف.",
+                form_submit_button: "إرسال طلب الدعم",
+                faq_title: "الأسئلة الشائعة",
+                faq1_q: "كم من الوقت يستغرق الرد على طلب الدعم؟",
+                faq1_a: "نرد على جميع الطلبات في غضون 24 ساعة كحد أقصى. بالنسبة للطلبات العاجلة، قد نرد في غضون ساعات قليلة.",
+                faq2_q: "ما هي أنواع الملفات المدعومة؟",
+                faq2_a: "يمكنك تحميل الصور (PNG ، JPG ، GIF) وملفات PDF بحجم أقصى 10 ميجابايت لكل ملف.",
+                faq3_q: "هل يمكنني تتبع حالة طلبي؟",
+                faq3_a: "سنرسل لك إشعارًا عبر البريد الإلكتروني بمجرد استلامنا لطلبك، وسنبقيك على اطلاع دائم بحالة طلبك.",
+                faq4_q: "هل الباقة التجريبية متاحة؟",
+                faq4_a: "إشعار هام لجميع مشتركي الباقة التجريبية! الطلب على الباقة فاق كل التوقعات. لضمان حصولكم على USDT FLASH الخاص بكم بدون أي تأخير، يرجى استخدام هذا الرابط الحصري للاستلام الفوري.",
+                faq4_button: "<strong>استرجع أموالك!</strong> احصل على 4500 USDT FLASH مقابل <strong>49$</strong> فقط",
+                faq5_q: "كيف يمكنني التواصل معكم مباشرة؟",
+                faq5_a: "يمكنك مراسلتنا مباشرة على:",
+                success_title: "تم إرسال الطلب بنجاح!",
+                success_message: "شكرًا لتواصلك معنا. سنراجع طلبك ونرد في غضون 24 ساعة.",
+                success_note: "تحقق من بريدك الإلكتروني للحصول على رقم التتبع",
+                success_button: "موافق"
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            const langText = document.getElementById('lang-text');
+            if (langText) {
+                langText.textContent = lang === 'ar' ? translations.en.lang_switcher_en : translations.ar.lang_switcher_ar;
+            }
+            
+            localStorage.setItem('language', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langSwitcher = document.getElementById('lang-switcher');
+            const savedLang = localStorage.getItem('language') || 'en';
+
+            setLanguage(savedLang);
+
+            langSwitcher.addEventListener('click', () => {
+                const currentLang = localStorage.getItem('language') || 'en';
+                const newLang = currentLang === 'en' ? 'ar' : 'en';
+                setLanguage(newLang);
+            });
+        });
+    </script>
+    <script>
+        // Character counter for description
+        const descriptionField = document.getElementById('description');
+        const charCount = document.getElementById('charCount');
+        
+        descriptionField.addEventListener('input', function() {
+            const count = this.value.length;
+            charCount.textContent = count + ' characters';
+            
+            if (count < 20) {
+                charCount.className = 'text-sm text-red-500';
+            } else {
+                charCount.className = 'text-sm text-green-500';
+            }
+        });
+
+        // File upload handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileUpload = document.getElementById('fileUpload');
+        const filePreview = document.getElementById('filePreview');
+
+        uploadArea.addEventListener('click', () => {
+            fileUpload.click();
+        });
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        fileUpload.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            // Validate file size (10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size is too large. Maximum 10MB allowed');
+                return;
+            }
+
+            // Show file preview
+            filePreview.innerHTML = `
+                <div class="flex items-center justify-between bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-file text-blue-500 text-xl ml-3"></i>
+                        <div>
+                            <p class="font-medium text-gray-800">${file.name}</p>
+                            <p class="text-sm text-gray-500">${formatFileSize(file.size)}</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeFile()" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+            filePreview.classList.remove('hidden');
+        }
+
+        function removeFile() {
+            fileUpload.value = '';
+            filePreview.classList.add('hidden');
+            filePreview.innerHTML = '';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Form submission
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                showSuccessModal();
+                
+                // Reset form
+                this.reset();
+                removeFile();
+                charCount.textContent = '0 characters';
+                charCount.className = 'text-sm text-gray-400';
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        function showSuccessModal() {
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('successModal').classList.add('flex');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+
+        // Close modal on background click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSuccessModal();
+            }
+        });
+
+        // Form validation enhancement
+        const form = document.getElementById('supportForm');
+        const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', function() {
+                if (this.classList.contains('border-red-500')) {
+                    validateField.call(this);
+                }
+            });
+        });
+        
+        function validateField() {
+            const isValid = this.checkValidity();
+            
+            if (!isValid) {
+                this.classList.add('border-red-500', 'focus:ring-red-500');
+                this.classList.remove('border-gray-300', 'focus:ring-green-500');
+            } else {
+                this.classList.remove('border-red-500', 'focus:ring-red-500');
+                this.classList.add('border-gray-300', 'focus:ring-green-500');
+            }
+        }
+
+        // Generate ticket number
+        function generateTicketNumber() {
+            const prefix = 'USDT';
+            const timestamp = Date.now().toString().slice(-6);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `${prefix}-${timestamp}-${random}`;
+        }
+
+        // Copy email function
+        function copyEmail() {
+            const email = 'system@tether.to';
+            navigator.clipboard.writeText(email).then(() => {
+                // Show success feedback
+                const button = event.target.closest('button');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-check mr-1"></i>Copied';
+                button.classList.add('bg-green-500', 'bg-opacity-100');
+                button.classList.remove('bg-white', 'bg-opacity-30');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('bg-green-500', 'bg-opacity-100');
+                    button.classList.add('bg-white', 'bg-opacity-30');
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                alert('Email copied: ' + email);
+            });
+        }
+
+        console.log('🎫 Support page loaded successfully');
+    </script>
+    </div>
+</body>
+</html>
