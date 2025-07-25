@@ -1,0 +1,328 @@
+/* Tether Official Verification Badges */
+
+/* Official Tether Verification Bar */
+.tether-verification-bar {
+  background: linear-gradient(135deg, var(--tether-green), var(--tether-dark-green));
+  color: white;
+  padding: 8px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(38, 161, 123, 0.3);
+}
+
+.tether-verification-bar .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.tether-verification-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.tether-verification-item i {
+  font-size: 1.1rem;
+}
+
+/* Package Verification Badges */
+.package-verification-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, var(--tether-green), var(--tether-dark-green));
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(38, 161, 123, 0.4);
+  z-index: 10;
+}
+
+.package-verification-badge::before {
+  content: '✓';
+  font-weight: 900;
+}
+
+/* License Information */
+.tether-license-display {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px solid var(--tether-green);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.tether-license-number {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  color: var(--tether-green);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.tether-compliance-status {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Security Indicators */
+.tether-security-indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.tether-security-item {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tether-security-item:hover {
+  border-color: var(--tether-green);
+  box-shadow: 0 4px 12px rgba(38, 161, 123, 0.2);
+}
+
+.tether-security-icon {
+  font-size: 1.5rem;
+  color: var(--tether-green);
+  margin-bottom: 8px;
+}
+
+.tether-security-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.tether-security-desc {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+/* Official Partnership Badge */
+.tether-partnership-badge {
+  background: linear-gradient(135deg, var(--tether-gold), #FFA500);
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  margin: 10px 0;
+}
+
+.tether-partnership-badge::before {
+  content: '🤝';
+  font-size: 1rem;
+}
+
+/* Regulatory Compliance Section */
+.tether-compliance-section {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-left: 4px solid var(--tether-blue);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.tether-compliance-title {
+  font-weight: 700;
+  color: var(--tether-blue);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tether-compliance-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tether-compliance-list li {
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tether-compliance-list li::before {
+  content: '✓';
+  color: var(--tether-green);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* Trust Score Display */
+.tether-trust-score {
+  background: linear-gradient(135deg, var(--tether-green), var(--tether-dark-green));
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 15px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tether-trust-score::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: trustScoreShine 3s infinite;
+}
+
+@keyframes trustScoreShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.tether-trust-score-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.tether-trust-score-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Audit Information */
+.tether-audit-info {
+  background: white;
+  border: 2px solid var(--tether-green);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+  position: relative;
+}
+
+.tether-audit-info::before {
+  content: '🔍';
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background: var(--tether-green);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.tether-audit-title {
+  font-weight: 700;
+  color: var(--tether-green);
+  margin-bottom: 8px;
+}
+
+.tether-audit-details {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .tether-verification-bar .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .tether-verification-item {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+  }
+  
+  .tether-security-indicators {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .tether-trust-score-number {
+    font-size: 2rem;
+  }
+  
+  .package-verification-badge {
+    font-size: 0.6rem;
+    padding: 3px 6px;
+  }
+}
+
+/* Animation Effects */
+.tether-verified-pulse {
+  animation: verifiedPulse 2s infinite;
+}
+
+@keyframes verifiedPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(38, 161, 123, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(38, 161, 123, 0);
+  }
+}
+
+/* Official Seal */
+.tether-official-seal {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, var(--tether-green), var(--tether-dark-green));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: 0 4px 15px rgba(38, 161, 123, 0.4);
+  position: relative;
+}
+
+.tether-official-seal::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--tether-gold), var(--tether-green), var(--tether-gold));
+  z-index: -1;
+  animation: sealRotate 4s linear infinite;
+}
+
+@keyframes sealRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

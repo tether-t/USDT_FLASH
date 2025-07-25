@@ -1,0 +1,359 @@
+/* Tether Official Packages - Realistic Design */
+
+/* Tether Official Colors */
+:root {
+  --tether-green: #26A17B;
+  --tether-dark-green: #1A8462;
+  --tether-light-green: #53C1A0;
+  --tether-blue: #2775CA;
+  --tether-gold: #FFD700;
+  --tether-platinum: #E5E4E2;
+}
+
+/* Official Tether Package Container */
+.tether-package {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.tether-package:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+/* Official Tether Header */
+.tether-package-header {
+  background: linear-gradient(135deg, var(--tether-green), var(--tether-dark-green));
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.tether-package-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+}
+
+/* Official Tether Logo Badge */
+.tether-official-badge {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: var(--tether-gold);
+  color: #333;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tether-official-badge::before {
+  content: '🏆';
+  font-size: 0.8rem;
+}
+
+/* Package Title Styling */
+.tether-package-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tether-package-subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Price Display */
+.tether-price-container {
+  margin: 15px 0;
+}
+
+.tether-price-main {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tether-price-original {
+  font-size: 1.2rem;
+  text-decoration: line-through;
+  opacity: 0.7;
+  margin-left: 10px;
+}
+
+.tether-usdt-amount {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Features List */
+.tether-features-list {
+  padding: 25px;
+  background: #fafafa;
+}
+
+.tether-feature-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.tether-feature-item:last-child {
+  border-bottom: none;
+}
+
+.tether-feature-item::before {
+  content: '✓';
+  color: var(--tether-green);
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+/* Verification Section */
+.tether-verification {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 15px 25px;
+  border-top: 1px solid #dee2e6;
+}
+
+.tether-verification-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--tether-green);
+  margin-bottom: 8px;
+}
+
+.tether-verification-badge::before {
+  content: '🛡️';
+}
+
+.tether-license-info {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Action Button */
+.tether-action-button {
+  margin: 20px 25px 25px;
+  background: linear-gradient(135deg, var(--tether-green), var(--tether-dark-green));
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: calc(100% - 50px);
+  position: relative;
+  overflow: hidden;
+}
+
+.tether-action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.tether-action-button:hover::before {
+  left: 100%;
+}
+
+.tether-action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(38, 161, 123, 0.3);
+}
+
+/* Most Popular Badge */
+.tether-most-popular {
+  border: 3px solid var(--tether-gold);
+  position: relative;
+}
+
+.tether-most-popular::before {
+  content: '⭐ MOST POPULAR';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--tether-gold);
+  color: #333;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+/* Professional Package Styling */
+.tether-package.professional {
+  border: 3px solid var(--tether-blue);
+}
+
+.tether-package.professional .tether-package-header {
+  background: linear-gradient(135deg, var(--tether-blue), #1e5aa8);
+}
+
+.tether-package.professional .tether-action-button {
+  background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.tether-package.professional .tether-action-button:hover {
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+}
+
+/* Enterprise Package Styling */
+.tether-package.enterprise {
+  border: 3px solid #6f42c1;
+}
+
+.tether-package.enterprise .tether-package-header {
+  background: linear-gradient(135deg, #6f42c1, #5a2d91);
+}
+
+.tether-package.enterprise .tether-official-badge {
+  background: var(--tether-platinum);
+  color: #333;
+}
+
+/* Bonus Section */
+.tether-bonus-section {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  margin: 20px 25px;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--tether-gold);
+}
+
+.tether-bonus-title {
+  font-weight: 700;
+  color: #856404;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.tether-bonus-item {
+  font-size: 0.85rem;
+  color: #856404;
+  margin-bottom: 4px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.tether-bonus-item::before {
+  content: '🎁';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Delivery Time Badge */
+.tether-delivery-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--tether-green);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tether-delivery-badge::before {
+  content: '⚡';
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tether-package {
+    margin-bottom: 20px;
+  }
+  
+  .tether-package-title {
+    font-size: 1.3rem;
+  }
+  
+  .tether-price-main {
+    font-size: 2rem;
+  }
+  
+  .tether-action-button {
+    font-size: 1rem;
+    padding: 12px 25px;
+  }
+}
+
+/* Animation Effects */
+@keyframes tetherGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(38, 161, 123, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(38, 161, 123, 0.5); }
+}
+
+.tether-package:hover {
+  animation: tetherGlow 2s infinite;
+}
+
+/* Trust Indicators */
+.tether-trust-indicators {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 25px;
+  background: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.tether-trust-item {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.tether-trust-item strong {
+  display: block;
+  color: var(--tether-green);
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
