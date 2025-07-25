@@ -1,0 +1,20 @@
+.expand-toggle {
+    border-top: 1px solid #e5e7eb;
+    border-radius: 0 0 12px 12px;
+    margin: 0 -24px -24px -24px;
+    background: linear-gradient(to right, #f9fafb, #f3f4f6);
+}
+
+.expand-toggle:hover {
+    background: linear-gradient(to right, #f3f4f6, #e5e7eb);
+}
+
+.package-details {
+    margin: 0 -24px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.package-details .p-4 {
+    background: #f8fafc;
+    border-radius: 0 0 12px 12px;
+}

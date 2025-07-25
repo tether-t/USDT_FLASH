@@ -1,0 +1,276 @@
+/* Advanced Psychological UX Effects */
+
+/* Urgency and Scarcity Effects */
+.urgency-alert {
+    animation: urgencyPulse 2s infinite;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+@keyframes urgencyPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    }
+    50% { 
+        transform: scale(1.02);
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.7);
+    }
+}
+
+/* Scarcity Bar Effects */
+.scarcity-bar {
+    position: relative;
+    overflow: hidden;
+}
+
+.scarcity-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Enhanced Button Effects */
+.package-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.package-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.package-btn:hover::before {
+    left: 100%;
+}
+
+/* Live Activity Indicators */
+.live-activity-indicators {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulsing Elements */
+.pulse-effect {
+    animation: softPulse 2s infinite;
+}
+
+@keyframes softPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Social Proof Notifications */
+#purchase-notification {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#purchase-notification::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #10b981, #059669);
+    border-radius: 2px;
+}
+
+/* Progressive Commitment Effects */
+.package-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Countdown Timer Effects */
+#countdown-timer {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: timerGlow 1s infinite alternate;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 4px 8px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+@keyframes timerGlow {
+    from { 
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    to { 
+        text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Date Display Enhancement */
+.date-display {
+    background: linear-gradient(45deg, #ff6b6b, #ffa500);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Stock Alert Effects */
+.scarcity-bar .bg-gradient-to-r {
+    transition: all 0.5s ease;
+    animation: stockDepletion 1s ease-in-out;
+}
+
+@keyframes stockDepletion {
+    0% { transform: scaleX(1.1); }
+    100% { transform: scaleX(1); }
+}
+
+/* Fear of Missing Out (FOMO) Effects */
+.best-value-badge {
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.limited-offer-badge {
+    animation: flash 1.5s infinite;
+}
+
+@keyframes flash {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0.5; }
+}
+
+/* Price Anchoring Effects */
+.text-4xl {
+    position: relative;
+}
+
+.text-4xl::after {
+    content: '💰';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.package-card:hover .text-4xl::after {
+    opacity: 1;
+    animation: bounce 0.6s ease;
+}
+
+/* Psychological Triggers Container */
+.psychological-triggers-container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Enhanced Hover States */
+.package-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.package-card:hover .package-btn {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Simple Pro Package Enhancement */
+.package-card .bg-gradient-to-r.from-red-500.to-orange-500 {
+    animation: popularBadge 2s ease-in-out infinite alternate;
+}
+
+@keyframes popularBadge {
+    from { 
+        box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+    }
+    to { 
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .urgency-alert {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .scarcity-bar {
+        padding: 8px;
+    }
+    
+    .live-activity-indicators {
+        font-size: 11px;
+    }
+    
+    #purchase-notification {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+    .urgency-alert,
+    .package-btn,
+    .pulse-effect,
+    #countdown-timer,
+    .best-value-badge,
+    .limited-offer-badge {
+        animation: none;
+    }
+    
+    .package-card:hover {
+        transform: none;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .urgency-alert {
+        border: 2px solid #ffffff;
+    }
+    
+    .scarcity-bar {
+        border: 2px solid #000000;
+    }
+    
+    .live-activity-indicators > div {
+        border-width: 2px;
+    }
+}
