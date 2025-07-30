@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار نظام التتبع المتقدم - Flash USDT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .test-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .test-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .package-btn {
+            background: linear-gradient(45deg, #28a745, #20c997);
+        }
+
+        .package-btn:hover {
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+        }
+
+        .payment-btn {
+            background: linear-gradient(45deg, #dc3545, #fd7e14);
+        }
+
+        .payment-btn:hover {
+            box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+        }
+
+        .interaction-btn {
+            background: linear-gradient(45deg, #6f42c1, #e83e8c);
+        }
+
+        .interaction-btn:hover {
+            box-shadow: 0 10px 20px rgba(111, 66, 193, 0.3);
+        }
+
+        .status-panel {
+            background: #2c3e50;
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .status-panel h3 {
+            color: #ecf0f1;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .status-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .alert {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .alert.warning {
+            background: #fff3cd;
+            border-color: #ffeaa7;
+            color: #856404;
+        }
+
+        .alert.error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .navigation-test {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            background: linear-gradient(45deg, #17a2b8, #6610f2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(23, 162, 184, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .button-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 نظام التتبع المتقدم</h1>
+            <p>اختبار شامل لجميع ميزات التتبع والإشعارات</p>
+        </div>
+
+        <div id="system-status" class="alert">
+            ⏳ جاري تحميل النظام...
+        </div>
+
+        <!-- اختبار دخول المستخدم -->
+        <div class="test-section">
+            <h2>🚪 اختبار دخول المستخدم</h2>
+            <p>تم تتبع دخولك تلقائياً عند تحميل الصفحة. تحقق من تيليجرام للإشعار.</p>
+        </div>
+
+        <!-- اختبار اختيار الباقات -->
+        <div class="test-section">
+            <h2>📦 اختبار اختيار الباقات</h2>
+            <div class="button-group">
+                <button class="test-btn package-btn" id="basic-package-btn" data-package="basic">
+                    الباقة التجريبية - $50
+                </button>
+                <button class="test-btn package-btn" id="pro-package-btn" data-package="pro">
+                    الباقة الأساسية - $150
+                </button>
+                <button class="test-btn package-btn" id="premium-package-btn" data-package="premium">
+                    الباقة المتقدمة - $300
+                </button>
+                <button class="test-btn package-btn" id="enterprise-package-btn" data-package="enterprise">
+                    الباقة الاحترافية - $500
+                </button>
+                <button class="test-btn package-btn" id="elite-package-btn" data-package="elite">
+                    الباقة النخبة - $1000
+                </button>
+            </div>
+        </div>
+
+        <!-- اختبار صفحات الدفع -->
+        <div class="test-section">
+            <h2>💳 اختبار صفحات الدفع</h2>
+            <div class="button-group">
+                <a href="pages/payment-basic.html" class="test-btn payment-btn">
+                    صفحة دفع الباقة التجريبية
+                </a>
+                <a href="pages/payment-pro.html" class="test-btn payment-btn">
+                    صفحة دفع الباقة الأساسية
+                </a>
+                <a href="pages/payment-premium.html" class="test-btn payment-btn">
+                    صفحة دفع الباقة المتقدمة
+                </a>
+            </div>
+        </div>
+
+        <!-- اختبار التفاعلات المهمة -->
+        <div class="test-section">
+            <h2>🎯 اختبار التفاعلات المهمة</h2>
+            <div class="button-group">
+                <button class="test-btn interaction-btn login-btn">
+                    تسجيل الدخول
+                </button>
+                <button class="test-btn interaction-btn register-btn">
+                    إنشاء حساب
+                </button>
+                <button class="test-btn interaction-btn contact-btn">
+                    اتصل بنا
+                </button>
+                <button class="test-btn interaction-btn support-btn">
+                    الدعم الفني
+                </button>
+                <button class="test-btn interaction-btn wallet-connect">
+                    ربط المحفظة
+                </button>
+            </div>
+        </div>
+
+        <!-- اختبار التنقل -->
+        <div class="test-section">
+            <h2>🧭 اختبار التنقل بين الصفحات</h2>
+            <div class="navigation-test">
+                <a href="index.html" class="nav-link">الصفحة الرئيسية</a>
+                <a href="pages/support.html" class="nav-link">الدعم الفني</a>
+                <a href="pages/contact.html" class="nav-link">اتصل بنا</a>
+                <a href="pages/about.html" class="nav-link">من نحن</a>
+            </div>
+        </div>
+
+        <!-- اختبار محاولة الشراء -->
+        <div class="test-section">
+            <h2>🎉 اختبار محاولة الشراء</h2>
+            <form id="purchase-form" class="payment-form">
+                <input type="hidden" name="package" value="premium">
+                <input type="hidden" name="amount" value="300">
+                <input type="hidden" name="currency" value="USD">
+                <input type="hidden" name="payment_method" value="crypto">
+                <button type="submit" class="test-btn payment-btn">
+                    محاكاة عملية شراء
+                </button>
+            </form>
+        </div>
+
+        <!-- اختبار أدوات التحكم -->
+        <div class="test-section">
+            <h2>🛠️ أدوات التحكم والاختبار</h2>
+            <div class="button-group">
+                <button class="test-btn" onclick="showSessionStats()">
+                    عرض إحصائيات الجلسة
+                </button>
+                <button class="test-btn" onclick="showSystemStatus()">
+                    حالة النظام
+                </button>
+                <button class="test-btn" onclick="sendCustomNotification()">
+                    إرسال إشعار مخصص
+                </button>
+                <button class="test-btn" onclick="sendTestReport()">
+                    إرسال تقرير اختبار
+                </button>
+                <button class="test-btn" onclick="simulateExit()">
+                    محاكاة الخروج
+                </button>
+            </div>
+        </div>
+
+        <!-- لوحة الحالة -->
+        <div class="status-panel">
+            <h3>📊 حالة النظام المباشرة</h3>
+            <div id="live-status" class="status-info">
+                جاري تحميل البيانات...
+            </div>
+        </div>
+    </div>
+
+    <!-- تحميل النظام -->
+    <script src="js/tracking-config-advanced.js"></script>
+    <script src="js/notification-manager.js"></script>
+    <script src="js/advanced-user-tracking.js"></script>
+
+    <script>
+        // انتظار تحميل النظام
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                updateSystemStatus();
+                setInterval(updateLiveStatus, 5000); // تحديث كل 5 ثوانِ
+            }, 2000);
+        });
+
+        // تحديث حالة النظام
+        function updateSystemStatus() {
+            const statusDiv = document.getElementById('system-status');
+            
+            if (window.advancedUserTracking) {
+                statusDiv.className = 'alert';
+                statusDiv.innerHTML = '✅ النظام يعمل بشكل طبيعي - جميع المكونات محملة';
+            } else {
+                statusDiv.className = 'alert error';
+                statusDiv.innerHTML = '❌ خطأ في تحميل النظام - تحقق من وحدة التحكم';
+            }
+        }
+
+        // تحديث الحالة المباشرة
+        function updateLiveStatus() {
+            const liveStatusDiv = document.getElementById('live-status');
+            
+            if (window.TrackingAPI) {
+                const stats = window.TrackingAPI.getSessionStats();
+                const systemStatus = window.TrackingAPI.getSystemStatus();
+                const notificationStats = window.TrackingAPI.getNotificationStats();
+                
+                liveStatusDiv.innerHTML = `
+                    <strong>📊 إحصائيات الجلسة:</strong><br>
+                    • رقم المستخدم: #${stats?.userNumber || 'غير محدد'}<br>
+                    • مدة الجلسة: ${formatDuration(stats?.sessionDuration || 0)}<br>
+                    • الصفحات المزارة: ${stats?.pagesVisited || 0}<br>
+                    • الإجراءات المنفذة: ${stats?.actionsPerformed || 0}<br>
+                    • الجهاز: ${stats?.device || 'غير محدد'}<br>
+                    • الموقع: ${stats?.location || 'غير محدد'}<br><br>
+                    
+                    <strong>🔔 حالة الإشعارات:</strong><br>
+                    • في الانتظار: ${notificationStats?.pending || 0}<br>
+                    • قيد المعالجة: ${notificationStats?.processing ? 'نعم' : 'لا'}<br>
+                    • فشلت: ${notificationStats?.failed || 0}<br><br>
+                    
+                    <strong>⚙️ حالة النظام:</strong><br>
+                    • التتبع نشط: ${systemStatus?.tracking?.active ? 'نعم' : 'لا'}<br>
+                    • التكوين محمل: ${systemStatus?.config?.loaded ? 'نعم' : 'لا'}<br>
+                    • التخزين متاح: ${systemStatus?.storage?.localStorage ? 'نعم' : 'لا'}
+                `;
+            } else {
+                liveStatusDiv.innerHTML = '❌ واجهة التحكم غير متاحة';
+            }
+        }
+
+        // عرض إحصائيات الجلسة
+        function showSessionStats() {
+            if (window.TrackingAPI) {
+                const stats = window.TrackingAPI.getSessionStats();
+                alert(`📊 إحصائيات الجلسة الحالية:\n\n${JSON.stringify(stats, null, 2)}`);
+            }
+        }
+
+        // عرض حالة النظام
+        function showSystemStatus() {
+            if (window.TrackingAPI) {
+                const status = window.TrackingAPI.getSystemStatus();
+                alert(`⚙️ حالة النظام:\n\n${JSON.stringify(status, null, 2)}`);
+            }
+        }
+
+        // إرسال إشعار مخصص
+        function sendCustomNotification() {
+            if (window.TrackingAPI) {
+                const message = `🧪 **رسالة اختبار مخصصة**\n\nتم إرسال هذه الرسالة من صفحة الاختبار\n⏰ الوقت: ${new Date().toLocaleString('ar-SA')}\n\n#test #custom_notification`;
+                window.TrackingAPI.sendCustomNotification(message, 'medium');
+                alert('✅ تم إرسال الإشعار المخصص');
+            }
+        }
+
+        // إرسال تقرير اختبار
+        function sendTestReport() {
+            if (window.TrackingAPI) {
+                window.TrackingAPI.sendReport();
+                alert('✅ تم إرسال التقرير');
+            }
+        }
+
+        // محاكاة الخروج
+        function simulateExit() {
+            if (window.advancedUserTracking) {
+                window.advancedUserTracking.handlePageExit('window_close');
+                alert('✅ تم محاكاة الخروج - تحقق من تيليجرام');
+            }
+        }
+
+        // تنسيق المدة
+        function formatDuration(ms) {
+            const seconds = Math.floor(ms / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
+
+            if (hours > 0) {
+                return `${hours}س ${minutes % 60}د ${seconds % 60}ث`;
+            } else if (minutes > 0) {
+                return `${minutes}د ${seconds % 60}ث`;
+            } else {
+                return `${seconds}ث`;
+            }
+        }
+
+        // محاكاة بيانات المستخدم للاختبار
+        if (!localStorage.getItem('user')) {
+            localStorage.setItem('user', JSON.stringify({
+                name: 'مستخدم تجريبي',
+                email: 'test@flashusdt.com'
+            }));
+        }
+    </script>
+</body>
+</html>
