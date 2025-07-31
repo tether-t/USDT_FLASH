@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company News - USDT-FLASH</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #26a17b 0%, #1a7a5e 25%, #0d5940 50%, #26a17b 75%, #1a7a5e 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80" fill="%23ffffff" opacity="0.05">₮</text></svg>') repeat;
+            background-size: 400% 400%, 200px 200px;
+            animation: tetherGradient 15s ease infinite;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(38, 161, 123, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(26, 122, 94, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @keyframes tetherGradient {
+            0% { background-position: 0% 50%, 0 0; }
+            50% { background-position: 100% 50%, 100px 100px; }
+            100% { background-position: 0% 50%, 0 0; }
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .news-header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .news-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #26a17b, #00d4ff, #667eea);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .news-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .news-source {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .news-source:contains("X (Twitter)") {
+            background: rgba(38, 161, 123, 0.2);
+            color: #26a17b;
+        }
+        
+        .source-twitter {
+            background: rgba(38, 161, 123, 0.2);
+            color: #26a17b;
+        }
+        
+        .source-gold {
+            background: rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .news-content {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .news-link:hover {
+            color: #26a17b;
+            transform: translateX(-5px);
+        }
+
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #26a17b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .refresh-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #26a17b, #00d4ff);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(38, 161, 123, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .refresh-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(38, 161, 123, 0.6);
+        }
+
+
+
+        .update-info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(38, 161, 123, 0.1);
+            border: 1px solid rgba(38, 161, 123, 0.3);
+            border-radius: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .no-news {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .no-news i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Mobile First Responsive Design */
+        @media (max-width: 480px) {
+            .news-container { padding: 10px; margin-top: 140px; }
+            .news-header { padding: 20px; margin-bottom: 20px; }
+            .news-header h1 { font-size: 1.8rem; }
+            .news-grid { grid-template-columns: 1fr; gap: 15px; }
+            .news-card { padding: 20px; }
+            .news-title { font-size: 1.1rem; }
+            .refresh-btn { bottom: 15px; right: 15px; width: 45px; height: 45px; font-size: 18px; }
+            header .container { padding: 0 15px; }
+            header h1 { font-size: 1.8rem; }
+            header img { height: 12px; width: 12px; }
+            footer .container { padding: 0 15px; }
+            footer .grid { grid-cols-1; gap: 8px; }
+            footer h2 { font-size: 2rem; }
+        }
+        
+        @media (min-width: 481px) and (max-width: 768px) {
+            .news-container { margin-top: 130px; }
+            .news-header h1 { font-size: 2rem; }
+            .news-grid { grid-template-columns: 1fr; gap: 20px; }
+            .refresh-btn { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 20px; }
+            header .flex { flex-direction: column; space-y: 4px; }
+            footer .grid { grid-cols-1 lg:grid-cols-2; }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .news-grid { grid-template-columns: repeat(2, 1fr); }
+            footer .grid { grid-cols-2 lg:grid-cols-4; }
+        }
+        
+        @media (min-width: 1025px) {
+            .news-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .news-card:hover { transform: none; }
+            .news-link { padding: 12px 0; }
+            .refresh-btn { width: 60px; height: 60px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Official Tether Header -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="bg-white shadow-2xl border-b-4 border-green-600">
+            <div class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+                <div class="flex items-center justify-between flex-wrap">
+                    <div class="flex items-center space-x-3 sm:space-x-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-green-600 rounded-full blur-lg opacity-30 animate-pulse"></div>
+                            <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="Tether Official Logo" class="h-12 w-12 sm:h-16 sm:w-16 relative z-10 drop-shadow-lg">
+                        </div>
+                        <div class="border-l-2 border-gray-300 pl-3 sm:pl-6">
+                            <h1 class="text-xl sm:text-3xl font-black text-gray-900 tracking-tight">TETHER</h1>
+                            <div class="flex items-center space-x-2 sm:space-x-3 mt-1">
+                                <span class="bg-green-600 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">OFFICIAL</span>
+                                <span class="text-gray-600 text-xs sm:text-sm font-semibold hidden sm:inline">News & Updates Portal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 sm:space-x-4 mt-2 sm:mt-0">
+                        <div class="text-right hidden md:block">
+                            <div class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Powered by</div>
+                            <div class="text-sm font-bold text-green-600">Tether Operations Limited</div>
+                        </div>
+                        <a href="../index.html" class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-4 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
+                            <i class="fas fa-home mr-1 sm:mr-2"></i>
+                            <span class="hidden sm:inline">Home</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-green-600 h-1"></div>
+    </header>
+
+    <div class="news-container" style="margin-top: 120px;">
+        <div class="news-header">
+            <h1>Company News & Updates</h1>
+            <div class="mt-4">
+                <div class="text-white/80 text-lg font-semibold" id="live-time"></div>
+            </div>
+        </div>
+
+
+
+        <div id="loading" class="loading-spinner">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="news-content" class="news-grid" style="display: none;"></div>
+
+        <div id="no-news" class="no-news" style="display: none;">
+            <i class="fas fa-newspaper"></i>
+            <h3>No news available currently</h3>
+            <p>News will be updated soon</p>
+        </div>
+    </div>
+
+    <button class="refresh-btn" onclick="refreshNews()" title="Refresh News">
+        <i class="fas fa-sync-alt"></i>
+    </button>
+
+    <!-- Official Tether Footer 2025 -->
+    <footer class="bg-gradient-to-b from-gray-50 to-white border-t border-gray-200 mt-20 shadow-2xl">
+        <div class="bg-green-600 h-1"></div>
+        <div class="container mx-auto px-8 py-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+                <!-- Tether Brand -->
+                <div class="sm:col-span-2 lg:col-span-2">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
+                        <div class="relative flex-shrink-0">
+                            <div class="absolute inset-0 bg-green-600 rounded-full blur-xl opacity-20 animate-pulse"></div>
+                            <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="Tether USDT Official" class="h-16 w-16 sm:h-20 sm:w-20 relative z-10 drop-shadow-2xl">
+                        </div>
+                        <div class="text-center sm:text-left">
+                            <h2 class="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">TETHER</h2>
+                            <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-2 sm:space-y-0 sm:space-x-3 mt-2">
+                                <span class="bg-gradient-to-r from-green-600 to-green-700 text-white px-3 sm:px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">OFFICIAL</span>
+                                <span class="text-gray-600 font-semibold text-sm sm:text-base">Since 2014</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-base sm:text-lg leading-relaxed max-w-2xl text-center sm:text-left">
+                        The world's most trusted stablecoin, powering the digital economy with transparency, stability, and innovation.
+                    </p>
+                </div>
+                
+                <!-- Company Info -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 border-b-2 border-green-600 pb-2">Company</h3>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div>
+                            <p class="font-bold text-gray-900 text-sm sm:text-base">Tether Operations Limited</p>
+                            <p class="text-gray-600 text-xs sm:text-sm">Licensed Digital Asset Service Provider</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 text-xs sm:text-sm">Regulated by BVI FSC</p>
+                            <p class="text-gray-600 text-xs sm:text-sm">License #SIBA/L/18/1114</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Legal & Links -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6 border-b-2 border-green-600 pb-2">Resources</h3>
+                    <div class="space-y-2 sm:space-y-3">
+                        <a href="https://tether.to" class="block text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base">Official Website</a>
+                        <a href="https://x.com/Tether_to" class="block text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base">@Tether_to</a>
+                        <a href="https://tether.to/en/transparency" class="block text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base">Transparency</a>
+                        <a href="https://wallet.tether.to" class="block text-green-600 hover:text-green-700 font-semibold transition-colors text-sm sm:text-base">Official Wallet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-200 mt-8 sm:mt-12 pt-6 sm:pt-8">
+                <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                    <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
+                        <p class="text-gray-900 font-bold text-sm sm:text-lg">© 2025 Tether Operations Limited</p>
+                        <span class="text-gray-400 hidden sm:inline">|</span>
+                        <p class="text-gray-600 text-xs sm:text-base">All Rights Reserved Worldwide</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                        <div class="bg-green-100 px-2 sm:px-3 py-1 rounded-full">
+                            <span class="text-green-700 font-semibold text-xs sm:text-sm">Market Cap: $140B+</span>
+                        </div>
+                        <div class="bg-blue-100 px-2 sm:px-3 py-1 rounded-full">
+                            <span class="text-blue-700 font-semibold text-xs sm:text-sm">24h Volume: $50B+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-gradient-to-r from-green-600 via-green-700 to-green-600 h-2"></div>
+    </footer>
+
+    <script>
+        // بيانات محاكاة لمنشورات X الحقيقية
+        const mockNews = [
+            {
+                id: 1,
+                title: "New Tether Network Update Released",
+                content: "Tether announced the launch of a new update aimed at improving security and speed in transactions. The update includes improvements to the core protocol and advanced protection mechanisms.",
+                date: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "14:30",
+                source: "X (Twitter)",
+                link: "https://x.com/Tether_to/status/1234567890"
+            },
+            {
+                id: 2,
+                title: "New Strategic Partnership with Leading Trading Platforms",
+                content: "Tether signed partnership agreements with several global trading platforms to expand USDT usage and improve liquidity in different markets.",
+                date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "10:15",
+                source: "X (Twitter)",
+                link: "https://x.com/Tether_to/status/1234567891"
+            },
+            {
+                id: 3,
+                title: "Monthly Transparency Report for January 2024",
+                content: "Tether published its monthly transparency report showing reserves and backed assets for USDT, confirming commitment to full transparency.",
+                date: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "16:45",
+                source: "X (Twitter)",
+                link: "https://x.com/Tether_to/status/1234567892"
+            },
+            {
+                id: 4,
+                title: "Support Added for New Blockchain Networks",
+                content: "Tether announced support for additional blockchain networks to expand user options and improve trading experience across multiple platforms.",
+                date: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "12:20",
+                source: "X (Twitter)",
+                link: "https://x.com/Tether_to/status/1234567893"
+            },
+            {
+                id: 5,
+                title: "Important Security Updates for User Protection",
+                content: "New security updates have been implemented including advanced encryption and additional protection mechanisms to ensure user fund safety and transaction protection.",
+                date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "09:30",
+                source: "X (Twitter)",
+                link: "https://x.com/Tether_to/status/1234567894"
+            },
+            {
+                id: 6,
+                title: "USDT Growth Statistics for Last Quarter",
+                content: "Tether revealed impressive statistics about USDT usage growth in the last quarter, with significant increase in daily transaction volume.",
+                date: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "15:10",
+                source: "X (Twitter)",
+                link: "https://x.com/Tether_to/status/1234567895"
+            },
+            {
+                id: 7,
+                title: "Tether Gold (XAUt) Reaches New Milestone",
+                content: "Tether Gold continues to grow as the leading gold-backed stablecoin, offering digital gold ownership with the stability and transparency of blockchain technology.",
+                date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "11:45",
+                source: "Tether Gold",
+                link: "https://gold.tether.to/"
+            },
+            {
+                id: 8,
+                title: "Gold-Backed Digital Asset Innovation",
+                content: "Each XAUt token is backed by one troy ounce of gold stored in Swiss vaults, providing investors with a secure way to own physical gold digitally.",
+                date: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "09:20",
+                source: "Tether Gold",
+                link: "https://gold.tether.to/"
+            },
+            {
+                id: 9,
+                title: "XAUt Trading Volume Increases Significantly",
+                content: "Tether Gold has seen remarkable growth in trading volume as more investors seek stable, gold-backed digital assets in volatile market conditions.",
+                date: new Date(Date.now() - 9 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "14:15",
+                source: "Tether Gold",
+                link: "https://gold.tether.to/"
+            },
+            {
+                id: 10,
+                title: "Swiss Vault Security Standards Enhanced",
+                content: "Tether Gold announces enhanced security measures for gold storage facilities in Switzerland, ensuring maximum protection for physical gold reserves backing XAUt tokens.",
+                date: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+                time: "16:30",
+                source: "Tether Gold",
+                link: "https://gold.tether.to/"
+            }
+        ];
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                weekday: 'long'
+            };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        function createNewsCard(news) {
+            const sourceClass = news.source.includes('Gold') ? 'source-gold' : 'source-twitter';
+            const sourceIcon = news.source.includes('Gold') ? 'fas fa-coins' : 'fab fa-x-twitter';
+            
+            let readMoreLink;
+            if (news.source.includes('Gold')) {
+                readMoreLink = Math.random() > 0.5 ? 'https://x.com/tethergold' : 'https://gold.tether.to/';
+            } else {
+                readMoreLink = 'https://x.com/Tether_to/';
+            }
+            
+            return `
+                <div class="news-card">
+                    <div class="news-meta">
+                        <div class="news-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            ${formatDate(news.date)} - ${news.time}
+                        </div>
+                        <div class="news-source ${sourceClass}">
+                            <i class="${sourceIcon} mr-1"></i>
+                            ${news.source}
+                        </div>
+                    </div>
+                    <h3 class="news-title">${news.title}</h3>
+                    <p class="news-content">${news.content}</p>
+                    <a href="${readMoreLink}" target="_blank" class="news-link">
+                        Read More
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            `;
+        }
+
+        function loadNews() {
+            const loadingEl = document.getElementById('loading');
+            const newsContentEl = document.getElementById('news-content');
+            const noNewsEl = document.getElementById('no-news');
+            const lastUpdateEl = document.getElementById('last-update');
+
+            // إظهار مؤشر التحميل
+            loadingEl.style.display = 'flex';
+            newsContentEl.style.display = 'none';
+            noNewsEl.style.display = 'none';
+
+            // محاكاة تحميل البيانات
+            setTimeout(() => {
+                loadingEl.style.display = 'none';
+
+                if (mockNews.length > 0) {
+                    newsContentEl.innerHTML = mockNews.map(createNewsCard).join('');
+                    newsContentEl.style.display = 'grid';
+                    
+                    // Update last update time
+                    const now = new Date();
+                    lastUpdateEl.textContent = `Last updated: ${now.toLocaleDateString('en-US')} - ${now.toLocaleTimeString('en-US')}`;
+                } else {
+                    noNewsEl.style.display = 'block';
+                }
+            }, 2000);
+        }
+
+        function refreshNews() {
+            const refreshBtn = document.querySelector('.refresh-btn i');
+            refreshBtn.style.animation = 'spin 1s linear infinite';
+            
+            // محاكاة تحديث البيانات
+            setTimeout(() => {
+                refreshBtn.style.animation = '';
+                
+                // إضافة خبر جديد عشوائياً
+                if (Math.random() > 0.5) {
+                    const newNews = {
+                        id: Date.now(),
+                        title: "Breaking: New USDT Feature Released",
+                        content: "A new feature has been added to improve user experience and increase security in transactions.",
+                        date: new Date().toISOString().split('T')[0],
+                        time: new Date().toLocaleTimeString('ar-SA', {hour: '2-digit', minute: '2-digit'}),
+                        source: "X (Twitter)",
+                        link: "https://x.com/Tether_to/status/" + Math.random().toString(36).substr(2, 9)
+                    };
+                    mockNews.unshift(newNews);
+                    
+                    // إظهار إشعار التحديث
+                    showUpdateNotification('New article added!');
+                }
+                
+                loadNews();
+            }, 1500);
+        }
+        
+        function showUpdateNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%) translateY(-100%);
+                background: linear-gradient(135deg, #26a17b, #00d4ff);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 15px;
+                font-weight: 600;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                transition: transform 0.5s ease;
+            `;
+            notification.innerHTML = `
+                <i class="fas fa-check-circle mr-2"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-50%) translateY(-100%)';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+
+        // تحديث الوقت الحالي
+        function updateLiveTime() {
+            const now = new Date();
+            const timeString = now.toLocaleString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('live-time').textContent = timeString;
+        }
+
+        // تحميل الأخبار عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNews();
+            updateLiveTime();
+            setInterval(updateLiveTime, 1000);
+        });
+
+        // تحديث تلقائي كل 24 ساعة
+        setInterval(() => {
+            console.log('تحديث تلقائي للأخبار...');
+            
+            // محاكاة إضافة أخبار جديدة
+            if (Math.random() > 0.3) {
+                const autoNews = {
+                    id: 'auto_' + Date.now(),
+                    title: "Daily Update: Tether Network Statistics",
+                    content: "New daily statistics show continued growth in USDT usage across different networks.",
+                    date: new Date().toISOString().split('T')[0],
+                    time: new Date().toLocaleTimeString('ar-SA', {hour: '2-digit', minute: '2-digit'}),
+                    source: "X (Twitter)",
+                    link: "https://x.com/Tether_to/status/" + Math.random().toString(36).substr(2, 9)
+                };
+                mockNews.unshift(autoNews);
+                
+                // إظهار إشعار التحديث التلقائي
+                if (document.visibilityState === 'visible') {
+                    showUpdateNotification('News updated automatically');
+                }
+            }
+            
+            loadNews();
+        }, 24 * 60 * 60 * 1000); // 24 ساعة
+        
+        // فحص أقل تكراراً للتحديثات السريعة
+        setInterval(() => {
+            if (Math.random() > 0.8) { // 20% احتمال
+                const quickUpdate = {
+                    id: 'quick_' + Date.now(),
+                    title: "Quick Update: Network Activity",
+                    content: "High activity on Tether network with increased daily transaction volume.",
+                    date: new Date().toISOString().split('T')[0],
+                    time: new Date().toLocaleTimeString('ar-SA', {hour: '2-digit', minute: '2-digit'}),
+                    source: "X (Twitter)",
+                    link: "https://x.com/Tether_to/status/" + Math.random().toString(36).substr(2, 9)
+                };
+                mockNews.unshift(quickUpdate);
+                
+                if (document.visibilityState === 'visible') {
+                    loadNews();
+                }
+            }
+        }, 2 * 60 * 60 * 1000); // كل ساعتين
+
+        // حفظ وقت آخر زيارة وإحصائيات الزيارة
+        localStorage.setItem('lastNewsVisit', new Date().toISOString());
+        
+        // تحديث عداد الزيارات
+        const visitCount = parseInt(localStorage.getItem('newsPageVisits') || '0') + 1;
+        localStorage.setItem('newsPageVisits', visitCount.toString());
+        
+        // إضافة معلومات الزيارة
+        const visitInfo = document.createElement('div');
+        visitInfo.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        `;
+        visitInfo.innerHTML = `
+            <i class="fas fa-eye mr-2"></i>
+            Visit #${visitCount}
+        `;
+        document.body.appendChild(visitInfo);
+        
+        // إخفاء معلومات الزيارة بعد 5 ثوان
+        setTimeout(() => {
+            visitInfo.style.opacity = '0';
+            visitInfo.style.transform = 'translateY(20px)';
+            setTimeout(() => visitInfo.remove(), 500);
+        }, 5000);
+    </script>
+</body>
+</html>
