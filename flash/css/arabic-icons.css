@@ -1,0 +1,195 @@
+/* 🔄 Arabic Icons and Typography Enhancement */
+/* تحسين الأيقونات والخطوط للعربية */
+
+:root {
+    --main-font: 'Inter', 'Segoe UI', sans-serif;
+    --arabic-font: 'Cairo', 'Tajawal', sans-serif;
+}
+
+/* تطبيق الخط العربي عند تفعيل الوضع العربي */
+.arabic-font {
+    font-family: var(--arabic-font) !important;
+}
+
+/* تحسين الأيقونات في الوضع العربي */
+.arabic-font .fas,
+.arabic-font .far,
+.arabic-font .fab {
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+    transform: scaleX(-1);
+}
+
+/* استثناءات للأيقونات التي لا تحتاج انعكاس */
+.arabic-font .fa-star,
+.arabic-font .fa-check,
+.arabic-font .fa-check-circle,
+.arabic-font .fa-shield-alt,
+.arabic-font .fa-certificate,
+.arabic-font .fa-coins,
+.arabic-font .fa-bolt,
+.arabic-font .fa-headset,
+.arabic-font .fa-user-circle,
+.arabic-font .fa-credit-card,
+.arabic-font .fa-chart-line,
+.arabic-font .fa-language,
+.arabic-font .fa-bars,
+.arabic-font .fa-times {
+    transform: none !important;
+}
+
+/* تحسين الأزرار في الوضع العربي */
+.arabic-font .btn,
+.arabic-font button {
+    font-family: var(--arabic-font) !important;
+    font-weight: 600 !important;
+}
+
+/* تحسين النصوص في الكروت */
+.arabic-font .package-card,
+.arabic-font .testimonial-slide,
+.arabic-font .feature-card {
+    text-align: right !important;
+}
+
+/* تحسين القوائم */
+.arabic-font ul,
+.arabic-font ol {
+    padding-right: 20px !important;
+    padding-left: 0 !important;
+}
+
+/* تحسين الفليكس للعربية */
+.arabic-font .flex {
+    flex-direction: row-reverse !important;
+}
+
+.arabic-font .flex-col {
+    flex-direction: column !important;
+}
+
+/* تحسين الجريد */
+.arabic-font .grid {
+    direction: rtl !important;
+}
+
+/* تحسين الأيقونات في الهيدر */
+.arabic-font .nav-btn i,
+.arabic-font .auth-btn i {
+    margin-left: 6px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين أيقونات الميزات */
+.arabic-font .feature-icon {
+    margin-left: 12px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين أيقونات الخطوات */
+.arabic-font .step-item .fas {
+    margin-left: 16px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين أيقونات التذييل */
+.arabic-font footer .fas,
+.arabic-font footer .fab {
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين الأيقونات في الإحصائيات */
+.arabic-font .counter,
+.arabic-font .dynamic-users,
+.arabic-font .dynamic-transactions {
+    font-family: 'Cairo', monospace !important;
+    font-weight: 700 !important;
+}
+
+/* تحسين أيقونات الشهادات */
+.arabic-font .testimonial-slide .user-avatar {
+    font-family: var(--arabic-font) !important;
+    font-weight: 700 !important;
+}
+
+/* تحسين النصوص في الأزرار */
+.arabic-font .package-btn,
+.arabic-font .auth-btn,
+.arabic-font .nav-btn {
+    font-family: var(--arabic-font) !important;
+    font-weight: 600 !important;
+}
+
+/* تحسين العناوين الرئيسية */
+.arabic-font h1,
+.arabic-font h2,
+.arabic-font h3 {
+    font-family: var(--arabic-font) !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0 !important;
+}
+
+/* تحسين النصوص العادية */
+.arabic-font p,
+.arabic-font span,
+.arabic-font div {
+    font-family: var(--arabic-font) !important;
+    line-height: 1.7 !important;
+}
+
+/* تحسين الأرقام العربية */
+.arabic-font .counter,
+.arabic-font .price,
+.arabic-font .number {
+    font-feature-settings: "tnum" 1;
+    font-variant-numeric: tabular-nums;
+}
+
+/* تحسين الأيقونات في القائمة الجانبية */
+.arabic-font .side-menu .fas,
+.arabic-font .side-menu .far {
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين أيقونات اللغة */
+.arabic-font .language-option .flag {
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين الأيقونات في الإشعارات */
+.arabic-font .notification .fas {
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين أيقونات الأمان */
+.arabic-font .security-item .fas,
+.arabic-font .badge .fas {
+    margin-left: 6px !important;
+    margin-right: 0 !important;
+}
+
+/* تحسين متجاوب للجوال */
+@media (max-width: 768px) {
+    .arabic-font {
+        font-size: 14px !important;
+    }
+    
+    .arabic-font h1 {
+        font-size: 24px !important;
+    }
+    
+    .arabic-font h2 {
+        font-size: 20px !important;
+    }
+    
+    .arabic-font .fas,
+    .arabic-font .far {
+        margin-left: 6px !important;
+        margin-right: 0 !important;
+    }
+}

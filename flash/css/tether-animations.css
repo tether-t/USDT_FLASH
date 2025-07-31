@@ -1,0 +1,458 @@
+/* رسوم متحركة وتأثيرات بصرية لهوية Tether */
+
+/* ===== الرسوم المتحركة الأساسية ===== */
+@keyframes tether-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+@keyframes tether-glow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(38, 161, 123, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(38, 161, 123, 0.8), 0 0 35px rgba(0, 212, 170, 0.6);
+    }
+}
+
+@keyframes tether-float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes tether-slide-in {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tether-fade-in-up {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tether-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes tether-bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes tether-shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+/* ===== تطبيق الرسوم المتحركة ===== */
+.tether-glow {
+    animation: tether-glow 3s ease-in-out infinite;
+}
+
+.tether-pulse {
+    animation: tether-pulse 2s ease-in-out infinite;
+}
+
+.tether-float {
+    animation: tether-float 3s ease-in-out infinite;
+}
+
+.tether-slide-in {
+    animation: tether-slide-in 0.8s ease-out;
+}
+
+.tether-fade-in-up {
+    animation: tether-fade-in-up 0.6s ease-out;
+}
+
+.tether-bounce {
+    animation: tether-bounce 2s infinite;
+}
+
+/* ===== تأثيرات التمرير ===== */
+.tether-hover-scale {
+    transition: all 0.3s ease;
+}
+
+.tether-hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.tether-hover-lift {
+    transition: all 0.3s ease;
+}
+
+.tether-hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(38, 161, 123, 0.2);
+}
+
+.tether-hover-glow {
+    transition: all 0.3s ease;
+}
+
+.tether-hover-glow:hover {
+    box-shadow: 0 0 20px rgba(38, 161, 123, 0.6);
+}
+
+/* ===== تأثيرات الشعار ===== */
+.logo-tether-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.logo-tether-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: tether-shimmer 2s infinite;
+}
+
+/* ===== تأثيرات الأزرار المحسنة ===== */
+.tether-button-effect {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #26A17B, #1A8462);
+    border: none;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.tether-button-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s;
+}
+
+.tether-button-effect:hover::before {
+    left: 100%;
+}
+
+.tether-button-effect:hover {
+    background: linear-gradient(45deg, #1A8462, #0E4B36);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(38, 161, 123, 0.4);
+}
+
+/* ===== تأثيرات البطاقات ===== */
+.tether-card-effect {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tether-card-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(38, 161, 123, 0.05),
+        rgba(0, 212, 170, 0.05)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tether-card-effect:hover::before {
+    opacity: 1;
+}
+
+.tether-card-effect:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(38, 161, 123, 0.2);
+}
+
+/* ===== تأثيرات النصوص ===== */
+.tether-text-glow {
+    text-shadow: 0 0 10px rgba(38, 161, 123, 0.5);
+    transition: text-shadow 0.3s ease;
+}
+
+.tether-text-glow:hover {
+    text-shadow: 0 0 20px rgba(38, 161, 123, 0.8);
+}
+
+.tether-text-gradient {
+    background: linear-gradient(45deg, #26A17B, #00D4AA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* ===== تأثيرات الخلفية المتحركة ===== */
+.tether-bg-animated {
+    background: linear-gradient(
+        -45deg,
+        #26A17B,
+        #1A8462,
+        #2775CA,
+        #00D4AA
+    );
+    background-size: 400% 400%;
+    animation: tether-gradient 15s ease infinite;
+}
+
+@keyframes tether-gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ===== تأثيرات الجسيمات ===== */
+.tether-particles {
+    position: relative;
+    overflow: hidden;
+}
+
+.tether-particles::before,
+.tether-particles::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(38, 161, 123, 0.6);
+    border-radius: 50%;
+    animation: tether-float 4s ease-in-out infinite;
+}
+
+.tether-particles::before {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.tether-particles::after {
+    top: 60%;
+    right: 20%;
+    animation-delay: 2s;
+}
+
+/* ===== تأثيرات التحميل ===== */
+.tether-loading {
+    position: relative;
+}
+
+.tether-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(38, 161, 123, 0.3);
+    border-top: 2px solid #26A17B;
+    border-radius: 50%;
+    animation: tether-rotate 1s linear infinite;
+}
+
+/* ===== تأثيرات الإشعارات ===== */
+.tether-notification {
+    background: linear-gradient(135deg, #26A17B, #1A8462);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(38, 161, 123, 0.3);
+    animation: tether-slide-in 0.5s ease-out;
+}
+
+/* ===== تأثيرات الشارات ===== */
+.tether-badge-animated {
+    background: linear-gradient(45deg, #26A17B, #00D4AA);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    animation: tether-pulse 3s ease-in-out infinite;
+}
+
+.tether-badge-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: tether-shimmer 3s infinite;
+}
+
+/* ===== تأثيرات الأيقونات ===== */
+.tether-icon-spin {
+    animation: tether-rotate 2s linear infinite;
+}
+
+.tether-icon-bounce {
+    animation: tether-bounce 1s infinite;
+}
+
+.tether-icon-pulse {
+    animation: tether-pulse 2s ease-in-out infinite;
+}
+
+/* ===== تأثيرات الحدود المتحركة ===== */
+.tether-border-animated {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #26A17B, #00D4AA) border-box;
+}
+
+.tether-border-glow {
+    border: 2px solid #26A17B;
+    box-shadow: 0 0 10px rgba(38, 161, 123, 0.5);
+    animation: tether-glow 3s ease-in-out infinite;
+}
+
+/* ===== تحسينات للشاشات الصغيرة ===== */
+@media (max-width: 768px) {
+    .tether-glow {
+        animation-duration: 4s;
+    }
+    
+    .tether-float {
+        animation-duration: 4s;
+    }
+    
+    .tether-hover-scale:hover {
+        transform: scale(1.02);
+    }
+    
+    .tether-hover-lift:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* ===== تحسينات الأداء ===== */
+@media (prefers-reduced-motion: reduce) {
+    .tether-glow,
+    .tether-pulse,
+    .tether-float,
+    .tether-bounce,
+    .tether-bg-animated,
+    .tether-particles::before,
+    .tether-particles::after,
+    .tether-badge-animated,
+    .tether-icon-spin,
+    .tether-icon-bounce,
+    .tether-icon-pulse,
+    .tether-border-glow {
+        animation: none;
+    }
+    
+    .tether-hover-scale:hover,
+    .tether-hover-lift:hover {
+        transform: none;
+    }
+}
+
+/* ===== تأثيرات خاصة للعناصر المهمة ===== */
+.tether-highlight {
+    position: relative;
+    background: linear-gradient(135deg, #26A17B, #00D4AA);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.tether-highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    animation: tether-rotate 4s linear infinite;
+}
+
+.tether-highlight > * {
+    position: relative;
+    z-index: 1;
+}
