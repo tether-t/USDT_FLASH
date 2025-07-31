@@ -1,0 +1,999 @@
+/* 📱 Side Menu Styles */
+/* أنماط القائمة الجانبية */
+
+.menu-toggle-btn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+    position: relative;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle-btn {
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+    
+    .menu-toggle-btn i {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-toggle-btn {
+        padding: 8px 10px;
+        border-radius: 8px;
+    }
+    
+    .menu-toggle-btn i {
+        font-size: 14px;
+    }
+}
+
+.menu-toggle-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -380px;
+    width: 380px;
+    height: 100vh;
+    background: linear-gradient(135deg, #0a0f1c 0%, #1a2332 25%, #26a17b 50%, #1a2332 75%, #0a0f1c 100%);
+    z-index: 999999;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow-y: auto;
+    box-shadow: -15px 0 50px rgba(0,0,0,0.8), inset 0 0 120px rgba(38, 161, 123, 0.15);
+    border-left: 4px solid #26a17b;
+    opacity: 1 !important;
+    filter: none !important;
+    backdrop-filter: blur(20px);
+}
+
+.side-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: 80px 80px;
+    background-repeat: repeat;
+    background-position: 0 0;
+    opacity: 0.03;
+    animation: backgroundFloat 20s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes backgroundFloat {
+    0%, 100% { background-position: 0 0; }
+    25% { background-position: 20px 10px; }
+    50% { background-position: -10px 20px; }
+    75% { background-position: 15px -5px; }
+}
+
+.side-menu.open {
+    right: 0;
+}
+
+.side-menu-header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 3px solid #26a17b;
+    background: linear-gradient(135deg, #0a0f1c, #1a2332);
+    box-shadow: 0 4px 20px rgba(38, 161, 123, 0.4);
+    position: relative;
+}
+
+.side-menu-header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.tether-official-badge {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #26a17b, #1a8462);
+    padding: 8px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3);
+    animation: officialGlow 2s ease-in-out infinite alternate;
+}
+
+.tether-official-badge img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.tether-official-badge span {
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@keyframes officialGlow {
+    0% { box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3); }
+    100% { box-shadow: 0 6px 25px rgba(38, 161, 123, 0.6); }
+}
+
+.verification-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.verification-badge {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(38, 161, 123, 0.3);
+}
+
+.verification-badge i {
+    color: #26a17b;
+    font-size: 10px;
+    margin-right: 4px;
+}
+
+.verification-badge span {
+    color: #e2e8f0;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.side-menu-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #26a17b, transparent);
+    animation: headerGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes headerGlow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.side-menu-header h3 {
+    color: #26a17b;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(38, 161, 123, 0.5);
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.side-menu-header h3::before {
+    content: '⬢';
+    color: #26a17b;
+    margin-right: 8px;
+    font-size: 16px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.close-btn {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.side-menu-content {
+    padding: 20px;
+}
+
+.tether-security-section {
+    background: linear-gradient(135deg, rgba(38, 161, 123, 0.15), rgba(26, 35, 50, 0.3));
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(38, 161, 123, 0.3);
+}
+
+.tether-security-section h4 {
+    color: #26a17b;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.security-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.security-item {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(38, 161, 123, 0.2);
+}
+
+.security-item i {
+    color: #26a17b;
+    font-size: 12px;
+    margin-right: 6px;
+    width: 16px;
+    text-align: center;
+}
+
+.security-item span {
+    color: #e2e8f0;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.official-links {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(26, 35, 50, 0.3));
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.official-links h4 {
+    color: #3b82f6;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.official-link {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    text-decoration: none;
+    color: #e2e8f0;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    transition: all 0.3s ease;
+}
+
+.official-link:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #3b82f6;
+    transform: translateX(-3px);
+}
+
+.official-link i {
+    color: #3b82f6;
+    font-size: 12px;
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+}
+
+.license-info {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(26, 35, 50, 0.3));
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    text-align: center;
+}
+
+.license-info h4 {
+    color: #a855f7;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.license-number {
+    color: #e2e8f0;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.license-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #26a17b;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.license-status i {
+    margin-right: 4px;
+    animation: pulse 2s infinite;
+}
+
+/* إضافة تأثير الثقة والمصداقية */
+.trust-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(45deg, #26a17b, #1a8462);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(38, 161, 123, 0.4);
+    animation: trustPulse 3s ease-in-out infinite;
+}
+
+@keyframes trustPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 2px 10px rgba(38, 161, 123, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 20px rgba(38, 161, 123, 0.8); }
+}
+
+/* تحسين الخطوط والألوان */
+.side-menu h3 {
+    position: relative;
+}
+
+.side-menu h3::after {
+    content: 'OFFICIAL';
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: officialBadge 2s ease-in-out infinite alternate;
+}
+
+@keyframes officialBadge {
+    0% { opacity: 0.8; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* تأثيرات إضافية للعناصر الرسمية */
+.tether-official-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(38, 161, 123, 0.5);
+}
+
+.verification-badge:hover {
+    background: rgba(38, 161, 123, 0.2);
+    border-color: rgba(38, 161, 123, 0.6);
+    transform: translateY(-2px);
+}
+
+.security-item:hover {
+    background: rgba(38, 161, 123, 0.15);
+    border-color: rgba(38, 161, 123, 0.4);
+    transform: scale(1.02);
+}
+
+.license-info:hover {
+    border-color: rgba(168, 85, 247, 0.6);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+}
+
+/* تأثير النبض للعناصر المهمة */
+.tether-official-badge,
+.license-status,
+.security-badge {
+    animation: importantPulse 3s ease-in-out infinite;
+}
+
+@keyframes importantPulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3);
+    }
+    50% { 
+        transform: scale(1.02);
+        box-shadow: 0 6px 25px rgba(38, 161, 123, 0.6);
+    }
+}
+
+/* تحسين النصوص */
+.side-menu {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tether-official-badge span,
+.verification-badge span,
+.security-item span {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثير الإضاءة */
+.side-menu-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #26a17b, transparent);
+    animation: lightSweep 4s ease-in-out infinite;
+}
+
+@keyframes lightSweep {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Notification Dots */
+.notification-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+    animation: notificationPulse 2s infinite;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+}
+
+.notification-dot-menu {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 6px;
+    height: 6px;
+    background: #ef4444;
+    border-radius: 50%;
+    animation: notificationPulse 2s infinite;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+}
+
+@keyframes notificationPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1.2);
+    }
+}
+
+/* تحسينات اللمس للهاتف المحمول */
+@media (max-width: 768px) {
+    .nav-option,
+    .language-option,
+    .auth-option,
+    .official-link {
+        min-height: 44px;
+        -webkit-tap-highlight-color: rgba(38, 161, 123, 0.2);
+        touch-action: manipulation;
+    }
+    
+    .nav-option:active,
+    .language-option:active,
+    .auth-option:active,
+    .official-link:active {
+        background: rgba(38, 161, 123, 0.3);
+        transform: scale(0.98);
+    }
+    
+    .menu-toggle-btn {
+        -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
+        touch-action: manipulation;
+    }
+    
+    .menu-toggle-btn:active {
+        transform: scale(0.95);
+    }
+    
+    .close-btn {
+        min-width: 44px;
+        min-height: 44px;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+        touch-action: manipulation;
+    }
+    
+    .close-btn:active {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0.95);
+    }
+    
+    /* تحسين التمرير على الهاتف */
+    .side-menu {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+    
+    /* منع التكبير عند الضغط المزدوج */
+    .side-menu * {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* استثناء النصوص القابلة للنسخ */
+    .license-number {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+}
+
+/* تحسين التمرير */
+.side-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.side-menu::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.side-menu::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #26a17b, #1a8462);
+    border-radius: 3px;
+}
+
+.side-menu::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #1a8462, #0f5a3f);
+}
+
+/* تأثير إضافي للعناصر الرسمية */
+.official-element {
+    position: relative;
+    overflow: hidden;
+}
+
+.official-element::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.official-element:hover::before {
+    left: 100%;
+}
+
+.menu-section {
+    margin-bottom: 30px;
+}
+
+.menu-section h4 {
+    color: #26a17b;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-left: 20px;
+    text-shadow: 0 0 8px rgba(38, 161, 123, 0.4);
+}
+
+.menu-section h4::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: #26a17b;
+    font-size: 12px;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.language-options, .nav-options, .auth-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.language-option, .nav-option, .auth-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 18px;
+    background: linear-gradient(135deg, rgba(38, 161, 123, 0.1), rgba(26, 35, 50, 0.3));
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgba(38, 161, 123, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.language-option::before, .nav-option::before, .auth-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(38, 161, 123, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.language-option:hover, .nav-option:hover, .auth-option:hover {
+    background: linear-gradient(135deg, rgba(38, 161, 123, 0.25), rgba(26, 35, 50, 0.4));
+    transform: translateX(-8px) scale(1.02);
+    border-color: rgba(38, 161, 123, 0.6);
+    box-shadow: 0 8px 25px rgba(38, 161, 123, 0.3), inset 0 0 20px rgba(38, 161, 123, 0.1);
+    color: #26a17b;
+}
+
+.language-option:hover::before, .nav-option:hover::before, .auth-option:hover::before {
+    left: 100%;
+}
+
+.language-option .flag {
+    font-size: 18px;
+}
+
+.nav-option i {
+    width: 22px;
+    text-align: center;
+    color: #26a17b;
+    font-size: 18px;
+    text-shadow: 0 0 8px rgba(38, 161, 123, 0.5);
+    transition: all 0.3s ease;
+}
+
+.nav-option:hover i {
+    color: #ffffff;
+    transform: scale(1.2);
+    text-shadow: 0 0 15px rgba(38, 161, 123, 0.8);
+}
+
+.nav-option .badge {
+    margin-left: auto;
+    background: linear-gradient(45deg, #ef4444, #dc2626);
+    color: white;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+    animation: badgePulse 2s infinite;
+}
+
+.nav-option .badge.new {
+    background: linear-gradient(45deg, #26a17b, #1a8462);
+    box-shadow: 0 2px 8px rgba(38, 161, 123, 0.4);
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.menu-overlay {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.menu-overlay::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-image: url('img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    animation: officialSpin 10s linear infinite;
+}
+
+@keyframes officialSpin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.menu-overlay::before {
+    content: 'TETHER AUTHORIZED';
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+    100% { text-shadow: 0 2px 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(38, 161, 123, 0.6); }
+}
+
+.menu-overlay.show {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* إضافة شارة الأمان */
+.security-badge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #26a17b, #1a8462);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.4);
+    z-index: 1000000;
+    animation: securityFloat 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+@media (max-width: 768px) {
+    .security-badge {
+        bottom: 15px;
+        right: 15px;
+        padding: 6px 10px;
+        font-size: 9px;
+        border-radius: 15px;
+    }
+    
+    .security-badge i {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .security-badge {
+        bottom: 10px;
+        right: 10px;
+        padding: 5px 8px;
+        font-size: 8px;
+        gap: 4px;
+        min-height: 32px;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* تحسين العرض على الشاشات الصغيرة جداً */
+    .tether-official-badge img {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .verification-badge i {
+        font-size: 8px;
+    }
+    
+    .security-item i,
+    .official-link i {
+        font-size: 10px;
+        width: 14px;
+    }
+}
+
+.security-badge i {
+    font-size: 12px;
+    animation: securitySpin 4s linear infinite;
+}
+
+@keyframes securityFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes securitySpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* RTL Support */
+.rtl-mode .side-menu {
+    right: auto;
+    left: -350px;
+}
+
+.rtl-mode .side-menu.open {
+    left: 0;
+}
+
+.rtl-mode .language-option:hover, 
+.rtl-mode .nav-option:hover, 
+.rtl-mode .auth-option:hover {
+    transform: translateX(5px);
+}
+
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .side-menu {
+        width: 100vw;
+        right: -100vw;
+    }
+    
+    .rtl-mode .side-menu {
+        left: -100vw;
+    }
+    
+    .side-menu-header {
+        padding: 15px;
+    }
+    
+    .tether-official-badge {
+        padding: 6px 10px;
+        margin-bottom: 8px;
+    }
+    
+    .tether-official-badge span {
+        font-size: 10px;
+    }
+    
+    .verification-badges {
+        gap: 6px;
+    }
+    
+    .verification-badge {
+        padding: 3px 6px;
+    }
+    
+    .verification-badge span {
+        font-size: 8px;
+    }
+    
+    .tether-security-section,
+    .official-links,
+    .license-info {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .security-items {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    
+    .security-item {
+        padding: 6px;
+    }
+    
+    .official-link {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+    
+    .license-number {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    
+    .menu-section h4 {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    
+    .nav-option,
+    .language-option,
+    .auth-option {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .nav-option i {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .side-menu-content {
+        padding: 12px;
+    }
+    
+    .tether-official-badge {
+        padding: 5px 8px;
+    }
+    
+    .tether-official-badge span {
+        font-size: 9px;
+    }
+    
+    .verification-badge span {
+        font-size: 7px;
+    }
+    
+    .security-item span,
+    .official-link span {
+        font-size: 9px;
+    }
+    
+    .license-number {
+        font-size: 9px;
+    }
+    
+    .nav-option,
+    .language-option,
+    .auth-option {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}

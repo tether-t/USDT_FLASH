@@ -1,0 +1,80 @@
+/* أيقونة الإشعارات في الهيدر */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff0000;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid white;
+    animation: badgePulse 1.5s infinite;
+    z-index: 10;
+}
+
+/* تأثيرات أيقونة الإشعارات */
+.icon-item:has(.notification-badge[style*="flex"]) .fa-bell {
+    animation: bellRing 2s infinite;
+    color: #ffa726 !important;
+}
+
+.icon-item:hover .fa-bell {
+    color: #ff6b6b !important;
+    transform: scale(1.1);
+}
+
+@keyframes bellRing {
+    0%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(-10deg); }
+    20%, 40% { transform: rotate(10deg); }
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* تأثيرات إضافية */
+.notifications-icon::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 3s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* للهواتف المحمولة */
+@media (max-width: 768px) {
+    .notifications-icon {
+        top: 15px;
+        left: 15px;
+    }
+    
+    .notifications-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .notifications-btn i {
+        font-size: 20px;
+    }
+    
+    .notification-badge {
+        width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
+}

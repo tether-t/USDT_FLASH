@@ -1,0 +1,111 @@
+/* الحل النهائي لمشكلة الطبقة الخضراء */
+
+/* إزالة جميع الخلفيات الخضراء بشكل نهائي */
+* {
+    background-image: none !important;
+}
+
+/* إعادة تعيين الخلفيات الأساسية */
+body {
+    background: #f9fafb !important;
+}
+
+/* إصلاح خلفية القسم الرئيسي */
+.gradient-bg,
+section.gradient-bg,
+#main-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* إزالة جميع العناصر الزائفة التي قد تحتوي على خلفيات خضراء */
+.gradient-bg::before,
+.gradient-bg::after,
+.packages-bg::before,
+.packages-bg::after,
+#pricing::before,
+#pricing::after,
+.tether-package::before,
+.tether-package::after {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    background: none !important;
+    background-image: none !important;
+    background-color: transparent !important;
+}
+
+/* إصلاح خلفية قسم الباقات */
+.packages-bg,
+#pricing {
+    background: #f9fafb !important;
+    background-image: none !important;
+}
+
+/* إزالة أي فلاتر خضراء */
+.tether-package:first-child::before,
+.tether-package.professional::before,
+.tether-package.enterprise::before {
+    filter: none !important;
+    display: none !important;
+}
+
+/* إصلاح للشاشات الكبيرة */
+@media (min-width: 769px) {
+    /* إزالة أي خلفيات خضراء قد تظهر على الحاسوب فقط */
+    body,
+    html,
+    main,
+    section,
+    div,
+    article,
+    aside {
+        background-color: transparent !important;
+    }
+    
+    /* إعادة تعيين الخلفيات المطلوبة */
+    body {
+        background: #f9fafb !important;
+    }
+    
+    .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    }
+    
+    footer {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+    }
+    
+    .package-card {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
+}
+
+/* الحفاظ على الألوان المطلوبة للعناصر التفاعلية */
+.text-green-400,
+.text-green-500,
+.text-green-600,
+.text-green-700 {
+    color: #10b981 !important;
+}
+
+button.bg-green-500,
+button.bg-green-600,
+.btn-success {
+    background-color: #10b981 !important;
+}
+
+button.bg-green-500:hover,
+button.bg-green-600:hover,
+.btn-success:hover {
+    background-color: #059669 !important;
+}
+
+/* السماح بألوان Tether في الأماكن المناسبة */
+.bg-gradient-to-r.from-green-50.to-blue-50 {
+    background: linear-gradient(to right, rgba(38, 161, 123, 0.1), #dbeafe) !important;
+}
+
+.border-green-200,
+.border-green-300 {
+    border-color: rgba(38, 161, 123, 0.3) !important;
+}
