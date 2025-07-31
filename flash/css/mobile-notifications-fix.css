@@ -1,0 +1,64 @@
+/* إصلاح أيقونة الإشعارات للهواتف */
+@media (max-width: 768px) {
+    .pro-nav-icon {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        min-width: 60px !important;
+        max-width: 60px !important;
+        width: 60px !important;
+        height: 60px !important;
+        margin: 0 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .nav-icons-section {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        flex-wrap: nowrap !important;
+        overflow: visible !important;
+        position: relative !important;
+    }
+    
+    .icon-wrapper {
+        position: relative !important;
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 15px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .notifications-icon .icon-wrapper {
+        background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    }
+    
+    .icon-pulse {
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: 15px !important;
+        background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+    }
+}
+
+/* إصلاح إضافي للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+    .pro-nav-icon {
+        min-width: 55px !important;
+        max-width: 55px !important;
+        width: 55px !important;
+        height: 55px !important;
+    }
+    
+    .icon-wrapper {
+        width: 45px !important;
+        height: 45px !important;
+    }
+}

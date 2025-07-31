@@ -1,0 +1,263 @@
+/* ألوان النصوص المتدرجة والحديثة */
+
+/* العناوين الرئيسية */
+h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+}
+
+/* عناوين خاصة للصفحة الرئيسية */
+.hero-title, .main-title {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص العادية */
+p, span, div, li {
+    color: #2d3748 !important;
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص البيضاء */
+.text-white, .text-white p, .text-white span, .text-white div {
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 50%, #edf2f7 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص الخضراء */
+.text-green-400, .text-green-500, .text-green-600, .text-green-700 {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 50%, #2f855a 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص الزرقاء */
+.text-blue-400, .text-blue-500, .text-blue-600, .text-blue-700 {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 50%, #2c5282 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص البنفسجية */
+.text-purple-400, .text-purple-500, .text-purple-600, .text-purple-700 {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 50%, #553c9a 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص الذهبية */
+.text-yellow-400, .text-yellow-500, .text-yellow-600 {
+    background: linear-gradient(135deg, #f6e05e 0%, #ecc94b 50%, #d69e2e 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص الحمراء */
+.text-red-400, .text-red-500, .text-red-600, .text-red-700 {
+    background: linear-gradient(135deg, #fc8181 0%, #f56565 50%, #e53e3e 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* النصوص الرمادية */
+.text-gray-400, .text-gray-500, .text-gray-600, .text-gray-700, .text-gray-800 {
+    background: linear-gradient(135deg, #a0aec0 0%, #718096 50%, #4a5568 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* أسعار الباقات */
+.price-text, .text-4xl, .text-5xl {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 900 !important;
+}
+
+/* نصوص الأزرار */
+button, .btn, .button {
+    color: #ffffff !important;
+}
+
+/* نصوص القوائم */
+.nav-link, .menu-item {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص التذييل */
+footer p, footer span, footer div, footer li {
+    background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 50%, #a0aec0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص الشهادات */
+.testimonial-slide p {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #718096 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص الميزات */
+.feature-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص الإحصائيات */
+.counter, .stat-number {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 900 !important;
+}
+
+/* نصوص الدردشة */
+.chat-message {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص خاصة للعربية */
+[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] div {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #667eea 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* تأثيرات إضافية للنصوص المهمة */
+.important-text, .highlight-text {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 50%, #42a5f5 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+/* نصوص الأسعار المميزة */
+.special-price {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ff6b6b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 800 !important;
+}
+
+/* نصوص العروض */
+.offer-text {
+    background: linear-gradient(135deg, #ff4757 0%, #ff6348 50%, #ffa502 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص الأمان */
+.security-text {
+    background: linear-gradient(135deg, #2ed573 0%, #1e90ff 50%, #7b68ee 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* تأثيرات الحركة للنصوص */
+@keyframes textGlow {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.2);
+    }
+}
+
+.animated-text {
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    h1, h2, h3 {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    p, span, div {
+        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+}
+
+/* تأثيرات خاصة للعناوين الكبيرة */
+.mega-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 200% 200% !important;
+    animation: gradientShift 4s ease-in-out infinite !important;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* نصوص الإشعارات */
+.notification-text {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص التحذيرات */
+.warning-text {
+    background: linear-gradient(135deg, #ffa726 0%, #ff6b6b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص النجاح */
+.success-text {
+    background: linear-gradient(135deg, #2ed573 0%, #1e90ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}

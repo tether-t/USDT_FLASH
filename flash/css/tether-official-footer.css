@@ -1,0 +1,179 @@
+/* OFFICIAL TETHER USDT FOOTER - AUTHORIZED BY TETHER OPERATIONS LIMITED */
+
+.tether-official-footer-bar {
+  background: linear-gradient(135deg, #26A17B 0%, #1A8462 30%, #0F5132 70%, #26A17B 100%);
+  color: white;
+  padding: 18px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 -4px 25px rgba(38, 161, 123, 0.6);
+  margin-top: 20px;
+  border-top: 3px solid #FFD700;
+}
+
+.tether-official-footer-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  animation: footerShine 3s infinite;
+}
+
+.tether-footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  position: relative;
+  z-index: 2;
+}
+
+.tether-footer-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid #FFD700;
+  animation: footerLogoGlow 2s infinite;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+}
+
+.footer-official-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 20px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.footer-verified-badge {
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #000;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid #FFF;
+  animation: footerBadgePulse 2s infinite;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.7);
+}
+
+.footer-security-items {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.footer-security-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 22px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+}
+
+.footer-security-item i {
+  font-size: 18px;
+  color: #FFD700;
+  animation: footerIconGlow 2.5s ease-in-out infinite;
+}
+
+.footer-live-status {
+  background: linear-gradient(45deg, #10B981, #059669);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 900;
+  animation: footerLivePulse 1.2s infinite;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+  border: 2px solid #FFF;
+}
+
+@keyframes footerShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes footerLogoGlow {
+  0%, 100% { 
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), 0 0 50px rgba(38, 161, 123, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 35px rgba(255, 215, 0, 1), 0 0 70px rgba(38, 161, 123, 0.6);
+    transform: scale(1.12);
+  }
+}
+
+@keyframes footerBadgePulse {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.7);
+  }
+  50% { 
+    transform: scale(1.06);
+    box-shadow: 0 6px 30px rgba(255, 215, 0, 0.9);
+  }
+}
+
+@keyframes footerIconGlow {
+  0%, 100% { 
+    color: #FFD700;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.8);
+    transform: translateY(0px);
+  }
+  50% { 
+    color: #FFF;
+    text-shadow: 0 0 25px rgba(255, 215, 0, 1);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes footerLivePulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .tether-footer-content {
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 20px;
+  }
+  
+  .footer-official-text {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .footer-security-items {
+    gap: 15px;
+    font-size: 13px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tether-footer-logo {
+    width: 38px;
+    height: 38px;
+  }
+}

@@ -1,0 +1,122 @@
+/* تحسين ألوان قسم Why Choose USDT-FLASH */
+
+/* العنوان الرئيسي */
+section h2[class*="Why Choose"] {
+    background: linear-gradient(135deg, #1e40af, #7c3aed, #059669) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    font-weight: 900 !important;
+}
+
+/* النص التوضيحي */
+section p[class*="text-center"] {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    color: #1f2937 !important;
+    border: 2px solid #3b82f6 !important;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15) !important;
+    font-weight: 600 !important;
+}
+
+/* تحسين قسم المقارنة */
+.comparison-container {
+    background: linear-gradient(135deg, #f0f9ff, #ede9fe, #ecfdf5) !important;
+    border: 3px solid #3b82f6 !important;
+}
+
+.comparison-container h3 {
+    background: linear-gradient(135deg, #1e40af, #7c3aed) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* عناصر المقارنة */
+.comparison-item {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    border: 2px solid transparent !important;
+    background-clip: padding-box !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 1rem !important;
+}
+
+.comparison-item:nth-child(1) {
+    border-left: 4px solid #10b981 !important;
+}
+
+.comparison-item:nth-child(2) {
+    border-left: 4px solid #3b82f6 !important;
+}
+
+.comparison-item:nth-child(3) {
+    border-left: 4px solid #7c3aed !important;
+}
+
+.comparison-item:nth-child(4) {
+    border-left: 4px solid #ef4444 !important;
+}
+
+.comparison-item:nth-child(5) {
+    border-left: 4px solid #14b8a6 !important;
+}
+
+.comparison-item:nth-child(6) {
+    border-left: 4px solid #f59e0b !important;
+}
+
+.comparison-item span {
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+}
+
+.comparison-item i {
+    font-size: 1.5rem !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* تحسين الأسئلة الشائعة */
+.faq-item {
+    background: linear-gradient(135deg, #ffffff, #f8fafc) !important;
+    border: 2px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    margin-bottom: 1rem !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.faq-question {
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+}
+
+.faq-answer p {
+    color: #4b5563 !important;
+    font-weight: 500 !important;
+    line-height: 1.7 !important;
+}
+
+/* تأثيرات التمرير */
+.comparison-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    border-color: #3b82f6 !important;
+}
+
+/* للهواتف المحمولة */
+@media (max-width: 768px) {
+    section h2[class*="Why Choose"] {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .comparison-item span {
+        font-size: 1rem !important;
+    }
+    
+    .comparison-item i {
+        font-size: 1.3rem !important;
+    }
+}

@@ -1,0 +1,95 @@
+/* تحسين عرض النصوص البيضاء في الصفحة الرئيسية */
+
+/* النصوص البيضاء العامة */
+.text-white {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    font-weight: 500 !important;
+}
+
+/* النصوص الرمادية الفاتحة */
+.text-gray-100, .text-gray-200, .text-gray-300 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* تحسين النصوص في الأقسام المظلمة */
+section[style*="background: linear-gradient"] .text-white,
+section[style*="background: linear-gradient"] .text-gray-300,
+section[style*="background: linear-gradient"] .text-gray-200,
+section[style*="background: linear-gradient"] .text-gray-100 {
+    color: #ffffff !important;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4) !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+}
+
+/* تحسين النصوص في Hero Section */
+#main-content .text-white,
+#main-content .text-gray-100 {
+    color: #ffffff !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+    font-weight: 600 !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    padding: 0 1rem !important;
+    text-align: center !important;
+}
+
+/* تحسين النصوص في أقسام البطاقات */
+.py-20 .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* تحسين النقاط والعناصر الصغيرة */
+.text-white/80 {
+    color: #ffffff !important;
+    opacity: 0.95 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* تحسين النصوص في الأزرار والعناصر التفاعلية */
+span.text-white {
+    font-weight: 600 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* تحسين النصوص الصغيرة */
+.text-sm.text-white,
+.text-xs.text-white {
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* تحسين النصوص الكبيرة */
+.text-xl.text-white,
+.text-2xl.text-white {
+    font-weight: 600 !important;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+    line-height: 1.5 !important;
+}
+
+/* تحسين النصوص في الخلفيات المتدرجة */
+.gradient-bg .text-white,
+.packages-bg .text-white {
+    color: #ffffff !important;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5) !important;
+    font-weight: 600 !important;
+}
+
+/* تحسين النصوص للهواتف المحمولة */
+@media (max-width: 768px) {
+    .text-white {
+        font-size: 1.1em !important;
+        line-height: 1.6 !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+    }
+    
+    .text-xl.text-white {
+        font-size: 1.3em !important;
+        line-height: 1.5 !important;
+    }
+}

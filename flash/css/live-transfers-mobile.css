@@ -1,0 +1,533 @@
+/* 🔴 Live Wallet Transfers - Mobile Floating Icon */
+
+/* الأيقونة العائمة للهواتف */
+.live-transfers-mobile-icon {
+    display: none !important;
+}
+
+.live-transfers-mobile-icon i {
+    position: relative;
+    z-index: 2;
+}
+
+.live-transfers-mobile-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 35px rgba(239, 68, 68, 0.6);
+}
+
+/* شارة LIVE */
+.live-transfers-mobile-icon::before {
+    content: 'LIVE';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #10b981;
+    color: white;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    animation: pulse-green 1.5s infinite;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+    z-index: 3;
+}
+
+/* عداد المعاملات */
+.transfers-count-badge {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: #f59e0b;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    animation: bounce 2s infinite;
+    z-index: 3;
+}
+
+/* نافذة المعاملات المنبثقة */
+.live-transfers-popup {
+    display: none !important;
+}
+
+.live-transfers-popup.show {
+    transform: translateY(0);
+}
+
+/* رأس النافذة */
+.popup-header {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: between;
+    position: relative;
+}
+
+.popup-title {
+    flex: 1;
+    text-align: center;
+}
+
+.popup-title h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.live-indicator {
+    background: #10b981;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    animation: pulse-green 1.5s infinite;
+}
+
+.close-popup {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.close-popup:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* محتوى المعاملات */
+.transfers-content {
+    padding: 0;
+    max-height: calc(70vh - 80px);
+    overflow-y: auto;
+}
+
+/* عنصر المعاملة */
+.transfer-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideInRight 0.5s ease;
+}
+
+.transfer-item:last-child {
+    border-bottom: none;
+}
+
+/* صورة المستخدم */
+.transfer-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    border: 2px solid #e5e7eb;
+}
+
+.transfer-avatar.enterprise {
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.transfer-avatar.pro {
+    background: linear-gradient(135deg, #10b981, #047857);
+}
+
+.transfer-avatar.basic {
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+
+/* تفاصيل المعاملة */
+.transfer-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.transfer-user {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 15px;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transfer-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+.transfer-amount {
+    font-weight: 700;
+    color: #059669;
+    font-size: 14px;
+}
+
+/* شارة الحزمة */
+.package-badge-mobile {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.package-badge-mobile.enterprise {
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+.package-badge-mobile.pro {
+    background: linear-gradient(135deg, #10b981, #047857);
+}
+
+.package-badge-mobile.basic {
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+
+/* وقت المعاملة */
+.transfer-time {
+    font-size: 11px;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+/* الأنيميشن */
+@keyframes pulse-red {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(239, 68, 68, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes pulse-green {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* تأثير الدوران للأيقونة */
+.live-transfers-mobile-icon.updating {
+    animation: spin 1s linear infinite;
+}
+
+/* تحسين النص العربي */
+[lang="ar"] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* إخفاء على الشاشات الكبيرة */
+@media (min-width: 769px) {
+    .live-transfers-mobile-icon,
+    .live-transfers-popup {
+        display: none !important;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة جداً */
+@media (max-width: 480px) {
+    .live-transfers-mobile-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+        top: 45%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+    
+    .popup-header {
+        padding: 15px;
+    }
+    
+    .popup-title h3 {
+        font-size: 16px;
+    }
+    
+    .transfer-item {
+        padding: 12px 15px;
+    }
+    
+    .transfer-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+/* تأثيرات إضافية للأيقونة */
+.live-transfers-mobile-icon:active {
+    transform: scale(0.95);
+}
+
+/* تحسين شريط التمرير */
+.transfers-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.transfers-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.transfers-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+}
+
+/* تأثير الظهور التدريجي للمعاملات */
+.transfer-item.new {
+    animation: slideInUp 0.5s ease;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تحسين عرض الأرقام العربية */
+.transfer-amount[lang="ar"] {
+    direction: ltr;
+    text-align: right;
+}
+
+/* إضافة تأثير النبض للمعاملات الجديدة */
+.transfer-item.highlight {
+    background: linear-gradient(90deg, #fef3c7, #ffffff, #fef3c7);
+    animation: highlightFade 3s ease;
+}
+
+@keyframes highlightFade {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* تأثير الخلفية المظلمة */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* تأثير الموجة عند النقر */
+.live-transfers-mobile-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    z-index: 1;
+}
+
+.live-transfers-mobile-icon.ripple::after {
+    width: 120px;
+    height: 120px;
+}
+
+/* مؤشر التحديث */
+.refresh-indicator {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 16px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* تحسين الرأس */
+.popup-header {
+    position: relative;
+}
+
+/* رسالة فارغة */
+.empty-transfers {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+}
+
+.empty-transfers i {
+    font-size: 48px;
+    color: #d1d5db;
+    margin-bottom: 16px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.empty-transfers h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.empty-transfers p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* تأثير التحميل */
+.loading-transfers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #6b7280;
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #e5e7eb;
+    border-top: 2px solid #ef4444;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+/* إضافة مؤشر الاتصال */
+.connection-status {
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.connection-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* تحسين عرض الوقت */
+.transfer-time.recent {
+    color: #10b981;
+    font-weight: 600;
+}
+
+/* تأثير للمعاملات الكبيرة */
+.transfer-item.enterprise .transfer-amount {
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+.transfer-item.pro .transfer-amount {
+    background: linear-gradient(135deg, #10b981, #047857);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
