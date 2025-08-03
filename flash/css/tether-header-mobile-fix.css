@@ -1,0 +1,229 @@
+/* Tether Official Header Mobile Fix */
+
+/* Mobile responsive fixes for Tether official header */
+@media (max-width: 768px) {
+    .tether-official-header {
+        padding: 10px 0 !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+    
+    .tether-official-header::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .tether-official-content {
+        min-width: max-content !important;
+        width: max-content !important;
+        padding: 0 15px !important;
+        gap: 20px !important;
+        justify-content: flex-start !important;
+    }
+    
+    .tether-logo-official {
+        width: 35px !important;
+        height: 35px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .official-text {
+        font-size: 16px !important;
+        gap: 10px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .verified-badge {
+        padding: 4px 12px !important;
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .security-indicators {
+        gap: 12px !important;
+        font-size: 12px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .security-item {
+        padding: 4px 10px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .live-status {
+        padding: 3px 10px !important;
+        font-size: 11px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Add scroll hint for Tether header */
+    .tether-official-header::after {
+        content: '← اسحب لرؤية المزيد →' !important;
+        position: absolute !important;
+        bottom: -18px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: rgba(38, 161, 123, 0.9) !important;
+        color: white !important;
+        padding: 2px 8px !important;
+        border-radius: 8px !important;
+        font-size: 0.6rem !important;
+        z-index: 1001 !important;
+        animation: tetherScrollHint 2s infinite !important;
+        pointer-events: none !important;
+    }
+    
+    @keyframes tetherScrollHint {
+        0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
+        50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+    }
+    
+    /* Hide scroll hint after scrolling */
+    .tether-official-header.scrolled::after {
+        display: none !important;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+    .tether-official-header {
+        padding: 8px 0 !important;
+    }
+    
+    .tether-official-content {
+        gap: 15px !important;
+        padding: 0 12px !important;
+    }
+    
+    .tether-logo-official {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .official-text {
+        font-size: 14px !important;
+        gap: 8px !important;
+    }
+    
+    .verified-badge {
+        padding: 3px 10px !important;
+        font-size: 10px !important;
+    }
+    
+    .security-indicators {
+        gap: 10px !important;
+        font-size: 11px !important;
+    }
+    
+    .security-item {
+        padding: 3px 8px !important;
+    }
+    
+    .security-item i {
+        font-size: 12px !important;
+    }
+    
+    .live-status {
+        padding: 2px 8px !important;
+        font-size: 10px !important;
+    }
+}
+
+/* Ultra small mobile */
+@media (max-width: 360px) {
+    .tether-official-content {
+        gap: 12px !important;
+        padding: 0 10px !important;
+    }
+    
+    .official-text {
+        font-size: 13px !important;
+        gap: 6px !important;
+    }
+    
+    .verified-badge {
+        padding: 2px 8px !important;
+        font-size: 9px !important;
+    }
+    
+    .security-indicators {
+        gap: 8px !important;
+        font-size: 10px !important;
+    }
+    
+    .security-item {
+        padding: 2px 6px !important;
+    }
+    
+    .live-status {
+        padding: 2px 6px !important;
+        font-size: 9px !important;
+    }
+}
+
+/* Ensure all elements are visible and properly sized */
+@media (max-width: 768px) {
+    .tether-official-header,
+    .tether-official-content,
+    .tether-logo-official,
+    .official-text,
+    .verified-badge,
+    .security-indicators,
+    .security-item,
+    .live-status {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Prevent text wrapping */
+    .tether-official-header * {
+        white-space: nowrap !important;
+    }
+    
+    /* Smooth scrolling */
+    .tether-official-header {
+        scroll-behavior: smooth !important;
+    }
+}
+
+/* Add gradient indicators for scrollable content */
+@media (max-width: 768px) {
+    .tether-official-header::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 30px !important;
+        height: 100% !important;
+        background: linear-gradient(to left, rgba(38, 161, 123, 0.8), transparent) !important;
+        z-index: 1002 !important;
+        pointer-events: none !important;
+    }
+    
+    /* Left gradient when scrolled */
+    .tether-official-header.scrolled::before {
+        left: 0 !important;
+        right: auto !important;
+        background: linear-gradient(to right, rgba(38, 161, 123, 0.8), transparent) !important;
+    }
+}
+
+/* Touch optimization */
+@media (max-width: 768px) {
+    .tether-official-header {
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: pan-x !important;
+    }
+    
+    .tether-official-content > * {
+        touch-action: none !important;
+        pointer-events: auto !important;
+    }
+}

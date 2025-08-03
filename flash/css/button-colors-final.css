@@ -1,0 +1,80 @@
+/* Final Button Colors - Override All */
+
+/* الباقة الأولى - أخضر */
+.package-card:nth-child(1) button,
+.package-card:nth-child(1) .tether-action-button,
+.package-card:first-child button,
+.package-card:first-child .tether-action-button,
+button[onclick*="basic"],
+button[onclick*="trial"] {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+.package-card:nth-child(1) button:hover,
+.package-card:first-child button:hover {
+    background: linear-gradient(45deg, #059669, #047857) !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* الباقة الثانية - أزرق */
+.package-card:nth-child(2) button,
+.package-card:nth-child(2) .tether-action-button,
+button[onclick*="pro"],
+button[onclick*="professional"] {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+.package-card:nth-child(2) button:hover {
+    background: linear-gradient(45deg, #2563eb, #1d4ed8) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* الباقة الثالثة - بنفسجي */
+.package-card:nth-child(3) button,
+.package-card:nth-child(3) .tether-action-button,
+.package-card:last-child button,
+.package-card:last-child .tether-action-button,
+button[onclick*="enterprise"] {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border-color: #7c3aed !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+.package-card:nth-child(3) button:hover,
+.package-card:last-child button:hover {
+    background: linear-gradient(45deg, #5b21b6, #4c1d95) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* تطبيق على جميع الأزرار داخل الحاويات */
+.packages-container .package-card:nth-child(1) * button {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+}
+
+.packages-container .package-card:nth-child(2) * button {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+}
+
+.packages-container .package-card:nth-child(3) * button {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+}
+
+/* تطبيق على أزرار Tether */
+.tether-package:nth-child(1) .tether-action-button {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+}
+
+.tether-package:nth-child(2) .tether-action-button {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+}
+
+.tether-package:nth-child(3) .tether-action-button {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+}

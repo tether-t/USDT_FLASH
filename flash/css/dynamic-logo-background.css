@@ -1,0 +1,71 @@
+/* Dynamic Logo Background for Packages */
+.tether-package {
+  position: relative;
+  overflow: hidden;
+}
+
+.tether-package::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../img/usdt_cryptocurrencies_icon_188337.png');
+  background-size: 120px 120px;
+  background-repeat: repeat;
+  background-position: 0% 0%;
+  opacity: 0.15;
+  z-index: 1;
+  animation: logoFloat 12s linear infinite;
+}
+
+/* Green for basic package */
+.tether-package:first-child::before {
+  filter: brightness(2) saturate(2) hue-rotate(120deg) drop-shadow(0 0 20px #26A17B);
+}
+
+/* Blue for professional package */
+.tether-package.professional::before {
+  filter: brightness(2) saturate(2) hue-rotate(200deg) drop-shadow(0 0 20px #2775CA);
+}
+
+/* Purple for enterprise package */
+.tether-package.enterprise::before {
+  filter: brightness(2) saturate(2) hue-rotate(280deg) drop-shadow(0 0 20px #6f42c1);
+}
+
+.tether-package > * {
+  position: relative;
+  z-index: 2;
+}
+
+.tether-official-badge,
+.tether-delivery-badge,
+.package-verification-badge {
+  position: absolute;
+  z-index: 10 !important;
+}
+
+@keyframes logoFloat {
+  0% {
+    background-position: 0% 0%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    background-position: 25% 25%;
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    background-position: 50% 50%;
+    transform: rotate(180deg) scale(0.95);
+  }
+  75% {
+    background-position: 75% 25%;
+    transform: rotate(270deg) scale(1.02);
+  }
+  100% {
+    background-position: 100% 0%;
+    transform: rotate(360deg) scale(1);
+  }
+}

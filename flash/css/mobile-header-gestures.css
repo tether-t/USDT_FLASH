@@ -1,0 +1,55 @@
+/* Mobile Header Advanced Gestures */
+@media (max-width: 768px) {
+    .ultra-header {
+        scroll-snap-type: x mandatory !important;
+    }
+    
+    .header-container > div {
+        scroll-snap-align: center !important;
+    }
+    
+    /* Double tap to center */
+    .ultra-header.double-tap-center {
+        scroll-behavior: smooth !important;
+        transition: scroll-left 0.3s ease !important;
+    }
+    
+    /* Haptic feedback simulation */
+    .ultra-header.haptic-feedback {
+        animation: vibrate 0.1s !important;
+    }
+    
+    @keyframes vibrate {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-1px); }
+        75% { transform: translateX(1px); }
+    }
+    
+    /* Smart auto-hide on scroll down */
+    .ultra-header.auto-hide {
+        transform: translateY(-100%) !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    /* Memory position indicator */
+    .header-position-memory {
+        position: absolute !important;
+        bottom: -15px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 40px !important;
+        height: 2px !important;
+        background: rgba(38, 161, 123, 0.5) !important;
+        border-radius: 1px !important;
+    }
+    
+    .header-position-memory::after {
+        content: '' !important;
+        position: absolute !important;
+        width: 8px !important;
+        height: 2px !important;
+        background: #26a17b !important;
+        border-radius: 1px !important;
+        transition: left 0.3s ease !important;
+    }
+}

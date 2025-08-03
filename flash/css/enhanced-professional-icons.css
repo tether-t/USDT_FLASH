@@ -1,0 +1,610 @@
+/* 🚀 نظام الأيقونات الاحترافي المحسن - USDT-FLASH */
+/* تصميم احترافي عالي الجودة لجميع أحجام الشاشات */
+
+/* ===== إعدادات الأيقونات الأساسية ===== */
+.icons-bar {
+    position: relative;
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.98) 0%,
+        rgba(30, 41, 59, 0.95) 25%,
+        rgba(51, 65, 85, 0.92) 50%,
+        rgba(30, 41, 59, 0.95) 75%,
+        rgba(15, 23, 42, 0.98) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 24px 0;
+    overflow: hidden;
+}
+
+.icons-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(147, 51, 234, 0.08) 0%, transparent 50%);
+    animation: glow-pulse 8s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ===== حاوي الأيقونات المحسن ===== */
+.icon-item {
+    position: relative;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 120px;
+}
+
+.icon-item:hover {
+    transform: translateY(-12px) scale(1.08);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== الأيقونات الرئيسية المحسنة ===== */
+.icon-item .w-16,
+.icon-item .w-20 {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border: 3px solid transparent !important;
+    background-clip: padding-box !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+.icon-item .fas {
+    font-size: 32px !important;
+    color: white !important;
+    z-index: 3 !important;
+    position: relative !important;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* ===== تأثيرات الإضاءة الداخلية ===== */
+.icon-item .w-16::before,
+.icon-item .w-20::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+    border-radius: 21px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.icon-item:hover .w-16::before,
+.icon-item:hover .w-20::before {
+    opacity: 1;
+}
+
+/* ===== تأثيرات الحدود المتوهجة ===== */
+.icon-item .w-16::after,
+.icon-item .w-20::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 27px;
+    padding: 3px;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.3), 
+        transparent, 
+        rgba(255, 255, 255, 0.3));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.icon-item:hover .w-16::after,
+.icon-item:hover .w-20::after {
+    opacity: 1;
+    animation: border-glow 2s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ===== ألوان الأيقونات المخصصة ===== */
+
+/* أيقونة البطاقات - تدرج أزرق بنفسجي احترافي */
+.icon-item:nth-child(1) .w-16,
+.icon-item:nth-child(1) .w-20 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: rgba(102, 126, 234, 0.4);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.icon-item:nth-child(1):hover .w-16,
+.icon-item:nth-child(1):hover .w-20 {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    border-color: rgba(102, 126, 234, 0.7);
+    box-shadow: 0 20px 48px rgba(102, 126, 234, 0.6),
+                0 0 0 6px rgba(102, 126, 234, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* أيقونة المعاملات المباشرة - تدرج أخضر فيروزي */
+.icon-item:nth-child(2) .w-16,
+.icon-item:nth-child(2) .w-20 {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border-color: rgba(17, 153, 142, 0.4);
+    box-shadow: 0 12px 32px rgba(17, 153, 142, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.icon-item:nth-child(2):hover .w-16,
+.icon-item:nth-child(2):hover .w-20 {
+    background: linear-gradient(135deg, #0d7377 0%, #2dd4bf 100%);
+    border-color: rgba(17, 153, 142, 0.7);
+    box-shadow: 0 20px 48px rgba(17, 153, 142, 0.6),
+                0 0 0 6px rgba(17, 153, 142, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* أيقونة الدعم الفني - تدرج برتقالي أحمر */
+.icon-item:nth-child(3) .w-16,
+.icon-item:nth-child(3) .w-20 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+    border-color: rgba(255, 107, 107, 0.4);
+    box-shadow: 0 12px 32px rgba(255, 107, 107, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.icon-item:nth-child(3):hover .w-16,
+.icon-item:nth-child(3):hover .w-20 {
+    background: linear-gradient(135deg, #ff5252 0%, #ff9800 100%);
+    border-color: rgba(255, 107, 107, 0.7);
+    box-shadow: 0 20px 48px rgba(255, 107, 107, 0.6),
+                0 0 0 6px rgba(255, 107, 107, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* أيقونة الإشعارات - تدرج ذهبي */
+.icon-item:nth-child(4) .w-16,
+.icon-item:nth-child(4) .w-20 {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border-color: rgba(245, 158, 11, 0.4);
+    box-shadow: 0 12px 32px rgba(245, 158, 11, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.icon-item:nth-child(4):hover .w-16,
+.icon-item:nth-child(4):hover .w-20 {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    border-color: rgba(245, 158, 11, 0.7);
+    box-shadow: 0 20px 48px rgba(245, 158, 11, 0.6),
+                0 0 0 6px rgba(245, 158, 11, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* أيقونة الملف الشخصي - تدرج أزرق سماوي */
+.icon-item:nth-child(5) .w-16,
+.icon-item:nth-child(5) .w-20 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-color: rgba(79, 172, 254, 0.4);
+    box-shadow: 0 12px 32px rgba(79, 172, 254, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.2);
+}
+
+.icon-item:nth-child(5):hover .w-16,
+.icon-item:nth-child(5):hover .w-20 {
+    background: linear-gradient(135deg, #2196f3 0%, #00bcd4 100%);
+    border-color: rgba(79, 172, 254, 0.7);
+    box-shadow: 0 20px 48px rgba(79, 172, 254, 0.6),
+                0 0 0 6px rgba(79, 172, 254, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* ===== شارات الإشعارات المحسنة ===== */
+.notification-badge {
+    position: absolute !important;
+    top: -10px !important;
+    right: -10px !important;
+    min-width: 28px !important;
+    height: 28px !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: white !important;
+    border: 4px solid rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    z-index: 10 !important;
+    animation: badge-glow 3s ease-in-out infinite !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.badge-new {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    box-shadow: 0 6px 24px rgba(102, 126, 234, 0.6) !important;
+}
+
+.badge-live {
+    background: linear-gradient(45deg, #11998e, #38ef7d) !important;
+    box-shadow: 0 6px 24px rgba(17, 153, 142, 0.6) !important;
+    animation: live-pulse 1.5s infinite !important;
+}
+
+.badge-support {
+    background: linear-gradient(45deg, #ff6b6b, #ffa726) !important;
+    box-shadow: 0 6px 24px rgba(255, 107, 107, 0.6) !important;
+}
+
+@keyframes badge-glow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes live-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ===== النصوص المحسنة ===== */
+.icon-item .text-white {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s ease !important;
+    letter-spacing: 0.5px !important;
+}
+
+.icon-item .text-xs {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    opacity: 0.9 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.icon-item:hover .text-white {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5),
+                 0 0 15px rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.icon-item:hover .text-xs {
+    opacity: 1 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ===== تأثيرات التفاعل المتقدمة ===== */
+.icon-item:hover .fas {
+    animation: icon-bounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    filter: drop-shadow(0 6px 12px rgba(255, 255, 255, 0.4)) !important;
+}
+
+@keyframes icon-bounce {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-6px) rotate(-3deg) scale(1.1); }
+    50% { transform: translateY(-8px) rotate(3deg) scale(1.2); }
+    75% { transform: translateY(-3px) rotate(-1deg) scale(1.05); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* ===== تأثير الضوء المتحرك ===== */
+.icon-item:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: light-burst 0.8s ease-out;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes light-burst {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+/* ===== تحسينات الأجهزة اللوحية ===== */
+@media (max-width: 1024px) {
+    .icon-item .w-16,
+    .icon-item .w-20 {
+        width: 72px !important;
+        height: 72px !important;
+        border-radius: 20px !important;
+    }
+    
+    .icon-item .fas {
+        font-size: 28px !important;
+    }
+    
+    .notification-badge {
+        min-width: 26px !important;
+        height: 26px !important;
+        font-size: 11px !important;
+    }
+}
+
+/* ===== تحسينات الهواتف الكبيرة ===== */
+@media (max-width: 768px) {
+    .icons-bar {
+        padding: 20px 0;
+    }
+    
+    .icon-item {
+        padding: 10px;
+        min-width: 100px;
+        gap: 10px;
+    }
+    
+    .icon-item .w-16,
+    .icon-item .w-20 {
+        width: 64px !important;
+        height: 64px !important;
+        border-radius: 18px !important;
+        border-width: 2px !important;
+    }
+    
+    .icon-item .fas {
+        font-size: 24px !important;
+    }
+    
+    .icon-item .text-white {
+        font-size: 14px !important;
+    }
+    
+    .icon-item .text-xs {
+        font-size: 11px !important;
+    }
+    
+    .notification-badge {
+        top: -8px !important;
+        right: -8px !important;
+        min-width: 24px !important;
+        height: 24px !important;
+        font-size: 10px !important;
+        border-width: 3px !important;
+    }
+    
+    .icon-item:hover {
+        transform: translateY(-8px) scale(1.05);
+    }
+    
+    .icon-item:active {
+        transform: scale(0.95) translateY(-2px);
+    }
+}
+
+/* ===== تحسينات الهواتف المتوسطة ===== */
+@media (max-width: 640px) {
+    .icon-item {
+        min-width: 90px;
+        gap: 8px;
+    }
+    
+    .icon-item .w-16,
+    .icon-item .w-20 {
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 16px !important;
+    }
+    
+    .icon-item .fas {
+        font-size: 20px !important;
+    }
+    
+    .icon-item .text-white {
+        font-size: 13px !important;
+    }
+    
+    .icon-item .text-xs {
+        font-size: 10px !important;
+    }
+    
+    .notification-badge {
+        min-width: 22px !important;
+        height: 22px !important;
+        font-size: 9px !important;
+    }
+}
+
+/* ===== تحسينات الهواتف الصغيرة ===== */
+@media (max-width: 480px) {
+    .icons-bar {
+        padding: 16px 0;
+    }
+    
+    .icon-item {
+        padding: 8px;
+        min-width: 80px;
+        gap: 6px;
+    }
+    
+    .icon-item .w-16,
+    .icon-item .w-20 {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 14px !important;
+    }
+    
+    .icon-item .fas {
+        font-size: 18px !important;
+    }
+    
+    .icon-item .text-white {
+        font-size: 12px !important;
+    }
+    
+    .icon-item .text-xs {
+        font-size: 9px !important;
+    }
+    
+    .notification-badge {
+        top: -6px !important;
+        right: -6px !important;
+        min-width: 20px !important;
+        height: 20px !important;
+        font-size: 8px !important;
+        border-width: 2px !important;
+    }
+}
+
+/* ===== تحسينات الهواتف الصغيرة جداً ===== */
+@media (max-width: 360px) {
+    .icon-item {
+        min-width: 70px;
+    }
+    
+    .icon-item .w-16,
+    .icon-item .w-20 {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 12px !important;
+    }
+    
+    .icon-item .fas {
+        font-size: 16px !important;
+    }
+    
+    .icon-item .text-white {
+        font-size: 11px !important;
+    }
+    
+    .icon-item .text-xs {
+        font-size: 8px !important;
+    }
+    
+    .notification-badge {
+        min-width: 18px !important;
+        height: 18px !important;
+        font-size: 7px !important;
+    }
+}
+
+/* ===== تحسينات الأداء ===== */
+.icon-item {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.icon-item .w-16,
+.icon-item .w-20 {
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+}
+
+/* ===== تحسينات الوصولية ===== */
+.icon-item:focus {
+    outline: 4px solid rgba(59, 130, 246, 0.6);
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+.icon-item:focus .w-16,
+.icon-item:focus .w-20 {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+}
+
+/* ===== تأثير الموضوع الداكن ===== */
+@media (prefers-color-scheme: dark) {
+    .icons-bar {
+        background: linear-gradient(135deg, 
+            rgba(5, 5, 15, 0.98) 0%,
+            rgba(15, 15, 25, 0.95) 25%,
+            rgba(25, 25, 35, 0.92) 50%,
+            rgba(15, 15, 25, 0.95) 75%,
+            rgba(5, 5, 15, 0.98) 100%);
+    }
+    
+    .icon-item:hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+}
+
+/* ===== تأثير الحركة المخفضة ===== */
+@media (prefers-reduced-motion: reduce) {
+    .icon-item,
+    .icon-item .w-16,
+    .icon-item .w-20,
+    .icon-item .fas,
+    .notification-badge {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .icon-item:hover {
+        transform: none;
+    }
+}
+
+/* ===== تحسينات خاصة للهيدر ===== */
+.ultra-header .icon-item .w-16,
+.ultra-header .icon-item .w-20 {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 12px !important;
+}
+
+.ultra-header .icon-item .fas {
+    font-size: 20px !important;
+}
+
+.ultra-header .notification-badge {
+    top: -4px !important;
+    right: -4px !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    font-size: 8px !important;
+}
+
+/* ===== تأثيرات خاصة للشعار ===== */
+.logo-img {
+    filter: drop-shadow(0 0 20px rgba(38, 161, 123, 0.6)) 
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: all 0.4s ease;
+}
+
+.logo-img:hover {
+    filter: drop-shadow(0 0 30px rgba(38, 161, 123, 0.8)) 
+            drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+    transform: scale(1.05);
+}
