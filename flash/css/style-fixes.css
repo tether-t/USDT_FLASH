@@ -1,0 +1,80 @@
+/* Style fixes for mobile menu and footer */
+
+/* Hide duplicate buttons in footer */
+footer .login-button,
+footer .register-button,
+footer .guest-button,
+footer .mobile-only-buttons {
+    display: none !important;
+}
+
+/* Ensure mobile menu buttons are properly styled */
+.mobile-menu .login-button,
+.mobile-menu .register-button,
+.mobile-menu .guest-button {
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Fix for any other duplicate elements */
+.duplicate-element {
+    display: none !important;
+}
+
+/* Ensure footer is clean */
+footer {
+    overflow: hidden;
+}
+
+/* Mobile menu styling improvements */
+.mobile-menu {
+    padding: 60px 20px;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+/* Fix for any z-index issues */
+.mobile-menu {
+    z-index: 1000;
+}
+
+footer {
+    z-index: 10;
+    position: relative;
+}
+
+/* Profile Page Styles */
+#profile-info .bg-gradient-to-r {
+    background: linear-gradient(45deg, #6ee7b7, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#profile-info .grid div {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+#profile-info .grid div:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.purchase-history-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.purchase-history-item:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,1365 @@
+/* أنماط الباقات المقفلة */
+
+/* Package card styles - Enabled and interactive */
+.package-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    pointer-events: auto;
+    user-select: auto;
+}
+
+
+
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1), 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: inherit;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Interactive effects for packages */
+.package-card:hover::before {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.package-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(38, 161, 123, 0.3);
+    border-color: rgba(38, 161, 123, 0.5);
+}
+
+.package-card:hover .package-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.package-card:hover .gradient-bg-blue,
+.package-card:hover .gradient-bg-green,
+.package-card:hover .gradient-bg-purple {
+    /* لا تأثير عند التمرير */
+    background-size: 100% 100%;
+}
+
+.package-icon {
+    transition: all 0.6s ease;
+    transform-origin: center;
+    position: relative;
+    z-index: 2;
+    color: #26A17B !important;
+}
+
+.package-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(38, 161, 123, 0.3) 0%, rgba(255,255,255,0) 70%);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+    transform: scale(0.5);
+}
+
+.package-card:hover .package-icon::after {
+    opacity: 0.8;
+    transform: scale(1.5);
+    animation: pulse-glow 2s infinite;
+}
+
+.package-feature {
+    transition: all 0.3s ease;
+}
+
+.package-card:hover .package-feature {
+    transform: translateX(-5px);
+}
+
+.package-card:hover .package-btn {
+    animation: pulse 1.5s infinite;
+    transform: translateY(-3px);
+}
+
+.package-btn, .comparison-table button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s ease;
+    border: none;
+    background-size: 200% auto;
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Specific button colors for each package */
+/* Basic Package (49$) - Green */
+.package-card:contains("49") .package-btn,
+.package-card:contains("Trial") .package-btn,
+.package-card:contains("1,000") .package-btn {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Pro Package (149$) - Blue */
+.package-card:contains("149") .package-btn,
+.package-card:contains("Basic") .package-btn,
+.package-card:contains("3,500") .package-btn {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Enterprise Package (399$) - Purple */
+.package-card:contains("399") .package-btn,
+.package-card:contains("Professional") .package-btn,
+.package-card:contains("10,000") .package-btn {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border-color: #7c3aed !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+.package-btn::before, .comparison-table button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+/* Active button effects */
+.package-btn:hover::before, .comparison-table button:hover::before {
+    left: 0;
+}
+
+.package-btn:hover, .comparison-table button:hover {
+    background: linear-gradient(135deg, #1A8462 0%, #0E4B36 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(38, 161, 123, 0.5) !important;
+}
+
+.package-btn:active, .comparison-table button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+}
+
+.selected-package {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.4) !important;
+}
+
+/* تأثير نبض للأزرار */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(38, 161, 123, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(38, 161, 123, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(38, 161, 123, 0);
+    }
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.5);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* تأثير تغير التدرج */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* تدرجات لونية للباقات */
+.gradient-bg-teal {
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%);
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg-blue {
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%);
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg-green {
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%);
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg-amber {
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%);
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg-purple {
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%);
+    background-size: 200% 200%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg-teal::after,
+.gradient-bg-blue::after,
+.gradient-bg-green::after,
+.gradient-bg-amber::after,
+.gradient-bg-purple::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Comparison Table */
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table th {
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+    color: white;
+}
+
+.comparison-table th:nth-child(1) {
+    text-align: left;
+    background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+}
+
+.comparison-table th:nth-child(2) {
+    background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+}
+
+.comparison-table th:nth-child(3) {
+    background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+}
+
+.comparison-table th:nth-child(4) {
+    background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+}
+
+.comparison-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    background-color: #f8fafc;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table .highlight {
+    background-color: rgba(16, 185, 129, 0.05);
+}
+
+.comparison-table .check-icon {
+    color: #10B981;
+    font-size: 18px;
+}
+
+.comparison-table .x-icon {
+    color: #EF4444;
+    font-size: 18px;
+}
+
+.comparison-toggle {
+    transition: all 0.3s ease;
+}
+
+.comparison-toggle:hover {
+    transform: translateY(-3px);
+}
+
+/* تبديل العرض */
+.view-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.view-toggle button {
+    padding: 8px 16px;
+    border: none;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+}
+
+.view-toggle button:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.view-toggle button:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+.view-toggle button.active {
+    background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+    color: white;
+    box-shadow: 0 2px 5px rgba(16, 185, 129, 0.3);
+}
+
+/* تحسينات إضافية للمظهر المستقبلي */
+.packages-container {
+    perspective: 1000px;
+    padding: 2rem 0;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .packages-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+.package-card {
+    min-height: 650px;
+    width: 100%;
+    max-width: none;
+}
+
+.packages-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(38, 161, 123, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.package-card {
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+    animation-delay: calc(var(--card-index, 0) * 0.5s);
+    border-radius: 12px;
+    border: 1px solid rgba(38, 161, 123, 0.2);
+}
+
+.package-card:nth-child(1) { --card-index: 1; }
+.package-card:nth-child(2) { --card-index: 2; }
+.package-card:nth-child(3) { --card-index: 3; }
+.package-card:nth-child(4) { --card-index: 4; }
+.package-card:nth-child(5) { --card-index: 5; }
+
+.package-card .text-4xl {
+    background: linear-gradient(to right, #26A17B, #0E4B36);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.package-card .text-4xl::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(to right, #26A17B, #0E4B36);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(8px);
+    opacity: 0.5;
+}
+
+/* تأثير نيون للعناوين */
+.package-card h3 {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(255, 255, 255, 0.3),
+                 0 0 30px rgba(255, 255, 255, 0.1);
+    letter-spacing: 1px;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    line-height: 1.3;
+    margin: 0.5rem 0;
+}
+
+.package-card .gradient-bg-blue,
+.package-card .gradient-bg-green,
+.package-card .gradient-bg-purple {
+    padding: 1.5rem 1rem;
+}
+
+.package-card .gradient-bg-blue h3,
+.package-card .gradient-bg-green h3,
+.package-card .gradient-bg-purple h3 {
+    font-size: 1.6rem !important;
+    font-weight: 800 !important;
+}
+
+/* تأثير خلفية متحركة */
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#pricing {
+    position: relative;
+    overflow: hidden;
+}
+
+#pricing {
+    background-color: #f8f9fa;
+}
+
+#pricing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(38, 161, 123, 0.03) 25%, transparent 25%, transparent 50%, rgba(38, 161, 123, 0.03) 50%, rgba(38, 161, 123, 0.03) 75%, transparent 75%, transparent);
+    background-size: 100px 100px;
+    animation: backgroundShift 20s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+/* تحسينات إضافية لتشبه موقع Tether */
+.comparison-table th {
+    background: #26A17B !important;
+    color: white;
+    font-weight: 600;
+    border: none;
+}
+
+.comparison-table .highlight {
+    background-color: rgba(38, 161, 123, 0.1) !important;
+}
+
+.comparison-table .check-icon {
+    color: #26A17B !important;
+}
+
+.view-toggle button.active {
+    background: #26A17B !important;
+    color: white;
+    box-shadow: 0 2px 5px rgba(38, 161, 123, 0.3);
+}
+
+/* تنسيق عنوان القسم */
+#pricing h2 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+#pricing h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #26A17B;
+    border-radius: 3px;
+}
+
+/* تنسيق شعار USDT */
+#pricing img {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+#pricing img:hover {
+    transform: scale(1.05);
+}
+/* مظهر مستقبلي جديد */
+.package-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(38, 161, 123, 0.2);
+    box-shadow: 0 8px 32px rgba(38, 161, 123, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        rgba(38, 161, 123, 0.1), 
+        transparent 30%
+    );
+    animation: rotate 4s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+/* Holographic effect */
+.package-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(38, 161, 123, 0.05) 25%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(38, 161, 123, 0.05) 75%,
+        transparent 100%
+    );
+    background-size: 400% 400%;
+    animation: holographic 3s ease infinite;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.package-card:hover::after {
+    opacity: 1;
+}
+
+@keyframes holographic {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Verified badge */
+.package-card .verified-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(38, 161, 123, 0.9);
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 10;
+}
+
+/* Tether security seal */
+.tether-seal {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: url('img/usdt_cryptocurrencies_icon_188337.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.7;
+    z-index: 10;
+}
+
+/* Futuristic pricing section */
+#pricing {
+    position: relative;
+    background: radial-gradient(circle at center, #f8f9fa 0%, #edf2f7 100%);
+}
+
+#pricing::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, rgba(38, 161, 123, 0.03) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(38, 161, 123, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* Futuristic title */
+#pricing h2 {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #26A17B, #0E4B36);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+/* Animated security indicator */
+.security-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto 20px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    width: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(38, 161, 123, 0.2);
+}
+
+.security-pulse {
+    width: 8px;
+    height: 8px;
+    background-color: #26A17B;
+    border-radius: 50%;
+    animation: security-pulse 2s infinite;
+}
+
+@keyframes security-pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(38, 161, 123, 0.7);
+    }
+    70% {
+        transform: scale(1.2);
+        box-shadow: 0 0 0 10px rgba(38, 161, 123, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(38, 161, 123, 0);
+    }
+}
+
+/* ===== عرض Black Friday الخاص ===== */
+
+/* بطاقة Black Friday متطابقة مع الباقات الأخرى */
+.black-friday-special {
+    border: 4px solid #26A17B !important;
+    filter: none !important;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    user-select: auto !important;
+    cursor: pointer !important;
+    order: -1 !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 0 auto 40px auto !important;
+    box-shadow: 
+        0 0 30px rgba(38, 161, 123, 0.5),
+        0 12px 40px rgba(0, 0, 0, 0.2) !important;
+    transform: scale(1.08) !important;
+    background: linear-gradient(145deg, #ffffff, #f8f9fa) !important;
+    animation: black-friday-glow 3s ease-in-out infinite alternate;
+    transition: all 0.3s ease !important;
+}
+
+@keyframes black-friday-glow {
+    0% { 
+        box-shadow: 0 0 30px rgba(38, 161, 123, 0.5), 0 12px 40px rgba(0, 0, 0, 0.2);
+        border-color: #26A17B;
+        transform: scale(1.08);
+    }
+    50% {
+        box-shadow: 0 0 45px rgba(38, 161, 123, 0.7), 0 16px 50px rgba(0, 0, 0, 0.25);
+        border-color: #1A8462;
+        transform: scale(1.09);
+    }
+    100% { 
+        box-shadow: 0 0 35px rgba(38, 161, 123, 0.6), 0 14px 45px rgba(0, 0, 0, 0.22);
+        border-color: #2DD4BF;
+        transform: scale(1.08);
+    }
+}
+
+/* شارة Black Friday */
+.black-friday-badge {
+    background: linear-gradient(45deg, #000000, #26A17B) !important;
+    color: #FFD700 !important;
+    font-size: 0.8rem !important;
+    font-weight: 900 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    animation: badge-pulse 2s infinite;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.black-friday-offer {
+    background: linear-gradient(45deg, #FF0000, #FF6600) !important;
+    color: #FFFFFF !important;
+    font-size: 0.8rem !important;
+    font-weight: 900 !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    animation: offer-flash 1.5s infinite alternate;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3) !important;
+}
+
+@keyframes badge-pulse {
+    0%, 100% { 
+        transform: scale(1); 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    50% { 
+        transform: scale(1.08); 
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+}
+
+@keyframes offer-flash {
+    0% { 
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    100% { 
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* رأس Black Friday */
+.black-friday-header {
+    background: linear-gradient(135deg, #000000, #26A17B, #000000) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.black-friday-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine-sweep 3s infinite;
+}
+
+@keyframes shine-sweep {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.black-friday-header h3 {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: title-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes title-glow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.3); }
+}
+
+/* تأثيرات إضافية بسيطة */
+.black-friday-special:hover {
+    transform: scale(1.12) translateY(-10px) !important;
+    box-shadow: 
+        0 0 50px rgba(38, 161, 123, 0.7),
+        0 20px 45px rgba(0, 0, 0, 0.25) !important;
+    border-color: #1A8462 !important;
+    transition: all 0.3s ease !important;
+}
+
+.black-friday-special:active {
+    transform: scale(1.09) translateY(-5px) !important;
+    box-shadow: 
+        0 0 35px rgba(38, 161, 123, 0.8),
+        0 15px 35px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.1s ease !important;
+}
+
+.black-friday-special .package-icon {
+    animation: icon-bounce 2s infinite;
+}
+
+@keyframes icon-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* تأثيرات الزر */
+.black-friday-special #black-friday-btn {
+    background: linear-gradient(45deg, #26A17B, #1A8462) !important;
+    border: none !important;
+    box-shadow: 
+        0 4px 15px rgba(38, 161, 123, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+}
+
+.black-friday-special #black-friday-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.5s;
+}
+
+.black-friday-special #black-friday-btn:hover::before {
+    left: 100%;
+}
+
+.black-friday-special #black-friday-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 
+        0 6px 20px rgba(38, 161, 123, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.black-friday-special #black-friday-btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 
+        0 2px 10px rgba(38, 161, 123, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* تأكد من أن عرض Black Friday يظهر أولاً */
+.black-friday-special {
+    order: -1 !important;
+}
+
+/* تأثيرات العداد التنازلي المصغر */
+.black-friday-special .countdown-unit {
+    animation: countdown-pulse 1.5s infinite;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes countdown-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.03); opacity: 0.9; }
+}
+
+.black-friday-special .countdown-timer {
+    animation: timer-glow 3s infinite alternate;
+    max-width: 280px;
+    margin: 0 auto 1rem auto;
+}
+
+@keyframes timer-glow {
+    0% { box-shadow: 0 0 5px rgba(220, 38, 38, 0.2); }
+    100% { box-shadow: 0 0 12px rgba(220, 38, 38, 0.4); }
+}
+
+/* تحسين الحجم للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .black-friday-special {
+        max-width: 95% !important;
+        transform: scale(1.03) !important;
+        margin: 0 auto 25px auto !important;
+    }
+    
+    .black-friday-special:hover {
+        transform: scale(1.06) translateY(-8px) !important;
+    }
+    
+    .black-friday-special:active {
+        transform: scale(1.04) translateY(-4px) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .black-friday-special {
+        max-width: 98% !important;
+        transform: scale(1.01) !important;
+        border-width: 3px !important;
+    }
+    
+    .black-friday-special:hover {
+        transform: scale(1.04) translateY(-5px) !important;
+    }
+    
+    .black-friday-special .countdown-timer {
+        max-width: 250px;
+        padding: 0.5rem;
+    }
+    
+    .black-friday-special .countdown-unit {
+        min-width: 24px;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .black-friday-special .countdown-unit div:first-child {
+        font-size: 0.75rem;
+    }
+    
+    .black-friday-special .countdown-unit div:last-child {
+        font-size: 0.625rem;
+    }
+}
+
+/* تأثير التموج */
+@keyframes ripple-expand {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+
+/* تأثير وميض إضافي */
+.black-friday-special::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(38, 161, 123, 0.1), transparent);
+    opacity: 0;
+    animation: card-shine 4s infinite;
+}
+
+@keyframes card-shine {
+    0% { opacity: 0; transform: translateX(-100%); }
+    50% { opacity: 1; transform: translateX(0); }
+    100% { opacity: 0; transform: translateX(100%); }
+}
+
+
+
+/* ===== أنماط الباقات المقفلة الإضافية ===== */
+
+/* فئة الباقات المقفلة */
+.locked-package {
+    position: relative !important;
+    cursor: not-allowed !important;
+    user-select: none !important;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2), 
+        rgba(255, 255, 255, 0.1),
+        rgba(200, 200, 200, 0.1)
+    ) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+    filter: blur(2px) brightness(0.6) saturate(0.5) !important;
+}
+
+.locked-package * {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+/* أيقونة القفل */
+.locked-package .lock-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    z-index: 20;
+    text-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 40px rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.95);
+    animation: lock-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes lock-glow {
+    0% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* تأثير زجاجي متجمد إضافي */
+.locked-package::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 25%,
+        rgba(200, 200, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 75%,
+        rgba(255, 255, 255, 0.15) 100%
+    );
+    backdrop-filter: blur(20px) saturate(0.5);
+    -webkit-backdrop-filter: blur(20px) saturate(0.5);
+    border-radius: inherit;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* تعطيل جميع التأثيرات التفاعلية للباقات المقفلة */
+.locked-package:hover {
+    transform: none !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.locked-package:hover .package-icon {
+    transform: none !important;
+}
+
+.locked-package .package-btn {
+    background: #888888 !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    cursor: not-allowed !important;
+    filter: brightness(0.7) !important;
+}
+
+.locked-package .package-btn:hover {
+    background: #888888 !important;
+    transform: none !important;
+}
+
+/* تحسين حجم الباقات وعرض الأسماء */
+#packages-cards {
+    transform: scale(1.15) !important;
+    transform-origin: center !important;
+    margin: 3rem auto !important;
+    padding: 2rem !important;
+}
+
+.packages-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)) !important;
+    gap: 2.5rem !important;
+    max-width: 1500px !important;
+    margin: 0 auto !important;
+    padding: 2rem 1rem !important;
+}
+
+.package-card {
+    height: calc(100vh - 400px) !important;
+    min-height: 800px !important;
+    width: 100% !important;
+    max-width: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+section.py-16.bg-gray-100,
+section#pricing {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+#packages-cards .packages-container {
+    height: calc(100vh - 300px) !important;
+    align-items: stretch !important;
+}
+
+.package-card .gradient-bg-blue,
+.package-card .gradient-bg-green,
+.package-card .gradient-bg-purple {
+    padding: 2rem 1rem !important;
+    min-height: 120px !important;
+}
+
+.package-card h3 {
+    font-size: 1.8rem !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    margin: 0.5rem 0 !important;
+    text-align: center !important;
+}
+
+.package-card p {
+    font-size: 1rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.package-card .p-6 {
+    padding: 2rem !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.package-card .features-showcase {
+    flex-grow: 1 !important;
+    margin-bottom: 2rem !important;
+}
+
+@media (max-width: 768px) {
+    #packages-cards {
+        transform: scale(1.08) !important;
+        margin: 2rem auto !important;
+        padding: 1.5rem !important;
+    }
+    
+    .packages-container {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 1rem !important;
+    }
+    
+    .package-card {
+        min-height: 800px !important;
+    }
+    
+    .package-card h3 {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #packages-cards {
+        transform: scale(1.02) !important;
+        margin: 1.5rem auto !important;
+        padding: 1rem !important;
+    }
+    
+    .package-card h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .package-card .gradient-bg-blue,
+    .package-card .gradient-bg-green,
+    .package-card .gradient-bg-purple {
+        padding: 1.5rem 0.5rem !important;
+    }
+}
+
+/* ===== تطبيق ألوان الأزرار حسب الباقات ===== */
+
+/* الباقة الأساسية (49$) - أخضر */
+.package-card button[onclick*="basic"],
+.package-card button[onclick*="payment-basic"],
+.package-card .tether-action-button[onclick*="basic"] {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* الباقة المتوسطة (149$) - أزرق */
+.package-card button[onclick*="pro"],
+.package-card button[onclick*="payment-pro"],
+.package-card .tether-action-button[onclick*="pro"] {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* الباقة المتقدمة (399$) - بنفسجي */
+.package-card button[onclick*="enterprise"],
+.package-card button[onclick*="payment-enterprise"],
+.package-card .tether-action-button[onclick*="enterprise"] {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border-color: #7c3aed !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* تأثيرات التمرير للأزرار */
+.package-card button[onclick*="basic"]:hover,
+.package-card .tether-action-button[onclick*="basic"]:hover {
+    background: linear-gradient(45deg, #059669, #047857) !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.package-card button[onclick*="pro"]:hover,
+.package-card .tether-action-button[onclick*="pro"]:hover {
+    background: linear-gradient(45deg, #2563eb, #1d4ed8) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.package-card button[onclick*="enterprise"]:hover,
+.package-card .tether-action-button[onclick*="enterprise"]:hover {
+    background: linear-gradient(45deg, #5b21b6, #4c1d95) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* تطبيق الألوان على جميع الأزرار في البطاقات */
+.package-card:nth-child(1) button,
+.package-card:nth-child(1) .tether-action-button,
+.package-card:nth-child(1) .package-btn {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+.package-card:nth-child(2) button,
+.package-card:nth-child(2) .tether-action-button,
+.package-card:nth-child(2) .package-btn {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+.package-card:nth-child(3) button,
+.package-card:nth-child(3) .tether-action-button,
+.package-card:nth-child(3) .package-btn {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border-color: #7c3aed !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* تأثيرات التمرير للبطاقات */
+.package-card:nth-child(1) button:hover,
+.package-card:nth-child(1) .tether-action-button:hover,
+.package-card:nth-child(1) .package-btn:hover {
+    background: linear-gradient(45deg, #059669, #047857) !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.package-card:nth-child(2) button:hover,
+.package-card:nth-child(2) .tether-action-button:hover,
+.package-card:nth-child(2) .package-btn:hover {
+    background: linear-gradient(45deg, #2563eb, #1d4ed8) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.package-card:nth-child(3) button:hover,
+.package-card:nth-child(3) .tether-action-button:hover,
+.package-card:nth-child(3) .package-btn:hover {
+    background: linear-gradient(45deg, #5b21b6, #4c1d95) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+    transform: translateY(-2px) !important;
+}

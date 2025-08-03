@@ -1,0 +1,288 @@
+/* تحسينات إضافية للألوان المتدرجة */
+
+/* عناوين الأقسام الرئيسية */
+.section-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 300% 300% !important;
+    animation: gradientMove 6s ease-in-out infinite !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+/* نصوص الباقات */
+.package-title {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
+}
+
+.package-price {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ff6b6b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 900 !important;
+    font-size: 2.5rem !important;
+}
+
+.package-description {
+    background: linear-gradient(135deg, #718096 0%, #4a5568 50%, #2d3748 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص الشهادات */
+.testimonial-name {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+.testimonial-content {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    line-height: 1.6 !important;
+}
+
+/* نصوص الميزات */
+.feature-title {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+.feature-description {
+    background: linear-gradient(135deg, #718096 0%, #4a5568 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص الإحصائيات المتحركة */
+.animated-counter {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 25%, #43e97b 50%, #ffd700 75%, #ff6b6b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 400% 400% !important;
+    animation: counterGlow 3s ease-in-out infinite !important;
+    font-weight: 900 !important;
+}
+
+@keyframes counterGlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* نصوص الهيدر */
+.header-title {
+    background: linear-gradient(135deg, #ffffff 0%, #f7fafc 50%, #edf2f7 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 800 !important;
+}
+
+.header-subtitle {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+/* نصوص التذييل المحسنة */
+.footer-title {
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
+}
+
+.footer-link {
+    background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    transition: all 0.3s ease !important;
+}
+
+.footer-link:hover {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص الأزرار المحسنة */
+.btn-text {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* نصوص القوائم المحسنة */
+.menu-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+.menu-item-text {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    transition: all 0.3s ease !important;
+}
+
+.menu-item-text:hover {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* نصوص النماذج */
+.form-label {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 500 !important;
+}
+
+.form-input::placeholder {
+    color: #a0aec0 !important;
+}
+
+/* نصوص التنبيهات */
+.alert-success {
+    background: linear-gradient(135deg, #2ed573 0%, #1e90ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #ffa726 0%, #ff6b6b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+.alert-error {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 600 !important;
+}
+
+/* نصوص البطاقات */
+.card-title {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
+}
+
+.card-content {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    line-height: 1.5 !important;
+}
+
+/* نصوص خاصة للعروض */
+.promo-text {
+    background: linear-gradient(135deg, #ff4757 0%, #ffa502 25%, #2ed573 50%, #1e90ff 75%, #7b68ee 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 500% 500% !important;
+    animation: promoGlow 4s ease-in-out infinite !important;
+    font-weight: 800 !important;
+}
+
+@keyframes promoGlow {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 0%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem !important;
+    }
+    
+    .package-price {
+        font-size: 2rem !important;
+    }
+    
+    .animated-counter {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* تأثيرات إضافية للنصوص المهمة */
+.highlight-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    background-size: 200% 200% !important;
+    animation: highlightShine 3s ease-in-out infinite !important;
+}
+
+@keyframes highlightShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* نصوص الأرقام والإحصائيات */
+.number-gradient {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 900 !important;
+    font-family: 'Arial', sans-serif !important;
+}
+
+/* نصوص العملات */
+.currency-text {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 50%, #ff6b6b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 800 !important;
+}

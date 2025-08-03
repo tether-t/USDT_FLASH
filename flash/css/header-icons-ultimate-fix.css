@@ -1,0 +1,253 @@
+/* 🚀 الحل النهائي المميز لأيقونات الهيدر - USDT-FLASH */
+/* تصميم احترافي متطور مع إصلاح جميع المشاكل */
+
+/* ===== إعادة تعيين كاملة للهيدر ===== */
+.ultra-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    height: 80px !important;
+    background: none !important;
+}
+
+.header-glass {
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 35, 0.98) 0%, 
+        rgba(25, 25, 45, 0.95) 25%,
+        rgba(35, 35, 65, 0.92) 50%,
+        rgba(25, 25, 45, 0.95) 75%,
+        rgba(15, 15, 35, 0.98) 100%) !important;
+    backdrop-filter: blur(30px) !important;
+    -webkit-backdrop-filter: blur(30px) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+    height: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.header-container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 2rem !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* ===== قسم الشعار المحسن ===== */
+.logo-section {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-shrink: 0 !important;
+}
+
+.logo-wrapper {
+    position: relative !important;
+    width: 64px !important;
+    height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.logo-glow {
+    position: absolute !important;
+    inset: -8px !important;
+    background: conic-gradient(from 0deg, #26a17b, #00d4ff, #667eea, #26a17b) !important;
+    border-radius: 50% !important;
+    animation: logoRotate 8s linear infinite !important;
+    opacity: 0.8 !important;
+    z-index: 1 !important;
+}
+
+.logo-pulse {
+    position: absolute !important;
+    inset: -4px !important;
+    background: radial-gradient(circle, rgba(38, 161, 123, 0.4) 0%, transparent 70%) !important;
+    border-radius: 50% !important;
+    animation: logoPulse 2s ease-in-out infinite !important;
+    z-index: 2 !important;
+}
+
+.logo-img {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 50% !important;
+    position: relative !important;
+    z-index: 10 !important;
+    filter: drop-shadow(0 0 20px rgba(38, 161, 123, 0.6)) 
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) !important;
+    transition: all 0.4s ease !important;
+}
+
+.logo-img:hover {
+    filter: drop-shadow(0 0 30px rgba(38, 161, 123, 0.8)) 
+            drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) !important;
+    transform: scale(1.05) !important;
+}
+
+@keyframes logoRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes logoPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* ===== نصوص الشعار المحسنة ===== */
+.logo-title {
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    background: linear-gradient(45deg, #26a17b, #00d4ff, #667eea) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    margin: 0 !important;
+    letter-spacing: -0.5px !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.logo-badges {
+    display: flex !important;
+    gap: 0.5rem !important;
+    margin-top: 0.25rem !important;
+}
+
+.ultra-badge {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.25rem !important;
+    padding: 0.25rem 0.5rem !important;
+    border-radius: 12px !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    transition: all 0.3s ease !important;
+}
+
+.ultra-badge.verified {
+    background: rgba(34, 197, 94, 0.2) !important;
+    color: #22c55e !important;
+    border: 1px solid rgba(34, 197, 94, 0.4) !important;
+}
+
+.ultra-badge.secure {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #3b82f6 !important;
+    border: 1px solid rgba(59, 130, 246, 0.4) !important;
+}
+
+.ultra-badge:hover {
+    transform: scale(1.05) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ===== قسم الأيقونات المحسن بالكامل ===== */
+.nav-icons-section {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    margin: 0 2rem !important;
+    flex-shrink: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10 !important;
+}
+
+.pro-nav-icon {
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 10 !important;
+}
+
+.pro-nav-icon:hover {
+    transform: translateY(-8px) scale(1.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ===== الأيقونات الرئيسية المحسنة ===== */
+.icon-wrapper {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+    border: 3px solid transparent !important;
+    background-clip: padding-box !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    z-index: 5 !important;
+}
+
+.icon-wrapper i {
+    font-size: 22px !important;
+    color: white !important;
+    z-index: 3 !important;
+    position: relative !important;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4)) !important;
+    transition: all 0.3s ease !important;
+}
+
+.icon-pulse {
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 13px !important;
+    opacity: 0 !important;
+    transition: opacity 0.4s ease !important;
+    z-index: 1 !important;
+}
+
+.pro-nav-icon:hover .icon-pulse {
+    opacity: 1 !important;
+    animation: pulse-glow 2s ease-in-out infinite !important;
+}
+
+.pro-nav-icon:hover .icon-wrapper {
+    transform: scale(1.15) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+.pro-nav-icon:hover .icon-wrapper i {
+    transform: scale(1.2) !important;
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3)) !important;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ===== ألوان الأيقونات المخصصة والمميزة ===== */
+
+/* أيقونة الملف الشخصي - تدرج أزرق سماوي */\n.profile-icon {\n    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;\n    border-color: rgba(79, 172, 254, 0.4) !important;\n}\n\n.profile-icon:hover {\n    background: linear-gradient(135deg, #2196f3 0%, #00bcd4 100%) !important;\n    border-color: rgba(79, 172, 254, 0.7) !important;\n    box-shadow: 0 12px 32px rgba(79, 172, 254, 0.6) !important;\n}\n\n.profile-icon .icon-pulse {\n    background: linear-gradient(135deg, #4facfe, #00f2fe) !important;\n}\n\n/* أيقونة المعاملات المباشرة - تدرج أخضر فيروزي */\n.live-icon {\n    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;\n    border-color: rgba(17, 153, 142, 0.4) !important;\n}\n\n.live-icon:hover {\n    background: linear-gradient(135deg, #0d7377 0%, #2dd4bf 100%) !important;\n    border-color: rgba(17, 153, 142, 0.7) !important;\n    box-shadow: 0 12px 32px rgba(17, 153, 142, 0.6) !important;\n}\n\n.live-icon .icon-pulse {\n    background: linear-gradient(135deg, #11998e, #38ef7d) !important;\n}\n\n/* أيقونة الدعم الفني - تدرج برتقالي أحمر */\n.support-icon {\n    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%) !important;\n    border-color: rgba(255, 107, 107, 0.4) !important;\n}\n\n.support-icon:hover {\n    background: linear-gradient(135deg, #ff5252 0%, #ff9800 100%) !important;\n    border-color: rgba(255, 107, 107, 0.7) !important;\n    box-shadow: 0 12px 32px rgba(255, 107, 107, 0.6) !important;\n}\n\n.support-icon .icon-pulse {\n    background: linear-gradient(135deg, #ff6b6b, #ffa726) !important;\n}\n\n/* أيقونة الإشعارات - تدرج ذهبي */\n.notifications-icon {\n    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;\n    border-color: rgba(245, 158, 11, 0.4) !important;\n}\n\n.notifications-icon:hover {\n    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;\n    border-color: rgba(245, 158, 11, 0.7) !important;\n    box-shadow: 0 12px 32px rgba(245, 158, 11, 0.6) !important;\n}\n\n.notifications-icon .icon-pulse {\n    background: linear-gradient(135deg, #f59e0b, #d97706) !important;\n}\n\n/* ===== شارات الإشعارات المحسنة ===== */\n.notification-badge {\n    position: absolute !important;\n    top: -8px !important;\n    right: -8px !important;\n    min-width: 24px !important;\n    height: 24px !important;\n    border-radius: 12px !important;\n    display: flex !important;\n    align-items: center !important;\n    justify-content: center !important;\n    font-size: 10px !important;\n    font-weight: 800 !important;\n    color: white !important;\n    border: 3px solid rgba(255, 255, 255, 0.9) !important;\n    backdrop-filter: blur(15px) !important;\n    -webkit-backdrop-filter: blur(15px) !important;\n    z-index: 15 !important;\n    animation: badge-glow 3s ease-in-out infinite !important;\n    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;\n    visibility: visible !important;\n    opacity: 1 !important;\n}\n\n.badge-profile {\n    background: linear-gradient(45deg, #4facfe, #00f2fe) !important;\n    box-shadow: 0 4px 16px rgba(79, 172, 254, 0.6) !important;\n}\n\n.badge-live {\n    background: linear-gradient(45deg, #11998e, #38ef7d) !important;\n    box-shadow: 0 4px 16px rgba(17, 153, 142, 0.6) !important;\n    animation: live-pulse 1.5s infinite !important;\n}\n\n.badge-support {\n    background: linear-gradient(45deg, #ff6b6b, #ffa726) !important;\n    box-shadow: 0 4px 16px rgba(255, 107, 107, 0.6) !important;\n}\n\n.badge-notifications {\n    background: linear-gradient(45deg, #f59e0b, #d97706) !important;\n    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.6) !important;\n}\n\n@keyframes badge-glow {\n    0%, 100% { transform: scale(1); }\n    50% { transform: scale(1.15); }\n}\n\n@keyframes live-pulse {\n    0%, 100% { opacity: 1; }\n    50% { opacity: 0.7; }\n}\n\n/* ===== قسم المصادقة المحسن ===== */\n.auth-section {\n    display: flex !important;\n    align-items: center !important;\n    gap: 1rem !important;\n    flex-shrink: 0 !important;\n}\n\n.auth-section a {\n    backdrop-filter: blur(15px) !important;\n    -webkit-backdrop-filter: blur(15px) !important;\n    border: 1px solid rgba(255, 255, 255, 0.1) !important;\n    transition: all 0.4s ease !important;\n    padding: 0.75rem 1.5rem !important;\n    border-radius: 12px !important;\n    font-weight: 600 !important;\n    text-decoration: none !important;\n    display: flex !important;\n    align-items: center !important;\n    gap: 0.5rem !important;\n}\n\n.auth-section a:hover {\n    transform: translateY(-2px) !important;\n    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;\n}\n\n.auth-section a i {\n    font-size: 1.125rem !important;\n}\n\n/* ===== تأثيرات التفاعل المتقدمة ===== */\n.pro-nav-icon:active {\n    transform: translateY(-4px) scale(1.05) !important;\n}\n\n.pro-nav-icon:focus {\n    outline: 3px solid rgba(59, 130, 246, 0.5) !important;\n    outline-offset: 2px !important;\n    border-radius: 8px !important;\n}\n\n/* ===== تأثير الضوء المتحرك ===== */\n.pro-nav-icon:hover::before {\n    content: '' !important;\n    position: absolute !important;\n    top: 50% !important;\n    left: 50% !important;\n    width: 120px !important;\n    height: 120px !important;\n    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%) !important;\n    border-radius: 50% !important;\n    transform: translate(-50%, -50%) scale(0) !important;\n    animation: light-burst 0.8s ease-out !important;\n    pointer-events: none !important;\n    z-index: 0 !important;\n}\n\n@keyframes light-burst {\n    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }\n    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }\n}\n\n/* ===== تحسينات الأجهزة اللوحية ===== */\n@media (max-width: 1024px) {\n    .header-container {\n        padding: 0 1.5rem !important;\n    }\n    \n    .nav-icons-section {\n        gap: 1.25rem !important;\n        margin: 0 1.5rem !important;\n    }\n    \n    .icon-wrapper {\n        width: 52px !important;\n        height: 52px !important;\n        border-radius: 14px !important;\n    }\n    \n    .icon-wrapper i {\n        font-size: 20px !important;\n    }\n    \n    .notification-badge {\n        min-width: 22px !important;\n        height: 22px !important;\n        font-size: 9px !important;\n    }\n}\n\n/* ===== تحسينات الهواتف الكبيرة ===== */\n@media (max-width: 768px) {\n    .header-container {\n        padding: 0 1rem !important;\n    }\n    \n    .logo-wrapper {\n        width: 56px !important;\n        height: 56px !important;\n    }\n    \n    .logo-img {\n        width: 56px !important;\n        height: 56px !important;\n    }\n    \n    .logo-title {\n        font-size: 1.75rem !important;\n    }\n    \n    .ultra-badge {\n        font-size: 0.6rem !important;\n        padding: 0.2rem 0.4rem !important;\n    }\n    \n    .nav-icons-section {\n        gap: 1rem !important;\n        margin: 0 1rem !important;\n    }\n    \n    .icon-wrapper {\n        width: 48px !important;\n        height: 48px !important;\n        border-radius: 12px !important;\n    }\n    \n    .icon-wrapper i {\n        font-size: 18px !important;\n    }\n    \n    .notification-badge {\n        top: -6px !important;\n        right: -6px !important;\n        min-width: 20px !important;\n        height: 20px !important;\n        font-size: 8px !important;\n        border-width: 2px !important;\n    }\n    \n    .auth-section a {\n        padding: 0.5rem 1rem !important;\n        font-size: 0.875rem !important;\n    }\n}\n\n/* ===== تحسينات الهواتف المتوسطة ===== */\n@media (max-width: 640px) {\n    .nav-icons-section {\n        gap: 0.75rem !important;\n        margin: 0 0.5rem !important;\n    }\n    \n    .icon-wrapper {\n        width: 44px !important;\n        height: 44px !important;\n        border-radius: 10px !important;\n    }\n    \n    .icon-wrapper i {\n        font-size: 16px !important;\n    }\n    \n    .notification-badge {\n        min-width: 18px !important;\n        height: 18px !important;\n        font-size: 7px !important;\n    }\n    \n    .logo-wrapper {\n        width: 48px !important;\n        height: 48px !important;\n    }\n    \n    .logo-img {\n        width: 48px !important;\n        height: 48px !important;\n    }\n    \n    .logo-title {\n        font-size: 1.5rem !important;\n    }\n    \n    .logo-badges {\n        display: none !important;\n    }\n    \n    .auth-section {\n        gap: 0.5rem !important;\n    }\n    \n    .auth-section a {\n        padding: 0.5rem 1rem !important;\n        font-size: 0.8rem !important;\n    }\n}\n\n/* ===== تحسينات الهواتف الصغيرة ===== */\n@media (max-width: 480px) {\n    .header-container {\n        padding: 0 0.75rem !important;\n    }\n    \n    .nav-icons-section {\n        gap: 0.5rem !important;\n        margin: 0 0.25rem !important;\n    }\n    \n    .icon-wrapper {\n        width: 40px !important;\n        height: 40px !important;\n        border-radius: 8px !important;\n    }\n    \n    .icon-wrapper i {\n        font-size: 14px !important;\n    }\n    \n    .notification-badge {\n        top: -4px !important;\n        right: -4px !important;\n        min-width: 16px !important;\n        height: 16px !important;\n        font-size: 6px !important;\n    }\n    \n    .logo-wrapper {\n        width: 40px !important;\n        height: 40px !important;\n    }\n    \n    .logo-img {\n        width: 40px !important;\n        height: 40px !important;\n    }\n    \n    .logo-title {\n        font-size: 1.25rem !important;\n    }\n    \n    .auth-section a span {\n        display: none !important;\n    }\n    \n    .auth-section a {\n        padding: 0.5rem !important;\n        min-width: 44px !important;\n        justify-content: center !important;\n    }\n}\n\n/* ===== إخفاء الأيقونات في الشاشات الصغيرة جداً ===== */\n@media (max-width: 360px) {\n    .nav-icons-section {\n        display: none !important;\n    }\n}\n\n/* ===== تحسينات الأداء ===== */\n.logo-wrapper,\n.pro-nav-icon,\n.icon-wrapper {\n    will-change: transform !important;\n    backface-visibility: hidden !important;\n    perspective: 1000px !important;\n}\n\n/* ===== تحسينات الوصولية ===== */\n.pro-nav-icon:focus {\n    outline: 4px solid rgba(59, 130, 246, 0.6) !important;\n    outline-offset: 4px !important;\n    border-radius: 12px !important;\n}\n\n.pro-nav-icon:focus .icon-wrapper {\n    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3) !important;\n}\n\n/* ===== تأثير الموضوع الداكن ===== */\n@media (prefers-color-scheme: dark) {\n    .header-glass {\n        background: linear-gradient(135deg, \n            rgba(5, 5, 15, 0.98) 0%, \n            rgba(15, 15, 25, 0.95) 25%,\n            rgba(25, 25, 35, 0.92) 50%,\n            rgba(15, 15, 25, 0.95) 75%,\n            rgba(5, 5, 15, 0.98) 100%) !important;\n    }\n    \n    .pro-nav-icon:hover {\n        background: rgba(255, 255, 255, 0.12) !important;\n    }\n    \n    .ultra-badge.verified {\n        background: rgba(34, 197, 94, 0.3) !important;\n        border-color: rgba(34, 197, 94, 0.5) !important;\n    }\n    \n    .ultra-badge.secure {\n        background: rgba(59, 130, 246, 0.3) !important;\n        border-color: rgba(59, 130, 246, 0.5) !important;\n    }\n}\n\n/* ===== تأثير الحركة المخفضة ===== */\n@media (prefers-reduced-motion: reduce) {\n    .logo-glow,\n    .logo-pulse,\n    .pro-nav-icon,\n    .icon-wrapper,\n    .notification-badge {\n        animation: none !important;\n        transition: none !important;\n    }\n    \n    .pro-nav-icon:hover {\n        transform: none !important;\n    }\n}\n\n/* ===== إصلاح مشاكل التداخل ===== */\n.ultra-header * {\n    box-sizing: border-box !important;\n}\n\n.ultra-header .nav-icons-section * {\n    pointer-events: auto !important;\n    visibility: visible !important;\n    opacity: 1 !important;\n}\n\n/* ===== تأثيرات خاصة للتفاعل ===== */\n.pro-nav-icon:hover .icon-wrapper i {\n    animation: icon-dance 0.6s ease-in-out !important;\n}\n\n@keyframes icon-dance {\n    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }\n    25% { transform: translateY(-3px) rotate(-5deg) scale(1.1); }\n    50% { transform: translateY(-5px) rotate(5deg) scale(1.2); }\n    75% { transform: translateY(-2px) rotate(-2deg) scale(1.05); }\n}\n\n/* ===== تأثير الخلفية المتحركة ===== */\n.header-glass::before {\n    content: '' !important;\n    position: absolute !important;\n    top: 0 !important;\n    left: 0 !important;\n    right: 0 !important;\n    bottom: 0 !important;\n    background: radial-gradient(circle at 20% 50%, rgba(79, 172, 254, 0.05) 0%, transparent 50%),\n                radial-gradient(circle at 80% 50%, rgba(147, 51, 234, 0.05) 0%, transparent 50%),\n                radial-gradient(circle at 50% 20%, rgba(34, 197, 94, 0.03) 0%, transparent 50%) !important;\n    animation: header-glow 8s ease-in-out infinite !important;\n    z-index: 1 !important;\n}\n\n@keyframes header-glow {\n    0%, 100% { opacity: 0.5; }\n    50% { opacity: 1; }\n}\n\n/* ===== تأكيد الظهور النهائي ===== */\n.ultra-header,\n.header-glass,\n.header-container,\n.nav-icons-section,\n.pro-nav-icon,\n.icon-wrapper {\n    display: flex !important;\n    visibility: visible !important;\n    opacity: 1 !important;\n}\n\n/* ===== إصلاح مشاكل z-index ===== */\n.ultra-header {\n    z-index: 9999 !important;\n}\n\n.header-glass {\n    z-index: 9998 !important;\n}\n\n.header-container {\n    z-index: 9997 !important;\n}\n\n.nav-icons-section {\n    z-index: 9996 !important;\n}\n\n.pro-nav-icon {\n    z-index: 9995 !important;\n}\n\n.notification-badge {\n    z-index: 9999 !important;\n}\n

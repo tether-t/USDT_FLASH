@@ -1,0 +1,221 @@
+/* 📱 إصلاح الهيدر للهواتف */
+
+/* الهيدر الأول - إصلاح الهواتف */
+@media (max-width: 768px) {
+    .ultra-header {
+        height: 65px !important;
+        position: fixed !important;
+        top: 0 !important;
+        z-index: 9999 !important;
+    }
+    
+    .header-glass {
+        background: linear-gradient(135deg, 
+            rgba(15, 15, 35, 0.98) 0%, 
+            rgba(25, 25, 45, 0.95) 100%) !important;
+        backdrop-filter: blur(15px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .header-container {
+        padding: 0 1rem !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+    
+    .logo-section {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+    }
+    
+    .logo-wrapper {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .logo-img {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.375rem !important;
+        font-weight: 900 !important;
+    }
+    
+    .logo-badges {
+        display: none !important;
+    }
+    
+    .auth-section {
+        display: flex !important;
+        gap: 0.5rem !important;
+    }
+    
+    .auth-section a {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.875rem !important;
+        border-radius: 8px !important;
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: manipulation !important;
+    }
+}
+
+/* الهيدر الثانوي - إصلاح الهواتف */
+@media (max-width: 768px) {
+    .secondary-header {
+        top: 65px !important;
+        height: 55px !important;
+        position: fixed !important;
+        z-index: 9998 !important;
+    }
+    
+    .secondary-header-container {
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 1rem !important;
+    }
+    
+    .secondary-icons-section {
+        gap: 1.25rem !important;
+        padding: 0.5rem 1.5rem !important;
+        border-radius: 15px !important;
+        background: linear-gradient(135deg, 
+            rgba(15, 15, 35, 0.95) 0%, 
+            rgba(25, 25, 45, 0.9) 100%) !important;
+        backdrop-filter: blur(15px) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    .secondary-icon {
+        -webkit-tap-highlight-color: transparent !important;
+        touch-action: manipulation !important;
+        cursor: pointer !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .secondary-icon-wrapper {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    .secondary-icon-wrapper i {
+        font-size: 18px !important;
+        color: white !important;
+    }
+    
+    .secondary-badge {
+        min-width: 18px !important;
+        height: 18px !important;
+        font-size: 8px !important;
+        top: -6px !important;
+        right: -6px !important;
+    }
+    
+    body {
+        padding-top: 120px !important;
+    }
+}
+
+/* الهواتف الصغيرة */
+@media (max-width: 480px) {
+    .ultra-header {
+        height: 60px !important;
+    }
+    
+    .header-container {
+        padding: 0 0.75rem !important;
+    }
+    
+    .logo-wrapper {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .logo-img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.25rem !important;
+    }
+    
+    .auth-section a span {
+        display: none !important;
+    }
+    
+    .auth-section a {
+        padding: 0.5rem !important;
+        min-width: 44px !important;
+    }
+    
+    .secondary-header {
+        top: 60px !important;
+        height: 50px !important;
+    }
+    
+    .secondary-icons-section {
+        gap: 1rem !important;
+        padding: 0.4rem 1.25rem !important;
+    }
+    
+    .secondary-icon-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    .secondary-icon-wrapper i {
+        font-size: 16px !important;
+    }
+    
+    .secondary-badge {
+        min-width: 16px !important;
+        height: 16px !important;
+        font-size: 7px !important;
+    }
+    
+    body {
+        padding-top: 110px !important;
+    }
+}
+
+/* تحسينات اللمس */
+@media (pointer: coarse) {
+    .secondary-icon:active {
+        transform: scale(0.95) !important;
+    }
+    
+    .auth-section a:active {
+        transform: scale(0.95) !important;
+    }
+}
+
+/* إصلاح Safari المحمول */
+@supports (-webkit-touch-callout: none) {
+    .secondary-icon,
+    .auth-section a {
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+    }
+}

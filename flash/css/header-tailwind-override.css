@@ -1,0 +1,437 @@
+/* Header Tailwind CSS Override - Ensure Custom Styles Take Priority */
+
+/* Reset Tailwind classes that might interfere with our custom header */
+.ultra-header .flex,
+.ultra-header .items-center,
+.ultra-header .space-x-4,
+.ultra-header .space-x-2 {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.ultra-header .space-x-4 > * + * {
+    margin-left: 1rem !important;
+}
+
+.ultra-header .space-x-2 > * + * {
+    margin-left: 0.5rem !important;
+}
+
+/* Override Tailwind positioning for logo */
+.ultra-header .relative {
+    position: relative !important;
+}
+
+.ultra-header .z-10 {
+    z-index: 10 !important;
+}
+
+/* Override Tailwind sizing for logo image */
+.ultra-header .h-16 {
+    height: auto !important; /* Let our custom CSS handle this */
+}
+
+.ultra-header .w-16 {
+    width: auto !important; /* Let our custom CSS handle this */
+}
+
+/* Override Tailwind text styles for logo title */
+.ultra-header .text-3xl {
+    font-size: inherit !important; /* Use our custom font-size */
+}
+
+.ultra-header .font-black {
+    font-weight: 900 !important;
+}
+
+.ultra-header .text-white {
+    color: inherit !important; /* Let our gradient text show */
+}
+
+/* Override Tailwind button styles */
+.ultra-header .bg-white {
+    background: inherit !important; /* Use our custom background */
+}
+
+.ultra-header .bg-opacity-10,
+.ultra-header .hover\:bg-opacity-20:hover {
+    background: inherit !important; /* Use our custom background */
+}
+
+.ultra-header .bg-gradient-to-r {
+    background: inherit !important; /* Use our custom gradient */
+}
+
+.ultra-header .from-green-500,
+.ultra-header .to-green-600,
+.ultra-header .hover\:from-green-600:hover,
+.ultra-header .hover\:to-green-700:hover {
+    background: inherit !important; /* Use our custom gradient */
+}
+
+.ultra-header .px-6 {
+    padding-left: inherit !important;
+    padding-right: inherit !important;
+}
+
+.ultra-header .py-3 {
+    padding-top: inherit !important;
+    padding-bottom: inherit !important;
+}
+
+.ultra-header .rounded-xl {
+    border-radius: inherit !important;
+}
+
+.ultra-header .font-semibold {
+    font-weight: inherit !important;
+}
+
+.ultra-header .transition-all {
+    transition: inherit !important;
+}
+
+.ultra-header .shadow-lg {
+    box-shadow: inherit !important;
+}
+
+.ultra-header .backdrop-filter,
+.ultra-header .backdrop-blur-10 {
+    backdrop-filter: inherit !important;
+    -webkit-backdrop-filter: inherit !important;
+}
+
+/* Override Tailwind icon styles */
+.ultra-header .text-lg {
+    font-size: inherit !important;
+}
+
+/* Ensure our custom classes take priority */
+.ultra-header .logo-wrapper {
+    width: 52px !important;
+    height: 52px !important;
+    display: flex !important;
+    position: relative !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.ultra-header .logo-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.ultra-header .logo-title {
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    background: linear-gradient(135deg, #26a17b 0%, #00d4ff 50%, #667eea 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    transition: all 0.3s ease !important;
+}
+
+.ultra-header .logo-badges {
+    display: flex !important;
+    gap: 6px !important;
+    margin-top: 6px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+}
+
+.ultra-header .ultra-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 3px !important;
+    padding: 3px 8px !important;
+    border-radius: 12px !important;
+    font-size: 0.65rem !important;
+    font-weight: 700 !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    white-space: nowrap !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.ultra-header .nav-icons-section {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin: 0 12px !important;
+    flex-shrink: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 11 !important;
+}
+
+.ultra-header .pro-nav-icon {
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    touch-action: manipulation !important;
+    transform: translateZ(0) !important;
+}
+
+.ultra-header .icon-wrapper {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.25),
+        0 3px 10px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateZ(0) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.ultra-header .icon-wrapper i {
+    font-size: 18px !important;
+    color: white !important;
+    z-index: 10 !important;
+    position: relative !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Auth section override */
+.ultra-header .header-container > div:last-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+    max-width: 40% !important;
+    position: relative !important;
+    z-index: 11 !important;
+}
+
+.ultra-header .header-container > div:last-child a {
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    white-space: nowrap !important;
+    min-height: 40px !important;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.15),
+        0 3px 10px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transform: translateZ(0) !important;
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ultra-header .header-container > div:last-child a[href*="login"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.ultra-header .header-container > div:last-child a[href*="register"] {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    box-shadow: 
+        0 6px 20px rgba(16, 185, 129, 0.3),
+        0 3px 10px rgba(16, 185, 129, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.ultra-header .header-container > div:last-child a i {
+    font-size: 16px !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Hidden elements override */
+.ultra-header .hidden {
+    display: none !important;
+}
+
+/* Responsive overrides */
+@media screen and (max-width: 768px) {
+    .ultra-header .logo-wrapper {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .ultra-header .logo-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .ultra-header .icon-wrapper {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .ultra-header .icon-wrapper i {
+        font-size: 16px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a {
+        padding: 8px 12px !important;
+        font-size: 0.8rem !important;
+        min-height: 36px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a i {
+        font-size: 14px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ultra-header .logo-wrapper {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    .ultra-header .logo-title {
+        font-size: 1.2rem !important;
+    }
+    
+    .ultra-header .icon-wrapper {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .ultra-header .icon-wrapper i {
+        font-size: 14px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a {
+        padding: 6px 10px !important;
+        font-size: 0.75rem !important;
+        min-height: 32px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a span {
+        display: none !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a i {
+        font-size: 13px !important;
+        margin: 0 !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .ultra-header .logo-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    .ultra-header .logo-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .ultra-header .icon-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .ultra-header .icon-wrapper i {
+        font-size: 12px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a {
+        padding: 5px 8px !important;
+        font-size: 0.7rem !important;
+        min-height: 28px !important;
+        border-radius: 8px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a i {
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .ultra-header .logo-wrapper {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .ultra-header .logo-title {
+        font-size: 1rem !important;
+    }
+    
+    .ultra-header .icon-wrapper {
+        width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .ultra-header .icon-wrapper i {
+        font-size: 11px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a {
+        padding: 4px 6px !important;
+        font-size: 0.65rem !important;
+        min-height: 26px !important;
+    }
+    
+    .ultra-header .header-container > div:last-child a i {
+        font-size: 11px !important;
+    }
+}
+
+/* Ensure our custom styles always win */
+.ultra-header * {
+    box-sizing: border-box !important;
+}
+
+/* Remove any conflicting Tailwind utilities */
+.ultra-header [class*="space-"],
+.ultra-header [class*="gap-"],
+.ultra-header [class*="m-"],
+.ultra-header [class*="p-"],
+.ultra-header [class*="w-"],
+.ultra-header [class*="h-"],
+.ultra-header [class*="text-"],
+.ultra-header [class*="font-"],
+.ultra-header [class*="bg-"],
+.ultra-header [class*="border-"],
+.ultra-header [class*="rounded-"],
+.ultra-header [class*="shadow-"] {
+    /* Let our custom CSS handle these properties */
+}
