@@ -1,0 +1,183 @@
+/* مظهر Tether الاحترافي */
+
+/* الهيدر الرئيسي بألوان Tether الرسمية */
+.gradient-bg {
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 50%, #0E4B36 100%) !important;
+    position: relative;
+}
+
+.gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") !important;
+    pointer-events: none;
+}
+
+/* شريط Tether الرسمي */
+.tether-official-header {
+    background: linear-gradient(135deg, #2775CA 0%, #1e5aa8 100%) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* الأزرار الرئيسية */
+.bg-green-500,
+.bg-green-600,
+.btn-success {
+    background: linear-gradient(45deg, #26A17B, #1A8462) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+    border: none !important;
+}
+
+.bg-green-500:hover,
+.bg-green-600:hover,
+.btn-success:hover {
+    background: linear-gradient(45deg, #1A8462, #0E4B36) !important;
+    box-shadow: 0 6px 20px rgba(38, 161, 123, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+/* العدادات والإحصائيات */
+.counter,
+.dynamic-users,
+.dynamic-transactions,
+.dynamic-rating {
+    color: #26A17B !important;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* الشارات الرسمية */
+.badge-verified {
+    background: linear-gradient(135deg, #26A17B, #1A8462) !important;
+    box-shadow: 0 2px 8px rgba(38, 161, 123, 0.3);
+}
+
+.badge-secure {
+    background: linear-gradient(135deg, #2775CA, #1e5aa8) !important;
+    box-shadow: 0 2px 8px rgba(39, 117, 202, 0.3);
+}
+
+/* الأيقونات */
+.fas.text-green-500,
+.fas.text-green-600,
+.tether-icon {
+    color: #26A17B !important;
+}
+
+/* شريط الأمان */
+.security-bar {
+    background: rgba(38, 161, 123, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* مؤشر الأمان */
+.security-pulse {
+    background-color: #26A17B !important;
+    box-shadow: 0 0 0 0 rgba(38, 161, 123, 0.7);
+}
+
+/* الروابط الرسمية */
+.tether-link,
+a[href*="tether.to"] {
+    color: #26A17B !important;
+    font-weight: 500;
+}
+
+.tether-link:hover,
+a[href*="tether.to"]:hover {
+    color: #1A8462 !important;
+    text-decoration: underline;
+}
+
+/* العناوين المهمة */
+.tether-heading {
+    color: #1A8462 !important;
+    font-weight: 700;
+}
+
+.tether-heading::after {
+    background: linear-gradient(90deg, #26A17B, #1A8462) !important;
+}
+
+/* الخلفيات الفاتحة */
+.bg-green-50 {
+    background-color: rgba(38, 161, 123, 0.05) !important;
+}
+
+.bg-green-100 {
+    background-color: rgba(38, 161, 123, 0.1) !important;
+}
+
+/* الحدود */
+.border-green-200 {
+    border-color: rgba(38, 161, 123, 0.2) !important;
+}
+
+.border-green-300 {
+    border-color: rgba(38, 161, 123, 0.3) !important;
+}
+
+/* التدرجات */
+.bg-gradient-to-r.from-green-50.to-blue-50 {
+    background: linear-gradient(to right, rgba(38, 161, 123, 0.05), rgba(59, 130, 246, 0.05)) !important;
+}
+
+/* التذييل */
+footer {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+}
+
+footer .text-green-400,
+footer .text-green-500 {
+    color: #26A17B !important;
+}
+
+/* شريط Tether السفلي */
+.tether-official-footer-bar {
+    background: linear-gradient(135deg, #26A17B 0%, #1A8462 100%) !important;
+}
+
+/* الشهادات والضمانات */
+.comparison-table th {
+    background: #26A17B !important;
+}
+
+.check-icon {
+    color: #26A17B !important;
+}
+
+/* أزرار الباقات - الحفاظ على التنوع */
+.package-card:nth-child(1) button {
+    background: linear-gradient(45deg, #26A17B, #1A8462) !important;
+    border-color: #26A17B !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+}
+
+/* تأثيرات إضافية للاحترافية */
+.glass-effect {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(38, 161, 123, 0.1);
+}
+
+.tether-badge {
+    background: #26A17B !important;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* تحسينات للشاشات الكبيرة */
+@media (min-width: 769px) {
+    .gradient-bg {
+        background: linear-gradient(135deg, #26A17B 0%, #1A8462 50%, #0E4B36 100%) !important;
+    }
+    
+    .tether-official-header {
+        background: linear-gradient(135deg, #2775CA 0%, #1e5aa8 100%) !important;
+    }
+}

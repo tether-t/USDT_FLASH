@@ -1,0 +1,139 @@
+/* Profile Icon Fix CSS */
+
+/* Ensure profile icon is always clickable */
+.pro-nav-icon {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.pro-nav-icon:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+}
+
+.pro-nav-icon:active {
+    transform: translateY(0) scale(0.95) !important;
+}
+
+/* Icon wrapper styling */
+.pro-nav-icon .icon-wrapper {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    z-index: 9999 !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s ease !important;
+}
+
+.pro-nav-icon .icon-wrapper:hover {
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4) !important;
+}
+
+/* Icon styling */
+.pro-nav-icon .icon-wrapper i {
+    color: white !important;
+    font-size: 16px !important;
+    z-index: 10000 !important;
+    pointer-events: none !important;
+}
+
+/* Profile icon specific styling */
+.profile-icon {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+.profile-icon i {
+    cursor: pointer !important;
+    pointer-events: none !important;
+}
+
+/* Pulse effect */
+.pro-nav-icon .icon-pulse {
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 10px !important;
+    background: linear-gradient(135deg, #4facfe, #00f2fe) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.pro-nav-icon:hover .icon-pulse {
+    opacity: 1 !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .pro-nav-icon {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .pro-nav-icon .icon-wrapper {
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 12px !important;
+    }
+    
+    .pro-nav-icon .icon-wrapper i {
+        font-size: 18px !important;
+    }
+}
+
+/* Force visibility */
+.nav-icons-section {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Remove any conflicting styles */
+.pro-nav-icon * {
+    pointer-events: none !important;
+}
+
+.pro-nav-icon {
+    pointer-events: auto !important;
+}
+
+/* Debug styles (remove in production) */
+.pro-nav-icon {
+    border: 2px solid transparent !important;
+}
+
+.pro-nav-icon:hover {
+    border-color: #4facfe !important;
+}
+
+/* Ensure the icon is always on top */
+.ultra-header {
+    z-index: 9998 !important;
+}
+
+.header-glass {
+    z-index: 9998 !important;
+}
+
+.header-container {
+    z-index: 9998 !important;
+}
+
+.nav-icons-section {
+    z-index: 9999 !important;
+}
+
+.pro-nav-icon {
+    z-index: 10000 !important;
+}

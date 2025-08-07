@@ -1,0 +1,26 @@
+/* White Prominent Prices */
+.text-4xl, .text-3xl, .text-2xl {
+    color: #ffffff !important;
+    font-weight: bold !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Package price elements */
+.package-card .text-4xl,
+.package-card .price,
+.tether-price-main,
+[class*="price"] {
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Remove delivery time badges */
+.tether-delivery-badge {
+    display: none !important;
+}
+
+/* Hide original price elements */
+.tether-price-original {
+    display: none !important;
+}
