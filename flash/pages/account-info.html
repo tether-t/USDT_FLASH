@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">USDT-FLASH - Account Information</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/flash.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="../css/hide-footer-except-home.css">
+    <link rel="stylesheet" href="../css/remove-footer-styles.css">
+    <script src="../js/auth.js"></script>
+    <style>
+        /* Chat Container Styles */
+        #chatbox-container {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        /* Chat Messages */
+        #chatbox {
+            padding: 15px;
+            background-color: #f5f7fa;
+            overflow-y: auto;
+        }
+        
+        .message-wrapper {
+            margin-bottom: 15px;
+            max-width: 90%;
+            clear: both;
+        }
+        
+        .user-message-wrapper {
+            float: right;
+            margin-right: 10%;
+        }
+        
+        .assistant-message-wrapper {
+            float: left;
+            margin-left: 10%;
+        }
+        
+        .message-content {
+            padding: 10px 15px;
+            border-radius: 18px;
+            line-height: 1.5;
+            position: relative;
+            word-wrap: break-word;
+            word-break: break-word;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            max-width: 100%;
+            text-align: left;
+        }
+        
+        .user-message {
+            background: linear-gradient(135deg, #4CAF50, #43A047);
+            color: white;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 18px;
+            margin-left: 0;
+            text-align: left;
+            float: right;
+        }
+        
+        .assistant-message {
+            background: white;
+            color: #333;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 18px;
+            margin-right: 0;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+            float: left;
+        }
+        
+        .message-time {
+            font-size: 10px;
+            color: #757575;
+            margin-top: 4px;
+            text-align: left;
+            clear: both;
+        }
+        
+        .user-message .message-time {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: right;
+        }
+        
+        /* Typing Indicator */
+        .typing-indicator {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 18px;
+            display: block;
+            margin: 5px 0;
+            border: 1px solid #e0e0e0;
+            float: right;
+            clear: both;
+        }
+        
+        .typing-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #9e9e9e;
+            margin: 0 2px;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+        
+        /* Input Area */
+        #chatInput {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Droid Sans', 'Helvetica Neue', sans-serif;
+            text-align: left;
+        }
+        
+        /* Animations */
+        @keyframes slideInRight {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .user-message-wrapper {
+            animation: slideInLeft 0.3s ease-out;
+        }
+        
+        .assistant-message-wrapper {
+            animation: slideInRight 0.3s ease-out;
+        }
+        
+        /* Scrollbar */
+        #chatbox::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        #chatbox::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+        
+        #chatbox::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        #chatbox::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="flex items-center space-x-2 mb-4">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="Tether Logo" class="h-12 w-auto">
+                    <div class="tether-logo-container">
+                        <div class="divider"></div>
+                        <div>
+                            <h3 class="text-2xl font-bold">USDT-FLASH</h3>
+                            <div class="flex items-center">
+                                <span class="tether-badge">
+                                    <i class="fas fa-check-circle text-xs"></i> Official Partner
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <!-- User buttons for non-registered users -->
+                    <a href="login.html" class="login-button text-white hover:text-gray-300 transition">Login</a>
+                    <a href="register.html" class="register-button bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition">Register</a>
+                    
+                    <!-- Registered user information -->
+                    <div class="user-menu hidden flex items-center">
+                        <div id="user-info" class="mr-4"></div>
+                        <button onclick="signOut()" class="logout-button hidden bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+                <button class="md:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Account Info Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold mb-6 text-center">
+                        <i class="fas fa-user-circle text-blue-600 mr-2"></i>
+                        Account Information
+                    </h2>
+                    
+                    <!-- Progress Steps -->
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-sm mt-2">Select Package</span>
+                        </div>
+                        <div class="h-1 flex-1 bg-green-600 mx-2"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 bg-green-600 text-white rounded-full flex items-center justify-center">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-sm mt-2">Payment</span>
+                        </div>
+                        <div class="h-1 flex-1 bg-green-600 mx-2"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center">
+                                <span>3</span>
+                            </div>
+                            <span class="text-sm mt-2">Account Info</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Account Form -->
+                    <form id="accountForm" class="space-y-6">
+                        <div>
+                            <h2 class="text-xl font-semibold text-gray-800 mb-4">
+                                <i class="fas fa-id-card text-green-600 mr-2"></i>
+                                Account Information
+                            </h2>
+                            
+                            <div class="space-y-4">
+                                <!-- Full Name -->
+                                <div>
+                                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" required>
+                                </div>
+
+                                <!-- Email -->
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Enter your email address" required>
+                                </div>
+
+                                <!-- Tether Wallet Address (USDT ERC20) -->
+                                <div>
+                                    <label for="tetherAddress" class="block text-sm font-medium text-gray-700 mb-1">Tether Wallet Address (USDT ERC20)</label>
+                                    <input type="text" id="tetherAddress" name="tetherAddress" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Enter your USDT ERC20 address" required>
+                                    <p class="mt-1 text-sm text-yellow-600">Important: Make sure to enter a valid ERC20 wallet address, as USDT-FLASH will be sent to this address.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <h3 class="text-lg font-medium text-gray-800 mb-2">
+                                <i class="fas fa-layer-group text-purple-600 mr-2"></i>
+                                Select Platform
+                            </h3>
+                            <div id="platform-options" class="flex flex-wrap gap-4 mb-4">
+                                <button type="button" class="platform-btn border border-gray-300 rounded-lg px-3 py-2 flex items-center focus:outline-none focus:ring-2 focus:ring-green-500" data-value="binance">
+                                    <img src="../img/Binance Web3.jpeg" alt="Binance" class="h-7 w-7 object-contain mr-2 rounded">
+                                    <span class="text-gray-800 text-sm">Binance</span>
+                                </button>
+                                <button type="button" class="platform-btn border border-gray-300 rounded-lg px-3 py-2 flex items-center focus:outline-none focus:ring-2 focus:ring-green-500" data-value="trustwallet">
+                                    <img src="../img/Trust_Wallet_2023_b-stacked.webp" alt="Trust Wallet" class="h-7 w-7 object-contain mr-2 rounded">
+                                    <span class="text-gray-800 text-sm">Trust Wallet</span>
+                                </button>
+                                <button type="button" class="platform-btn border border-gray-300 rounded-lg px-3 py-2 flex items-center focus:outline-none focus:ring-2 focus:ring-green-500" data-value="bybit">
+                                    <img src="../img/BYBIT.jpg" alt="Bybit" class="h-7 w-7 object-contain mr-2 rounded">
+                                    <span class="text-gray-800 text-sm">Bybit</span>
+                                </button>
+                                <button type="button" class="platform-btn border border-gray-300 rounded-lg px-3 py-2 flex items-center focus:outline-none focus:ring-2 focus:ring-green-500" data-value="metamask">
+                                    <img src="../img/META MASK.png" alt="MetaMask" class="h-7 w-7 object-contain mr-2 rounded">
+                                    <span class="text-gray-800 text-sm">MetaMask</span>
+                                </button>
+                                <button type="button" class="platform-btn border border-gray-300 rounded-lg px-3 py-2 flex items-center focus:outline-none focus:ring-2 focus:ring-green-500" data-value="1xbet">
+                                    <img src="../img/unnamed.webp" alt="1XBET" class="h-7 w-7 object-contain mr-2 rounded">
+                                    <span class="text-gray-800 text-sm">1XBET</span>
+                                </button>
+                            </div>
+                            <input type="hidden" id="platform" name="platform" value="binance">
+                            <script>
+                                // Platform selection logic
+                                const btns = document.querySelectorAll('.platform-btn');
+                                const platformInput = document.getElementById('platform');
+                                btns.forEach(btn => {
+                                    btn.addEventListener('click', function() {
+                                        btns.forEach(b => b.classList.remove('ring-2', 'ring-green-500', 'bg-green-50'));
+                                        btn.classList.add('ring-2', 'ring-green-500', 'bg-green-50');
+                                        platformInput.value = btn.getAttribute('data-value');
+                                    });
+                                });
+                                // Default selection
+                                if (btns.length) btns[0].classList.add('ring-2', 'ring-green-500', 'bg-green-50');
+                            </script>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input type="checkbox" id="terms" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required>
+                                </div>
+                                <label for="terms" class="ml-2 block text-sm text-gray-700">
+                                    I agree to the <a href="#" class="text-blue-600 hover:underline">Terms and Conditions</a>. I understand that I am responsible for providing a valid ERC20 wallet address and that any errors in the provided address may result in permanent loss of funds.
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition transform hover:scale-105">
+Complete Process
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col items-center">
+                <div class="flex items-center text-gray-400 mb-2">
+                    <i class="fas fa-map-marker-alt mr-3"></i>
+                    <span>123 Financial District, San Francisco, CA 94111</span>
+                </div>
+                <div class="flex items-center gap-3 mt-2">
+                    <img src="../img/META MASK.png" alt="MetaMask" class="h-7 w-7 object-contain rounded shadow">
+                    <span class="font-semibold text-gray-200 text-xs">MetaMask</span>
+                </div>
+                <div class="flex items-center gap-3 mt-2">
+                    <img src="../img/META MASK.png" alt="MetaMask" class="h-7 w-7 object-contain rounded shadow">
+                    <span class="font-semibold text-gray-200 text-xs">MetaMask</span>
+                </div>
+                <div class="text-gray-400 text-xs">
+                    <p> 2025 USDT-FLASH All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Payment Warning -->
+    <div id="paymentWarningModal" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 border border-yellow-500/30 rounded-xl shadow-2xl p-8 max-w-md w-full mx-4 transform transition-all overflow-hidden">
+            <div class="relative text-center">
+                <!-- Tether logo watermark with animation -->
+                <div class="absolute inset-0 flex items-center justify-center opacity-15 pointer-events-none overflow-hidden">
+                    <div class="tether-logo-container">
+                        <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="tether-logo" alt="USDT Logo">
+                    </div>
+                </div>
+                
+                <!-- Decorative elements -->
+                <div class="absolute -top-4 -left-4 w-20 h-20 bg-yellow-500/10 rounded-full blur-xl"></div>
+                <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-500/10 rounded-full blur-xl"></div>
+                
+                <!-- Additional Tether branding elements -->
+                <div class="absolute top-0 right-0 w-16 h-16">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="w-full h-full opacity-20" alt="USDT Logo">
+                </div>
+                <div class="absolute bottom-0 left-0 w-16 h-16">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="w-full h-full opacity-20" alt="USDT Logo">
+                </div>
+                
+                <!-- Icon container with warning icon -->
+                <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-r from-yellow-500/20 to-yellow-600/10 mb-6 relative">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-500/30 to-yellow-600/20 blur-md"></div>
+                    <i class="fas fa-exclamation-triangle text-yellow-500 text-3xl relative z-10"></i>
+                </div>
+                
+                <h3 class="text-xl font-bold text-white mb-4">
+                    <i class="fas fa-credit-card text-yellow-400 mr-2"></i>
+                    Payment Required
+                </h3>
+                <p class="text-gray-200 mb-4 leading-relaxed">You must complete the payment process before submitting your account information.</p>
+                <p class="text-gray-200 mb-4 leading-relaxed">Please return to the payment page and complete your transaction to continue with the registration process.</p>
+                <p class="text-gray-200 mb-6 leading-relaxed">If you've already made a payment but are still seeing this message, please contact our support team.</p>
+                
+                <!-- Tether logo and label -->
+                <div class="flex justify-center items-center mb-6">
+                    <div class="h-px w-12 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent"></div>
+                    <div class="flex items-center mx-3">
+                        <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="w-5 h-5 mr-2" alt="USDT Logo">
+                        <div class="text-yellow-500 text-xs uppercase tracking-wider font-semibold">Secure Transaction Required</div>
+                    </div>
+                    <div class="h-px w-12 bg-gradient-to-r from-transparent via-yellow-500/50 to-transparent"></div>
+                </div>
+                
+                <div class="mb-6">
+                    <button id="supportBtnWarning" class="flex items-center justify-center mx-auto mb-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-headset mr-2"></i> Contact Support
+                    </button>
+                </div>
+                
+                <button id="goToPayment" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-6 rounded-lg transition transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-credit-card mr-2"></i> Go to Payment
+                </button>
+                
+                <button id="closeWarningModal" class="mt-4 text-gray-400 hover:text-white font-medium py-2 px-4 transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Payment Success -->
+    <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 border border-[#53AE94]/30 rounded-xl shadow-2xl p-8 max-w-md w-full mx-4 transform transition-all overflow-hidden">
+            <div class="relative text-center">
+                <!-- Tether logo watermark with animation -->
+                <div class="absolute inset-0 flex items-center justify-center opacity-15 pointer-events-none overflow-hidden">
+                    <div class="tether-logo-container">
+                        <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="tether-logo" alt="USDT Logo">
+                    </div>
+                </div>
+                
+                <style>
+                    .tether-logo-container {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .tether-logo {
+                        position: absolute;
+                        width: 180px;
+                        height: 180px;
+                        opacity: 0.12;
+                        animation: float 8s ease-in-out infinite, pulse 6s ease-in-out infinite;
+                    }
+                    @keyframes float {
+                        0% {
+                            transform: translateY(0px) rotate(0deg);
+                        }
+                        50% {
+                            transform: translateY(-15px) rotate(5deg);
+                        }
+                        100% {
+                            transform: translateY(0px) rotate(0deg);
+                        }
+                    }
+                    @keyframes pulse {
+                        0% {
+                            opacity: 0.08;
+                        }
+                        50% {
+                            opacity: 0.15;
+                        }
+                        100% {
+                            opacity: 0.08;
+                        }
+                    }
+                </style>
+                
+                <!-- Decorative elements -->
+                <div class="absolute -top-4 -left-4 w-20 h-20 bg-[#53AE94]/10 rounded-full blur-xl"></div>
+                <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-[#53AE94]/10 rounded-full blur-xl"></div>
+                
+                <!-- Additional Tether branding elements -->
+                <div class="absolute top-0 right-0 w-16 h-16">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="w-full h-full opacity-20" alt="USDT Logo">
+                </div>
+                <div class="absolute bottom-0 left-0 w-16 h-16">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="w-full h-full opacity-20" alt="USDT Logo">
+                </div>
+                
+                <!-- Icon container with success icon -->
+                <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-gradient-to-r from-[#53AE94]/20 to-[#53AE94]/10 mb-6 relative">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#53AE94]/30 to-[#53AE94]/20 blur-md"></div>
+                    <i class="fas fa-check-circle text-[#53AE94] text-3xl relative z-10"></i>
+                </div>
+                
+                <h3 class="text-xl font-medium text-white mb-4">
+                    <i class="fas fa-hand-wave text-green-400 mr-2"></i>
+                    Hello,
+                </h3>
+                <p class="text-gray-200 mb-4 leading-relaxed">We would like to inform you that your payment has been successful, and your USDT FLASH balance will be added to your wallet shortly.</p>
+                <p class="text-gray-200 mb-4 leading-relaxed">If you do not receive your balance within the expected period, please contact our customer support for assistance.</p>
+                <p class="text-gray-200 mb-6 leading-relaxed">Thank you for your trust!</p>
+                
+                <!-- Tether logo and label -->
+                <div class="flex justify-center items-center mb-6">
+                    <div class="h-px w-12 bg-gradient-to-r from-transparent via-[#53AE94]/50 to-transparent"></div>
+                    <div class="flex items-center mx-3">
+                        <img src="../img/usdt_cryptocurrencies_icon_188337.png" class="w-5 h-5 mr-2" alt="USDT Logo">
+                        <div class="text-[#53AE94] text-xs uppercase tracking-wider font-semibold">Secured Transaction</div>
+                    </div>
+                    <div class="h-px w-12 bg-gradient-to-r from-transparent via-[#53AE94]/50 to-transparent"></div>
+                </div>
+                
+                <div class="mb-6">
+                    <button id="supportBtn" class="flex items-center justify-center mx-auto mb-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-headset mr-2"></i> Contact Support
+                    </button>
+                </div>
+                
+                <button id="closeModal" class="bg-[#53AE94] hover:bg-[#3d8b73] text-white font-bold py-3 px-6 rounded-lg transition transform hover:scale-105 shadow-lg">
+                    I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+        <!-- Technical Support Button -->
+        <a href="support.html" class="bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-200 focus:outline-none group" title="Technical Support" style="box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+            <i class="fas fa-headset text-xl"></i>
+            <span class="absolute right-16 bg-gray-800 text-white text-sm py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                Technical Support
+            </span>
+        </a>
+        
+        <!-- Live Chat Button -->
+        <button id="assistant-float-btn" class="bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg p-4 flex items-center justify-center transition-all duration-200 focus:outline-none group" title="Live Chat" style="box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+            <i class="fas fa-comments text-xl"></i>
+            <span class="absolute right-16 bg-gray-800 text-white text-sm py-2 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                Live Chat
+            </span>
+        </button>
+    </div>
+
+    <!-- Chatbox Container (hidden by default) -->
+    <div id="chatbox-container" class="fixed bottom-24 right-6 z-50 w-80 max-w-full bg-white rounded-xl shadow-2xl border border-green-200 overflow-hidden flex flex-col" style="display:none;">
+        <div class="bg-green-600 text-white px-4 py-2 flex items-center justify-between">
+            <span class="font-bold">USDT-FLASH Assistant</span>
+            <button id="close-chatbox" class="text-white hover:text-gray-200 text-lg focus:outline-none" title="Close Chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbox" class="p-4 flex-1 overflow-y-auto" style="min-height: 200px; max-height: 340px;">
+            <div class="message-wrapper assistant-message-wrapper">
+                <div class="message-content assistant-message">
+                    Welcome to USDT-FLASH support! How can I assist you today?
+                    <div class="text-xs text-gray-500 mt-1" style="direction: ltr; text-align: left;">I'm here to help you with any inquiries about your account or our services.</div>
+                </div>
+                <div class="message-time">
+                    <script>document.write(new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit', hour12: true}))</script>
+                </div>
+            </div>
+        </div>
+        <div class="p-2 bg-gray-50 border-t">
+            <!-- Quick Questions Buttons -->
+            <div id="quickQuestions" class="flex flex-wrap gap-2 mb-2 overflow-x-auto pb-2 scrollbar-thin">
+                <button class="quick-question-btn text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-full px-3 py-1 whitespace-nowrap transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-exchange-alt mr-1"></i> Supported Platforms
+                </button>
+                <button class="quick-question-btn text-xs bg-green-100 hover:bg-green-200 text-green-800 rounded-full px-3 py-1 whitespace-nowrap transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-shield-alt mr-1"></i> Avoid Ban
+                </button>
+                <button class="quick-question-btn text-xs bg-orange-100 hover:bg-orange-200 text-orange-800 rounded-full px-3 py-1 whitespace-nowrap transition-all duration-300 transform hover:scale-105">
+                    <i class="far fa-clock mr-1"></i> Validity Period
+                </button>
+                <button class="quick-question-btn text-xs bg-purple-100 hover:bg-purple-200 text-purple-800 rounded-full px-3 py-1 whitespace-nowrap transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-wallet mr-1"></i> Web3 Wallet
+                </button>
+                <button class="quick-question-btn text-xs bg-pink-100 hover:bg-pink-200 text-pink-800 rounded-full px-3 py-1 whitespace-nowrap transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-chart-line mr-1"></i> Trading Strategy
+                </button>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="flex gap-2">
+                <input type="text" id="chatInput" class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Type your message here...">
+                <button id="sendButton" class="bg-green-600 hover:bg-green-700 text-white rounded-lg px-4 py-2 font-semibold text-sm flex items-center">
+                    <i class="fas fa-paper-plane ml-1"></i>
+                    <span>Send</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/account-info.js"></script>
+    <script>
+        // Simple chat functionality with predefined responses
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Page loaded - Initializing chat system...');
+            
+            // Test console availability
+            if (typeof console !== 'undefined') {
+                console.log('✅ Console debugging enabled');
+            }
+            
+            // Get elements
+            const chatBtn = document.getElementById('assistant-float-btn');
+            const chatContainer = document.getElementById('chatbox-container');
+            const closeBtn = document.getElementById('close-chatbox');
+            const sendButton = document.getElementById('sendButton');
+            const chatInput = document.getElementById('chatInput');
+            const chatbox = document.getElementById('chatbox');
+            
+            // Debug element availability
+            console.log('🔍 Element check:', {
+                chatBtn: !!chatBtn,
+                chatContainer: !!chatContainer,
+                closeBtn: !!closeBtn,
+                sendButton: !!sendButton,
+                chatInput: !!chatInput,
+                chatbox: !!chatbox
+            });
+            
+            //// Detect user language (English only)
+            function detectLanguage(text) {
+                // Default to English
+                return 'en';
+            }
+
+            // Predefined responses in English and Arabic
+            const responses = {
+                // Default response - Enhanced
+                'default': {
+                    ar: 'أهلاً بك! يمكنني مساعدتك في:\n• معلومات عن عملة USDT FLASH\n• خطوات الشراء والدفع\n• المحافظ المدعومة\n• نصائح التداول الآمن\n• صلاحية العملة والرسوم\n\nما الذي تود معرفته؟',
+                    en: 'Welcome! I can help you with:\n• USDT FLASH information\n• Purchase and payment steps\n• Supported wallets\n• Safe trading tips\n• Token validity and fees\n\nWhat would you like to know?'
+                },
+                
+                // What is USDT FLASH
+                'what_is_usdt': {
+                    ar: '💰 **عملة USDT FLASH** هي عملة رقمية مستقرة:\n\n✅ **المميزات:**\n• قيمة ثابتة مقابل الدولار\n• تحويلات سريعة وآمنة\n• رسوم منخفضة\n• متوافقة مع Web3\n• مناسبة للتداول والاستثمار\n\n📊 **الاستخدامات:**\n• شراء العملات الرقمية\n• التداول السريع\n• التحويلات الدولية',
+                    en: '💰 **USDT FLASH** is a stable digital currency:\n\n✅ **Features:**\n• Stable value against USD\n• Fast and secure transfers\n• Low fees\n• Web3 compatible\n• Perfect for trading and investment\n\n📊 **Uses:**\n• Buy cryptocurrencies\n• Fast trading\n• International transfers'
+                },
+                
+                // How to buy
+                'how_to_buy': {
+                    ar: '🛒 **خطوات الشراء السهلة:**\n\n**1️⃣ اختر الباقة:**\n• Basic: 499 USDT مقابل $29.99\n• Professional: 2,500 USDT مقابل $99.99\n• Enterprise: 10,000 USDT مقابل $199\n\n**2️⃣ طرق الدفع:**\n💳 البطاقات البنكية\n🏦 تحويل بنكي\n💰 PayPal\n₿ عملات رقمية\n\n**3️⃣ أدخل عنوان محفظتك**\n**4️⃣ أكد الدفع**\n**5️⃣ استلم العملة خلال 15 دقيقة**',
+                    en: '🛒 **Easy Purchase Steps:**\n\n**1️⃣ Choose Package:**\n• Basic: 499 USDT for $29.99\n• Professional: 2,500 USDT for $99.99\n• Enterprise: 10,000 USDT for $199\n\n**2️⃣ Payment Methods:**\n💳 Bank Cards\n🏦 Bank Transfer\n💰 PayPal\n₿ Cryptocurrencies\n\n**3️⃣ Enter wallet address**\n**4️⃣ Confirm payment**\n**5️⃣ Receive tokens within 15 minutes**'
+                },
+                
+                // Price information
+                'price_info': {
+                    ar: '💎 **أسعار الباقات:**\n\n🥉 **Basic Package**\n• 499 USDT FLASH\n• السعر: $29.99\n• الأنسب للمبتدئين\n\n🥈 **Professional Package**\n• 2,500 USDT FLASH\n• السعر: $99.99\n• الأكثر شعبية\n\n🥇 **Enterprise Package**\n• 10,000 USDT FLASH\n• السعر: $199\n• أفضل قيمة',
+                    en: '💎 **Package Prices:**\n\n🥉 **Basic Package**\n• 499 USDT FLASH\n• Price: $29.99\n• Best for beginners\n\n🥈 **Professional Package**\n• 2,500 USDT FLASH\n• Price: $99.99\n• Most popular\n\n🥇 **Enterprise Package**\n• 10,000 USDT FLASH\n• Price: $199\n• Best value'
+                },
+                
+                // Security information
+                'security_info': {
+                    ar: '🔒 **الأمان والحماية:**\n\n✅ **نصائح الأمان:**\n• استخدم محافظ Web3 الموثوقة\n• لا تشارك مفاتيحك الخاصة\n• تأكد من عناوين المحافظ\n• احتفظ بنسخ احتياطية\n\n⚠️ **تحذيرات مهمة:**\n• لا تترك العملة في منصات التداول أكثر من ساعة\n• احتفظ بالعملات الميم 24 ساعة قبل البيع',
+                    en: '🔒 **Security & Protection:**\n\n✅ **Security Tips:**\n• Use trusted Web3 wallets\n• Never share private keys\n• Verify wallet addresses\n• Keep backups\n\n⚠️ **Important Warnings:**\n• Don\'t leave tokens on exchanges for more than 1 hour\n• Hold meme coins for 24 hours before selling'
+                },
+                
+                // Goodbye
+                'goodbye': {
+                    ar: 'شكراً لك على استخدام خدمات USDT FLASH! نتمنى لك تداولاً موفقاً 💙',
+                    en: 'Thank you for using USDT FLASH services! Happy trading! 💙'
+                },
+                
+                // Help support
+                'help_support': {
+                    ar: '🆘 **المساعدة والدعم:**\n\n📧 **تواصل معنا:**\n• البريد: support@usdt-flash.com\n• الدردشة المباشرة: متاحة 24/7\n\n💡 **يمكنني مساعدتك في:**\n• شرح العملة\n• خطوات الشراء\n• نصائح التداول\n• حل المشاكل التقنية',
+                    en: '🆘 **Help & Support:**\n\n📧 **Contact Us:**\n• Email: support@usdt-flash.com\n• Live Chat: Available 24/7\n\n💡 **I can help you with:**\n• Token explanation\n• Purchase steps\n• Trading tips\n• Technical issues'
+                },
+                
+                // Account ban prevention
+                'account_ban': {
+                    en: 'Important guidelines to avoid account suspension:\n1. After purchasing meme coins (like PEPE, DOGE, SHIBA), keep them in your wallet for at least 24 hours before selling\n2. Do not sell coins immediately after purchase\n3. Use a trusted Web3 wallet like MetaMask or Trust Wallet\n4. Avoid depositing USDT FLASH on trading platforms - use only Web3 wallets\n5. Remember that USDT FLASH will automatically disappear if left on a trading platform for more than 1 hour'
+                },
+                
+                // Web3 wallet info
+                'web3_wallet': {
+                    en: 'You must use a Web3 wallet like MetaMask or Trust Wallet to store USDT FLASH. Do not leave the token on trading platforms as it will disappear after 1 hour.'
+                },
+                
+                // Transfer guide
+                'transfer_guide': {
+                    en: 'To transfer USDT FLASH:\n1. Open your Web3 wallet\n2. Select USDT FLASH\n3. Press Send\n4. Enter address and amount\n5. Verify the network\n6. Confirm the transaction'
+                },
+                
+                // Trading tips
+                'trading_tips': {
+                    en: 'Safe trading tips:\n1. Research the market before buying\n2. Don\'t invest more than you can afford to lose\n3. Use stop-loss orders\n4. Diversify your investments'
+                },
+                
+                // Trading coins
+                'trading_coins': {
+                    ar: 'لشراء/بيع العملات:\n1. اذهب إلى منصة موثوقة\n2. ابحث عن زوج التداول المطلوب\n3. أدخل المبلغ\n4. تحقق من السعر والرسوم\n5. أكد الصفقة',
+                    en: 'To buy/sell coins:\n1. Go to a trusted exchange\n2. Find the desired trading pair\n3. Enter the amount\n4. Verify price and fees\n5. Confirm the trade'
+                },
+                
+                // Quick Questions Responses
+                'what are the supported trading platforms?': {
+                    ar: '🏪 **المنصات المدعومة حالياً:**\n\n✅ **منصات التداول:**\n• Binance - الأكثر شعبية\n• Bybit - للتداول المتقدم\n• KuCoin - متنوع\n• Gate.io - موثوق\n\n✅ **المحافظ:**\n• Trust Wallet - الموصى بها\n• MetaMask - للمطورين\n• SafePal - آمنة\n• جميع محافظ Web3 المتوافقة مع BSC\n\n⚠️ **تذكر:** لا تترك USDT FLASH في منصات التداول أكثر من ساعة!',
+                    en: '🏪 **Currently Supported Platforms:**\n\n✅ **Trading Exchanges:**\n• Binance - Most popular\n• Bybit - Advanced trading\n• KuCoin - Diverse\n• Gate.io - Trusted\n\n✅ **Wallets:**\n• Trust Wallet - Recommended\n• MetaMask - For developers\n• SafePal - Secure\n• All Web3 wallets compatible with BSC\n\n⚠️ **Remember:** Don\'t leave USDT FLASH on exchanges for more than 1 hour!'
+                },
+                
+                'how to avoid account ban?': {
+                    ar: '🛡️ **دليل تجنب حظر الحساب:**\n\n✅ **القواعد الذهبية:**\n• احتفظ بالعملات الميم (PEPE, DOGE, SHIBA) لمدة 24 ساعة قبل البيع\n• لا تبع العملات فور شرائها\n• استخدم محافظ Web3 الموثوقة فقط\n• تجنب إيداع USDT FLASH في منصات التداول\n\n⚠️ **تحذيرات مهمة:**\n• USDT FLASH تختفي تلقائياً إذا تُركت في منصة أكثر من ساعة\n• التداول السريع قد يؤدي لتعليق الحساب\n• اقرأ شروط كل منصة قبل الاستخدام',
+                    en: '🛡️ **Account Ban Prevention Guide:**\n\n✅ **Golden Rules:**\n• Hold meme coins (PEPE, DOGE, SHIBA) for 24 hours before selling\n• Don\'t sell coins immediately after purchase\n• Use only trusted Web3 wallets\n• Avoid depositing USDT FLASH on trading platforms\n\n⚠️ **Important Warnings:**\n• USDT FLASH automatically disappears if left on exchanges for more than 1 hour\n• Quick trading may lead to account suspension\n• Read each platform\'s terms before use'
+                },
+                
+                'what is usdt flash validity period?': {
+                    ar: '⏰ **فترة صلاحية USDT FLASH:**\n\n📅 **المدة:** 365 يوم من تاريخ الاستلام\n\n💡 **نصائح مهمة:**\n• استخدم العملة قبل انتهاء الصلاحية\n• عند البيع، المنصة تخصم رسوم 25% من المبلغ المحول\n• يمكن استخدامها لشراء وبيع العملات الرقمية\n• تحقق من التاريخ بانتظام\n\n⚠️ **تحذير:** عند انتهاء الصلاحية، لن تتمكن من استخدام الرمز المميز!',
+                    en: '⏰ **USDT FLASH Validity Period:**\n\n📅 **Duration:** 365 days from receipt date\n\n💡 **Important Tips:**\n• Use the token before expiration\n• When selling, platform deducts 25% fee from transferred amount\n• Can be used to buy and sell cryptocurrencies\n• Check date regularly\n\n⚠️ **Warning:** Upon expiration, you won\'t be able to use the token!'
+                },
+                
+                'how to use web3 wallet?': {
+                    ar: '💼 **دليل استخدام محفظة Web3:**\n\n🔧 **الإعداد:**\n1. حمل Trust Wallet أو MetaMask\n2. أنشئ محفظة جديدة أو استورد موجودة\n3. احفظ العبارة الاحتياطية في مكان آمن\n4. أضف شبكة BSC (Binance Smart Chain)\n\n📤 **الإرسال:**\n1. اختر USDT FLASH من قائمة العملات\n2. اضغط "إرسال"\n3. أدخل عنوان المحفظة المستلمة\n4. اختر الشبكة (BEP20/BSC)\n5. أدخل المبلغ\n6. أكد المعاملة\n\n🔒 **نصائح الأمان:**\n• لا تشارك المفاتيح الخاصة أبداً\n• تحقق من العنوان مرتين\n• ابدأ بمبلغ صغير للاختبار',
+                    en: '💼 **Web3 Wallet Usage Guide:**\n\n🔧 **Setup:**\n1. Download Trust Wallet or MetaMask\n2. Create new wallet or import existing\n3. Save backup phrase securely\n4. Add BSC (Binance Smart Chain) network\n\n📤 **Sending:**\n1. Select USDT FLASH from token list\n2. Press "Send"\n3. Enter recipient wallet address\n4. Choose network (BEP20/BSC)\n5. Enter amount\n6. Confirm transaction\n\n🔒 **Security Tips:**\n• Never share private keys\n• Double-check addresses\n• Start with small amounts for testing'
+                },
+                
+                'what is the best trading strategy?': {
+                    ar: '📈 **أفضل استراتيجيات التداول:**\n\n🎯 **للمبتدئين:**\n• ابدأ بمبالغ صغيرة\n• اشتر العملات المستقرة أولاً\n• تعلم قراءة الرسوم البيانية\n• لا تستثمر أكثر مما تستطيع خسارته\n\n💎 **للمتقدمين:**\n• استخدم أوامر Stop-Loss\n• نوع محفظتك\n• اتبع الأخبار والتحليلات\n• احتفظ بجزء من الأرباح\n\n🔥 **عملات الميم الرابحة:**\n• PEPE - نمو سريع\n• DOGE - مستقرة\n• SHIBA - مجتمع قوي\n\n⚡ **نصيحة ذهبية:** احتفظ بالعملات 24 ساعة قبل البيع!',
+                    en: '📈 **Best Trading Strategies:**\n\n🎯 **For Beginners:**\n• Start with small amounts\n• Buy stable coins first\n• Learn to read charts\n• Don\'t invest more than you can afford to lose\n\n💎 **For Advanced:**\n• Use Stop-Loss orders\n• Diversify your portfolio\n• Follow news and analysis\n• Take profits gradually\n\n🔥 **Profitable Meme Coins:**\n• PEPE - Fast growth\n• DOGE - Stable\n• SHIBA - Strong community\n\n⚡ **Golden Tip:** Hold coins for 24 hours before selling!'
+                },
+                
+                // Meme coins info
+                'meme_coins': {
+                    en: 'Why are meme coins a good investment?\n\n1. High Liquidity: Coins like PEPE, DOGE, and SHIBA have high trading volume\n2. Market Volatility: Offer quick profit opportunities due to price swings\n3. Popularity: Large community support drives value\n4. Easy to Trade: Available on most major exchanges\n5. Quick Returns: Potential for faster profits compared to traditional assets\n\nTip: Hold coins for at least 24 hours before selling to avoid account suspension'
+                },
+                
+                // Greetings
+                'hello': {
+                    en: 'Welcome to USDT FLASH support! How can I assist you today?'
+                },
+                'hi': {
+                    en: 'Hi! How can I help you?'
+                },
+                
+                // Platforms
+                'supported_platforms': {
+                    en: 'Currently supported platforms:\n- Binance\n- Trust Wallet\n- Bybit\n- MetaMask\n- All Web3 wallets compatible with BSC network'
+                },
+                
+                // Validity and Usage
+                'validity': {
+                    en: 'USDT FLASH validity is 365 days from the date of receipt. Note: When selling, the platform will deduct a 25% fee from the transferred amount.'
+                },
+                'expiration': {
+                    en: 'Upon expiration, you will not be able to use the token. We recommend using it before the expiration date to avoid losing its value. You can use it to buy and sell cryptocurrencies.'
+                },
+                'fees': {
+                    en: 'When selling USDT FLASH, the receiving platform will deduct a 25% fee from the transferred amount. This fee covers the processing costs on the platform.'
+                },
+                
+                // Usage Recommendations and Trading Tips
+                'advice': {
+                    en: 'Tips for using USDT FLASH:\n• Check transfer fees before sending\n• Verify wallet addresses\n• Use BSC network for lower fees\n• Keep records of your transactions'
+                },
+                'trading_strategy': {
+                    en: 'To maximize benefits from USDT FLASH:\n• Use it for stablecoin trading pairs\n• Invest in promising projects on BSC\n• Take advantage of platform trading offers\n• Monitor the market for best returns'
+                },
+                
+                // Support
+                'technical support': {
+                    en: 'For technical support, please contact us via:\n- Email: support@usdt-flash.com\n- Or through the contact form on the website'
+                },
+                'support': {
+                    ar: 'يمكنك التواصل مع الدعم عبر البريد الإلكتروني: support@usdt-flash.com',
+                    en: 'You can contact support at: support@usdt-flash.com'
+                },
+                'اتصل بنا': {
+                    ar: 'للتواصل معنا:\n- البريد الإلكتروني: support@usdt-flash.com\n- نموذج الاتصال في الموقع',
+                    en: 'Contact us at:\n- Email: support@usdt-flash.com\n- Contact form on the website'
+                },
+                'contact': {
+                    ar: 'للتواصل: support@usdt-flash.com',
+                    en: 'Contact: support@usdt-flash.com'
+                },
+                
+                // Thanks
+                'شكرا': {
+                    ar: 'العفو! نحن هنا لمساعدتك دائمًا. هل هناك أي شيء آخر تريد معرفته عن USDT FLASH؟',
+                    en: "You're welcome! We're always here to help. Is there anything else you'd like to know about USDT FLASH?"
+                },
+                'thank': {
+                    ar: 'شكراً لكم! هل هناك أي استفسار آخر؟',
+                    en: 'Thank you! Do you have any other questions?'
+                },
+                'thanks': {
+                    ar: 'شكراً لك! كيف يمكنني مساعدتك أكثر؟',
+                    en: 'Thanks! How else can I assist you?'
+                },
+                'ممتاز': {
+                    ar: 'شكراً لك! هل هناك أي استفسار آخر يمكنني مساعدتك به؟',
+                    en: 'Great! Is there anything else I can help you with?'
+                },
+                'great': {
+                    ar: 'رائع! هل تحتاج إلى مساعدة إضافية؟',
+                    en: 'Great! Do you need any further assistance?'
+                },
+                
+
+            };
+            
+            // Toggle chat window
+            if (chatBtn && chatContainer) {
+                chatBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const isHidden = chatContainer.style.display === 'none' || !chatContainer.style.display;
+                    chatContainer.style.display = isHidden ? 'flex' : 'none';
+                    if (isHidden && chatInput) {
+                        setTimeout(() => chatInput.focus(), 100);
+                    }
+                });
+            }
+            
+            // Close chat window
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (chatContainer) chatContainer.style.display = 'none';
+                });
+            }
+            
+            // Get response function with enhanced language support
+            function getResponse(message, lang = 'en') {
+                const lowerMessage = message.toLowerCase().trim();
+                
+                // Handle empty messages
+                if (!message || message.trim() === '') {
+                    return responses['default'][lang] || responses['default'].en;
+                }
+                
+                // Common phrases and their responses
+                const commonPhrases = {
+                    // Greetings and general
+                    'hello|hi|hey|مرحبا|هاي|السلام عليكم|أهلا': 'hello',
+                    'goodbye|bye|وداعا|مع السلامة|باي': 'goodbye',
+                    'thank|thanks|شكرا|شكراً|ممتاز': 'thank',
+                    
+                    // Account related
+                    'حظر حسابي|تجنب الحظر|تجنب ايقاف الحساب|حماية الحساب|account suspension': 'account_ban',
+                    'how to avoid ban|account block|prevent suspension|account security|block account': 'account_ban',
+                    
+                    // What is questions
+                    'ما هي|what is|ما هو|معلومات عن|tell me about|information about': 'what_is_usdt',
+                    'usdt flash|usdt-flash|فلاش|flash|usdt': 'what_is_usdt',
+                    
+                    // Wallet related
+                    'محفظة|محفظة ويب 3|web3 wallet|wallet|trust wallet|metamask|binance': 'web3_wallet',
+                    'تحويل فلاش|ارسال فلاش|استلام فلاش|send flash|receive flash|transfer flash|how to send': 'transfer_guide',
+                    
+                    // Purchase questions
+                    'كيف اشتري|how to buy|شراء|purchase|buying|خطوات الشراء|payment methods': 'how_to_buy',
+                    'كم سعر|price|سعر|cost|كلفة|تكلفة|packages|package': 'price_info',
+                    
+                    // General help
+                    'مساعدة|مساعدة فنية|دعم فني|help|support|technical support|assist|assistance': 'help_support',
+                    'شروط الاستخدام|الاحكام والشروط|terms of service|terms and conditions': 'terms',
+                    
+                    // Validity and fees
+                    'الصلاحية|انتهاء الصلاحية|validity|expiration|expire|valid': 'validity',
+                    'الرسوم|العمولة|fees|commission|charges|fee': 'fees',
+                    
+                    // Trading
+                    'تداول|تداول العملات|trading|how to trade|trade': 'trading_tips',
+                    'شراء عملات|بيع عملات|buy coins|sell coins|meme coins|pepe|doge|shiba': 'meme_coins',
+                    
+                    // Platforms
+                    'منصات|platforms|supported platforms|المنصات المدعومة|which platforms': 'supported_platforms',
+                    
+                    // Security
+                    'آمان|security|safe|secure|أمان|protection|protect': 'security_info',
+                    
+                    // Contact
+                    'تواصل|contact|اتصل|email|البريد الإلكتروني': 'contact'
+                };
+
+                // Check for common phrases first
+                for (const [pattern, responseKey] of Object.entries(commonPhrases)) {
+                    const regex = new RegExp(pattern, 'i');
+                    if (regex.test(message)) {
+                        const response = responses[responseKey];
+                        if (response) {
+                            return response[lang] || response.en || response.ar;
+                        }
+                    }
+                }
+
+                // Check for exact matches (including quick questions)
+                if (responses[lowerMessage]) {
+                    return responses[lowerMessage][lang] || responses[lowerMessage].en || responses[lowerMessage].ar;
+                }
+                
+                // Check original casing for exact matches
+                if (responses[message]) {
+                    return responses[message][lang] || responses[message].en || responses[message].ar;
+                }
+
+                // Check for partial matches
+                for (const [key, response] of Object.entries(responses)) {
+                    if (lowerMessage.includes(key.toLowerCase())) {
+                        return response[lang] || response.en || response.ar;
+                    }
+                }
+
+                // Smart context detection for common questions
+                if (lowerMessage.includes('buy') || lowerMessage.includes('purchase') || lowerMessage.includes('شراء')) {
+                    return responses['how_to_buy'][lang] || responses['how_to_buy'].en;
+                }
+                
+                if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('سعر')) {
+                    return responses['price_info'][lang] || responses['price_info'].en;
+                }
+                
+                if (lowerMessage.includes('wallet') || lowerMessage.includes('محفظة')) {
+                    return responses['web3_wallet'][lang] || responses['web3_wallet'].en;
+                }
+                
+                if (lowerMessage.includes('safe') || lowerMessage.includes('secure') || lowerMessage.includes('آمان')) {
+                    return responses['security_info'][lang] || responses['security_info'].en;
+                }
+                
+                if (lowerMessage.includes('platform') || lowerMessage.includes('منصة')) {
+                    return responses['supported_platforms'][lang] || responses['supported_platforms'].en;
+                }
+
+                // Check for number patterns (amounts, prices, etc.)
+                if (/\d+/.test(lowerMessage)) {
+                    if (lowerMessage.includes('$') || lowerMessage.includes('dollar') || lowerMessage.includes('دولار')) {
+                        return responses['price_info'][lang] || responses['price_info'].en;
+                    }
+                    return lang === 'ar' 
+                        ? 'للمساعدة في استفسارك، يرجى تقديم المزيد من التفاصيل عن المعاملة أو المبلغ المذكور.'
+                        : 'To assist with your inquiry, please provide more details about the transaction or amount mentioned.';
+                }
+                
+                // Question detection
+                if (lowerMessage.includes('?') || lowerMessage.includes('how') || lowerMessage.includes('what') || 
+                    lowerMessage.includes('كيف') || lowerMessage.includes('ماذا') || lowerMessage.includes('ما هي')) {
+                    return lang === 'ar' 
+                        ? 'يمكنني مساعدتك! جرب أن تسأل عن:\n• معلومات العملة\n• خطوات الشراء\n• الأسعار والباقات\n• المحافظ المدعومة\n• نصائح الأمان'
+                        : 'I can help you! Try asking about:\n• Token information\n• Purchase steps\n• Prices and packages\n• Supported wallets\n• Security tips';
+                }
+
+                // Default response - more helpful
+                return responses['default'][lang] || responses['default'].en;
+            }
+            
+            // Display message in chat
+            function displayMessage(message, isUser) {
+                if (!chatbox) return;
+                
+                // Create message wrapper
+                const messageWrapper = document.createElement('div');
+                messageWrapper.className = `message-wrapper ${isUser ? 'user-message-wrapper' : 'assistant-message-wrapper'}`;
+                
+                // Create message content container
+                const messageContent = document.createElement('div');
+                messageContent.className = `message-content ${isUser ? 'user-message' : 'assistant-message'}`;
+                
+                // Add message text
+                const messageText = document.createElement('div');
+                messageText.textContent = message;
+                messageText.style.direction = 'ltr';
+                messageText.style.textAlign = 'left';
+                
+                // Add timestamp
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    hour12: true
+                });
+                
+                const timeElement = document.createElement('div');
+                timeElement.className = 'message-time';
+                timeElement.textContent = timeString;
+                timeElement.style.direction = 'ltr';
+                
+                // Assemble the message
+                messageContent.appendChild(messageText);
+                messageWrapper.appendChild(messageContent);
+                messageWrapper.appendChild(timeElement);
+                
+                // Add to chatbox
+                chatbox.appendChild(messageWrapper);
+                
+                // Scroll to bottom
+                chatbox.scrollTop = chatbox.scrollHeight;
+                
+                // Return the message element in case we need to modify it later
+                return messageWrapper;
+            }
+            
+            // Show typing indicator
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'typing-indicator';
+                typingDiv.id = 'typing-indicator';
+                typingDiv.innerHTML = `
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                `;
+                chatbox.appendChild(typingDiv);
+                chatbox.scrollTop = chatbox.scrollHeight;
+                return typingDiv;
+            }
+
+            // Hide typing indicator
+            function hideTypingIndicator() {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) {
+                    indicator.remove();
+                }
+            }
+
+            // Animate message typing
+            function typeMessage(message, element, callback) {
+                let i = 0;
+                const typingSpeed = 20; // milliseconds per character
+                
+                function typeWriter() {
+                    if (i < message.length) {
+                        element.textContent += message.charAt(i);
+                        i++;
+                        chatbox.scrollTop = chatbox.scrollHeight;
+                        setTimeout(typeWriter, typingSpeed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+                
+                typeWriter();
+            }
+
+
+            // Function to handle quick question buttons - Made global
+            window.quickQuestion = function(question) {
+                console.log('🔘 Quick question clicked:', question);
+                const chatInputElement = document.getElementById('chatInput');
+                const chatboxElement = document.getElementById('chatbox');
+                
+                if (!chatInputElement) {
+                    console.error('❌ Chat input not found!');
+                    return;
+                }
+                
+                if (!chatboxElement) {
+                    console.error('❌ Chat box not found!');
+                    return;
+                }
+                
+                console.log('✅ Elements found, processing question...');
+                
+                // Set the question in the input with visual feedback
+                chatInputElement.value = question;
+                
+                // Add a brief visual feedback to input
+                chatInputElement.style.backgroundColor = '#e6f3ff';
+                chatInputElement.style.borderColor = '#3b82f6';
+                
+                setTimeout(() => {
+                    chatInputElement.style.backgroundColor = '';
+                    chatInputElement.style.borderColor = '';
+                }, 300);
+                
+                // Show processing indicator
+                const quickButtons = document.querySelectorAll('#quickQuestions button');
+                quickButtons.forEach(btn => {
+                    btn.style.opacity = '0.6';
+                    btn.style.pointerEvents = 'none';
+                });
+                
+                // Manually trigger the message sending process
+                console.log('🚀 Calling handleQuickMessage...');
+                handleQuickMessage(question);
+                
+                // Re-enable buttons after short delay
+                setTimeout(() => {
+                    quickButtons.forEach(btn => {
+                        btn.style.opacity = '1';
+                        btn.style.pointerEvents = 'auto';
+                    });
+                }, 1500);
+            };
+            
+            // Handle quick message sending
+            function handleQuickMessage(question) {
+                console.log('📨 Handling quick message:', question);
+                const chatInputElement = document.getElementById('chatInput');
+                const chatboxElement = document.getElementById('chatbox');
+                
+                if (!chatInputElement || !chatboxElement) {
+                    console.error('❌ Required elements not found in handleQuickMessage');
+                    return;
+                }
+                
+                const userMessage = question.trim();
+                if (!userMessage) return;
+                
+                // Detect language from first message if not already detected
+                if (!languageDetected) {
+                    userLanguage = detectLanguage(userMessage);
+                    languageDetected = true;
+                    
+                    // Update chat direction based on language
+                    if (userLanguage === 'ar') {
+                        chatboxElement.style.direction = 'rtl';
+                        chatboxElement.style.textAlign = 'right';
+                    } else {
+                        chatboxElement.style.direction = 'ltr';
+                        chatboxElement.style.textAlign = 'left';
+                    }
+                }
+                
+                // Display user message
+                const userMessageWrapper = displayMessage(userMessage, true);
+                
+                // Set direction for user message
+                const userMessageContent = userMessageWrapper.querySelector('.message-content');
+                userMessageContent.style.direction = userLanguage === 'ar' ? 'rtl' : 'ltr';
+                userMessageContent.style.textAlign = userLanguage === 'ar' ? 'right' : 'left';
+                
+                // Clear input
+                chatInputElement.value = '';
+                
+                // Show typing indicator
+                const typingIndicator = showTypingIndicator();
+                
+                // Simulate processing time (0.5-1.5 seconds)
+                const processingTime = 500 + Math.random() * 1000;
+                
+                setTimeout(() => {
+                    // Get response in user's language
+                    const response = getResponse(userMessage, userLanguage);
+                    
+                    // Hide typing indicator
+                    hideTypingIndicator();
+                    
+                    // Display assistant's message with typing effect
+                    const messageWrapper = displayMessage('', false);
+                    const messageContent = messageWrapper.querySelector('.message-content');
+                    messageContent.textContent = ''; // Clear the initial empty message
+                    
+                    // Set direction for assistant's response
+                    messageContent.style.direction = userLanguage === 'ar' ? 'rtl' : 'ltr';
+                    messageContent.style.textAlign = userLanguage === 'ar' ? 'right' : 'left';
+                    
+                    // Type out the response
+                    typeMessage(response, messageContent, () => {
+                        // After typing is complete, ensure we're scrolled to the bottom
+                        chatboxElement.scrollTop = chatboxElement.scrollHeight;
+                    });
+                }, processingTime);
+            }
+
+            // Track user's language preference
+            let userLanguage = 'en'; // Default to English
+            let languageDetected = false;
+            
+            // Send message function
+            async function sendMessage() {
+                if (!chatInput || !chatbox) return;
+                
+                const userMessage = chatInput.value.trim();
+                if (!userMessage) return;
+                
+                // Detect language from first message if not already detected
+                if (!languageDetected) {
+                    userLanguage = detectLanguage(userMessage);
+                    languageDetected = true;
+                    
+                    // Update chat direction based on language
+                    if (userLanguage === 'ar') {
+                        chatbox.style.direction = 'rtl';
+                        chatbox.style.textAlign = 'right';
+                    } else {
+                        chatbox.style.direction = 'ltr';
+                        chatbox.style.textAlign = 'left';
+                    }
+                }
+                
+                // Display user message
+                const userMessageWrapper = displayMessage(userMessage, true);
+                
+                // Set direction for user message
+                const userMessageContent = userMessageWrapper.querySelector('.message-content');
+                userMessageContent.style.direction = userLanguage === 'ar' ? 'rtl' : 'ltr';
+                userMessageContent.style.textAlign = userLanguage === 'ar' ? 'right' : 'left';
+                
+                // Clear input
+                chatInput.value = '';
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Simulate processing time (0.5-1.5 seconds)
+                const processingTime = 500 + Math.random() * 1000;
+                
+                setTimeout(() => {
+                    // Get response in user's language
+                    const response = getResponse(userMessage, userLanguage);
+                    
+                    // Hide typing indicator
+                    hideTypingIndicator();
+                    
+                    // Display assistant's message with typing effect
+                    const messageWrapper = displayMessage('', false);
+                    const messageContent = messageWrapper.querySelector('.message-content');
+                    messageContent.textContent = ''; // Clear the initial empty message
+                    
+                    // Set direction for assistant's response
+                    messageContent.style.direction = userLanguage === 'ar' ? 'rtl' : 'ltr';
+                    messageContent.style.textAlign = userLanguage === 'ar' ? 'right' : 'left';
+                    
+                    // Type out the response
+                    typeMessage(response, messageContent, () => {
+                        // After typing is complete, ensure we're scrolled to the bottom
+                        chatbox.scrollTop = chatbox.scrollHeight;
+                    });
+                }, processingTime);
+            }
+            
+            // Send button click
+            if (sendButton) {
+                sendButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    sendMessage();
+                });
+            }
+            
+            // Handle Enter key in input
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        sendMessage();
+                    }
+                });
+            }
+            
+            // Initialize quick question buttons with event listeners
+            const quickQuestionButtons = document.querySelectorAll('.quick-question-btn');
+            console.log('🔍 Found', quickQuestionButtons.length, 'quick question buttons');
+            
+            const questions = [
+                'What are the supported trading platforms?',
+                'How to avoid account ban?',
+                'What is USDT FLASH validity period?',
+                'How to use Web3 wallet?',
+                'What is the best trading strategy?'
+            ];
+            
+            quickQuestionButtons.forEach((button, index) => {
+                console.log('🔧 Setting up button', index, 'for question:', questions[index]);
+                
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('🔘 Button', index, 'clicked! Question:', questions[index]);
+                    
+                    if (typeof window.quickQuestion === 'function') {
+                        window.quickQuestion(questions[index]);
+                    } else {
+                        console.error('❌ quickQuestion function not available');
+                        // Fallback - directly call handleQuickMessage
+                        if (typeof handleQuickMessage === 'function') {
+                            console.log('🔄 Using fallback handleQuickMessage');
+                            handleQuickMessage(questions[index]);
+                        }
+                    }
+                });
+            });
+            
+            // Test function to verify buttons work
+            window.testQuickButtons = function() {
+                console.log('🧪 Testing quick question buttons...');
+                const testQuestions = [
+                    'What are the supported trading platforms?',
+                    'How to avoid account ban?'
+                ];
+                
+                testQuestions.forEach((question, index) => {
+                    setTimeout(() => {
+                        console.log(`⚡ Testing question ${index + 1}:`, question);
+                        if (window.quickQuestion) {
+                            window.quickQuestion(question);
+                        }
+                    }, index * 2000);
+                });
+            };
+            
+            // No need for additional welcome message as it's now in HTML
+            console.log('✅ Chat initialization complete - Quick question buttons ready');
+            console.log('💡 To test buttons manually, run: testQuickButtons() in console');
+        });
+    </script>
+</body>
+</html>
