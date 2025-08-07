@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار إصلاح نظام الدردشة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-content {
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+        
+        .footer-simulation {
+            background: #333;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+        
+        .status-indicator {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-indicator">
+        ✅ نظام الدردشة محمل بنجاح
+    </div>
+
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🔧 اختبار إصلاح نظام الدردشة</h1>
+            <p>هذه الصفحة لاختبار أن نظام الدردشة يظهر كعنصر عائم وليس أسفل التذييل</p>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 تعليمات الاختبار:</h3>
+            <ol>
+                <li>تأكد من ظهور أيقونة الدردشة في الزاوية السفلية اليمنى</li>
+                <li>الأيقونة يجب أن تكون عائمة فوق المحتوى</li>
+                <li>اضغط على الأيقونة لفتح نافذة الدردشة</li>
+                <li>تأكد من أن نافذة الدردشة تظهر بجانب الأيقونة وليس أسفل التذييل</li>
+                <li>جرب التمرير لأسفل والتأكد من أن الأيقونة تبقى ثابتة</li>
+            </ol>
+        </div>
+
+        <div class="test-content">
+            <h2>محتوى تجريبي للاختبار</h2>
+            <p>هذا نص تجريبي لمحاكاة محتوى الصفحة. يجب أن تظهر أيقونة الدردشة عائمة في الزاوية السفلية اليمنى من الشاشة، وليس أسفل هذا المحتوى.</p>
+            
+            <p>عند الضغط على أيقونة الدردشة، يجب أن تظهر نافذة الدردشة بجانب الأيقونة كعنصر عائم، وليس كجزء من تدفق الصفحة.</p>
+            
+            <h3>المشكلة السابقة:</h3>
+            <p>كان نظام الدردشة يظهر أسفل التذييل كجزء من تدفق الصفحة العادي، مما يجعله غير مرئي أو يتطلب التمرير لأسفل لرؤيته.</p>
+            
+            <h3>الحل المطبق:</h3>
+            <ul>
+                <li>تطبيق <code>position: fixed</code> على عناصر الدردشة</li>
+                <li>استخدام <code>z-index</code> عالي لضمان الظهور فوق المحتوى</li>
+                <li>تطبيق <code>pointer-events</code> للسماح بالتفاعل</li>
+                <li>منع تداخل نظام الدردشة مع تدفق الصفحة</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-simulation">
+        <h3>🦶 تذييل تجريبي</h3>
+        <p>هذا تذييل تجريبي. يجب أن تظهر أيقونة الدردشة عائمة فوق هذا التذييل وليس أسفله.</p>
+        <p>إذا كانت أيقونة الدردشة تظهر أسفل هذا النص، فهذا يعني أن المشكلة لم يتم حلها بعد.</p>
+    </div>
+
+    <!-- تحميل نظام الدردشة -->
+    <script src="js/chat-unified.js"></script>
+    
+    <script>
+        // اختبار إضافي للتأكد من تحميل النظام
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const chatIcon = document.querySelector('.chat-icon');
+                const chatWindow = document.querySelector('.chat-window');
+                
+                if (chatIcon) {
+                    console.log('✅ أيقونة الدردشة موجودة');
+                    console.log('📍 موضع الأيقونة:', {
+                        position: getComputedStyle(chatIcon).position,
+                        bottom: getComputedStyle(chatIcon).bottom,
+                        right: getComputedStyle(chatIcon).right,
+                        zIndex: getComputedStyle(chatIcon).zIndex
+                    });
+                } else {
+                    console.error('❌ أيقونة الدردشة غير موجودة');
+                }
+                
+                if (chatWindow) {
+                    console.log('✅ نافذة الدردشة موجودة');
+                    console.log('📍 موضع النافذة:', {
+                        position: getComputedStyle(chatWindow).position,
+                        bottom: getComputedStyle(chatWindow).bottom,
+                        right: getComputedStyle(chatWindow).right,
+                        zIndex: getComputedStyle(chatWindow).zIndex
+                    });
+                } else {
+                    console.error('❌ نافذة الدردشة غير موجودة');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
