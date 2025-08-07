@@ -1,0 +1,354 @@
+/* Mobile Header Horizontal Scroll Fix */
+
+/* Enable horizontal scrolling for mobile header */
+@media (max-width: 768px) {
+    .ultra-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        height: auto !important;
+        min-height: 60px !important;
+        z-index: 99999 !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+    
+    .ultra-header::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .header-glass {
+        width: max-content !important;
+        min-width: 100vw !important;
+        height: 60px !important;
+        display: flex !important;
+        align-items: center !important;
+        background: linear-gradient(135deg, 
+            rgba(15, 15, 35, 0.98) 0%, 
+            rgba(25, 25, 45, 0.95) 50%, 
+            rgba(35, 35, 65, 0.98) 100%) !important;
+        backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    }
+    
+    .header-container {
+        width: max-content !important;
+        min-width: 100vw !important;
+        margin: 0 !important;
+        padding: 8px 15px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        height: 60px !important;
+        box-sizing: border-box !important;
+        flex-wrap: nowrap !important;
+        gap: 15px !important;
+    }
+    
+    /* Logo Section - Fixed Width */
+    .header-container > div:first-child {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex-shrink: 0 !important;
+        width: auto !important;
+        min-width: 180px !important;
+    }
+    
+    .logo-wrapper {
+        width: 42px !important;
+        height: 42px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .logo-title {
+        font-size: 1.2rem !important;
+        white-space: nowrap !important;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.65rem !important;
+        white-space: nowrap !important;
+    }
+    
+    .logo-badges {
+        display: flex !important;
+        gap: 4px !important;
+        flex-wrap: nowrap !important;
+    }
+    
+    .ultra-badge {
+        font-size: 0.55rem !important;
+        padding: 1px 4px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Navigation Icons - Fixed Width */
+    .nav-icons-section {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-shrink: 0 !important;
+        width: auto !important;
+        min-width: 180px !important;
+        justify-content: center !important;
+    }
+    
+    .pro-nav-icon {
+        flex-shrink: 0 !important;
+    }
+    
+    .icon-wrapper {
+        width: 36px !important;
+        height: 36px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Auth Section - Fixed Width */
+    .header-container > div:last-child {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex-shrink: 0 !important;
+        width: auto !important;
+        min-width: 140px !important;
+        justify-content: flex-end !important;
+    }
+    
+    .header-container > div:last-child a {
+        padding: 6px 10px !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Scroll Indicator */
+    .ultra-header::after {
+        content: '← اسحب للمزيد →' !important;
+        position: absolute !important;
+        bottom: -20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: rgba(0, 0, 0, 0.8) !important;
+        color: white !important;
+        padding: 2px 8px !important;
+        border-radius: 10px !important;
+        font-size: 0.6rem !important;
+        z-index: 99999 !important;
+        animation: scrollHint 2s infinite !important;
+        pointer-events: none !important;
+    }
+    
+    @keyframes scrollHint {
+        0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+        50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+    }
+    
+    /* Hide scroll hint after 5 seconds */
+    .ultra-header.scrolled::after {
+        display: none !important;
+    }
+    
+    /* Body adjustment */
+    body {
+        padding-top: 60px !important;
+    }
+}
+
+/* Small Mobile - More compact */
+@media (max-width: 480px) {
+    .ultra-header {
+        min-height: 55px !important;
+    }
+    
+    .header-glass {
+        height: 55px !important;
+    }
+    
+    .header-container {
+        height: 55px !important;
+        padding: 6px 12px !important;
+        gap: 12px !important;
+    }
+    
+    .header-container > div:first-child {
+        min-width: 160px !important;
+        gap: 8px !important;
+    }
+    
+    .logo-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.6rem !important;
+    }
+    
+    .nav-icons-section {
+        min-width: 160px !important;
+        gap: 6px !important;
+    }
+    
+    .icon-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 12px !important;
+    }
+    
+    .header-container > div:last-child {
+        min-width: 120px !important;
+    }
+    
+    .header-container > div:last-child a {
+        padding: 5px 8px !important;
+        font-size: 0.7rem !important;
+    }
+    
+    .header-container > div:last-child a span {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 55px !important;
+    }
+}
+
+/* Ultra Small Mobile */
+@media (max-width: 360px) {
+    .ultra-header {
+        min-height: 50px !important;
+    }
+    
+    .header-glass {
+        height: 50px !important;
+    }
+    
+    .header-container {
+        height: 50px !important;
+        padding: 5px 10px !important;
+        gap: 10px !important;
+    }
+    
+    .header-container > div:first-child {
+        min-width: 140px !important;
+        gap: 6px !important;
+    }
+    
+    .logo-wrapper {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .logo-title {
+        font-size: 1rem !important;
+    }
+    
+    .logo-subtitle {
+        display: none !important;
+    }
+    
+    .logo-badges {
+        display: none !important;
+    }
+    
+    .nav-icons-section {
+        min-width: 140px !important;
+        gap: 5px !important;
+    }
+    
+    .icon-wrapper {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 11px !important;
+    }
+    
+    .header-container > div:last-child {
+        min-width: 100px !important;
+    }
+    
+    .header-container > div:last-child a {
+        padding: 4px 6px !important;
+        font-size: 0.65rem !important;
+    }
+    
+    body {
+        padding-top: 50px !important;
+    }
+}
+
+/* Smooth scrolling behavior */
+.ultra-header {
+    scroll-behavior: smooth !important;
+}
+
+/* Touch scrolling optimization */
+@media (max-width: 768px) {
+    .ultra-header {
+        -webkit-overflow-scrolling: touch !important;
+        scroll-snap-type: x proximity !important;
+    }
+    
+    .header-container > div {
+        scroll-snap-align: start !important;
+    }
+}
+
+/* Hide scrollbar on all browsers */
+.ultra-header {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+.ultra-header::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+}
+
+/* Ensure all elements are visible */
+@media (max-width: 768px) {
+    .ultra-header,
+    .header-glass,
+    .header-container,
+    .header-container > *,
+    .nav-icons-section,
+    .pro-nav-icon,
+    .icon-wrapper,
+    .logo-wrapper,
+    .ultra-badge {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Add subtle gradient to indicate scrollable content */
+@media (max-width: 768px) {
+    .ultra-header::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 20px !important;
+        height: 100% !important;
+        background: linear-gradient(to left, rgba(15, 15, 35, 0.8), transparent) !important;
+        z-index: 99998 !important;
+        pointer-events: none !important;
+    }
+}

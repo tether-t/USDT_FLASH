@@ -1,0 +1,718 @@
+/* Final Header Optimization - Ultimate Mobile Performance */
+
+/* Critical CSS - Load First */
+@media screen {
+    /* Force header display with highest specificity */
+    html body .ultra-header,
+    html body header.ultra-header,
+    html body header[class*="ultra"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+        height: auto !important;
+        min-height: 70px !important;
+        max-height: 120px !important;
+        z-index: 2147483647 !important; /* Maximum z-index value */
+        background: transparent !important;
+        overflow: visible !important;
+        pointer-events: auto !important;
+        transform: translateZ(0) !important;
+        will-change: transform !important;
+        contain: layout style paint !important;
+        isolation: isolate !important;
+    }
+    
+    /* Force header glass display */
+    html body .ultra-header .header-glass,
+    html body header .header-glass {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: inherit !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: linear-gradient(135deg, 
+            rgba(15, 15, 35, 0.98) 0%, 
+            rgba(25, 25, 45, 0.95) 50%, 
+            rgba(35, 35, 65, 0.98) 100%) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        position: relative !important;
+        overflow: visible !important;
+        pointer-events: auto !important;
+        z-index: inherit !important;
+    }
+    
+    /* Force header container display */
+    html body .ultra-header .header-container,
+    html body header .header-container {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10px 15px !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        min-height: inherit !important;
+        position: relative !important;
+        z-index: 2 !important;
+        box-sizing: border-box !important;
+        flex-wrap: nowrap !important;
+        overflow: visible !important;
+        pointer-events: auto !important;
+        gap: 10px !important;
+    }
+    
+    /* Force all header children display */
+    html body .ultra-header .header-container > *,
+    html body header .header-container > * {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Logo section optimization */
+    html body .ultra-header .header-container > div:first-child {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex-shrink: 0 !important;
+        min-width: 0 !important;
+        max-width: 45% !important;
+        overflow: visible !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Logo wrapper */
+    html body .ultra-header .logo-wrapper {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 50px !important;
+        height: 50px !important;
+        flex-shrink: 0 !important;
+        position: relative !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        background: linear-gradient(45deg, #26a17b, #1a7a5e) !important;
+        box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Logo image */
+    html body .ultra-header .logo-img {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 50% !important;
+        border: 2px solid rgba(255, 255, 255, 0.1) !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Logo title */
+    html body .ultra-header .logo-title {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 1.4rem !important;
+        font-weight: 900 !important;
+        color: white !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        background: linear-gradient(45deg, #26a17b, #00d4ff, #667eea) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Logo subtitle */
+    html body .ultra-header .logo-subtitle {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 0.7rem !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-weight: 500 !important;
+        margin: 2px 0 0 0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Navigation icons section */
+    html body .ultra-header .nav-icons-section {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Individual navigation icons */
+    html body .ultra-header .pro-nav-icon {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important;
+        cursor: pointer !important;
+        align-items: center !important;
+        justify-content: center !important;
+        pointer-events: auto !important;
+        touch-action: manipulation !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+    }
+    
+    /* Icon wrappers */
+    html body .ultra-header .icon-wrapper {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        overflow: hidden !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+        border: 2px solid rgba(255, 255, 255, 0.1) !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Icon elements */
+    html body .ultra-header .icon-wrapper i {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 16px !important;
+        color: white !important;
+        z-index: 2 !important;
+        position: relative !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+        pointer-events: none !important;
+    }
+    
+    /* Auth section */
+    html body .ultra-header .header-container > div:last-child {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-shrink: 0 !important;
+        max-width: 40% !important;
+        pointer-events: auto !important;
+    }
+    
+    /* Auth buttons */
+    html body .ultra-header .header-container > div:last-child a {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        padding: 8px 12px !important;
+        border-radius: 8px !important;
+        font-size: 0.8rem !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        align-items: center !important;
+        gap: 4px !important;
+        white-space: nowrap !important;
+        min-height: 36px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Auth button icons */
+    html body .ultra-header .header-container > div:last-child a i {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        font-size: 14px !important;
+        pointer-events: none !important;
+    }
+    
+    /* Body padding adjustment */
+    html body {
+        padding-top: 70px !important;
+        margin-top: 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Main content adjustment */
+    html body #main-content {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+
+/* Responsive breakpoints with maximum specificity */
+@media screen and (max-width: 1024px) {
+    html body .ultra-header {
+        min-height: 65px !important;
+    }
+    
+    html body .ultra-header .header-container {
+        padding: 8px 12px !important;
+        min-height: 65px !important;
+    }
+    
+    html body {
+        padding-top: 65px !important;
+    }
+    
+    html body .ultra-header .logo-wrapper {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    html body .ultra-header .logo-title {
+        font-size: 1.3rem !important;
+    }
+    
+    html body .ultra-header .icon-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper i {
+        font-size: 15px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html body .ultra-header {
+        min-height: 60px !important;
+    }
+    
+    html body .ultra-header .header-container {
+        padding: 6px 10px !important;
+        min-height: 60px !important;
+        gap: 8px !important;
+    }
+    
+    html body {
+        padding-top: 60px !important;
+    }
+    
+    html body .ultra-header .header-container > div:first-child {
+        gap: 8px !important;
+        max-width: 50% !important;
+    }
+    
+    html body .ultra-header .logo-wrapper {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    html body .ultra-header .logo-title {
+        font-size: 1.2rem !important;
+    }
+    
+    html body .ultra-header .logo-subtitle {
+        font-size: 0.65rem !important;
+    }
+    
+    html body .ultra-header .nav-icons-section {
+        gap: 6px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper i {
+        font-size: 14px !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child {
+        max-width: 45% !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child a {
+        padding: 6px 10px !important;
+        font-size: 0.75rem !important;
+        min-height: 32px !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child a i {
+        font-size: 12px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    html body .ultra-header {
+        min-height: 55px !important;
+    }
+    
+    html body .ultra-header .header-container {
+        padding: 5px 8px !important;
+        min-height: 55px !important;
+        gap: 6px !important;
+    }
+    
+    html body {
+        padding-top: 55px !important;
+    }
+    
+    html body .ultra-header .header-container > div:first-child {
+        gap: 6px !important;
+        max-width: 55% !important;
+    }
+    
+    html body .ultra-header .logo-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    html body .ultra-header .logo-title {
+        font-size: 1.1rem !important;
+    }
+    
+    html body .ultra-header .logo-subtitle {
+        font-size: 0.6rem !important;
+    }
+    
+    html body .ultra-header .nav-icons-section {
+        gap: 5px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper i {
+        font-size: 12px !important;
+    }
+    
+    html body .ultra-header .pro-nav-icon {
+        min-width: 32px !important;
+        min-height: 32px !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child {
+        gap: 6px !important;
+        max-width: 40% !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child a {
+        padding: 5px 8px !important;
+        font-size: 0.7rem !important;
+        min-height: 28px !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child a span {
+        display: none !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child a i {
+        font-size: 11px !important;
+        margin: 0 !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    html body .ultra-header {
+        min-height: 50px !important;
+    }
+    
+    html body .ultra-header .header-container {
+        padding: 4px 6px !important;
+        min-height: 50px !important;
+        gap: 4px !important;
+    }
+    
+    html body {
+        padding-top: 50px !important;
+    }
+    
+    html body .ultra-header .header-container > div:first-child {
+        gap: 4px !important;
+        max-width: 60% !important;
+    }
+    
+    html body .ultra-header .logo-wrapper {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    html body .ultra-header .logo-title {
+        font-size: 1rem !important;
+    }
+    
+    html body .ultra-header .logo-subtitle {
+        display: none !important;
+    }
+    
+    html body .ultra-header .nav-icons-section {
+        gap: 3px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        min-height: 30px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper i {
+        font-size: 11px !important;
+    }
+    
+    html body .ultra-header .pro-nav-icon {
+        min-width: 30px !important;
+        min-height: 30px !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child {
+        gap: 3px !important;
+        max-width: 35% !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child a {
+        padding: 4px 6px !important;
+        font-size: 0.65rem !important;
+        min-height: 26px !important;
+        border-radius: 6px !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html body .ultra-header {
+        min-height: 48px !important;
+    }
+    
+    html body .ultra-header .header-container {
+        padding: 3px 5px !important;
+        min-height: 48px !important;
+        gap: 3px !important;
+    }
+    
+    html body {
+        padding-top: 48px !important;
+    }
+    
+    html body .ultra-header .header-container > div:first-child {
+        gap: 3px !important;
+        max-width: 65% !important;
+    }
+    
+    html body .ultra-header .logo-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    html body .ultra-header .logo-title {
+        font-size: 0.9rem !important;
+    }
+    
+    html body .ultra-header .nav-icons-section {
+        gap: 2px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+    }
+    
+    html body .ultra-header .icon-wrapper i {
+        font-size: 10px !important;
+    }
+    
+    html body .ultra-header .pro-nav-icon {
+        min-width: 28px !important;
+        min-height: 28px !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child {
+        gap: 2px !important;
+        max-width: 30% !important;
+    }
+    
+    html body .ultra-header .header-container > div:last-child a {
+        padding: 3px 5px !important;
+        font-size: 0.6rem !important;
+        min-height: 24px !important;
+    }
+}
+
+/* Force visibility overrides */
+html body .ultra-header,
+html body .ultra-header *:not(.hidden):not([style*="display: none"]):not([style*="visibility: hidden"]) {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Exception for specific elements */
+html body .ultra-header .logo-title,
+html body .ultra-header .logo-subtitle,
+html body .ultra-header .ultra-badge,
+html body .ultra-header .header-container a,
+html body .ultra-header .icon-wrapper i {
+    display: inline-block !important;
+}
+
+html body .ultra-header .logo-img,
+html body .ultra-header .logo-wrapper {
+    display: block !important;
+}
+
+/* Performance optimizations */
+html body .ultra-header,
+html body .ultra-header .header-glass,
+html body .ultra-header .header-container,
+html body .ultra-header .icon-wrapper,
+html body .ultra-header .logo-wrapper {
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+}
+
+/* Touch optimization */
+html body .ultra-header .pro-nav-icon,
+html body .ultra-header .icon-wrapper,
+html body .ultra-header .header-container a {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    touch-action: manipulation !important;
+}
+
+/* Prevent layout shift */
+html body .ultra-header {
+    contain: layout style paint !important;
+}
+
+html body .ultra-header .header-container {
+    contain: layout style !important;
+}
+
+/* High DPI support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    html body .ultra-header .logo-img {
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+    
+    html body .ultra-header .icon-wrapper i {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    html body .ultra-header .icon-wrapper,
+    html body .ultra-header .logo-img,
+    html body .ultra-header .header-container a {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    html body .ultra-header {
+        display: none !important;
+    }
+    
+    html body {
+        padding-top: 0 !important;
+    }
+}
+
+/* Force specific icon colors */
+html body .ultra-header .icon-wrapper.cards-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+html body .ultra-header .icon-wrapper.live-icon {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+}
+
+html body .ultra-header .icon-wrapper.support-icon {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%) !important;
+}
+
+html body .ultra-header .icon-wrapper.notifications-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+/* Ultra badge styles */
+html body .ultra-header .ultra-badge.verified {
+    background: rgba(34, 197, 94, 0.2) !important;
+    color: #22c55e !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+html body .ultra-header .ultra-badge.secure {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #3b82f6 !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Ensure no conflicts with other CSS */
+html body .ultra-header {
+    all: unset !important;
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 2147483647 !important;
+    min-height: 70px !important;
+    background: transparent !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    color: inherit !important;
+}

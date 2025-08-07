@@ -1,0 +1,345 @@
+/* 🌐 Language Toggle Button Styles */
+/* أنماط زر تبديل اللغة */
+
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-btn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.current-flag {
+    font-size: 18px;
+}
+
+.language-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    min-width: 160px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.language-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 14px;
+    color: #374151;
+}
+
+.language-option:hover {
+    background: #f3f4f6;
+}
+
+.language-option:first-child {
+    border-radius: 12px 12px 0 0;
+}
+
+.language-option:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+.language-option .flag {
+    font-size: 16px;
+}
+
+.language-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-color: rgba(37, 99, 235, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.language-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
+}
+
+.language-btn i {
+    font-size: 18px;
+    margin-right: 2px;
+}
+
+.badge-lang {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 8px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    animation: lang-pulse 2s infinite;
+}
+
+@keyframes lang-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* تأثير الانتقال عند تغيير اللغة */
+.language-transition {
+    transition: all 0.5s ease-in-out;
+}
+
+/* أنماط خاصة للغة العربية */
+.rtl-mode {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl-mode .language-btn {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+.rtl-mode .badge-lang {
+    right: auto;
+    left: -5px;
+}
+
+/* تحسين الخطوط العربية */
+.arabic-font,
+.arabic-font *,
+.rtl-mode * {
+    font-family: 'Cairo', 'Tajawal', 'Segoe UI', sans-serif !important;
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
+}
+
+.arabic-font h1,
+.arabic-font h2,
+.arabic-font h3,
+.arabic-font h4,
+.arabic-font h5,
+.arabic-font h6 {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+}
+
+.arabic-font .fas,
+.arabic-font .far,
+.arabic-font .fab {
+    margin-left: 8px !important;
+    margin-right: 0 !important;
+}
+
+.arabic-font .flex {
+    flex-direction: row-reverse !important;
+}
+
+.arabic-font .text-left {
+    text-align: right !important;
+}
+
+.arabic-font .text-right {
+    text-align: left !important;
+}
+
+/* تحسين المحاذاة للعناصر في الوضع العربي */
+.rtl-mode .nav-buttons {
+    flex-direction: row-reverse;
+}
+
+.rtl-mode .flex {
+    flex-direction: row-reverse;
+}
+
+.rtl-mode .text-left {
+    text-align: right;
+}
+
+.rtl-mode .text-right {
+    text-align: left;
+}
+
+/* تحسين الأزرار في الوضع العربي */
+.rtl-mode .auth-btn {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+.rtl-mode .nav-btn {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+/* تحسين الأيقونات في الوضع العربي */
+.rtl-mode .fas, .rtl-mode .far, .rtl-mode .fab {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+/* تحسين النصوص المختلطة */
+.rtl-mode .mixed-content {
+    direction: ltr;
+    text-align: left;
+    display: inline-block;
+}
+
+/* تحسين العناوين في الوضع العربي */
+.rtl-mode h1, .rtl-mode h2, .rtl-mode h3, .rtl-mode h4, .rtl-mode h5, .rtl-mode h6 {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    font-weight: 700;
+}
+
+/* تحسين الفقرات في الوضع العربي */
+.rtl-mode p {
+    font-family: 'Tajawal', 'Cairo', sans-serif !important;
+    line-height: 1.8;
+    text-align: right;
+}
+
+/* تحسين الأزرار النصية */
+.rtl-mode button, .rtl-mode .btn {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600;
+}
+
+/* تحسين القوائم */
+.rtl-mode ul, .rtl-mode ol {
+    padding-right: 20px;
+    padding-left: 0;
+}
+
+.rtl-mode li {
+    text-align: right;
+}
+
+/* تأثيرات إضافية للزر */
+.language-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.language-btn:hover::before {
+    left: 100%;
+}
+
+/* أنماط متجاوبة */
+@media (max-width: 768px) {
+    .language-btn {
+        padding: 8px 10px;
+    }
+    
+    .language-btn i {
+        font-size: 16px;
+    }
+    
+    .badge-lang {
+        font-size: 9px;
+        padding: 1px 4px;
+    }
+}
+
+/* تأثير خاص عند التبديل */
+.language-switching {
+    animation: language-switch 0.6s ease-in-out;
+}
+
+@keyframes language-switch {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+/* إشعار تغيير اللغة */
+.language-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    z-index: 9999;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    font-weight: 500;
+}
+
+.language-notification.show {
+    transform: translateX(0);
+}
+
+.language-notification.rtl {
+    right: auto;
+    left: 20px;
+    transform: translateX(-100%);
+}
+
+.language-notification.rtl.show {
+    transform: translateX(0);
+}
+
+/* أيقونة العلم */
+.flag-icon {
+    width: 20px;
+    height: 15px;
+    border-radius: 3px;
+    margin-right: 8px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
+
+.flag-icon.ar {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDA5NjM5Ii8+CjxyZWN0IHk9IjUiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB5PSIxMCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjUiIGZpbGw9IiNDRTExMjYiLz4KPC9zdmc+');
+}
+
+.flag-icon.en {
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAyMCAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjE1IiBmaWxsPSIjMDEyMTY5Ii8+CjxwYXRoIGQ9Ik0wIDBoMjB2MUgweiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTAgMmgyMHYxSDB6IiBmaWxsPSIjQ0UxMTI2Ii8+CjxwYXRoIGQ9Ik0wIDRoMjB2MUgweiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+');
+}
