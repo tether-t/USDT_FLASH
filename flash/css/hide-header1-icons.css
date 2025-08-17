@@ -1,0 +1,25 @@
+/* 🚫 إخفاء الأيقونات من الهيدر الأول */
+.ultra-header .nav-icons-section,
+.ultra-header .pro-nav-icon,
+.header-container .nav-icons-section,
+.header-container .pro-nav-icon {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* تعديل تخطيط الهيدر الأول */
+.header-container {
+    justify-content: space-between !important;
+}
+
+.logo-section {
+    flex: 1 !important;
+}
+
+.auth-section {
+    flex-shrink: 0 !important;
+}

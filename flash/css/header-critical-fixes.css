@@ -1,0 +1,529 @@
+/* Critical Header Fixes - Emergency CSS */
+
+/* Force Header Display - Highest Priority */
+.ultra-header {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 999999 !important;
+    height: auto !important;
+    min-height: 70px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    clip: none !important;
+    clip-path: none !important;
+}
+
+/* Force Header Glass Display */
+.header-glass {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: inherit !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 35, 0.98) 0%, 
+        rgba(25, 25, 45, 0.95) 50%, 
+        rgba(35, 35, 65, 0.98) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Force Header Container Display */
+.header-container {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px 15px !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: inherit !important;
+    position: relative !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+}
+
+/* Force All Header Children Display */
+.header-container > * {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Force Logo Section Display */
+.header-container > div:first-child {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-shrink: 0 !important;
+    min-width: 0 !important;
+    max-width: 40% !important;
+    overflow: visible !important;
+    pointer-events: auto !important;
+}
+
+.logo-wrapper {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 50px !important;
+    height: 50px !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    background: linear-gradient(45deg, #26a17b, #1a7a5e) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+    pointer-events: auto !important;
+}
+
+.logo-img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    pointer-events: auto !important;
+}
+
+.logo-title {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 1.4rem !important;
+    font-weight: 900 !important;
+    color: white !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    background: linear-gradient(45deg, #26a17b, #00d4ff, #667eea) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    pointer-events: auto !important;
+}
+
+.logo-subtitle {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 0.7rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500 !important;
+    margin: 2px 0 0 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    pointer-events: auto !important;
+}
+
+.logo-badges {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    gap: 4px !important;
+    margin-top: 4px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+    pointer-events: auto !important;
+}
+
+.ultra-badge {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center !important;
+    gap: 2px !important;
+    padding: 2px 6px !important;
+    border-radius: 8px !important;
+    font-size: 0.6rem !important;
+    font-weight: 600 !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    white-space: nowrap !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    pointer-events: auto !important;
+}
+
+/* Force Navigation Icons Display */
+.nav-icons-section {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 0 10px !important;
+    flex-shrink: 0 !important;
+    pointer-events: auto !important;
+}
+
+.pro-nav-icon {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    cursor: pointer !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+}
+
+.icon-wrapper {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.icon-wrapper i {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 16px !important;
+    color: white !important;
+    z-index: 2 !important;
+    position: relative !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    pointer-events: none !important;
+}
+
+/* Force Auth Section Display */
+.header-container > div:last-child {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+    max-width: 35% !important;
+    pointer-events: auto !important;
+}
+
+.header-container > div:last-child a {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    align-items: center !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+    min-height: 36px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.header-container > div:last-child a i {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 14px !important;
+    pointer-events: none !important;
+}
+
+/* Body Adjustment */
+body {
+    padding-top: 70px !important;
+    margin-top: 0 !important;
+}
+
+#main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Mobile Specific Fixes */
+@media (max-width: 768px) {
+    .ultra-header {
+        min-height: 60px !important;
+    }
+    
+    .header-container {
+        padding: 6px 10px !important;
+        min-height: 60px !important;
+    }
+    
+    body {
+        padding-top: 60px !important;
+    }
+    
+    .logo-wrapper {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.2rem !important;
+    }
+    
+    .icon-wrapper {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .ultra-header {
+        min-height: 55px !important;
+    }
+    
+    .header-container {
+        padding: 5px 8px !important;
+        min-height: 55px !important;
+    }
+    
+    body {
+        padding-top: 55px !important;
+    }
+    
+    .logo-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .icon-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 12px !important;
+    }
+    
+    .header-container > div:last-child a span {
+        display: none !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .ultra-header {
+        min-height: 50px !important;
+    }
+    
+    .header-container {
+        padding: 4px 6px !important;
+        min-height: 50px !important;
+    }
+    
+    body {
+        padding-top: 50px !important;
+    }
+    
+    .logo-wrapper {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .logo-title {
+        font-size: 1rem !important;
+    }
+    
+    .logo-subtitle {
+        display: none !important;
+    }
+    
+    .logo-badges {
+        display: none !important;
+    }
+    
+    .icon-wrapper {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        min-height: 30px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 11px !important;
+    }
+}
+
+/* Override any conflicting styles */
+.ultra-header * {
+    box-sizing: border-box !important;
+}
+
+/* Ensure no elements are hidden */
+.ultra-header,
+.ultra-header *,
+.header-glass,
+.header-glass *,
+.header-container,
+.header-container *,
+.nav-icons-section,
+.nav-icons-section *,
+.pro-nav-icon,
+.pro-nav-icon *,
+.icon-wrapper,
+.icon-wrapper *,
+.logo-wrapper,
+.logo-wrapper *,
+.ultra-badge,
+.ultra-badge * {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Exception for text elements */
+.logo-title,
+.logo-subtitle,
+.ultra-badge,
+.header-container a,
+.icon-wrapper i {
+    display: inline-block !important;
+}
+
+.logo-img {
+    display: block !important;
+}
+
+/* Prevent any transforms that might hide elements */
+.ultra-header,
+.header-glass,
+.header-container,
+.nav-icons-section,
+.pro-nav-icon,
+.icon-wrapper,
+.logo-wrapper {
+    transform: none !important;
+    -webkit-transform: none !important;
+    clip: none !important;
+    clip-path: none !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+}
+
+/* Ensure proper stacking context */
+.ultra-header {
+    z-index: 999999 !important;
+    isolation: isolate !important;
+}
+
+.header-glass {
+    z-index: 999998 !important;
+}
+
+.header-container {
+    z-index: 999997 !important;
+}
+
+.nav-icons-section {
+    z-index: 999996 !important;
+}
+
+.pro-nav-icon {
+    z-index: 999995 !important;
+}
+
+/* Force hardware acceleration for smooth performance */
+.ultra-header,
+.header-glass,
+.header-container,
+.icon-wrapper,
+.logo-wrapper {
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+}
+
+/* Prevent any CSS that might interfere */
+.ultra-header {
+    all: unset !important;
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 999999 !important;
+    min-height: 70px !important;
+    background: transparent !important;
+}
+
+/* Critical mobile viewport fix */
+@media screen and (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: 100% !important;
+        -ms-text-size-adjust: 100% !important;
+    }
+    
+    body {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-x: hidden !important;
+    }
+    
+    .ultra-header {
+        -webkit-transform: translateZ(0) !important;
+        transform: translateZ(0) !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100vw !important;
+    }
+}

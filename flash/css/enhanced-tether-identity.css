@@ -1,0 +1,474 @@
+/* تحسينات شاملة لهوية Tether USDT */
+
+:root {
+    /* ألوان Tether الرسمية المحدثة */
+    --tether-primary: #26A17B;
+    --tether-primary-dark: #1A8462;
+    --tether-primary-light: #53C1A0;
+    --tether-secondary: #2775CA;
+    --tether-secondary-dark: #1e5aa8;
+    --tether-accent: #00D4AA;
+    --tether-gold: #FFD700;
+    --tether-silver: #C0C0C0;
+    --tether-dark: #0E4B36;
+    --tether-gray: #F8F9FA;
+    --tether-text: #2D3748;
+    --tether-white: #FFFFFF;
+}
+
+/* ===== الهيدر الرئيسي ===== */
+.gradient-bg {
+    background: linear-gradient(135deg, 
+        var(--tether-primary) 0%, 
+        var(--tether-primary-dark) 50%, 
+        var(--tether-dark) 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(0, 212, 170, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* ===== شريط Tether الرسمي ===== */
+.tether-official-header {
+    background: linear-gradient(135deg, 
+        var(--tether-secondary) 0%, 
+        var(--tether-secondary-dark) 100%) !important;
+    border-bottom: 3px solid var(--tether-accent);
+    box-shadow: 0 4px 20px rgba(39, 117, 202, 0.2);
+}
+
+.tether-official-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.tether-logo-official {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.3));
+}
+
+.official-text {
+    flex: 1;
+    text-align: center;
+    color: var(--tether-white);
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.verified-badge {
+    background: var(--tether-accent);
+    color: var(--tether-white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 5px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0, 212, 170, 0.3);
+}
+
+/* ===== الأزرار الرئيسية ===== */
+.bg-green-500,
+.bg-green-600,
+.btn-success,
+button[class*="green"] {
+    background: linear-gradient(45deg, 
+        var(--tether-primary), 
+        var(--tether-primary-dark)) !important;
+    border: 2px solid var(--tether-primary) !important;
+    color: var(--tether-white) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+    transition: all 0.3s ease !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.bg-green-500:hover,
+.bg-green-600:hover,
+.btn-success:hover,
+button[class*="green"]:hover {
+    background: linear-gradient(45deg, 
+        var(--tether-primary-dark), 
+        var(--tether-dark)) !important;
+    box-shadow: 0 6px 25px rgba(38, 161, 123, 0.4) !important;
+    transform: translateY(-3px) !important;
+    border-color: var(--tether-accent) !important;
+}
+
+/* ===== العدادات والإحصائيات ===== */
+.counter,
+.dynamic-users,
+.dynamic-transactions,
+.dynamic-rating,
+.stat-number {
+    color: var(--tether-primary) !important;
+    font-weight: 800 !important;
+    text-shadow: 0 2px 4px rgba(38, 161, 123, 0.2) !important;
+    font-family: 'Arial', sans-serif !important;
+}
+
+/* ===== الشارات والبادجات ===== */
+.badge-verified {
+    background: linear-gradient(135deg, 
+        var(--tether-primary), 
+        var(--tether-primary-dark)) !important;
+    color: var(--tether-white) !important;
+    box-shadow: 0 3px 10px rgba(38, 161, 123, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.badge-secure {
+    background: linear-gradient(135deg, 
+        var(--tether-secondary), 
+        var(--tether-secondary-dark)) !important;
+    color: var(--tether-white) !important;
+    box-shadow: 0 3px 10px rgba(39, 117, 202, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.badge-premium {
+    background: linear-gradient(135deg, 
+        var(--tether-gold), 
+        #DAA520) !important;
+    color: var(--tether-text) !important;
+    box-shadow: 0 3px 10px rgba(255, 215, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ===== الأيقونات ===== */
+.fas.text-green-500,
+.fas.text-green-600,
+.fas.text-green-400,
+.tether-icon {
+    color: var(--tether-primary) !important;
+    filter: drop-shadow(0 1px 3px rgba(38, 161, 123, 0.3)) !important;
+}
+
+/* ===== الروابط ===== */
+.tether-link,
+a[href*="tether.to"],
+a[href*="tether"] {
+    color: var(--tether-primary) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.tether-link:hover,
+a[href*="tether.to"]:hover,
+a[href*="tether"]:hover {
+    color: var(--tether-primary-dark) !important;
+    text-decoration: underline !important;
+    text-shadow: 0 1px 3px rgba(38, 161, 123, 0.3) !important;
+}
+
+/* ===== العناوين ===== */
+.tether-heading,
+h1, h2, h3 {
+    color: var(--tether-text) !important;
+    font-weight: 700 !important;
+    position: relative !important;
+}
+
+.tether-heading::after,
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        var(--tether-primary), 
+        var(--tether-accent)) !important;
+    border-radius: 2px;
+}
+
+/* ===== الخلفيات ===== */
+.bg-green-50 {
+    background: linear-gradient(135deg, 
+        rgba(38, 161, 123, 0.05), 
+        rgba(0, 212, 170, 0.05)) !important;
+}
+
+.bg-green-100 {
+    background: linear-gradient(135deg, 
+        rgba(38, 161, 123, 0.1), 
+        rgba(0, 212, 170, 0.1)) !important;
+}
+
+.bg-gradient-to-r.from-green-50.to-blue-50 {
+    background: linear-gradient(to right, 
+        rgba(38, 161, 123, 0.08), 
+        rgba(39, 117, 202, 0.08)) !important;
+}
+
+/* ===== الحدود ===== */
+.border-green-200 {
+    border-color: rgba(38, 161, 123, 0.3) !important;
+}
+
+.border-green-300 {
+    border-color: rgba(38, 161, 123, 0.4) !important;
+}
+
+/* ===== شريط الأمان ===== */
+.security-bar {
+    background: linear-gradient(135deg, 
+        rgba(38, 161, 123, 0.95), 
+        rgba(26, 132, 98, 0.95)) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 2px solid var(--tether-accent) !important;
+}
+
+.security-pulse {
+    background-color: var(--tether-accent) !important;
+    box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.7) !important;
+    animation: pulse-tether 2s infinite !important;
+}
+
+@keyframes pulse-tether {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 212, 170, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 212, 170, 0);
+    }
+}
+
+/* ===== أزرار الباقات المحسنة ===== */
+.package-card {
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(38, 161, 123, 0.02), 
+        rgba(0, 212, 170, 0.02));
+    pointer-events: none;
+    z-index: 0;
+}
+
+.package-card:hover {
+    border-color: var(--tether-primary) !important;
+    box-shadow: 0 10px 30px rgba(38, 161, 123, 0.15) !important;
+    transform: translateY(-5px) !important;
+}
+
+/* الباقة الأساسية - أخضر Tether */
+.package-card:nth-child(1) button,
+.package-card:nth-child(1) .tether-action-button,
+.package-card:nth-child(1) .package-btn {
+    background: linear-gradient(45deg, 
+        var(--tether-primary), 
+        var(--tether-primary-dark)) !important;
+    border-color: var(--tether-primary) !important;
+    color: var(--tether-white) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+}
+
+/* الباقة المتوسطة - أزرق Tether */
+.package-card:nth-child(2) button,
+.package-card:nth-child(2) .tether-action-button,
+.package-card:nth-child(2) .package-btn {
+    background: linear-gradient(45deg, 
+        var(--tether-secondary), 
+        var(--tether-secondary-dark)) !important;
+    border-color: var(--tether-secondary) !important;
+    color: var(--tether-white) !important;
+    box-shadow: 0 4px 15px rgba(39, 117, 202, 0.3) !important;
+}
+
+/* الباقة المتقدمة - ذهبي مميز */
+.package-card:nth-child(3) button,
+.package-card:nth-child(3) .tether-action-button,
+.package-card:nth-child(3) .package-btn {
+    background: linear-gradient(45deg, 
+        var(--tether-gold), 
+        #DAA520) !important;
+    border-color: var(--tether-gold) !important;
+    color: var(--tether-text) !important;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3) !important;
+    font-weight: 700 !important;
+}
+
+/* تأثيرات التمرير المحسنة */
+.package-card:nth-child(1) button:hover {
+    background: linear-gradient(45deg, 
+        var(--tether-primary-dark), 
+        var(--tether-dark)) !important;
+    box-shadow: 0 6px 25px rgba(38, 161, 123, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.package-card:nth-child(2) button:hover {
+    background: linear-gradient(45deg, 
+        var(--tether-secondary-dark), 
+        #1a4d8a) !important;
+    box-shadow: 0 6px 25px rgba(39, 117, 202, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+.package-card:nth-child(3) button:hover {
+    background: linear-gradient(45deg, 
+        #DAA520, 
+        #B8860B) !important;
+    box-shadow: 0 6px 25px rgba(255, 215, 0, 0.4) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* ===== التذييل ===== */
+footer {
+    background: linear-gradient(135deg, 
+        var(--tether-text) 0%, 
+        #1a202c 100%) !important;
+    border-top: 4px solid var(--tether-primary) !important;
+}
+
+footer .text-green-400,
+footer .text-green-500,
+footer .text-green-600 {
+    color: var(--tether-primary) !important;
+}
+
+/* ===== شريط Tether السفلي ===== */
+.tether-official-footer-bar {
+    background: linear-gradient(135deg, 
+        var(--tether-primary) 0%, 
+        var(--tether-primary-dark) 100%) !important;
+    padding: 15px 0 !important;
+    text-align: center !important;
+    color: var(--tether-white) !important;
+    font-weight: 600 !important;
+}
+
+/* ===== تحسينات إضافية ===== */
+.glass-effect {
+    backdrop-filter: blur(15px) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(38, 161, 123, 0.2) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+.tether-badge {
+    background: var(--tether-primary) !important;
+    color: var(--tether-white) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    padding: 8px 16px !important;
+    border-radius: 25px !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+}
+
+/* ===== تأثيرات الحركة ===== */
+@keyframes tether-glow {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--tether-primary);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--tether-primary), 0 0 30px var(--tether-accent);
+    }
+}
+
+.tether-glow {
+    animation: tether-glow 3s ease-in-out infinite !important;
+}
+
+/* ===== تحسينات للشاشات الصغيرة ===== */
+@media (max-width: 768px) {
+    .tether-official-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .official-text {
+        font-size: 1rem;
+    }
+    
+    .tether-logo-official {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .package-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* ===== تحسينات للشاشات الكبيرة ===== */
+@media (min-width: 1200px) {
+    .gradient-bg {
+        background: linear-gradient(135deg, 
+            var(--tether-primary) 0%, 
+            var(--tether-primary-dark) 30%,
+            var(--tether-dark) 70%,
+            #0a3d2e 100%) !important;
+    }
+    
+    .tether-official-header {
+        background: linear-gradient(135deg, 
+            var(--tether-secondary) 0%, 
+            var(--tether-secondary-dark) 50%,
+            #1a4d8a 100%) !important;
+    }
+}
+
+/* ===== تأثيرات خاصة للعناصر المهمة ===== */
+.security-indicators .security-item {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(0, 212, 170, 0.3) !important;
+    border-radius: 10px !important;
+    padding: 10px 15px !important;
+    transition: all 0.3s ease !important;
+}
+
+.security-indicators .security-item:hover {
+    background: rgba(0, 212, 170, 0.1) !important;
+    border-color: var(--tether-accent) !important;
+    transform: translateY(-2px) !important;
+}
+
+.live-status {
+    background: var(--tether-accent) !important;
+    color: var(--tether-white) !important;
+    padding: 5px 15px !important;
+    border-radius: 20px !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    animation: pulse-tether 2s infinite !important;
+}
