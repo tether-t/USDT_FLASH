@@ -1,0 +1,644 @@
+/* 🧠 تصميم الباقات بتقنيات علم النفس المتطورة */
+
+.psychology-package-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 24px;
+    padding: 32px 24px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transform: translateY(0);
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.psychology-package-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.psychology-package-card:hover::before {
+    opacity: 1;
+}
+
+.psychology-package-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.psychology-package-card.focused {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 25px 80px rgba(59, 130, 246, 0.25);
+    border-color: #3b82f6;
+    z-index: 10;
+}
+
+.psychology-package-card.dimmed {
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+.psychology-package-card.selected-pulse {
+    animation: selectedPulse 0.6s ease-out;
+}
+
+@keyframes selectedPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(59, 130, 246, 0.1); }
+    100% { transform: scale(1); }
+}
+
+/* شريط الشعبية */
+.popular-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    padding: 8px 40px;
+    font-size: 12px;
+    font-weight: bold;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+    z-index: 5;
+}
+
+/* شارات الإلحاح */
+.urgency-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.urgency-badge.limited {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    color: white;
+    animation: urgencyPulse 2s infinite;
+}
+
+.urgency-badge.value {
+    background: linear-gradient(135deg, #059669, #047857);
+    color: white;
+}
+
+@keyframes urgencyPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* رأس الباقة */
+.package-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.package-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.package-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.savings-indicator {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+}
+
+/* قسم السعر */
+.price-section {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.original-price {
+    font-size: 18px;
+    color: #9ca3af;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.original-price::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ef4444;
+    transform: translateY(-50%);
+}
+
+.current-price {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #059669, #047857);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.price-note {
+    font-size: 12px;
+    color: #dc2626;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* عرض الكمية */
+.amount-display {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border-radius: 16px;
+    border: 1px solid #bae6fd;
+}
+
+.amount-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0369a1;
+    display: block;
+}
+
+.amount-currency {
+    font-size: 14px;
+    color: #0284c7;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* الدليل الاجتماعي */
+.social-proof {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.purchased-count, .urgency-count {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.purchased-count i, .urgency-count i {
+    margin-right: 6px;
+    color: #059669;
+}
+
+.urgency-count.urgency-flash {
+    animation: urgencyFlash 0.5s ease-in-out;
+}
+
+@keyframes urgencyFlash {
+    0%, 100% { background: transparent; }
+    50% { background: #fef3c7; }
+}
+
+/* قائمة الميزات */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 32px;
+}
+
+.feature-item {
+    padding: 12px 0;
+    font-size: 16px;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.feature-item:hover {
+    color: #059669;
+    transform: translateX(4px);
+}
+
+.feature-item:last-child {
+    border-bottom: none;
+}
+
+/* تذييل الباقة */
+.package-footer {
+    text-align: center;
+}
+
+.psychology-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #059669, #047857);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+    margin-bottom: 16px;
+}
+
+.psychology-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.psychology-btn:hover::before {
+    left: 100%;
+}
+
+.psychology-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(5, 150, 105, 0.4);
+}
+
+.btn-text {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.btn-arrow {
+    display: inline-block;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.psychology-btn:hover .btn-text {
+    transform: translateX(-4px);
+}
+
+.psychology-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.guarantee-text {
+    font-size: 12px;
+    color: #059669;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+/* شريط الندرة */
+.scarcity-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #f3f4f6;
+    overflow: hidden;
+}
+
+.scarcity-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #dc2626, #f59e0b, #059669);
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.scarcity-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5));
+    animation: scarcityShine 2s infinite;
+}
+
+@keyframes scarcityShine {
+    0% { transform: translateX(-20px); }
+    100% { transform: translateX(20px); }
+}
+
+/* ألوان الباقات */
+.psychology-package-card.emerald:hover {
+    border-color: #10b981;
+}
+
+.psychology-package-card.blue:hover {
+    border-color: #3b82f6;
+}
+
+.psychology-package-card.purple:hover {
+    border-color: #8b5cf6;
+}
+
+/* نافذة التحفيز */
+.motivation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.motivation-content {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.motivation-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    animation: bounce 1s infinite;
+}
+
+.motivation-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.motivation-content p {
+    color: #6b7280;
+    margin-bottom: 24px;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 4px;
+    background: #f3f4f6;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.loading-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #059669, #3b82f6);
+    width: 0;
+    animation: loadingFill 1s ease-out forwards;
+}
+
+@keyframes loadingFill {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* نافذة التسجيل */
+.registration-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 24px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    0% { transform: translate(-50%, -40%) scale(0.9); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.modal-header {
+    padding: 24px 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.modal-body {
+    padding: 24px;
+}
+
+.urgency-message {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    border: 1px solid #f59e0b;
+}
+
+.benefits-list {
+    margin: 16px 0;
+}
+
+.benefit {
+    padding: 8px 0;
+    color: #374151;
+    font-weight: 500;
+}
+
+.modal-footer {
+    padding: 0 24px 24px;
+    text-align: center;
+}
+
+.register-now-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+}
+
+.register-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(220, 38, 38, 0.4);
+}
+
+.security-note {
+    font-size: 12px;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* إصلاح الحاوي الرئيسي */
+#packages-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* تأكيد ظهور النصوص */
+.psychology-package-card * {
+    position: relative;
+    z-index: 2;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    #packages-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .psychology-package-card {
+        padding: 24px 16px;
+        min-height: 550px;
+    }
+    
+    .package-title {
+        font-size: 24px;
+    }
+    
+    .current-price {
+        font-size: 36px;
+    }
+    
+    .amount-number {
+        font-size: 24px;
+    }
+    
+    .psychology-btn {
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}

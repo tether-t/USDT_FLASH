@@ -1,0 +1,279 @@
+/* Advanced Psychological Effects for USDT FLASH Trial */
+
+/* Urgency and Scarcity Effects */
+.urgency-banner {
+    background: linear-gradient(45deg, #ff0000, #ff6b35, #ffd700);
+    animation: urgencyPulse 1.5s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    border: 2px solid #ff0000;
+}
+
+.scarcity-alert {
+    background: linear-gradient(135deg, #ff4444, #cc0000);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    animation: scarcityBlink 2s infinite;
+    box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4);
+}
+
+/* Social Proof Elements */
+.social-proof-badge {
+    background: linear-gradient(45deg, #00d4ff, #0099cc);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    animation: socialGlow 3s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+/* Trust Signals */
+.trust-badge {
+    background: linear-gradient(45deg, #26a17b, #1a8462);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    animation: trustPulse 4s ease-in-out infinite;
+}
+
+/* FOMO (Fear of Missing Out) Effects */
+.fomo-container {
+    background: linear-gradient(135deg, #ff6b35, #ff0000);
+    border: 3px solid #ffd700;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: fomoShine 3s linear infinite;
+}
+
+.fomo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: fomoSweep 2s infinite;
+}
+
+/* Price Anchoring */
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.original-price::after {
+    content: '87% OFF!';
+    position: absolute;
+    top: -25px;
+    right: -10px;
+    background: #ff0000;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    animation: discountBounce 2s infinite;
+}
+
+.current-price {
+    color: #ff0000;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    animation: priceGlow 2s ease-in-out infinite;
+}
+
+/* Authority and Credibility */
+.authority-seal {
+    background: radial-gradient(circle, #ffd700, #ffed4e);
+    border: 3px solid #cc9900;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    animation: sealRotate 10s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    background: linear-gradient(45deg, #000, #333);
+    color: #ff0000;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid #ff0000;
+    animation: timerUrgency 1s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+}
+
+/* Call-to-Action Button Enhancement */
+.psychological-cta {
+    background: linear-gradient(45deg, #ff0000, #ff6b35, #ffd700);
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: ctaPulse 1.5s ease-in-out infinite;
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+.psychological-cta:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 0, 0, 0.6);
+}
+
+.psychological-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: ctaShine 2s infinite;
+}
+
+/* Testimonial Cards */
+.testimonial-popup {
+    background: white;
+    border: 2px solid #00d4ff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    animation: testimonialSlide 0.5s ease-out;
+    position: relative;
+}
+
+.testimonial-popup::before {
+    content: '✅';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #00d4ff;
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+/* Animations */
+@keyframes urgencyPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.9; }
+}
+
+@keyframes scarcityBlink {
+    0%, 50% { opacity: 1; }
+    25%, 75% { opacity: 0.7; }
+}
+
+@keyframes socialGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
+    50% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.8); }
+}
+
+@keyframes trustPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes fomoShine {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes fomoSweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes discountBounce {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+@keyframes priceGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.3); }
+}
+
+@keyframes sealRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes timerUrgency {
+    0%, 100% { border-color: #ff0000; box-shadow: 0 0 25px rgba(255, 0, 0, 0.5); }
+    50% { border-color: #ff6b35; box-shadow: 0 0 35px rgba(255, 107, 53, 0.7); }
+}
+
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+@keyframes ctaShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+@keyframes testimonialSlide {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .countdown-timer {
+        font-size: 1.2rem;
+        padding: 12px 20px;
+    }
+    
+    .psychological-cta {
+        font-size: 1rem;
+        padding: 15px 25px;
+    }
+    
+    .current-price {
+        font-size: 2rem;
+    }
+    
+    .authority-seal {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+}
