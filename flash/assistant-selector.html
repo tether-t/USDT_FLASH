@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>USDT-FLASH Assistant | Tether Official</title>
+    <link rel="icon" type="image/png" href="img/usdt_cryptocurrencies_icon_188337.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #26a17b 0%, #1e8a66 50%, #16704f 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #26a17b 0%, #1e8a66 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .logo-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tether-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tether-logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .official-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-top: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .content {
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .language-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .language-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            padding: 40px 30px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(38, 161, 123, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .language-card:hover::before {
+            left: 100%;
+        }
+
+        .language-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(38, 161, 123, 0.2);
+            border-color: #26a17b;
+        }
+
+        .language-card.arabic:hover {
+            background: linear-gradient(135deg, #26a17b 0%, #1e8a66 100%);
+            color: white;
+        }
+
+        .language-card.english:hover {
+            background: linear-gradient(135deg, #26a17b 0%, #1e8a66 100%);
+            color: white;
+        }
+
+        .flag-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .language-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .language-desc {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 25px 30px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .footer img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(38, 161, 123, 0.1);
+            color: #26a17b;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            .welcome-text {
+                font-size: 20px;
+            }
+
+            .language-selector {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .language-card {
+                padding: 30px 20px;
+            }
+
+            .flag-icon {
+                font-size: 40px;
+            }
+
+            .language-name {
+                font-size: 20px;
+            }
+
+            .footer {
+                padding: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .language-card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .language-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <div class="tether-logo">
+                    <img src="img/usdt_cryptocurrencies_icon_188337.png" alt="Tether USDT">
+                </div>
+                <h1>USDT-FLASH Assistant</h1>
+                <p class="subtitle">Official Tether Support System</p>
+                <div class="official-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>Tether Verified Partner</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 class="welcome-text">Choose Your Language</h2>
+            <p class="description">
+                Select your preferred language to access our advanced AI assistant. 
+                Get instant answers about USDT-FLASH, Web3 trading, and secure transactions.
+            </p>
+
+            <div class="language-selector">
+                <a href="test-assistant.html" class="language-card arabic">
+                    <span class="flag-icon">🇸🇦</span>
+                    <div class="language-name">العربية</div>
+                    <div class="language-desc">المساعد الذكي باللغة العربية<br>دعم شامل ومتخصص</div>
+                </a>
+
+                <a href="test-assistant-en.html" class="language-card english">
+                    <span class="flag-icon">🇺🇸</span>
+                    <div class="language-name">English</div>
+                    <div class="language-desc">Smart Assistant in English<br>Comprehensive & Specialized Support</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <img src="img/usdt_cryptocurrencies_icon_188337.png" alt="USDT">
+                <span>Powered by Tether Technology</span>
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure & Verified</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
