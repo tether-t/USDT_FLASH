@@ -1,0 +1,270 @@
+/* تحسينات احترافية متقدمة لأيقونات الهيدر */
+
+/* تأثيرات الأيقونات الاحترافية */
+.professional-icon {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 2px solid transparent !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    overflow: hidden !important;
+}
+
+.professional-icon i {
+    font-size: 24px !important;
+    color: white !important;
+    z-index: 2 !important;
+    position: relative !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)) !important;
+}
+
+.professional-icon::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent) !important;
+    opacity: 0 !important;
+    transition: opacity 0.4s ease !important;
+}
+
+.professional-icon:hover::before {
+    opacity: 1 !important;
+}
+
+/* أيقونة البطاقات */
+.cards-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-color: rgba(102, 126, 234, 0.3) !important;
+}
+
+.cards-icon:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%) !important;
+    transform: translateY(-6px) scale(1.1) !important;
+    box-shadow: 0 16px 48px rgba(102, 126, 234, 0.5) !important;
+    border-color: rgba(102, 126, 234, 0.6) !important;
+}
+
+/* أيقونة المعاملات المباشرة */
+.live-icon {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+    border-color: rgba(17, 153, 142, 0.3) !important;
+}
+
+.live-icon:hover {
+    background: linear-gradient(135deg, #0d7377 0%, #2dd4bf 100%) !important;
+    transform: translateY(-6px) scale(1.1) !important;
+    box-shadow: 0 16px 48px rgba(17, 153, 142, 0.5) !important;
+    border-color: rgba(17, 153, 142, 0.6) !important;
+}
+
+/* أيقونة الدعم الفني */
+.support-icon {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%) !important;
+    border-color: rgba(255, 107, 107, 0.3) !important;
+}
+
+.support-icon:hover {
+    background: linear-gradient(135deg, #ff5252 0%, #ff9800 100%) !important;
+    transform: translateY(-6px) scale(1.1) !important;
+    box-shadow: 0 16px 48px rgba(255, 107, 107, 0.5) !important;
+    border-color: rgba(255, 107, 107, 0.6) !important;
+}
+
+/* أيقونة الملف الشخصي */
+.profile-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+    border-color: rgba(79, 172, 254, 0.3) !important;
+}
+
+.profile-icon:hover {
+    background: linear-gradient(135deg, #2196f3 0%, #00bcd4 100%) !important;
+    transform: translateY(-6px) scale(1.1) !important;
+    box-shadow: 0 16px 48px rgba(79, 172, 254, 0.5) !important;
+    border-color: rgba(79, 172, 254, 0.6) !important;
+}
+
+/* شارات الإشعارات الاحترافية */
+.professional-badge {
+    position: absolute !important;
+    top: -8px !important;
+    right: -8px !important;
+    min-width: 24px !important;
+    height: 24px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: white !important;
+    border: 3px solid rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    z-index: 10 !important;
+    animation: professional-badge-glow 3s ease-in-out infinite !important;
+}
+
+.badge-new {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5) !important;
+}
+
+.badge-live {
+    background: linear-gradient(45deg, #11998e, #38ef7d) !important;
+    box-shadow: 0 4px 20px rgba(17, 153, 142, 0.5) !important;
+    animation: live-pulse-pro 1.5s infinite !important;
+}
+
+.badge-support {
+    background: linear-gradient(45deg, #ff6b6b, #ffa726) !important;
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5) !important;
+}
+
+@keyframes professional-badge-glow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes live-pulse-pro {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes professional-icon-hover {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-2px) rotate(-1deg) scale(1.05); }
+    50% { transform: translateY(-4px) rotate(1deg) scale(1.1); }
+    75% { transform: translateY(-2px) rotate(-0.5deg) scale(1.05); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+.professional-icon:hover {
+    animation: professional-icon-hover 0.6s ease !important;
+}
+
+/* إظهار الأيقونات الاحترافية على جميع الأجهزة */
+.icons-bar {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.icon-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.professional-icon {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* تحسينات للهواتف المحمولة */
+@media (max-width: 768px) {
+    .professional-icon {
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 18px !important;
+    }
+    
+    .professional-icon i {
+        font-size: 20px !important;
+    }
+    
+    .professional-icon:active {
+        transform: scale(0.92) translateY(-2px) !important;
+    }
+    
+    .professional-badge {
+        top: -6px !important;
+        right: -6px !important;
+        min-width: 20px !important;
+        height: 20px !important;
+        font-size: 9px !important;
+        border-width: 2px !important;
+    }
+    
+    .icons-bar {
+        padding: 16px 0 !important;
+    }
+    
+    .icon-item {
+        margin: 0 6px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .professional-icon {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 16px !important;
+    }
+    
+    .professional-icon i {
+        font-size: 18px !important;
+    }
+    
+    .professional-badge {
+        top: -4px !important;
+        right: -4px !important;
+        min-width: 18px !important;
+        height: 18px !important;
+        font-size: 8px !important;
+    }
+    
+    .icon-item {
+        margin: 0 4px !important;
+    }
+}
+
+/* تأثيرات إضافية للتفاعل */
+.icon-item:hover .text-white {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* تأثير الضوء المتحرك */
+.professional-icon::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.professional-icon:hover::after {
+    opacity: 1;
+    animation: light-sweep 0.6s ease;
+}
+
+@keyframes light-sweep {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* تحسين الوصولية */
+.icon-item:focus {
+    outline: 3px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* تأثير النقر */
+.icon-item:active .professional-icon {
+    transform: scale(0.95);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}

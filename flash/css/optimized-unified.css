@@ -1,0 +1,263 @@
+/* ملف CSS موحد ومحسن لتحسين الأداء */
+
+/* إعدادات أساسية */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+
+
+
+/* Animations */
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes livePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Gradient Backgrounds */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Glass Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Package Cards */
+.packages-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.package-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.package-btn {
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Package Button Colors */
+.package-card:nth-child(1) .package-btn {
+    background: linear-gradient(45deg, #10b981, #059669);
+    color: white;
+}
+
+.package-card:nth-child(2) .package-btn {
+    background: linear-gradient(45deg, #3b82f6, #2563eb);
+    color: white;
+}
+
+.package-card:nth-child(3) .package-btn {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6);
+    color: white;
+}
+
+/* Testimonials */
+.testimonials-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-slide {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+    
+    .packages-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+/* Card Styles */
+.card-container {
+    position: relative;
+    width: 450px;
+    height: 280px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.visa-card {
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.95) 0%, rgba(25, 25, 45, 0.9) 25%, rgba(35, 35, 65, 0.85) 50%, rgba(45, 45, 85, 0.9) 75%, rgba(25, 25, 55, 0.95) 100%);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* Animations */
+@keyframes logoRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes logoPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Packages Background - Tether Official */
+.packages-bg {
+    background: linear-gradient(135deg, 
+        rgba(38, 161, 123, 0.95) 0%,
+        rgba(26, 135, 103, 0.95) 50%,
+        rgba(38, 161, 123, 0.95) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.packages-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: 80px 80px;
+    background-repeat: repeat;
+    opacity: 0.25;
+    animation: tether-float 20s ease-in-out infinite;
+    filter: brightness(1.5) contrast(1.2);
+}
+
+.packages-bg::after {
+    content: 'TETHER USDT OFFICIAL';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 120px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes tether-float {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+}
+
+/* Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.text-center { text-align: center; }
+.text-white { color: white; }
+.font-bold { font-weight: bold; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.py-16 { padding: 4rem 0; }
+
+/* Performance Optimizations */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+}
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

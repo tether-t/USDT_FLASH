@@ -1,0 +1,317 @@
+/* تحسينات خاصة لباقة Pro لجعلها أكثر جاذبية */
+
+/* تأثير توهج حول الباقة - بدون تمدد */
+.pro-package-highlight {
+    position: relative;
+    z-index: 20 !important;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.1) !important;
+    border: 2px solid #10B981 !important;
+    transform: none !important;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    /* الحفاظ على نفس الأبعاد */
+    width: 240px !important;
+    max-width: 240px !important;
+    min-width: 240px !important;
+    /* إضافة تأثير مرئي بديل */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 255, 250, 0.9) 100%) !important;
+    animation: pro-glow 3s ease-in-out infinite !important;
+}
+
+/* تأثير بديل للتمدد */
+@keyframes pro-glow {
+    0% {
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(16, 185, 129, 0.4), 0 0 80px rgba(16, 185, 129, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.3), 0 0 60px rgba(16, 185, 129, 0.1);
+    }
+}
+
+.pro-package-highlight::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(90deg, 
+        rgba(16, 185, 129, 0.3),
+        rgba(16, 185, 129, 0.1),
+        rgba(16, 185, 129, 0.3),
+        rgba(16, 185, 129, 0.1),
+        rgba(16, 185, 129, 0.3)
+    );
+    border-radius: 12px;
+    z-index: -1;
+    animation: border-glow 3s linear infinite;
+}
+
+@keyframes border-glow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* شارة أفضل قيمة */
+.best-value-badge {
+    position: absolute;
+    top: 50px;
+    right: -40px;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.25rem 2rem;
+    transform: rotate(45deg);
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 150px;
+}
+
+.best-value-badge i {
+    margin-right: 0.25rem;
+    animation: pulse-award 2s infinite;
+}
+
+@keyframes pulse-award {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+</edit>
+<origin>
+</edit>
+
+<origin>
+    .limited-offer-badge {
+        font-size: 0.6rem;
+    }
+</origin>
+<edit>
+</origin>
+<edit>
+
+@keyframes pulse-badge {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* تأثير خاص للأيقونة */
+.pro-package-highlight .package-icon {
+    animation: float-special 3s ease-in-out infinite !important;
+    filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.7)) !important;
+}
+
+@keyframes float-special {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* تأثير خاص للسعر */
+.pro-package-highlight .text-4xl {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(to right, #10B981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: color-shift 3s infinite;
+}
+
+@keyframes color-shift {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        filter: hue-rotate(15deg);
+    }
+    100% {
+        filter: hue-rotate(0deg);
+    }
+}
+
+/* تأثير خاص للزر */
+.pro-package-highlight .package-btn {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.pro-package-highlight .package-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pro-package-highlight .package-btn:hover::after {
+    opacity: 1;
+    animation: shine-button 1.5s infinite;
+}
+
+@keyframes shine-button {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* تأثير عداد تنازلي */
+.countdown-timer {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #FF6B6B;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.countdown-timer i {
+    margin-right: 0.25rem;
+    animation: pulse-clock 2s infinite;
+}
+
+.countdown-timer span {
+    background: rgba(255, 107, 107, 0.1);
+    padding: 4px 6px;
+    border-radius: 4px;
+    margin: 0 2px;
+    position: relative;
+    display: inline-block;
+    min-width: 24px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(255, 107, 107, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* تأثير تغيير الأرقام */
+.countdown-timer span.number-changing {
+    transform: translateY(-3px);
+    opacity: 0;
+}
+
+/* تأثير بدء العداد */
+.countdown-timer.countdown-started {
+    animation: countdown-start 1.5s ease;
+}
+
+@keyframes countdown-start {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* تأثير تغيير الساعة */
+.countdown-timer.hour-changed {
+    animation: hour-change 1s ease;
+}
+
+@keyframes hour-change {
+    0% { background-color: rgba(255, 107, 107, 0.1); }
+    50% { background-color: rgba(255, 107, 107, 0.3); }
+    100% { background-color: transparent; }
+}
+
+/* تأثير الإلحاح عندما يكون الوقت المتبقي أقل من 30 دقيقة */
+.countdown-timer.urgent {
+    background-color: rgba(255, 107, 107, 0.1);
+    animation: urgent-pulse 2s infinite;
+}
+
+@keyframes urgent-pulse {
+    0% { background-color: rgba(255, 107, 107, 0.1); }
+    50% { background-color: rgba(255, 107, 107, 0.3); }
+    100% { background-color: rgba(255, 107, 107, 0.1); }
+}
+
+@keyframes pulse-clock {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ميزة إضافية حصرية */
+.exclusive-bonus {
+    margin-top: 10px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px dashed #10B981;
+}
+
+.exclusive-bonus-title {
+    font-weight: bold;
+    color: #10B981;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.exclusive-bonus-title i {
+    margin-right: 0.25rem;
+}
+
+.exclusive-bonus-content {
+    font-size: 0.75rem;
+    color: #4B5563;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .pro-package-highlight {
+        transform: none !important;
+        width: 180px !important;
+        max-width: 180px !important;
+        min-width: 180px !important;
+    }
+    
+    .best-value-badge {
+        font-size: 0.6rem;
+        right: -35px;
+        width: 130px;
+    }
+    
+    .limited-offer-badge {
+        font-size: 0.6rem;
+    }
+}
