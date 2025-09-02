@@ -1,0 +1,71 @@
+/* ⚡ تسريع استجابة الهيدر للضغط */
+
+/* الهيدر الأول - استجابة سريعة */
+.auth-section a {
+    transition: all 0.1s ease !important;
+    transform-origin: center !important;
+}
+
+.auth-section a:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.05s ease !important;
+}
+
+.auth-section a:hover {
+    transform: translateY(-1px) !important;
+    transition: all 0.15s ease !important;
+}
+
+/* الهيدر الثانوي - استجابة فورية */
+.secondary-icon {
+    transition: all 0.1s ease !important;
+    transform-origin: center !important;
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+}
+
+.secondary-icon:active {
+    transform: scale(0.9) !important;
+    transition: transform 0.05s ease !important;
+}
+
+.secondary-icon:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    transition: all 0.15s ease !important;
+}
+
+.secondary-icon-wrapper {
+    transition: all 0.1s ease !important;
+}
+
+.secondary-icon:active .secondary-icon-wrapper {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* تحسينات الأداء */
+.secondary-icon,
+.auth-section a {
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+}
+
+/* إزالة التأخير على الهواتف */
+@media (pointer: coarse) {
+    .secondary-icon,
+    .auth-section a {
+        -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+    }
+    
+    .secondary-icon:active {
+        transform: scale(0.92) !important;
+        transition: transform 0.03s ease !important;
+    }
+    
+    .auth-section a:active {
+        transform: scale(0.96) !important;
+        transition: transform 0.03s ease !important;
+    }
+}

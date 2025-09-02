@@ -1,0 +1,115 @@
+/* Hero Badges Enhanced Animations */
+
+@keyframes badgePulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+        opacity: 1; 
+        box-shadow: 0 4px 20px rgba(255, 8, 68, 0.8), 0 0 30px rgba(255, 8, 68, 0.5);
+    }
+    50% { 
+        transform: scale(1.2) rotate(5deg); 
+        opacity: 0.9; 
+        box-shadow: 0 6px 30px rgba(255, 8, 68, 1), 0 0 50px rgba(255, 8, 68, 0.8);
+    }
+}
+
+@keyframes livePulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 25px rgba(0, 255, 136, 1), 0 0 40px rgba(0, 255, 136, 0.7);
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.8;
+        box-shadow: 0 0 35px rgba(0, 255, 136, 1), 0 0 60px rgba(0, 255, 136, 0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 25px rgba(0, 255, 136, 1), 0 0 40px rgba(0, 255, 136, 0.7);
+    }
+}
+
+@keyframes newsPulse {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+        opacity: 1; 
+        box-shadow: 0 4px 25px rgba(255, 107, 53, 0.9), 0 0 35px rgba(255, 107, 53, 0.6);
+    }
+    25% { 
+        transform: scale(1.15) rotate(-3deg); 
+        opacity: 0.95; 
+        box-shadow: 0 6px 35px rgba(255, 107, 53, 1), 0 0 50px rgba(255, 107, 53, 0.8);
+    }
+    50% { 
+        transform: scale(1.25) rotate(0deg); 
+        opacity: 0.9; 
+        box-shadow: 0 8px 40px rgba(255, 107, 53, 1), 0 0 60px rgba(255, 107, 53, 0.9);
+    }
+    75% { 
+        transform: scale(1.15) rotate(3deg); 
+        opacity: 0.95; 
+        box-shadow: 0 6px 35px rgba(255, 107, 53, 1), 0 0 50px rgba(255, 107, 53, 0.8);
+    }
+}
+
+/* Enhanced Glow Effects */
+.hero-badge {
+    position: relative;
+}
+
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: inherit;
+    border-radius: inherit;
+    filter: blur(15px);
+    opacity: 0.7;
+    z-index: -1;
+    animation: inherit;
+}
+
+.hero-live-dot::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    background: inherit;
+    border-radius: inherit;
+    filter: blur(12px);
+    opacity: 0.8;
+    z-index: -1;
+    animation: inherit;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .hero-badge {
+        font-size: 11px !important;
+        padding: 5px 10px !important;
+        min-width: 28px !important;
+        height: 28px !important;
+    }
+    
+    .hero-live-dot {
+        width: 20px !important;
+        height: 20px !important;
+        border: 3px solid white !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-badge {
+        font-size: 10px !important;
+        padding: 4px 8px !important;
+        min-width: 24px !important;
+        height: 24px !important;
+    }
+    
+    .hero-live-dot {
+        width: 18px !important;
+        height: 18px !important;
+        border: 2px solid white !important;
+    }
+}

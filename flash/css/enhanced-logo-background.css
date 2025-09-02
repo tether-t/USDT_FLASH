@@ -1,0 +1,146 @@
+/* Enhanced Logo Background for Packages Section */
+
+/* Desktop Logo Background */
+.packages-logo-background {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.packages-logo-background img {
+    width: 24rem;
+    height: 24rem;
+    object-fit: contain;
+    animation: logoFloat 6s ease-in-out infinite;
+    filter: brightness(1.2) contrast(1.1);
+}
+
+/* Logo Animation */
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.15;
+    }
+    50% {
+        transform: translateY(-10px) scale(1.05);
+        opacity: 0.25;
+    }
+}
+
+/* Enhanced Text Shadow for Better Visibility */
+#pricing h2 {
+    text-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.1) !important;
+    position: relative;
+    z-index: 10;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .packages-logo-background img {
+        width: 16rem;
+        height: 16rem;
+        opacity: 0.12;
+    }
+    
+    /* Mobile-specific logo positioning */
+    .packages-logo-background {
+        opacity: 0.12;
+    }
+    
+    /* Enhanced mobile text visibility */
+    #pricing h2 {
+        font-size: 2.5rem !important;
+        line-height: 1.1;
+        text-shadow: 
+            0 3px 6px rgba(0, 0, 0, 0.7),
+            0 1px 3px rgba(0, 0, 0, 0.5),
+            0 0 15px rgba(255, 255, 255, 0.2) !important;
+    }
+    
+    /* Mobile logo animation adjustment */
+    @keyframes logoFloat {
+        0%, 100% {
+            transform: translateY(0px) scale(0.95);
+            opacity: 0.12;
+        }
+        50% {
+            transform: translateY(-5px) scale(1);
+            opacity: 0.18;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .packages-logo-background img {
+        width: 12rem;
+        height: 12rem;
+        opacity: 0.1;
+    }
+    
+    #pricing h2 {
+        font-size: 2rem !important;
+        text-shadow: 
+            0 2px 4px rgba(0, 0, 0, 0.8),
+            0 1px 2px rgba(0, 0, 0, 0.6),
+            0 0 10px rgba(255, 255, 255, 0.3) !important;
+    }
+}
+
+/* Additional Enhancement for Logo Visibility */
+.packages-section-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.packages-section-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Professional Glow Effect */
+.packages-logo-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(38, 161, 123, 0.1) 0%, transparent 60%);
+    animation: logoGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .packages-logo-background img {
+        width: 20rem;
+        height: 20rem;
+        opacity: 0.13;
+    }
+    
+    #pricing h2 {
+        font-size: 3.5rem !important;
+    }
+}
