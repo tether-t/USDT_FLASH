@@ -1,0 +1,693 @@
+/* Ultra Responsive Header - Perfect Mobile Display */
+
+/* Critical CSS for immediate load */
+.ultra-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    height: auto !important;
+    min-height: 70px !important;
+    max-height: 100px !important;
+    z-index: 99999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    contain: layout style paint !important;
+}
+
+.header-glass {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: inherit !important;
+    display: flex !important;
+    align-items: center !important;
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 35, 0.98) 0%, 
+        rgba(25, 25, 45, 0.95) 50%, 
+        rgba(35, 35, 65, 0.98) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.header-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 10px 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: inherit !important;
+    position: relative !important;
+    z-index: 2 !important;
+    box-sizing: border-box !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Logo Section - Ultra Optimized */
+.header-container > div:first-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-shrink: 0 !important;
+    min-width: 0 !important;
+    max-width: 40% !important;
+    overflow: hidden !important;
+}
+
+.logo-wrapper {
+    width: 50px !important;
+    height: 50px !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    background: linear-gradient(45deg, #26a17b, #1a7a5e) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+}
+
+.logo-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.logo-img:hover {
+    transform: scale(1.05) !important;
+}
+
+.logo-title {
+    font-size: 1.4rem !important;
+    font-weight: 900 !important;
+    color: white !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    background: linear-gradient(45deg, #26a17b, #00d4ff, #667eea) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.logo-subtitle {
+    font-size: 0.7rem !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500 !important;
+    margin: 2px 0 0 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.logo-badges {
+    display: flex !important;
+    gap: 4px !important;
+    margin-top: 4px !important;
+    flex-wrap: wrap !important;
+    max-width: 100% !important;
+}
+
+.ultra-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+    padding: 2px 6px !important;
+    border-radius: 8px !important;
+    font-size: 0.6rem !important;
+    font-weight: 600 !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    white-space: nowrap !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.ultra-badge.verified {
+    background: rgba(34, 197, 94, 0.2) !important;
+    color: #22c55e !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+.ultra-badge.secure {
+    background: rgba(59, 130, 246, 0.2) !important;
+    color: #3b82f6 !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Navigation Icons - Ultra Responsive */
+.nav-icons-section {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin: 0 10px !important;
+    flex-shrink: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.pro-nav-icon {
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    touch-action: manipulation !important;
+}
+
+.icon-wrapper {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateZ(0) !important;
+}
+
+.icon-wrapper:hover {
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.icon-wrapper:active {
+    transform: translateY(0) scale(0.95) !important;
+}
+
+.icon-wrapper i {
+    font-size: 16px !important;
+    color: white !important;
+    z-index: 2 !important;
+    position: relative !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Specific Icon Colors */
+.icon-wrapper.cards-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.icon-wrapper.live-icon {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+}
+
+.icon-wrapper.support-icon {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%) !important;
+}
+
+.icon-wrapper.notifications-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+/* Icon Pulse Effect */
+.icon-pulse {
+    position: absolute !important;
+    inset: -2px !important;
+    border-radius: 50% !important;
+    background: inherit !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+    z-index: 1 !important;
+    filter: blur(8px) !important;
+}
+
+.pro-nav-icon:hover .icon-pulse {
+    opacity: 0.6 !important;
+    animation: iconPulse 1.5s infinite !important;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* Auth Section - Ultra Responsive */
+.header-container > div:last-child {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+    max-width: 35% !important;
+}
+
+.header-container > div:last-child a {
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    transition: all 0.3s ease !important;
+    white-space: nowrap !important;
+    min-height: 36px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.header-container > div:last-child a:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.header-container > div:last-child a i {
+    font-size: 14px !important;
+}
+
+/* Body Adjustment */
+body {
+    padding-top: 70px !important;
+    margin-top: 0 !important;
+}
+
+#main-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Responsive Breakpoints */
+
+/* Large Tablets */
+@media (max-width: 1024px) {
+    .ultra-header {
+        min-height: 65px !important;
+    }
+    
+    .header-container {
+        padding: 8px 12px !important;
+        min-height: 65px !important;
+    }
+    
+    body {
+        padding-top: 65px !important;
+    }
+    
+    .logo-wrapper {
+        width: 45px !important;
+        height: 45px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.3rem !important;
+    }
+    
+    .icon-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 15px !important;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .ultra-header {
+        min-height: 60px !important;
+    }
+    
+    .header-container {
+        padding: 6px 10px !important;
+        min-height: 60px !important;
+    }
+    
+    body {
+        padding-top: 60px !important;
+    }
+    
+    .header-container > div:first-child {
+        gap: 10px !important;
+        max-width: 45% !important;
+    }
+    
+    .logo-wrapper {
+        width: 42px !important;
+        height: 42px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.2rem !important;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.65rem !important;
+    }
+    
+    .ultra-badge {
+        font-size: 0.55rem !important;
+        padding: 1px 4px !important;
+    }
+    
+    .nav-icons-section {
+        gap: 6px !important;
+        margin: 0 8px !important;
+    }
+    
+    .icon-wrapper {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 14px !important;
+    }
+    
+    .header-container > div:last-child {
+        max-width: 40% !important;
+    }
+    
+    .header-container > div:last-child a {
+        padding: 6px 10px !important;
+        font-size: 0.75rem !important;
+        min-height: 32px !important;
+    }
+    
+    .header-container > div:last-child a i {
+        font-size: 12px !important;
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+    .ultra-header {
+        min-height: 55px !important;
+    }
+    
+    .header-container {
+        padding: 5px 8px !important;
+        min-height: 55px !important;
+    }
+    
+    body {
+        padding-top: 55px !important;
+    }
+    
+    .header-container > div:first-child {
+        gap: 8px !important;
+        max-width: 50% !important;
+    }
+    
+    .logo-wrapper {
+        width: 38px !important;
+        height: 38px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.1rem !important;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.6rem !important;
+    }
+    
+    .ultra-badge {
+        font-size: 0.5rem !important;
+        padding: 1px 3px !important;
+        gap: 1px !important;
+    }
+    
+    .nav-icons-section {
+        gap: 5px !important;
+        margin: 0 6px !important;
+    }
+    
+    .icon-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 12px !important;
+    }
+    
+    .header-container > div:last-child {
+        gap: 6px !important;
+        max-width: 45% !important;
+    }
+    
+    .header-container > div:last-child a {
+        padding: 5px 8px !important;
+        font-size: 0.7rem !important;
+        min-height: 28px !important;
+    }
+    
+    .header-container > div:last-child a span {
+        display: none !important;
+    }
+    
+    .header-container > div:last-child a i {
+        font-size: 11px !important;
+        margin: 0 !important;
+    }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 360px) {
+    .ultra-header {
+        min-height: 50px !important;
+    }
+    
+    .header-container {
+        padding: 4px 6px !important;
+        min-height: 50px !important;
+    }
+    
+    body {
+        padding-top: 50px !important;
+    }
+    
+    .header-container > div:first-child {
+        gap: 6px !important;
+        max-width: 55% !important;
+    }
+    
+    .logo-wrapper {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .logo-title {
+        font-size: 1rem !important;
+    }
+    
+    .logo-subtitle {
+        display: none !important;
+    }
+    
+    .logo-badges {
+        display: none !important;
+    }
+    
+    .nav-icons-section {
+        gap: 4px !important;
+        margin: 0 4px !important;
+    }
+    
+    .icon-wrapper {
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        min-height: 30px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 11px !important;
+    }
+    
+    .header-container > div:last-child {
+        gap: 4px !important;
+        max-width: 40% !important;
+    }
+    
+    .header-container > div:last-child a {
+        padding: 4px 6px !important;
+        font-size: 0.65rem !important;
+        min-height: 26px !important;
+        border-radius: 6px !important;
+    }
+}
+
+/* Ultra Small Screens */
+@media (max-width: 320px) {
+    .ultra-header {
+        min-height: 48px !important;
+    }
+    
+    .header-container {
+        padding: 3px 5px !important;
+        min-height: 48px !important;
+    }
+    
+    body {
+        padding-top: 48px !important;
+    }
+    
+    .header-container > div:first-child {
+        gap: 5px !important;
+        max-width: 60% !important;
+    }
+    
+    .logo-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .logo-title {
+        font-size: 0.9rem !important;
+    }
+    
+    .nav-icons-section {
+        gap: 3px !important;
+        margin: 0 3px !important;
+    }
+    
+    .icon-wrapper {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
+    }
+    
+    .icon-wrapper i {
+        font-size: 10px !important;
+    }
+    
+    .header-container > div:last-child {
+        gap: 3px !important;
+        max-width: 35% !important;
+    }
+    
+    .header-container > div:last-child a {
+        padding: 3px 5px !important;
+        font-size: 0.6rem !important;
+        min-height: 24px !important;
+    }
+}
+
+/* Force Visibility and Performance */
+.ultra-header,
+.header-glass,
+.header-container,
+.header-container > *,
+.nav-icons-section,
+.pro-nav-icon,
+.icon-wrapper,
+.logo-wrapper,
+.ultra-badge {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Hardware Acceleration */
+.ultra-header,
+.icon-wrapper,
+.logo-wrapper {
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+}
+
+/* Touch Optimization */
+.pro-nav-icon,
+.icon-wrapper,
+.header-container a {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    touch-action: manipulation !important;
+}
+
+/* Prevent Layout Shift */
+.ultra-header {
+    contain: layout style paint !important;
+}
+
+.header-container {
+    contain: layout style !important;
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-img {
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+    
+    .icon-wrapper i {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .header-glass {
+        background: linear-gradient(135deg, 
+            rgba(10, 10, 25, 0.98) 0%, 
+            rgba(20, 20, 35, 0.95) 50%, 
+            rgba(30, 30, 55, 0.98) 100%) !important;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .icon-wrapper,
+    .logo-img,
+    .header-container a {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .icon-pulse {
+        animation: none !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .ultra-header {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 0 !important;
+    }
+}

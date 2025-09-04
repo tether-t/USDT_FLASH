@@ -1,0 +1,96 @@
+/* أنماط الأداء الحرجة - يتم تحميلها أولاً */
+
+/* تحسين الخطوط */
+@font-display: swap;
+
+/* تحسين الرسوم المتحركة */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+}
+
+/* تحسين الصور */
+img {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 200px;
+}
+
+/* تحسين التخطيط */
+.container {
+    contain: layout style paint;
+}
+
+/* تحسين التمرير */
+.scroll-container {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+/* تقليل reflow/repaint */
+.hero-icon-card {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.package-card {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* تحسين الرسوم المتحركة */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* تحسين الأداء للأجهزة الضعيفة */
+@media (max-width: 768px) {
+    * {
+        animation-duration: 0.2s !important;
+        transition-duration: 0.2s !important;
+    }
+    
+    .hero-icons-grid {
+        contain: layout;
+    }
+    
+    .packages-container {
+        contain: layout;
+    }
+}
+
+/* تحسين الذاكرة */
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* تحسين GPU */
+.gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* تحسين التحميل */
+.lazy-load {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy-load.loaded {
+    opacity: 1;
+}
+
+/* تحسين الشبكة */
+.preload-hint {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1px;
+}

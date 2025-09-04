@@ -1,0 +1,532 @@
+/* بطاقات Visa المميزة - تصميم متطور */
+
+.visa-card-container {
+    perspective: 1200px;
+    margin: 2rem 0;
+}
+
+.visa-card {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 300px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+
+.visa-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+    pointer-events: none;
+}
+
+.visa-card:hover {
+    transform: translateY(-15px) scale(1.03) rotateX(5deg);
+    box-shadow: 0 35px 70px rgba(59, 130, 246, 0.4);
+}
+
+.visa-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 2px;
+}
+
+.card-chip {
+    width: 55px;
+    height: 45px;
+    background: linear-gradient(135deg, #ffd700, #ffed4e, #daa520);
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    position: relative;
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.2),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: chipGlow 2s ease-in-out infinite alternate;
+}
+
+.card-chip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 25px;
+    background: linear-gradient(135deg, #b8860b, #daa520, #cd853f);
+    border-radius: 6px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes chipGlow {
+    0% { box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1); }
+    100% { box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 15px rgba(255, 215, 0, 0.3); }
+}
+
+.card-number {
+    font-family: 'Courier New', monospace;
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: 6px;
+    margin: 2rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: numberGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes numberGlow {
+    0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+    100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.2); }
+}
+
+.card-holder {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 1.5rem;
+    font-weight: 600;
+}
+
+.card-expiry {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* بطاقة بريميوم */
+.premium-card {
+    background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #8b5cf6 100%);
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+}
+
+.premium-card:hover {
+    box-shadow: 0 35px 70px rgba(124, 58, 237, 0.4);
+}
+
+.premium-card::before {
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+/* بطاقة ذهبية */
+.gold-card {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f97316 100%);
+    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+}
+
+.gold-card:hover {
+    box-shadow: 0 35px 70px rgba(245, 158, 11, 0.4);
+}
+
+.gold-card::before {
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* ميزات البطاقة */
+.card-features {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.card-features:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(-5px);
+}
+
+.feature-item i {
+    margin-left: 1rem;
+    color: #10b981;
+    font-size: 1.2rem;
+    min-width: 20px;
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* تأثير الانعكاس ثلاثي الأبعاد */
+.card-container {
+    perspective: 1000px;
+    margin: 2rem 0;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-container:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #111827 100%);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+
+.magnetic-strip {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, #000000, #333333, #000000);
+    margin: 1rem 0;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.magnetic-strip::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: magneticScan 2s infinite;
+}
+
+@keyframes magneticScan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.cvv-area {
+    background: white;
+    color: black;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* رأس الصفحة */
+.page-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../img/usdt_cryptocurrencies_icon_188337.png') repeat;
+    background-size: 80px 80px;
+    opacity: 0.1;
+    animation: headerFloat 8s ease-in-out infinite;
+}
+
+@keyframes headerFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-5px) rotate(-1deg); }
+    75% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* جدول المقارنة */
+.comparison-table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table thead {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+.comparison-table th {
+    padding: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.comparison-table td {
+    padding: 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.3s ease;
+}
+
+.comparison-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* قسم التقديم */
+.application-section {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    border-radius: 25px;
+    padding: 3rem;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.application-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: applicationGlow 4s ease-in-out infinite;
+}
+
+@keyframes applicationGlow {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+}
+
+.application-step {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.application-step:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-5px);
+}
+
+.application-step i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: stepIcon 2s ease-in-out infinite alternate;
+}
+
+@keyframes stepIcon {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* ميزات الأمان */
+.security-feature {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.security-feature:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    border-color: #3b82f6;
+}
+
+.security-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.security-feature:hover .security-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.security-icon i {
+    font-size: 2rem;
+    animation: securityPulse 2s ease-in-out infinite;
+}
+
+@keyframes securityPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* تأثيرات الحركة */
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .visa-card {
+        padding: 1.5rem;
+        min-height: 250px;
+    }
+    
+    .card-number {
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+    }
+    
+    .visa-logo {
+        font-size: 1.8rem;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .page-header {
+        padding: 3rem 0;
+    }
+    
+    .application-section {
+        padding: 2rem;
+        border-radius: 20px;
+    }
+    
+    .card-container:hover .card-inner {
+        transform: none; /* تعطيل التأثير ثلاثي الأبعاد على الهواتف */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-number {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    
+    .card-chip {
+        width: 45px;
+        height: 35px;
+    }
+    
+    .feature-item {
+        font-size: 0.85rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* تأثيرات إضافية للتفاعل */
+.visa-card {
+    position: relative;
+}
+
+.visa-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+}
+
+.visa-card:hover::after {
+    opacity: 1;
+}
+
+/* تحسين الخطوط */
+.card-holder,
+.card-expiry {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* تأثير النبض للأزرار */
+.application-section button {
+    position: relative;
+    overflow: hidden;
+}
+
+.application-section button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.application-section button:hover::before {
+    width: 300px;
+    height: 300px;
+}
