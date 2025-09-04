@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings - USDT-FLASH</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/flash.css">
+    <link rel="stylesheet" href="../css/futuristic.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/style-fixes.css">
+    <link rel="stylesheet" href="../css/features.css">
+    <link rel="stylesheet" href="../css/psychological-effects.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <script src="../js/auth.js"></script>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Enhanced Header with Glass Morphism -->
+    <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT-FLASH Logo" class="h-14 w-auto mr-4">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold text-white">USDT-FLASH</h1>
+                        <div class="flex items-center space-x-2 mt-1">
+                            <span class="bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                                <i class="fas fa-check-circle mr-1"></i> Verified
+                            </span>
+                            <span class="bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                                <i class="fas fa-shield-alt mr-1"></i> Secure
+                            </span>
+                            <span class="bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                                <i class="fas fa-star mr-1"></i> Premium
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="text-white hover:text-green-400 transition-colors px-3 py-2 rounded-lg hover:bg-white/10">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <div id="user-info" class="user-menu flex items-center text-white"></div>
+                    <button onclick="signOut()" class="logout-button bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-4 py-2 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] transform">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Account Upgrade Progress Bar -->
+    <div class="bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+                <!-- Status Text -->
+                <div class="text-center lg:text-left">
+                    <h3 class="text-lg font-bold" id="upgrade-status">You are currently in Trial Mode</h3>
+                    <p class="text-sm text-gray-300" id="upgrade-description">Upgrade your account to get more features</p>
+                </div>
+                
+                <!-- Progress Steps -->
+                <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                    <!-- Trial Package -->
+                    <div class="flex flex-col items-center" id="step-trial">
+                        <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mb-2 transition-all">
+                            <i class="fas fa-check text-white"></i>
+                        </div>
+                        <span class="text-xs text-center">Trial Package</span>
+                    </div>
+                    
+                    <!-- Connector -->
+                    <div class="w-16 h-1 bg-gray-600 rounded" id="connector-1"></div>
+                    
+                    <!-- Basic Package -->
+                    <div class="flex flex-col items-center" id="step-basic">
+                        <div class="w-12 h-12 rounded-full bg-gray-600 flex items-center justify-center mb-2 transition-all">
+                            <i class="fas fa-lock text-white"></i>
+                        </div>
+                        <span class="text-xs text-center">Basic Package</span>
+                    </div>
+                    
+                    <!-- Connector -->
+                    <div class="w-16 h-1 bg-gray-600 rounded" id="connector-2"></div>
+                    
+                    <!-- Pro Package -->
+                    <div class="flex flex-col items-center" id="step-pro">
+                        <div class="w-12 h-12 rounded-full bg-gray-600 flex items-center justify-center mb-2 transition-all">
+                            <i class="fas fa-crown text-white"></i>
+                        </div>
+                        <span class="text-xs text-center">Pro Package</span>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="text-center">
+                    <button id="upgrade-btn" onclick="upgradeAccount()" class="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-arrow-up mr-2"></i>
+                        Subscribe Now
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen py-8 relative z-10">
+        <div class="container mx-auto px-4">
+            <!-- Settings Header -->
+            <section class="mb-8">
+                <div class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-3xl md:text-4xl font-bold mb-4 flex items-center">
+                                    <i class="fas fa-cog mr-4 animate-spin-slow"></i>
+                                    Account Settings
+                                </h2>
+                                <p class="text-purple-100 text-lg">
+                                    Customize and manage your personal account settings
+                                </p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                    <i class="fas fa-user-cog text-3xl text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Form -->
+            <div class="max-w-4xl mx-auto">
+                <form id="settings-form" class="space-y-8">
+                    <!-- Personal Information -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
+                            <h3 class="text-xl font-bold flex items-center">
+                                <i class="fas fa-user mr-3"></i>
+                                Personal Information
+                            </h3>
+                        </div>
+                        <div class="p-6 space-y-6">
+                            <!-- Profile Picture -->
+                            <div class="flex flex-col items-center mb-6">
+                                <div class="relative">
+                                    <div id="profile-picture-container" class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg bg-gray-100 flex items-center justify-center">
+                                        <img id="profile-picture" class="w-full h-full object-cover hidden" alt="Profile Picture">
+                                        <div id="profile-placeholder" class="text-gray-400 text-center">
+                                            <i class="fas fa-user text-4xl mb-2"></i>
+                                            <p class="text-sm">No Image</p>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="document.getElementById('profile-upload').click()" class="absolute bottom-0 right-0 bg-blue-500 hover:bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg transition-all transform hover:scale-110">
+                                        <i class="fas fa-camera text-sm"></i>
+                                    </button>
+                                </div>
+                                <input type="file" id="profile-upload" accept="image/*" class="hidden" onchange="handleProfilePicture(this)">
+                                <div class="mt-4 flex flex-col gap-2">
+                                    <div class="flex gap-2">
+                                        <button type="button" onclick="showUpgradeAlert()" class="bg-gray-400 cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm" disabled>
+                                            <i class="fas fa-upload mr-2"></i>
+                                            Upload Image
+                                        </button>
+                                        <button type="button" onclick="showUpgradeAlert()" class="bg-gray-400 cursor-not-allowed text-white px-4 py-2 rounded-lg text-sm" disabled>
+                                            <i class="fas fa-trash mr-2"></i>
+                                            Remove Image
+                                        </button>
+                                    </div>
+                                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                                        <div class="flex items-center text-yellow-800 text-sm">
+                                            <i class="fas fa-lock mr-2"></i>
+                                            <span>You cannot upload an image until you upgrade your account</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        <i class="fas fa-user text-blue-500 mr-2"></i>
+                                        First Name
+                                    </label>
+                                    <input type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your first name">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        <i class="fas fa-user text-blue-500 mr-2"></i>
+                                        Last Name
+                                    </label>
+                                    <input type="text" id="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all" placeholder="Enter your last name">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-envelope text-green-500 mr-2"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all" placeholder="example@domain.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-phone text-purple-500 mr-2"></i>
+                                    Phone Number
+                                </label>
+                                <div class="flex gap-3">
+                                    <select id="countryCode" class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all bg-white">
+                                        <option value="+1">🇺🇸 United States +1</option>
+                                        <option value="+1">🇨🇦 Canada +1</option>
+                                        <option value="+44">🇬🇧 United Kingdom +44</option>
+                                        <option value="+33">🇫🇷 France +33</option>
+                                        <option value="+49">🇩🇪 Germany +49</option>
+                                        <option value="+39">🇮🇹 Italy +39</option>
+                                        <option value="+34">🇪🇸 Spain +34</option>
+                                        <option value="+31">🇳🇱 Netherlands +31</option>
+                                        <option value="+32">🇧🇪 Belgium +32</option>
+                                        <option value="+41">🇨🇭 Switzerland +41</option>
+                                        <option value="+43">🇦🇹 Austria +43</option>
+                                        <option value="+45">🇩🇰 Denmark +45</option>
+                                        <option value="+46">🇸🇪 Sweden +46</option>
+                                        <option value="+47">🇳🇴 Norway +47</option>
+                                        <option value="+358">🇫🇮 Finland +358</option>
+                                        <option value="+7">🇷🇺 Russia +7</option>
+                                        <option value="+86">🇨🇳 China +86</option>
+                                        <option value="+81">🇯🇵 Japan +81</option>
+                                        <option value="+82">🇰🇷 South Korea +82</option>
+                                        <option value="+91">🇮🇳 India +91</option>
+                                        <option value="+92">🇵🇰 Pakistan +92</option>
+                                        <option value="+880">🇧🇩 Bangladesh +880</option>
+                                        <option value="+60">🇲🇾 Malaysia +60</option>
+                                        <option value="+65">🇸🇬 Singapore +65</option>
+                                        <option value="+66">🇹🇭 Thailand +66</option>
+                                        <option value="+84">🇻🇳 Vietnam +84</option>
+                                        <option value="+62">🇮🇩 Indonesia +62</option>
+                                        <option value="+63">🇵🇭 Philippines +63</option>
+                                        <option value="+61">🇦🇺 Australia +61</option>
+                                        <option value="+64">🇳🇿 New Zealand +64</option>
+                                        <option value="+55">🇧🇷 Brazil +55</option>
+                                        <option value="+54">🇦🇷 Argentina +54</option>
+                                        <option value="+56">🇨🇱 Chile +56</option>
+                                        <option value="+57">🇨🇴 Colombia +57</option>
+                                        <option value="+51">🇵🇪 Peru +51</option>
+                                        <option value="+52">🇲🇽 Mexico +52</option>
+                                        <option value="+27">🇿🇦 South Africa +27</option>
+                                        <option value="+234">🇳🇬 Nigeria +234</option>
+                                        <option value="+254">🇰🇪 Kenya +254</option>
+                                        <option value="+90">🇹🇷 Turkey +90</option>
+                                        <option value="+966">🇸🇦 Saudi Arabia +966</option>
+                                        <option value="+971">🇦🇪 UAE +971</option>
+                                        <option value="+20">🇪🇬 Egypt +20</option>
+                                    </select>
+                                    <input type="tel" id="phone" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all" placeholder="50 123 4567">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-calendar text-orange-500 mr-2"></i>
+                                    Date of Birth
+                                </label>
+                                <input type="date" id="birthDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Security Settings -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-gradient-to-r from-red-600 to-red-700 text-white p-6">
+                            <h3 class="text-xl font-bold flex items-center">
+                                <i class="fas fa-shield-alt mr-3"></i>
+                                Security Settings
+                            </h3>
+                        </div>
+                        <div class="p-6 space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-lock text-red-500 mr-2"></i>
+                                    Current Password
+                                </label>
+                                <input type="password" id="currentPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" placeholder="Enter current password">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        <i class="fas fa-key text-red-500 mr-2"></i>
+                                        New Password
+                                    </label>
+                                    <input type="password" id="newPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" placeholder="Enter new password">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">
+                                        <i class="fas fa-check-circle text-red-500 mr-2"></i>
+                                        Confirm Password
+                                    </label>
+                                    <input type="password" id="confirmPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all" placeholder="Confirm new password">
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <div>
+                                    <h4 class="font-medium text-gray-900">Two-Factor Authentication</h4>
+                                    <p class="text-sm text-gray-500">Additional protection for your account</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="twoFactorAuth" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Referral System -->
+                    <div id="referral" class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="bg-gradient-to-r from-green-600 to-green-700 text-white p-6">
+                            <h3 class="text-xl font-bold flex items-center">
+                                <i class="fas fa-share-alt mr-3"></i>
+                                Referral System
+                            </h3>
+                        </div>
+                        <div class="p-6 space-y-6">
+                            <!-- Referral Link -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-link text-green-500 mr-2"></i>
+                                    Your Referral Link
+                                </label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="referralLink" class="flex-1 px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-600" readonly>
+                                    <button type="button" onclick="copyReferralLink()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+                                        <i class="fas fa-copy mr-2"></i>
+                                        Copy
+                                    </button>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-2">Share this link with friends and earn commission from their purchases</p>
+                            </div>
+                            
+                            <!-- Referral Stats -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-blue-600" id="totalReferrals">0</div>
+                                    <div class="text-sm text-gray-600">Total Referrals</div>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-green-600" id="successfulReferrals">0</div>
+                                    <div class="text-sm text-gray-600">Successful Referrals</div>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-yellow-600" id="referralBalance">0</div>
+                                    <div class="text-sm text-gray-600">USDT FLASH Balance</div>
+                                </div>
+                                <div class="bg-purple-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl font-bold text-purple-600" id="totalWithdrawn">0</div>
+                                    <div class="text-sm text-gray-600">Total Withdrawn</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Referral Balance & Withdrawal -->
+                            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border border-yellow-200">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div>
+                                        <h4 class="text-lg font-bold text-gray-900 flex items-center">
+                                            <i class="fas fa-coins text-yellow-500 mr-2"></i>
+                                            Referral Rewards Balance
+                                        </h4>
+                                        <p class="text-sm text-gray-600">Earn 100 USDT FLASH for each successful referral</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-3xl font-bold text-yellow-600" id="currentBalance">0</div>
+                                        <div class="text-sm text-gray-500">USDT FLASH</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Progress Bar -->
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-600 mb-2">
+                                        <span>Current Balance</span>
+                                        <span>Minimum Withdrawal: 1000</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-3">
+                                        <div id="withdrawalProgress" class="bg-gradient-to-r from-yellow-400 to-orange-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                                    </div>
+                                    <div class="text-xs text-gray-500 mt-1" id="progressText">You need 1000 USDT FLASH to withdraw</div>
+                                </div>
+                                
+                                <!-- Withdrawal Button -->
+                                <div class="flex gap-3">
+                                    <button type="button" id="withdrawButton" onclick="requestWithdrawal()" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-6 py-3 rounded-lg transition-all flex items-center disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                                        <i class="fas fa-money-bill-wave mr-2"></i>
+                                        Request Withdrawal
+                                    </button>
+                                    <button type="button" onclick="showWithdrawalHistory()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-3 rounded-lg transition-all flex items-center">
+                                        <i class="fas fa-history mr-2"></i>
+                                        Withdrawal History
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Share Buttons -->
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-3">
+                                    <i class="fas fa-share text-green-500 mr-2"></i>
+                                    Quick Share
+                                </label>
+                                <div class="flex flex-wrap gap-3">
+                                    <button type="button" onclick="shareToWhatsApp()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+                                        <i class="fab fa-whatsapp mr-2"></i>
+                                        WhatsApp
+                                    </button>
+                                    <button type="button" onclick="shareToTelegram()" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+                                        <i class="fab fa-telegram mr-2"></i>
+                                        Telegram
+                                    </button>
+                                    <button type="button" onclick="shareToX()" class="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+                                        <i class="fab fa-x-twitter mr-2"></i>
+                                        X
+                                    </button>
+                                    <button type="button" onclick="shareToFacebook()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all flex items-center">
+                                        <i class="fab fa-facebook mr-2"></i>
+                                        Facebook
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Referral Code -->
+                            <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg border border-green-200">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <h4 class="font-medium text-gray-900">Your Referral Code</h4>
+                                        <p class="text-sm text-gray-600">Friends can use this code when registering</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="bg-white px-4 py-2 rounded-lg border border-gray-300 font-mono text-lg font-bold text-green-600" id="referralCode">LOADING...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button type="submit" class="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center">
+                            <i class="fas fa-save mr-3"></i>
+                            Save Changes
+                        </button>
+                        
+                        <button type="button" onclick="resetForm()" class="bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white font-bold py-4 px-8 rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center">
+                            <i class="fas fa-undo mr-3"></i>
+                            Reset
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Success/Error Messages -->
+    <div id="message-container" class="fixed top-4 right-4 z-50"></div>
+    
+    <!-- Chat Integration -->
+    <div id="chat-widget"></div>
+    
+    <!-- Scripts -->
+    <script src="../js/chat-unified.js"></script>
+    <script>
+        // Settings management
+        let originalSettings = {};
+        
+        // Show message function
+        function showMessage(message, type = 'success') {
+            const container = document.getElementById('message-container');
+            const messageDiv = document.createElement('div');
+            
+            const bgColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
+            const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
+            
+            messageDiv.className = `${bgColor} text-white px-6 py-4 rounded-lg shadow-lg mb-4 transform translate-x-full transition-transform duration-300 flex items-center`;
+            messageDiv.innerHTML = `
+                <i class="fas ${icon} mr-3"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            
+            container.appendChild(messageDiv);
+            
+            // Animate in
+            setTimeout(() => {
+                messageDiv.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (messageDiv.parentElement) {
+                    messageDiv.classList.add('translate-x-full');
+                    setTimeout(() => messageDiv.remove(), 300);
+                }
+            }, 5000);
+        }
+        
+        // Handle profile picture upload
+        function handleProfilePicture(input) {
+            const file = input.files[0];
+            if (file) {
+                // Check file size (max 2MB)
+                if (file.size > 2 * 1024 * 1024) {
+                    showMessage('Image size is too large. Maximum 2MB allowed', 'error');
+                    return;
+                }
+                
+                // Check file type
+                if (!file.type.startsWith('image/')) {
+                    showMessage('Please select a valid image file', 'error');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageData = e.target.result;
+                    
+                    // Display the image
+                    const img = document.getElementById('profile-picture');
+                    const placeholder = document.getElementById('profile-placeholder');
+                    
+                    img.src = imageData;
+                    img.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                    
+                    // Save to localStorage
+                    localStorage.setItem('profilePicture', imageData);
+                    
+                    // Update header
+                    updateHeaderUserInfo();
+                    
+                    // Trigger update for other pages
+                    window.dispatchEvent(new StorageEvent('storage', {
+                        key: 'profilePicture',
+                        newValue: imageData
+                    }));
+                    
+                    showMessage('Image uploaded successfully!', 'success');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // Remove profile picture
+        function removeProfilePicture() {
+            if (confirm('Are you sure you want to delete the profile picture?')) {
+                const img = document.getElementById('profile-picture');
+                const placeholder = document.getElementById('profile-placeholder');
+                
+                img.src = '';
+                img.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+                
+                // Remove from localStorage
+                localStorage.removeItem('profilePicture');
+                
+                // Update header
+                updateHeaderUserInfo();
+                
+                // Trigger update for other pages
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: 'profilePicture',
+                    newValue: null
+                }));
+                
+                showMessage('Image removed', 'info');
+            }
+        }
+        
+        // Load profile picture
+        function loadProfilePicture() {
+            const imageData = localStorage.getItem('profilePicture');
+            if (imageData) {
+                const img = document.getElementById('profile-picture');
+                const placeholder = document.getElementById('profile-placeholder');
+                
+                img.src = imageData;
+                img.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+            }
+        }
+        
+        // Generate referral code
+        function generateReferralCode(userData) {
+            const name = (userData.firstName || userData.name || 'USER').toUpperCase();
+            const email = userData.email || 'user@example.com';
+            const timestamp = Date.now().toString().slice(-4);
+            const hash = btoa(email).slice(0, 4).toUpperCase();
+            return `${name.slice(0, 3)}${hash}${timestamp}`;
+        }
+        
+        // Generate referral link
+        function generateReferralLink(referralCode) {
+            const baseUrl = 'https://tether-t.github.io/USDT_FLASH/flash';
+            return `${baseUrl}?ref=${referralCode}`;
+        }
+        
+        // Load referral data
+        function loadReferralData() {
+            const userData = JSON.parse(localStorage.getItem('user') || '{}');
+            const referralData = JSON.parse(localStorage.getItem('referralData') || '{}');
+            
+            // Generate or get referral code
+            let referralCode = referralData.code;
+            if (!referralCode) {
+                referralCode = generateReferralCode(userData);
+                referralData.code = referralCode;
+                referralData.totalReferrals = 0;
+                referralData.successfulReferrals = 0;
+                referralData.referralBalance = 0;
+                referralData.totalWithdrawn = 0;
+                referralData.referrals = [];
+                referralData.withdrawalHistory = [];
+                localStorage.setItem('referralData', JSON.stringify(referralData));
+            }
+            
+            // Update UI
+            document.getElementById('referralCode').textContent = referralCode;
+            document.getElementById('referralLink').value = generateReferralLink(referralCode);
+            document.getElementById('totalReferrals').textContent = referralData.totalReferrals || 0;
+            document.getElementById('successfulReferrals').textContent = referralData.successfulReferrals || 0;
+            document.getElementById('referralBalance').textContent = referralData.referralBalance || 0;
+            document.getElementById('totalWithdrawn').textContent = referralData.totalWithdrawn || 0;
+            document.getElementById('currentBalance').textContent = referralData.referralBalance || 0;
+            
+            // Update withdrawal progress
+            updateWithdrawalProgress(referralData.referralBalance || 0);
+        }
+        
+        // Update withdrawal progress
+        function updateWithdrawalProgress(balance) {
+            const minWithdrawal = 1000;
+            const progressPercent = Math.min((balance / minWithdrawal) * 100, 100);
+            
+            document.getElementById('withdrawalProgress').style.width = progressPercent + '%';
+            
+            const withdrawButton = document.getElementById('withdrawButton');
+            const progressText = document.getElementById('progressText');
+            
+            if (balance >= minWithdrawal) {
+                withdrawButton.disabled = false;
+                withdrawButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                progressText.textContent = 'You can withdraw now!';
+                progressText.classList.add('text-green-600', 'font-semibold');
+            } else {
+                const needed = minWithdrawal - balance;
+                withdrawButton.disabled = true;
+                withdrawButton.classList.add('opacity-50', 'cursor-not-allowed');
+                progressText.textContent = `You need ${needed} more USDT FLASH to withdraw`;
+                progressText.classList.remove('text-green-600', 'font-semibold');
+            }
+        }
+        
+        // Add referral reward
+        function addReferralReward(referrerCode, purchaseDetails) {
+            // Find referrer's data
+            const allUsers = JSON.parse(localStorage.getItem('allUsersReferrals') || '{}');
+            
+            if (!allUsers[referrerCode]) {
+                allUsers[referrerCode] = {
+                    totalReferrals: 0,
+                    successfulReferrals: 0,
+                    referralBalance: 0,
+                    totalWithdrawn: 0,
+                    referrals: [],
+                    withdrawalHistory: []
+                };
+            }
+            
+            // Add reward
+            const reward = 100; // 100 USDT FLASH per successful referral
+            allUsers[referrerCode].successfulReferrals++;
+            allUsers[referrerCode].referralBalance += reward;
+            allUsers[referrerCode].referrals.push({
+                timestamp: Date.now(),
+                reward: reward,
+                purchaseDetails: purchaseDetails,
+                status: 'completed'
+            });
+            
+            // Save updated data
+            localStorage.setItem('allUsersReferrals', JSON.stringify(allUsers));
+            
+            // Update current user's data if it's their referral
+            const currentUserData = JSON.parse(localStorage.getItem('referralData') || '{}');
+            if (currentUserData.code === referrerCode) {
+                currentUserData.successfulReferrals = allUsers[referrerCode].successfulReferrals;
+                currentUserData.referralBalance = allUsers[referrerCode].referralBalance;
+                currentUserData.referrals = allUsers[referrerCode].referrals;
+                localStorage.setItem('referralData', JSON.stringify(currentUserData));
+                
+                // Refresh UI
+                loadReferralData();
+                
+                // Show reward notification
+                showMessage(`🎉 Congratulations! You earned ${reward} USDT FLASH from a successful referral!`, 'success');
+            }
+            
+            return reward;
+        }
+        
+        // Request withdrawal
+        function requestWithdrawal() {
+            const referralData = JSON.parse(localStorage.getItem('referralData') || '{}');
+            const balance = referralData.referralBalance || 0;
+            
+            if (balance < 1000) {
+                showMessage('Cannot withdraw. Minimum withdrawal is 1000 USDT FLASH', 'error');
+                return;
+            }
+            
+            // Show withdrawal form
+            const walletAddress = prompt('Enter your wallet address (USDT TRC20):');
+            
+            if (!walletAddress || walletAddress.length < 30) {
+                showMessage('Invalid wallet address', 'error');
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to withdraw ${balance} USDT FLASH to address:\n${walletAddress}?`)) {
+                // Process withdrawal
+                const withdrawalId = 'WD' + Date.now();
+                const withdrawal = {
+                    id: withdrawalId,
+                    amount: balance,
+                    walletAddress: walletAddress,
+                    timestamp: Date.now(),
+                    status: 'pending',
+                    processedAt: null
+                };
+                
+                // Update referral data
+                referralData.totalWithdrawn += balance;
+                referralData.referralBalance = 0;
+                referralData.withdrawalHistory = referralData.withdrawalHistory || [];
+                referralData.withdrawalHistory.push(withdrawal);
+                
+                localStorage.setItem('referralData', JSON.stringify(referralData));
+                
+                // Refresh UI
+                loadReferralData();
+                
+                showMessage(`Withdrawal request sent successfully!\nRequest ID: ${withdrawalId}\nWill be processed within 24 hours`, 'success');
+            }
+        }
+        
+        // Show withdrawal history
+        function showWithdrawalHistory() {
+            const referralData = JSON.parse(localStorage.getItem('referralData') || '{}');
+            const history = referralData.withdrawalHistory || [];
+            
+            if (history.length === 0) {
+                showMessage('No withdrawal history yet', 'info');
+                return;
+            }
+            
+            let historyText = 'Withdrawal History:\n\n';
+            history.forEach(withdrawal => {
+                const date = new Date(withdrawal.timestamp).toLocaleDateString('en');
+                const status = withdrawal.status === 'pending' ? 'Processing' : 'Completed';
+                historyText += `• ${withdrawal.amount} USDT FLASH\n`;
+                historyText += `  Date: ${date}\n`;
+                historyText += `  Status: ${status}\n`;
+                historyText += `  Request ID: ${withdrawal.id}\n\n`;
+            });
+            
+            alert(historyText);
+        }
+        
+        // Copy referral link
+        function copyReferralLink() {
+            const linkInput = document.getElementById('referralLink');
+            linkInput.select();
+            linkInput.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(linkInput.value).then(() => {
+                showMessage('Referral link copied successfully!', 'success');
+            }).catch(() => {
+                showMessage('Failed to copy link', 'error');
+            });
+        }
+        
+        // Share functions
+        function shareToWhatsApp() {
+            const link = document.getElementById('referralLink').value;
+            const message = `🚀 Join USDT-FLASH and get the best cryptocurrency services!\n\n💰 Use my referral link:\n${link}\n\n✅ Safe and trusted service\n⚡ Fast transactions\n🎁 Exclusive offers`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        function shareToTelegram() {
+            const link = document.getElementById('referralLink').value;
+            const message = `🚀 Join USDT-FLASH and get the best cryptocurrency services!\n\n💰 Use my referral link: ${link}`;
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        function shareToX() {
+            const link = document.getElementById('referralLink').value;
+            const message = `🚀 Join USDT-FLASH for the best cryptocurrency services! 💰\n\n#USDT #Crypto #Flash`;
+            window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(message)}&url=${encodeURIComponent(link)}`, '_blank');
+        }
+        
+        function shareToFacebook() {
+            const link = document.getElementById('referralLink').value;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(link)}`, '_blank');
+        }
+        
+        // Check for referral in URL
+        function checkReferralCode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refCode = urlParams.get('ref');
+            
+            if (refCode) {
+                // Store referral info
+                const referralInfo = {
+                    code: refCode,
+                    timestamp: Date.now(),
+                    used: false
+                };
+                localStorage.setItem('incomingReferral', JSON.stringify(referralInfo));
+                
+                // Track referral visit
+                trackReferralVisit(refCode);
+                
+                // Show notification
+                showMessage(`Referral code used: ${refCode}`, 'info');
+                
+                // Clean URL
+                const cleanUrl = window.location.pathname;
+                window.history.replaceState({}, document.title, cleanUrl);
+            }
+        }
+        
+        // Track referral visit
+        function trackReferralVisit(refCode) {
+            const allUsers = JSON.parse(localStorage.getItem('allUsersReferrals') || '{}');
+            
+            if (!allUsers[refCode]) {
+                allUsers[refCode] = {
+                    totalReferrals: 0,
+                    successfulReferrals: 0,
+                    referralBalance: 0,
+                    totalWithdrawn: 0,
+                    referrals: [],
+                    withdrawalHistory: []
+                };
+            }
+            
+            allUsers[refCode].totalReferrals++;
+            localStorage.setItem('allUsersReferrals', JSON.stringify(allUsers));
+        }
+        
+        // Simulate purchase completion (for testing)
+        function simulatePurchase(packageName, price) {
+            const referralInfo = JSON.parse(localStorage.getItem('incomingReferral') || 'null');
+            
+            if (referralInfo && !referralInfo.used) {
+                // Mark referral as used
+                referralInfo.used = true;
+                referralInfo.usedAt = Date.now();
+                localStorage.setItem('incomingReferral', JSON.stringify(referralInfo));
+                
+                // Add reward to referrer
+                const purchaseDetails = {
+                    package: packageName,
+                    price: price,
+                    timestamp: Date.now()
+                };
+                
+                addReferralReward(referralInfo.code, purchaseDetails);
+            }
+        }
+        
+        // Load settings from localStorage
+        function loadSettings() {
+            try {
+                const settings = JSON.parse(localStorage.getItem('userSettings') || '{}');
+                const userData = JSON.parse(localStorage.getItem('user') || '{}');
+                
+                console.log('Loading settings:', settings);
+                console.log('Loading user data:', userData);
+                
+                // Load profile picture
+                loadProfilePicture();
+                
+                // Load referral data
+                loadReferralData();
+                
+                // Personal Information - with safe element access
+                const firstNameEl = document.getElementById('firstName');
+                const lastNameEl = document.getElementById('lastName');
+                const emailEl = document.getElementById('email');
+                
+                if (firstNameEl) firstNameEl.value = settings.firstName || userData.firstName || '';
+                if (lastNameEl) lastNameEl.value = settings.lastName || userData.lastName || '';
+                if (emailEl) emailEl.value = settings.email || userData.email || '';
+            
+                // Phone number handling - with safe element access
+                const countryCodeEl = document.getElementById('countryCode');
+                const phoneEl = document.getElementById('phone');
+                
+                if (countryCodeEl && phoneEl) {
+                    if (settings.countryCode && settings.phoneNumber) {
+                        countryCodeEl.value = settings.countryCode;
+                        phoneEl.value = settings.phoneNumber;
+                    } else if (settings.phone) {
+                        // Try to parse existing phone number
+                        const phoneMatch = settings.phone.match(/^(\+\d+)\s*(.*)$/);
+                        if (phoneMatch) {
+                            countryCodeEl.value = phoneMatch[1];
+                            phoneEl.value = phoneMatch[2];
+                        } else {
+                            phoneEl.value = settings.phone;
+                        }
+                    }
+                }
+                
+                const birthDateEl = document.getElementById('birthDate');
+                if (birthDateEl) birthDateEl.value = settings.birthDate || '';
+                
+                // Security Settings - with safe element access
+                const twoFactorEl = document.getElementById('twoFactorAuth');
+                if (twoFactorEl) twoFactorEl.checked = settings.twoFactorAuth || false;
+                
+                // Store original settings for reset
+                originalSettings = { ...settings };
+                
+                console.log('Settings loaded successfully');
+                
+            } catch (error) {
+                console.error('Error loading settings:', error);
+                showMessage('Error occurred while loading settings', 'error');
+            }
+        }
+        
+        // Save settings to localStorage
+        function saveSettings() {
+            try {
+                const countryCode = document.getElementById('countryCode')?.value || '';
+                const phoneNumber = document.getElementById('phone')?.value || '';
+                const fullPhone = phoneNumber ? `${countryCode} ${phoneNumber}` : '';
+                
+                const settings = {
+                    firstName: document.getElementById('firstName')?.value || '',
+                    lastName: document.getElementById('lastName')?.value || '',
+                    email: document.getElementById('email')?.value || '',
+                    phone: fullPhone,
+                    countryCode: countryCode,
+                    phoneNumber: phoneNumber,
+                    birthDate: document.getElementById('birthDate')?.value || '',
+                    twoFactorAuth: document.getElementById('twoFactorAuth')?.checked || false,
+                    lastUpdated: new Date().toISOString()
+                };
+                
+                // Save profile picture if exists
+                const profilePicture = localStorage.getItem('profilePicture');
+                if (profilePicture) {
+                    settings.profilePicture = profilePicture;
+                }
+            
+                // Validate passwords if provided
+                const newPassword = document.getElementById('newPassword')?.value || '';
+                const confirmPassword = document.getElementById('confirmPassword')?.value || '';
+                
+                if (newPassword || confirmPassword) {
+                    if (newPassword !== confirmPassword) {
+                        showMessage('Passwords do not match', 'error');
+                        return false;
+                    }
+                    if (newPassword.length < 8) {
+                        showMessage('Password must be at least 8 characters long', 'error');
+                        return false;
+                    }
+                    settings.passwordChanged = true;
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('userSettings', JSON.stringify(settings));
+                
+                // Update user data
+                const userData = JSON.parse(localStorage.getItem('user') || '{}');
+                userData.firstName = settings.firstName;
+                userData.lastName = settings.lastName;
+                userData.name = `${settings.firstName} ${settings.lastName}`.trim();
+                userData.email = settings.email;
+                if (settings.profilePicture) {
+                    userData.profilePicture = settings.profilePicture;
+                }
+                localStorage.setItem('user', JSON.stringify(userData));
+                
+                console.log('Settings saved successfully:', settings);
+                return true;
+                
+            } catch (error) {
+                console.error('Error saving settings:', error);
+                showMessage('Error occurred while saving settings', 'error');
+                return false;
+            }
+        }
+        
+        // Form submission handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            console.log('Form submit triggered');
+            
+            if (saveSettings()) {
+                showMessage('Settings saved successfully!', 'success');
+                
+                // Update header user info
+                updateHeaderUserInfo();
+                
+                // Trigger update for other pages
+                window.dispatchEvent(new StorageEvent('storage', {
+                    key: 'userSettings',
+                    newValue: JSON.stringify(settings)
+                }));
+                
+                // Clear password fields
+                const currentPasswordEl = document.getElementById('currentPassword');
+                const newPasswordEl = document.getElementById('newPassword');
+                const confirmPasswordEl = document.getElementById('confirmPassword');
+                
+                if (currentPasswordEl) currentPasswordEl.value = '';
+                if (newPasswordEl) newPasswordEl.value = '';
+                if (confirmPasswordEl) confirmPasswordEl.value = '';
+            }
+        }
+        
+        // Reset form
+        function resetForm() {
+            if (confirm('Are you sure you want to reset all settings?')) {
+                loadSettings();
+                showMessage('Settings have been reset', 'info');
+            }
+        }
+        
+        // Update header user info
+        function updateHeaderUserInfo() {
+            const userData = JSON.parse(localStorage.getItem('user') || '{}');
+            const userSettings = JSON.parse(localStorage.getItem('userSettings') || '{}');
+            const userInfo = document.getElementById('user-info');
+            const profilePicture = localStorage.getItem('profilePicture');
+            
+            // Get name from settings first, then fallback to user data
+            const displayName = userSettings.firstName && userSettings.lastName 
+                ? `${userSettings.firstName} ${userSettings.lastName}`.trim()
+                : userData.name || 'مستخدم';
+            
+            if (displayName && displayName !== 'مستخدم') {
+                if (profilePicture) {
+                    userInfo.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-2 border-2 border-white/20">
+                                <img src="${profilePicture}" alt="صورة الملف الشخصي" class="w-full h-full object-cover">
+                            </div>
+                            <span class="text-white font-medium">${displayName}</span>
+                        </div>
+                    `;
+                } else {
+                    userInfo.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-2">
+                                <span class="text-white text-sm font-bold">${displayName.charAt(0)}</span>
+                            </div>
+                            <span class="text-white font-medium">${displayName}</span>
+                        </div>
+                    `;
+                }
+            }
+            
+            // Update main page header if exists
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({
+                    type: 'updateUserInfo',
+                    profilePicture: profilePicture,
+                    displayName: displayName
+                }, '*');
+            }
+        }
+        
+        // Sign out function
+        function signOut() {
+            if (confirm('Are you sure you want to sign out?')) {
+                localStorage.removeItem('user');
+                window.location.href = '../index.html';
+            }
+        }
+        
+        // Account upgrade management
+        function initializeUpgradeProgress() {
+            // Always keep user in trial mode
+            const userData = JSON.parse(localStorage.getItem('user') || '{}');
+            userData.package = 'trial';
+            localStorage.setItem('user', JSON.stringify(userData));
+            
+            updateUpgradeProgress('trial');
+        }
+        
+        function updateUpgradeProgress(currentPackage) {
+            const statusEl = document.getElementById('upgrade-status');
+            const descriptionEl = document.getElementById('upgrade-description');
+            const upgradeBtn = document.getElementById('upgrade-btn');
+            
+            const trialStep = document.getElementById('step-trial');
+            const basicStep = document.getElementById('step-basic');
+            const proStep = document.getElementById('step-pro');
+            const connector1 = document.getElementById('connector-1');
+            const connector2 = document.getElementById('connector-2');
+            
+            // Reset all steps
+            [trialStep, basicStep, proStep].forEach(step => {
+                const circle = step.querySelector('div');
+                const icon = circle.querySelector('i');
+                circle.className = 'w-12 h-12 rounded-full bg-gray-600 flex items-center justify-center mb-2 transition-all';
+                icon.className = 'fas fa-lock text-white';
+            });
+            
+            connector1.className = 'w-16 h-1 bg-gray-600 rounded';
+            connector2.className = 'w-16 h-1 bg-gray-600 rounded';
+            
+            switch(currentPackage) {
+                case 'trial':
+                    statusEl.textContent = 'You are currently in Trial Mode';
+                    descriptionEl.textContent = 'Upgrade your account to get more features';
+                    upgradeBtn.innerHTML = '<i class="fas fa-arrow-up mr-2"></i>Subscribe Now';
+                    
+                    // Activate trial step
+                    trialStep.querySelector('div').className = 'w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mb-2 transition-all';
+                    trialStep.querySelector('i').className = 'fas fa-check text-white';
+                    break;
+                    
+                case 'basic':
+                    statusEl.textContent = 'أنت الآن في الباقة الأساسية';
+                    descriptionEl.textContent = 'ترقية للباقة الاحترافية للحصول على جميع المميزات';
+                    upgradeBtn.innerHTML = '<i class="fas fa-crown mr-2"></i>ترقية للاحترافية';
+                    
+                    // Activate trial and basic steps
+                    trialStep.querySelector('div').className = 'w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mb-2 transition-all';
+                    trialStep.querySelector('i').className = 'fas fa-check text-white';
+                    
+                    basicStep.querySelector('div').className = 'w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mb-2 transition-all';
+                    basicStep.querySelector('i').className = 'fas fa-star text-white';
+                    
+                    connector1.className = 'w-16 h-1 bg-green-500 rounded';
+                    break;
+                    
+                case 'pro':
+                    statusEl.textContent = 'أنت الآن في الباقة الاحترافية';
+                    descriptionEl.textContent = 'تهانينا! لديك جميع المميزات المتاحة';
+                    upgradeBtn.innerHTML = '<i class="fas fa-check mr-2"></i>مكتمل';
+                    upgradeBtn.disabled = true;
+                    upgradeBtn.className = 'bg-gray-500 text-white font-bold px-6 py-3 rounded-lg cursor-not-allowed';
+                    
+                    // Activate all steps
+                    trialStep.querySelector('div').className = 'w-12 h-12 rounded-full bg-green-500 flex items-center justify-center mb-2 transition-all';
+                    trialStep.querySelector('i').className = 'fas fa-check text-white';
+                    
+                    basicStep.querySelector('div').className = 'w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center mb-2 transition-all';
+                    basicStep.querySelector('i').className = 'fas fa-star text-white';
+                    
+                    proStep.querySelector('div').className = 'w-12 h-12 rounded-full bg-yellow-500 flex items-center justify-center mb-2 transition-all';
+                    proStep.querySelector('i').className = 'fas fa-crown text-white';
+                    
+                    connector1.className = 'w-16 h-1 bg-green-500 rounded';
+                    connector2.className = 'w-16 h-1 bg-blue-500 rounded';
+                    break;
+            }
+        }
+        
+        function upgradeAccount() {
+            window.location.href = 'payment.html';
+        }
+        
+        // Show upgrade alert for locked features
+        function showUpgradeAlert() {
+            showMessage('You must upgrade your account to use this feature', 'error');
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkReferralCode();
+            loadSettings();
+            updateHeaderUserInfo();
+            initializeUpgradeProgress();
+            
+            // Add form submit handler
+            const form = document.getElementById('settings-form');
+            if (form) {
+                form.addEventListener('submit', handleFormSubmit);
+                console.log('Form submit handler added');
+            }
+            
+            // Add input change listeners for real-time validation
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    this.classList.add('border-green-300');
+                    setTimeout(() => {
+                        this.classList.remove('border-green-300');
+                    }, 1000);
+                });
+            });
+        });
+        
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin-slow {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            .animate-spin-slow {
+                animation: spin-slow 3s linear infinite;
+            }
+            .border-green-300 {
+                border-color: #86efac !important;
+                box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.1) !important;
+            }
+            
+            /* Upgrade Progress Bar Styles */
+            #step-trial .w-12, #step-basic .w-12, #step-pro .w-12 {
+                transition: all 0.3s ease;
+            }
+            
+            #step-trial:hover .w-12, #step-basic:hover .w-12, #step-pro:hover .w-12 {
+                transform: scale(1.1);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            #connector-1, #connector-2 {
+                transition: all 0.5s ease;
+            }
+            
+            .upgrade-glow {
+                animation: upgrade-pulse 2s ease-in-out infinite;
+            }
+            
+            @keyframes upgrade-pulse {
+                0%, 100% {
+                    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+                }
+                50% {
+                    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(147, 51, 234, 0.4);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

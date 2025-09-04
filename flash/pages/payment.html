@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>USDT-FLASH - Payment</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/flash.css">
+    <link rel="stylesheet" href="../css/tether-branding.css">
+    <style>
+        :root {
+            --tether-green: #26A17B;
+            --tether-dark-green: #1A8462;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            min-height: 100vh;
+        }
+        
+        /* Mobile-First Responsive Design */
+        @media (max-width: 768px) {
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            .payment-card { margin: 0.5rem; padding: 1rem !important; border-radius: 8px; }
+            .grid.md\:grid-cols-2 { grid-template-columns: 1fr; gap: 1rem; }
+            .text-4xl.md\:text-5xl { font-size: 1.875rem !important; line-height: 2.25rem !important; }
+            .simple-border { padding: 1rem; margin-bottom: 1rem; }
+            .wallet-address { font-size: 0.75rem; padding: 0.75rem; word-break: break-all; }
+            .form-input { padding: 0.75rem; font-size: 16px; }
+            .tether-button { padding: 0.875rem 1.5rem; font-size: 0.875rem; width: 100%; margin-bottom: 0.5rem; }
+            .flex.justify-end { justify-content: center; margin-bottom: 1rem; }
+            .flex.items-center.space-x-2 button { padding: 0.5rem 0.75rem; font-size: 0.75rem; }
+            #warningEn, #warningAr { margin: 0.5rem; padding: 1rem; border-radius: 8px; }
+            #warningEn .ml-4, #warningAr .mr-4 { margin-left: 0.75rem; margin-right: 0.75rem; }
+            #warningEn h3, #warningAr h3 { font-size: 1rem; margin-bottom: 0.75rem; }
+            #warningEn p, #warningAr p { font-size: 0.875rem; line-height: 1.4; }
+            .bg-white.p-4 img { max-width: 120px !important; max-height: 120px !important; }
+            button, .tether-button { min-height: 44px; touch-action: manipulation; }
+        }
+        
+        @media (max-width: 480px) {
+            .text-3xl { font-size: 1.5rem !important; line-height: 2rem !important; }
+            .text-2xl { font-size: 1.25rem !important; line-height: 1.75rem !important; }
+            .text-lg { font-size: 1rem !important; line-height: 1.5rem !important; }
+        }
+        
+
+        
+        .payment-card {
+            background: white;
+            border: 2px solid var(--tether-green);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+
+        
+        .tether-highlight {
+            color: var(--tether-green);
+            font-weight: 600;
+        }
+        
+        .tether-button {
+            background: var(--tether-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 32px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tether-button:hover {
+            background: var(--tether-dark-green);
+            transform: translateY(-2px);
+        }
+        
+
+        
+        .price-display {
+            background: white;
+            border: 3px solid var(--tether-green);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(38, 161, 123, 0.1);
+        }
+        
+
+        
+        .simple-border {
+            border: 2px solid var(--tether-green);
+            border-radius: 8px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(38, 161, 123, 0.1);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--tether-green);
+        }
+        
+        .wallet-address {
+            background: #F1F5F9;
+            border: 2px solid var(--tether-green);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: monospace;
+            font-weight: 600;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .processing-button {
+            background: #6B7280 !important;
+            cursor: not-allowed !important;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .fa-spin {
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Loading Modal */
+        .loading-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #374151;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="tether-logo-container">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="Tether Logo" class="h-12 w-auto">
+                    <div class="divider"></div>
+                    <div>
+                        <h3 class="text-2xl font-bold">USDT-FLASH</h3>
+                        <span class="tether-badge">
+                            <i class="fas fa-check-circle text-xs"></i> Official Partner
+                        </span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="tether-button">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tether Official Bar -->
+    <div class="tether-official-bar">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-shield-alt mr-2"></i>
+                <span>Verified Tether Partner</span>
+            </div>
+            <div class="flex items-center">
+                <a href="https://tether.to/en/" target="_blank" class="text-white hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1 text-white text-xs"></i>
+                    <span>Visit Tether.to</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Banner -->
+    <div class="bg-gradient-to-r from-teal-600 to-green-600 text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-3">
+                    <i class="fas fa-shield-alt mr-3"></i>Complete Your Trial Package Purchase
+                </h1>
+                
+                <!-- Trial Package Specific Information -->
+                <div class="max-w-3xl mx-auto mt-6 p-4 bg-white/10 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="text-xl font-bold">$75</div>
+                            <div class="text-sm opacity-80">USD Price</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold">75 USDT</div>
+                            <div class="text-sm opacity-80">USDT Price</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-xl font-bold">4000 USDT FLASH</div>
+                            <div class="text-sm opacity-80">You Receive</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Indicator -->
+                <div class="max-w-md mx-auto mt-4">
+                    <div class="flex items-center justify-center space-x-4 text-sm">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <span class="ml-2">Package Selected</span>
+                        </div>
+                        <div class="w-8 h-1 bg-green-500"></div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center animate-pulse">
+                                <i class="fas fa-credit-card text-white"></i>
+                            </div>
+                            <span class="ml-2 font-bold">Payment</span>
+                        </div>
+                        <div class="w-8 h-1 bg-gray-300"></div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+                                <i class="fas fa-gift text-gray-500"></i>
+                            </div>
+                            <span class="ml-2 text-gray-200">Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="payment-card p-8">
+                    <h2 class="text-3xl font-bold mb-8 text-center tether-highlight">
+                        💳 USDT Payment Gateway
+                    </h2>
+                    
+                    <!-- Language Toggle -->
+                    <div class="flex justify-end mb-4">
+                        <div class="flex items-center space-x-2">
+                            <button onclick="toggleLanguage('en')" id="enBtn" class="flex items-center px-3 py-2 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200 transition-colors">
+                                <i class="fas fa-globe mr-2"></i>English
+                            </button>
+                            <button onclick="toggleLanguage('ar')" id="arBtn" class="flex items-center px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors">
+                                <i class="fas fa-language mr-2"></i>العربية
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Critical Payment Amount Warning - English -->
+                    <div id="warningEn" class="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 mb-8 rounded-lg shadow-lg">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-red-600 text-2xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold text-red-800 mb-3">
+                                    ⚠️ CRITICAL: Exact Payment Amount Required
+                                </h3>
+                                <div class="text-red-700 space-y-2">
+                                    <p class="font-semibold">
+                                        You must send <span class="bg-red-100 px-2 py-1 rounded font-black">EXACTLY 75 USDT</span> - no more, no less.
+                                    </p>
+                                    <p>
+                                        <strong>Any deviation will cause automatic transaction failure</strong> because our automated verification servers are programmed to match precise amounts for security compliance and anti-fraud protection.
+                                    </p>
+                                    <div class="bg-red-100 p-3 rounded mt-3">
+                                        <p class="text-sm font-medium">
+                                            <i class="fas fa-info-circle mr-2"></i>
+                                            <strong>Technical Reason:</strong> Our blockchain verification system uses smart contracts that validate exact amounts to prevent money laundering, ensure regulatory compliance, and maintain transaction integrity across our global network.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Critical Payment Amount Warning - Arabic -->
+                    <div id="warningAr" class="bg-gradient-to-r from-red-50 to-orange-50 border-r-4 border-red-500 p-6 mb-8 rounded-lg shadow-lg hidden" dir="rtl">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-red-600 text-2xl mt-1"></i>
+                            </div>
+                            <div class="mr-4">
+                                <h3 class="text-lg font-bold text-red-800 mb-3">
+                                    ⚠️ تحذير هام: مطلوب المبلغ الدقيق للدفع
+                                </h3>
+                                <div class="text-red-700 space-y-2">
+                                    <p class="font-semibold">
+                                        يجب إرسال <span class="bg-red-100 px-2 py-1 rounded font-black">75 USDT بالضبط</span> - لا أكثر ولا أقل.
+                                    </p>
+                                    <p>
+                                        <strong>أي انحراف سيؤدي إلى فشل تلقائي في المعاملة</strong> لأن خوادم التحقق الآلية مبرمجة لمطابقة المبالغ الدقيقة للامتثال الأمني ومكافحة الاحتيال.
+                                    </p>
+                                    <div class="bg-red-100 p-3 rounded mt-3">
+                                        <p class="text-sm font-medium">
+                                            <i class="fas fa-info-circle ml-2"></i>
+                                            <strong>السبب التقني:</strong> نظام التحقق من البلوك تشين يستخدم العقود الذكية التي تتحقق من المبالغ الدقيقة لمنع غسيل الأموال وضمان الامتثال التنظيمي والحفاظ على سلامة المعاملات عبر شبكتنا العالمية.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Form -->
+                    <form id="paymentForm">
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="simple-border text-center">
+                                <h4 class="text-lg font-bold tether-highlight mb-2">📱 Scan QR Code or Copy Address</h4>
+                                <p class="text-sm text-gray-600 mb-4">Scan with your wallet app or copy the address below</p>
+                                <div class="bg-white p-4 rounded-lg mb-4 border-2 border-tether-green" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <img src="../img/RC20.jpg" alt="USDT TRC20 QR Code" 
+                                         style="max-width: 180px; max-height: 180px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                </div>
+                                <div class="wallet-address" id="wallet-address">
+                                    TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP
+                                </div>
+                                <button type="button" class="tether-button text-sm" onclick="copyAddress()">
+                                    <i class="fas fa-copy mr-2"></i>Copy Address
+                                </button>
+                                <div class="wallet-address" id="wallet-address">
+                                    TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP
+                                </div>
+                                <input type="hidden" id="real-address" value="TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP">
+                                <button type="button" class="tether-button text-sm" onclick="copyAddress()">
+                                    <i class="fas fa-copy mr-2"></i>Copy Address
+                                </button>
+                                <button type="button" class="bg-blue-600 text-white px-4 py-2 rounded text-sm ml-2" onclick="verifyAddress()">
+                                    <i class="fas fa-check mr-2"></i>Verify Address
+                                </button>
+                            </div>
+                            
+                            <div class="simple-border">
+                                <h4 class="text-lg font-bold mb-4">💳 Payment Instructions</h4>
+                                <div class="space-y-3">
+                                    <p class="flex items-center">
+                                        <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                                        Send the required <strong class="tether-highlight">USDT amount</strong>
+                                    </p>
+                                    <p class="flex items-center">
+                                        <i class="fas fa-network-wired text-blue-500 mr-2"></i>
+                                        Use <strong>Tron (TRC20)</strong> network
+                                    </p>
+                                    <p class="flex items-center">
+                                        <i class="fas fa-hashtag text-purple-500 mr-2"></i>
+                                        Enter transaction ID below
+                                    </p>
+                                    <p class="flex items-center">
+                                        <i class="fas fa-shield-alt text-green-500 mr-2"></i>
+                                        Auto-verification enabled
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold mb-2">Transaction ID (Hash) - TXID:</label>
+                            <input type="text" id="txId" name="txId" class="form-input" 
+                                   placeholder="Enter your TRC20 transaction hash"
+                                   required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold mb-2 text-gray-600">Old Transaction ID (Hash) <span class="font-normal">(If any)</span>:</label>
+                            <input type="text" id="oldTxId" name="oldTxId" class="form-input" 
+                                   placeholder="Enter hash of the failed transaction (optional)">
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <button type="submit" class="tether-button text-lg py-4">
+                                <i class="fas fa-credit-card mr-2"></i>
+                                💳 COMPLETE PAYMENT
+                            </button>
+                            <button type="button" onclick="window.location.href='account-info.html'" 
+                                    class="tether-button text-lg py-4">
+                                <i class="fas fa-user mr-2"></i>
+                                GO TO DASHBOARD
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT Logo" class="h-8 w-8 mr-2">
+                <span class="text-lg font-bold">USDT-FLASH</span>
+                <span class="tether-badge ml-2">Official Partner</span>
+            </div>
+            <p class="text-gray-400">© 2025 USDT-FLASH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="loading-modal">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3 class="text-xl font-bold mb-2">Processing Payment...</h3>
+            <p class="text-gray-600">Please wait while we verify your transaction</p>
+        </div>
+    </div>
+
+    <script>
+        
+        function copyAddress() {
+            // Force the correct address
+            const CORRECT_ADDRESS = 'TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP';
+            
+            // Method 1: Try modern clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(CORRECT_ADDRESS).then(() => {
+                    showCopySuccess(CORRECT_ADDRESS);
+                }).catch(() => {
+                    fallbackCopy(CORRECT_ADDRESS);
+                });
+            } else {
+                fallbackCopy(CORRECT_ADDRESS);
+            }
+        }
+        
+        function fallbackCopy(address) {
+            // Method 2: Fallback using textarea
+            const textarea = document.createElement('textarea');
+            textarea.value = address;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopySuccess(address);
+            } catch (err) {
+                // Method 3: Manual selection
+                prompt('Copy this TRC20 address:', address);
+            }
+            
+            document.body.removeChild(textarea);
+        }
+        
+        function showCopySuccess(address) {
+            alert('✅ TRC20 Address Copied Successfully!\n\nAddress: ' + address + '\n\nPlease verify the address before sending payment.');
+        }
+        
+        function verifyAddress() {
+            const CORRECT_ADDRESS = 'TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP';
+            alert('🔍 Address Verification:\n\nCorrect Address: ' + CORRECT_ADDRESS + '\n\nThis is the ONLY valid address for payments.');
+        }
+        
+        function toggleLanguage(lang) {
+            const warningEn = document.getElementById('warningEn');
+            const warningAr = document.getElementById('warningAr');
+            const enBtn = document.getElementById('enBtn');
+            const arBtn = document.getElementById('arBtn');
+            
+            if (lang === 'en') {
+                warningEn.classList.remove('hidden');
+                warningAr.classList.add('hidden');
+                enBtn.classList.add('bg-blue-100', 'text-blue-800');
+                enBtn.classList.remove('bg-gray-100', 'text-gray-600');
+                arBtn.classList.add('bg-gray-100', 'text-gray-600');
+                arBtn.classList.remove('bg-blue-100', 'text-blue-800');
+            } else {
+                warningEn.classList.add('hidden');
+                warningAr.classList.remove('hidden');
+                arBtn.classList.add('bg-blue-100', 'text-blue-800');
+                arBtn.classList.remove('bg-gray-100', 'text-gray-600');
+                enBtn.classList.add('bg-gray-100', 'text-gray-600');
+                enBtn.classList.remove('bg-blue-100', 'text-blue-800');
+            }
+        }
+        
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const txId = document.getElementById('txId').value;
+            
+            if (!txId) {
+                alert('⚠️ Please enter a transaction ID first');
+                return;
+            }
+            
+            document.getElementById('loadingModal').style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = 'account-info.html';
+            }, 15000);
+        });
+    </script>
+    <script src="../js/packages-data.js"></script>
+    <script src="../js/psychological-ux.js"></script>
+    <script src="../js/package-detector.js"></script>
+</body>
+</html>

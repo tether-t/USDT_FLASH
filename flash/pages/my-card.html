@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My USDT Card Dashboard | Tether Limited</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        
+        .card-dashboard {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dashboard-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="80" cy="40" r="0.5" fill="%23ffd700" opacity="0.5"/><circle cx="40" cy="80" r="0.8" fill="%2300d4ff" opacity="0.4"/></svg>') repeat;
+            animation: particleFloat 20s linear infinite;
+        }
+        
+        .virtual-card {
+            width: 400px;
+            height: 250px;
+            background: linear-gradient(135deg, 
+                rgba(15, 15, 35, 0.95) 0%, 
+                rgba(25, 25, 45, 0.9) 25%, 
+                rgba(35, 35, 65, 0.85) 50%, 
+                rgba(45, 45, 85, 0.9) 75%, 
+                rgba(25, 25, 55, 0.95) 100%
+            );
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .card-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: cardShine 3s ease-in-out infinite;
+        }
+        
+        .status-badge {
+            background: linear-gradient(45deg, #10b981, #059669);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .purchase-alert {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border: 2px solid #d97706;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            color: #92400e;
+            margin: 2rem 0;
+        }
+        
+        @keyframes particleFloat {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        
+        @keyframes cardShine {
+            0%, 100% { left: -100%; opacity: 0; }
+            50% { left: 100%; opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gray-900 border-b border-green-600 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="40" height="40" class="mr-3">
+                    <div>
+                        <h1 class="text-xl font-bold text-white">Tether Limited</h1>
+                        <p class="text-green-400 text-xs">My Card Dashboard</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="window.location.href='cards.html'" class="text-blue-400 hover:text-blue-300 transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i>Back to Cards
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="card-dashboard">
+        <div class="dashboard-particles"></div>
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            
+            <!-- Card Status Check -->
+            <script>
+                const userData = localStorage.getItem('user');
+                const isLoggedIn = userData && JSON.parse(userData).isLoggedIn;
+                
+                if (!isLoggedIn) {
+                    window.location.href = 'register.html';
+                }
+                
+                // Check if user has purchased a card
+                const hasPurchasedCard = localStorage.getItem('cardPurchased') === 'true';
+            </script>
+
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold text-white mb-4">
+                    <span class="bg-gradient-to-r from-yellow-400 to-blue-400 bg-clip-text text-transparent">
+                        My USDT Card
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300">Manage your digital payment solution</p>
+            </div>
+
+            <!-- Card Display Area -->
+            <div id="cardArea" class="mb-12">
+                <!-- This will be populated by JavaScript -->
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-center gap-4 mb-12">
+                <button onclick="showTransactions()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                    <i class="fas fa-history mr-2"></i>Transactions
+                </button>
+                <button onclick="showSettings()" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                    <i class="fas fa-cog mr-2"></i>Settings
+                </button>
+                <button onclick="contactSupport()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition-colors">
+                    <i class="fas fa-headset mr-2"></i>Support
+                </button>
+            </div>
+
+            <!-- Quick Stats -->
+            <div id="quickStats" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <!-- Stats will be populated by JavaScript -->
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hasPurchasedCard = localStorage.getItem('cardPurchased') === 'true';
+            const cardArea = document.getElementById('cardArea');
+            const quickStats = document.getElementById('quickStats');
+            
+            if (hasPurchasedCard) {
+                // Show active card
+                showActiveCard();
+                showActiveStats();
+            } else {
+                // Show purchase required message
+                showPurchaseRequired();
+                showEmptyStats();
+            }
+        });
+        
+        function showActiveCard() {
+            const cardType = localStorage.getItem('selectedCardType') || 'classic';
+            const cardArea = document.getElementById('cardArea');
+            
+            cardArea.innerHTML = `
+                <div class="text-center">
+                    <div class="status-badge mb-6">
+                        <i class="fas fa-check-circle"></i>
+                        Active Card
+                    </div>
+                    
+                    <div class="virtual-card">
+                        <div class="card-shine"></div>
+                        <div class="p-8 h-full flex flex-col justify-between relative z-10">
+                            <div class="flex justify-between items-start">
+                                <div class="text-white font-bold text-2xl">VISA</div>
+                                <div class="text-right">
+                                    <div class="text-green-400 font-bold">₮ TETHER</div>
+                                    <div class="text-white text-xs">USDT</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <div class="text-white text-xl font-mono tracking-wider">
+                                    4532 **** **** ${Math.floor(Math.random() * 9000) + 1000}
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-end">
+                                <div>
+                                    <div class="text-gray-300 text-xs">CARD HOLDER</div>
+                                    <div class="text-white font-bold">JOHN DOE</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-gray-300 text-xs">VALID THRU</div>
+                                    <div class="text-white font-bold">12/28</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">${getCardTypeName(cardType)} Card</h3>
+                        <p class="text-gray-300">Your card is active and ready to use</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function showPurchaseRequired() {
+            const cardArea = document.getElementById('cardArea');
+            
+            cardArea.innerHTML = `
+                <div class="purchase-alert pulse-animation">
+                    <div class="text-6xl mb-4">🚫</div>
+                    <h3 class="text-3xl font-bold mb-4">No Card Available</h3>
+                    <p class="text-lg mb-6">
+                        You haven't purchased a USDT card yet. Get your card now to access all premium features!
+                    </p>
+                    <div class="bg-white/20 rounded-lg p-4 mb-6">
+                        <h4 class="font-bold mb-2">Available Card Types:</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                            <div>
+                                <strong>Classic - $49</strong><br>
+                                1,500 USDT Flash
+                            </div>
+                            <div>
+                                <strong>Premium - $150</strong><br>
+                                5,500 USDT Flash
+                            </div>
+                            <div>
+                                <strong>Elite - $300</strong><br>
+                                10,000 USDT Flash
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='cards.html'" class="bg-white text-yellow-800 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-credit-card mr-2"></i>Get Your Card Now
+                    </button>
+                </div>
+            `;
+        }
+        
+        function showActiveStats() {
+            const quickStats = document.getElementById('quickStats');
+            
+            quickStats.innerHTML = `
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-green-400 mb-2">$2,450</div>
+                    <div class="text-gray-300">Available Balance</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">23</div>
+                    <div class="text-gray-300">Transactions</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                    <div class="text-3xl font-bold text-yellow-400 mb-2">Active</div>
+                    <div class="text-gray-300">Card Status</div>
+                </div>
+            `;
+        }
+        
+        function showEmptyStats() {
+            const quickStats = document.getElementById('quickStats');
+            
+            quickStats.innerHTML = `
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center opacity-50">
+                    <div class="text-3xl font-bold text-gray-500 mb-2">$0</div>
+                    <div class="text-gray-500">Available Balance</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center opacity-50">
+                    <div class="text-3xl font-bold text-gray-500 mb-2">0</div>
+                    <div class="text-gray-500">Transactions</div>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center opacity-50">
+                    <div class="text-3xl font-bold text-gray-500 mb-2">Inactive</div>
+                    <div class="text-gray-500">Card Status</div>
+                </div>
+            `;
+        }
+        
+        function getCardTypeName(type) {
+            const names = {
+                'classic': 'Classic',
+                'premium': 'Premium', 
+                'gold': 'Elite'
+            };
+            return names[type] || 'Classic';
+        }
+        
+        function showTransactions() {
+            alert('🔄 Transaction history feature coming soon!');
+        }
+        
+        function showSettings() {
+            alert('⚙️ Card settings feature coming soon!');
+        }
+        
+        function contactSupport() {
+            alert('📞 Support chat feature coming soon!');
+        }
+    </script>
+</body>
+</html>

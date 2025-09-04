@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار نظام التتبع المتقدم - Flash USDT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+
+        .test-button {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .info-box {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .status.active {
+            background: #4caf50;
+            color: white;
+        }
+
+        .status.inactive {
+            background: #f44336;
+            color: white;
+        }
+
+        .log-area {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+
+        .user-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .info-card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 اختبار نظام التتبع المتقدم</h1>
+            <p>Flash USDT - User Tracking System Test</p>
+        </div>
+
+        <div class="content">
+            <div class="test-section">
+                <h3>📊 حالة النظام</h3>
+                <p>نظام التتبع: <span class="status" id="systemStatus">غير محدد</span></p>
+                <p>بوت التيليجرام: <span class="status" id="telegramStatus">غير محدد</span></p>
+                <p>التخزين المحلي: <span class="status" id="storageStatus">غير محدد</span></p>
+            </div>
+
+            <div class="test-section">
+                <h3>🎯 اختبارات الوظائف</h3>
+                <button class="test-button" onclick="testUserDetection()">🔍 اختبار تحديد المستخدم</button>
+                <button class="test-button" onclick="testDeviceInfo()">📱 اختبار معلومات الجهاز</button>
+                <button class="test-button" onclick="testFingerprint()">🔒 اختبار البصمة الرقمية</button>
+                <button class="test-button" onclick="testTelegramSend()">📤 اختبار إرسال تيليجرام</button>
+                <button class="test-button" onclick="testButtonTracking()">🖱️ اختبار تتبع الأزرار</button>
+                <button class="test-button" onclick="clearTestData()">🗑️ مسح بيانات الاختبار</button>
+            </div>
+
+            <div class="info-box">
+                <h4>ℹ️ معلومات مهمة</h4>
+                <p>• هذه الصفحة مخصصة لاختبار نظام التتبع المتقدم</p>
+                <p>• سيتم إرسال إشعارات اختبار إلى بوت التيليجرام</p>
+                <p>• جميع البيانات محفوظة محلياً في المتصفح</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ تحذير</h4>
+                <p>تأكد من صحة إعدادات بوت التيليجرام في ملف tracking-config.js</p>
+            </div>
+
+            <div class="user-info" id="userInfoDisplay">
+                <!-- سيتم ملء معلومات المستخدم هنا -->
+            </div>
+
+            <div class="log-area" id="logArea">
+                <div>🚀 نظام التتبع المتقدم - سجل الأحداث</div>
+                <div>⏰ بدء الاختبار: <span id="startTime"></span></div>
+                <div>---</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تحميل النظام -->
+    <script src="js/tracking-config.js"></script>
+    <script src="js/user-tracking-system.js"></script>
+
+    <script>
+        // متغيرات الاختبار
+        let testSystem = null;
+        let testStartTime = new Date();
+
+        // بدء الاختبار
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('startTime').textContent = testStartTime.toLocaleString('ar-SA');
+            
+            setTimeout(() => {
+                initializeTest();
+                checkSystemStatus();
+                displayCurrentUserInfo();
+            }, 1000);
+        });
+
+        // تهيئة الاختبار
+        function initializeTest() {
+            log('🔧 تهيئة نظام الاختبار...');
+            
+            // التحقق من وجود النظام
+            if (typeof UserTrackingSystem !== 'undefined') {
+                log('✅ تم العثور على فئة UserTrackingSystem');
+                testSystem = new UserTrackingSystem();
+                updateStatus('systemStatus', 'active', 'نشط');
+            } else {
+                log('❌ لم يتم العثور على فئة UserTrackingSystem');
+                updateStatus('systemStatus', 'inactive', 'غير نشط');
+            }
+
+            // التحقق من الإعدادات
+            if (typeof TrackingConfig !== 'undefined') {
+                log('✅ تم تحميل إعدادات التتبع');
+                log(`📡 بوت التيليجرام: ${TrackingConfig.telegram.botToken ? 'محدد' : 'غير محدد'}`);
+                updateStatus('telegramStatus', TrackingConfig.telegram.botToken ? 'active' : 'inactive', 
+                           TrackingConfig.telegram.botToken ? 'محدد' : 'غير محدد');
+            } else {
+                log('❌ لم يتم تحميل إعدادات التتبع');
+                updateStatus('telegramStatus', 'inactive', 'غير محدد');
+            }
+
+            // التحقق من التخزين المحلي
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                log('✅ التخزين المحلي يعمل بشكل صحيح');
+                updateStatus('storageStatus', 'active', 'يعمل');
+            } catch (e) {
+                log('❌ مشكلة في التخزين المحلي: ' + e.message);
+                updateStatus('storageStatus', 'inactive', 'لا يعمل');
+            }
+        }
+
+        // فحص حالة النظام
+        function checkSystemStatus() {
+            log('🔍 فحص حالة النظام...');
+            
+            const trackingData = localStorage.getItem('flash_user_tracking');
+            if (trackingData) {
+                const data = JSON.parse(trackingData);
+                log(`📊 عدد المستخدمين المحفوظين: ${Object.keys(data.users || {}).length}`);
+                log(`🔢 آخر رقم مستخدم: ${data.lastUserNumber || 0}`);
+            } else {
+                log('📊 لا توجد بيانات تتبع محفوظة');
+            }
+        }
+
+        // عرض معلومات المستخدم الحالي
+        async function displayCurrentUserInfo() {
+            if (!testSystem) return;
+
+            log('👤 جمع معلومات المستخدم الحالي...');
+            
+            try {
+                const userInfo = await testSystem.getUserInfo();
+                displayUserInfoCards(userInfo);
+                log('✅ تم جمع معلومات المستخدم بنجاح');
+            } catch (error) {
+                log('❌ خطأ في جمع معلومات المستخدم: ' + error.message);
+            }
+        }
+
+        // عرض بطاقات معلومات المستخدم
+        function displayUserInfoCards(userInfo) {
+            const container = document.getElementById('userInfoDisplay');
+            
+            const cards = [
+                {
+                    title: '🆔 معلومات أساسية',
+                    content: [
+                        `البصمة: ${userInfo.fingerprint}`,
+                        `الصفحة: ${userInfo.currentPage}`,
+                        `المصدر: ${userInfo.referrer}`,
+                        `الوقت: ${new Date(userInfo.timestamp).toLocaleString('ar-SA')}`
+                    ]
+                },
+                {
+                    title: '📱 معلومات الجهاز',
+                    content: [
+                        `النوع: ${userInfo.device.type}`,
+                        `العلامة: ${userInfo.device.brand}`,
+                        `الموديل: ${userInfo.device.model}`,
+                        `اللمس: ${userInfo.device.touchSupport ? 'مدعوم' : 'غير مدعوم'}`
+                    ]
+                },
+                {
+                    title: '🌐 معلومات المتصفح',
+                    content: [
+                        `الاسم: ${userInfo.browser.name}`,
+                        `الإصدار: ${userInfo.browser.version}`,
+                        `اللغة: ${userInfo.browser.language}`,
+                        `الكوكيز: ${userInfo.browser.cookieEnabled ? 'مفعلة' : 'معطلة'}`
+                    ]
+                },
+                {
+                    title: '💻 نظام التشغيل',
+                    content: [
+                        `النظام: ${userInfo.os.name}`,
+                        `الإصدار: ${userInfo.os.version}`,
+                        `المنصة: ${userInfo.os.platform}`,
+                        `المعمارية: ${userInfo.os.architecture}`
+                    ]
+                },
+                {
+                    title: '📺 معلومات الشاشة',
+                    content: [
+                        `الدقة: ${userInfo.screen.resolution}`,
+                        `المتاحة: ${userInfo.screen.availableResolution}`,
+                        `عمق الألوان: ${userInfo.screen.colorDepth}`,
+                        `الاتجاه: ${userInfo.screen.orientation}`
+                    ]
+                },
+                {
+                    title: '🌍 معلومات الموقع',
+                    content: [
+                        `البلد: ${userInfo.location.country}`,
+                        `المدينة: ${userInfo.location.city}`,
+                        `IP: ${userInfo.location.ip}`,
+                        `الشبكة: ${userInfo.network.effectiveType}`
+                    ]
+                }
+            ];
+
+            container.innerHTML = cards.map(card => `
+                <div class="info-card">
+                    <h4>${card.title}</h4>
+                    ${card.content.map(item => `<p>${item}</p>`).join('')}
+                </div>
+            `).join('');
+        }
+
+        // اختبار تحديد المستخدم
+        async function testUserDetection() {
+            log('🔍 اختبار تحديد المستخدم...');
+            
+            if (!testSystem) {
+                log('❌ النظام غير متاح');
+                return;
+            }
+
+            try {
+                await testSystem.trackUser();
+                log('✅ تم تحديد المستخدم بنجاح');
+                
+                const data = JSON.parse(localStorage.getItem('flash_user_tracking') || '{}');
+                log(`📊 إجمالي المستخدمين: ${Object.keys(data.users || {}).length}`);
+            } catch (error) {
+                log('❌ خطأ في تحديد المستخدم: ' + error.message);
+            }
+        }
+
+        // اختبار معلومات الجهاز
+        function testDeviceInfo() {
+            log('📱 اختبار معلومات الجهاز...');
+            
+            if (!testSystem) {
+                log('❌ النظام غير متاح');
+                return;
+            }
+
+            const deviceInfo = testSystem.getDeviceInfo();
+            log(`📱 نوع الجهاز: ${deviceInfo.type}`);
+            log(`🏷️ العلامة التجارية: ${deviceInfo.brand}`);
+            log(`📋 الموديل: ${deviceInfo.model}`);
+            log(`👆 دعم اللمس: ${deviceInfo.touchSupport ? 'نعم' : 'لا'}`);
+        }
+
+        // اختبار البصمة الرقمية
+        async function testFingerprint() {
+            log('🔒 اختبار البصمة الرقمية...');
+            
+            if (!testSystem) {
+                log('❌ النظام غير متاح');
+                return;
+            }
+
+            try {
+                const fingerprint = await testSystem.generateFingerprint();
+                log(`🔑 البصمة الرقمية: ${fingerprint}`);
+                log('✅ تم إنشاء البصمة بنجاح');
+            } catch (error) {
+                log('❌ خطأ في إنشاء البصمة: ' + error.message);
+            }
+        }
+
+        // اختبار إرسال تيليجرام
+        async function testTelegramSend() {
+            log('📤 اختبار إرسال رسالة تيليجرام...');
+            
+            if (!testSystem) {
+                log('❌ النظام غير متاح');
+                return;
+            }
+
+            const testMessage = `🧪 **رسالة اختبار من نظام التتبع**
+
+⏰ الوقت: ${new Date().toLocaleString('ar-SA')}
+🔧 الحالة: اختبار النظام
+📍 الصفحة: test-tracking.html
+✅ النظام يعمل بشكل صحيح!`;
+
+            try {
+                await testSystem.sendTelegramMessage(testMessage);
+                log('✅ تم إرسال رسالة الاختبار بنجاح');
+            } catch (error) {
+                log('❌ خطأ في إرسال الرسالة: ' + error.message);
+            }
+        }
+
+        // اختبار تتبع الأزرار
+        function testButtonTracking() {
+            log('🖱️ اختبار تتبع الأزرار...');
+            
+            if (!testSystem) {
+                log('❌ النظام غير متاح');
+                return;
+            }
+
+            // محاكاة نقرة زر
+            testSystem.trackAction('button_click', 'زر اختبار النظام');
+            log('✅ تم تسجيل نقرة زر اختبارية');
+        }
+
+        // مسح بيانات الاختبار
+        function clearTestData() {
+            log('🗑️ مسح بيانات الاختبار...');
+            
+            try {
+                localStorage.removeItem('flash_user_tracking');
+                log('✅ تم مسح بيانات التتبع');
+                
+                // إعادة تحميل الصفحة
+                setTimeout(() => {
+                    location.reload();
+                }, 1000);
+            } catch (error) {
+                log('❌ خطأ في مسح البيانات: ' + error.message);
+            }
+        }
+
+        // تحديث حالة العنصر
+        function updateStatus(elementId, statusClass, statusText) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.className = `status ${statusClass}`;
+                element.textContent = statusText;
+            }
+        }
+
+        // إضافة رسالة للسجل
+        function log(message) {
+            const logArea = document.getElementById('logArea');
+            const time = new Date().toLocaleTimeString('ar-SA');
+            const logEntry = document.createElement('div');
+            logEntry.textContent = `[${time}] ${message}`;
+            logArea.appendChild(logEntry);
+            logArea.scrollTop = logArea.scrollHeight;
+            
+            console.log(`[User Tracking Test] ${message}`);
+        }
+
+        // إضافة مستمعي الأحداث للاختبار
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('test-button')) {
+                log(`🖱️ تم النقر على: ${e.target.textContent}`);
+            }
+        });
+
+        // اختبار تتبع تغيير الصفحة
+        let originalPushState = history.pushState;
+        history.pushState = function() {
+            originalPushState.apply(history, arguments);
+            log('📄 تم تغيير الصفحة (محاكاة)');
+        };
+    </script>
+</body>
+</html>
