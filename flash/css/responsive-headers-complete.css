@@ -1,0 +1,95 @@
+/* 📱 استجابة كاملة للهيدر الأول والثانوي */
+
+/* الشاشات الكبيرة */
+@media (min-width: 1200px) {
+    .ultra-header { height: 90px; }
+    .secondary-header { top: 90px; height: 70px; }
+    .logo-title { font-size: 2.5rem; }
+    .site-name-marquee { font-size: 2.5rem; }
+    .secondary-icon-wrapper { width: 50px; height: 50px; }
+    body { padding-top: 160px; }
+}
+
+/* الأجهزة اللوحية */
+@media (max-width: 1024px) {
+    .ultra-header { height: 70px; }
+    .secondary-header { top: 70px; height: 55px; }
+    .logo-title { font-size: 1.75rem; }
+    .site-name-marquee { font-size: 1.75rem; }
+    .secondary-icons-section { gap: 1.25rem; }
+    body { padding-top: 125px; }
+}
+
+/* الهواتف الكبيرة */
+@media (max-width: 768px) {
+    .ultra-header { height: 60px; }
+    .secondary-header { top: 60px; height: 50px; }
+    .header-container { padding: 0 1rem; }
+    .logo-wrapper { width: 40px; height: 40px; }
+    .logo-img { width: 40px; height: 40px; }
+    .logo-title { font-size: 1.25rem; }
+    .logo-badges { display: none; }
+    .site-name-marquee { font-size: 1.5rem; animation-duration: 12s; }
+    .auth-section a { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+    .secondary-icon-wrapper { width: 40px; height: 40px; }
+    .secondary-icons-section { gap: 1rem; }
+    body { padding-top: 110px; }
+}
+
+/* الهواتف المتوسطة */
+@media (max-width: 480px) {
+    .ultra-header { height: 55px; }
+    .secondary-header { top: 55px; height: 45px; }
+    .header-container { padding: 0 0.75rem; }
+    .logo-wrapper { width: 35px; height: 35px; }
+    .logo-img { width: 35px; height: 35px; }
+    .logo-title { font-size: 1.125rem; }
+    .site-name-marquee { font-size: 1.25rem; animation-duration: 10s; }
+    .auth-section a span { display: none; }
+    .auth-section a { padding: 0.4rem; min-width: 40px; justify-content: center; }
+    .secondary-icon-wrapper { width: 36px; height: 36px; }
+    .secondary-icons-section { gap: 0.75rem; }
+    body { padding-top: 100px; }
+}
+
+/* الهواتف الصغيرة */
+@media (max-width: 360px) {
+    .ultra-header { height: 50px; }
+    .secondary-header { top: 50px; height: 40px; }
+    .header-container { padding: 0 0.5rem; }
+    .logo-wrapper { width: 30px; height: 30px; }
+    .logo-img { width: 30px; height: 30px; }
+    .logo-title { font-size: 1rem; }
+    .site-name-marquee { font-size: 1rem; animation-duration: 8s; }
+    .auth-section { gap: 0.25rem; }
+    .auth-section a { padding: 0.3rem; min-width: 36px; }
+    .secondary-icon-wrapper { width: 32px; height: 32px; }
+    .secondary-icons-section { gap: 0.5rem; }
+    body { padding-top: 90px; }
+}
+
+/* الشاشات العريضة */
+@media (min-width: 1920px) {
+    .ultra-header { height: 100px; }
+    .secondary-header { top: 100px; height: 80px; }
+    .logo-title { font-size: 3rem; }
+    .site-name-marquee { font-size: 3rem; }
+    .secondary-icon-wrapper { width: 60px; height: 60px; }
+    body { padding-top: 180px; }
+}
+
+/* الوضع الأفقي للهواتف */
+@media (max-width: 768px) and (orientation: landscape) {
+    .ultra-header { height: 45px; }
+    .secondary-header { top: 45px; height: 35px; }
+    .logo-title { font-size: 1rem; }
+    .site-name-marquee { font-size: 1rem; }
+    .secondary-icon-wrapper { width: 30px; height: 30px; }
+    body { padding-top: 80px; }
+}
+
+/* تحسينات اللمس */
+@media (pointer: coarse) {
+    .secondary-icon { min-width: 44px; min-height: 44px; }
+    .auth-section a { min-width: 44px; min-height: 44px; }
+}

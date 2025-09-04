@@ -1,0 +1,95 @@
+/* Package Colors CSS - Updated for Tether Packages */
+
+/* Basic Package (49$) - Green */
+.package-card:has([data-price="49"]) button,
+.package-card:has([data-price="49"]) .tether-action-button,
+.package-card:has([data-price="49"]) .package-btn {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Pro Package (149$) - Blue */
+.package-card:has([data-price="149"]) button,
+.package-card:has([data-price="149"]) .tether-action-button,
+.package-card:has([data-price="149"]) .package-btn {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Enterprise Package (399$) - Purple */
+.package-card:has([data-price="399"]) button,
+.package-card:has([data-price="399"]) .tether-action-button,
+.package-card:has([data-price="399"]) .package-btn {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border-color: #7c3aed !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Text-based detection fallback */
+/* Basic Package - Green (Trial/1,000 USDT) */
+.package-card button:has-text("Trial"),
+.package-card button:has-text("1,000"),
+.package-card:contains("49") button,
+.package-card:contains("Trial") button,
+.package-card:contains("1,000 USDT") button {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Pro Package - Blue (Basic/3,500 USDT) */
+.package-card:contains("149") button,
+.package-card:contains("Basic") button,
+.package-card:contains("3,500 USDT") button {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Enterprise Package - Purple (Professional/10,000 USDT) */
+.package-card:contains("399") button,
+.package-card:contains("Professional") button,
+.package-card:contains("10,000 USDT") button {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border-color: #7c3aed !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* Hover effects with matching colors */
+.package-card:has([data-price="49"]) button:hover,
+.package-card:contains("49") button:hover,
+.package-card:contains("Trial") button:hover {
+    background: linear-gradient(45deg, #059669, #047857) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+}
+
+.package-card:has([data-price="149"]) button:hover,
+.package-card:contains("149") button:hover,
+.package-card:contains("Basic") button:hover {
+    background: linear-gradient(45deg, #2563eb, #1d4ed8) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+}
+
+.package-card:has([data-price="399"]) button:hover,
+.package-card:contains("399") button:hover,
+.package-card:contains("Professional") button:hover {
+    background: linear-gradient(45deg, #5b21b6, #4c1d95) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+}
+
+/* General button hover effect */
+.package-card button:hover {
+    transform: translateY(-2px) !important;
+    transition: all 0.3s ease !important;
+}

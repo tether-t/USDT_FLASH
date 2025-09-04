@@ -1,0 +1,47 @@
+/* 🏆 اسم الموقع المميز والموثوق */
+.logo-title {
+    font-family: 'Arial Black', 'Helvetica', sans-serif !important;
+    font-size: 2.25rem !important;
+    font-weight: 900 !important;
+    color: #26a17b !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #26a17b !important;
+    background-clip: unset !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    letter-spacing: 1px !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+.logo-title::after {
+    content: '®' !important;
+    font-size: 0.6em !important;
+    vertical-align: super !important;
+    color: #26a17b !important;
+    opacity: 0.8 !important;
+}
+
+.logo-badges,
+.ultra-badge,
+.ultra-badge.verified,
+.ultra-badge.secure {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* تحسينات الهواتف */
+@media (max-width: 768px) {
+    .logo-title {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-title {
+        font-size: 1.25rem !important;
+    }
+}
