@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفعيل أزرار بوت التيليجرام</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold text-center mb-6">🤖 تفعيل أزرار بوت التيليجرام</h1>
+        
+        <div class="space-y-4">
+            <button onclick="activateButtons()" class="w-full bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600">
+                🚀 تفعيل الأزرار
+            </button>
+            
+            <button onclick="sendTestMenu()" class="w-full bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600">
+                📋 إرسال القائمة الرئيسية
+            </button>
+            
+            <button onclick="testCallback('visitors_browse')" class="w-full bg-purple-500 text-white py-3 px-6 rounded-lg hover:bg-purple-600">
+                🧪 اختبار زر زوار الموقع
+            </button>
+        </div>
+        
+        <div id="status" class="mt-6 p-4 bg-gray-50 rounded-lg">
+            <h3 class="font-bold mb-2">الحالة:</h3>
+            <div id="status-content">جاهز للتفعيل...</div>
+        </div>
+    </div>
+
+    <script src="js/user-tracking-system.js"></script>
+    <script src="js/telegram-bot-interface.js"></script>
+    
+    <script>
+        function updateStatus(message) {
+            document.getElementById('status-content').innerHTML = message;
+        }
+        
+        function activateButtons() {
+            updateStatus('🔄 جاري تفعيل الأزرار...');
+            
+            try {
+                if (typeof activateTelegramButtons === 'function') {
+                    const bot = activateTelegramButtons();
+                    updateStatus('✅ تم تفعيل أزرار بوت التيليجرام بنجاح!');
+                } else {
+                    updateStatus('❌ خطأ: دالة التفعيل غير موجودة');
+                }
+            } catch (error) {
+                updateStatus('❌ خطأ في التفعيل: ' + error.message);
+            }
+        }
+        
+        function sendTestMenu() {
+            updateStatus('📤 جاري إرسال القائمة الرئيسية...');
+            
+            try {
+                const bot = new TelegramBotInterface();
+                bot.sendMainMenu();
+                updateStatus('✅ تم إرسال القائمة الرئيسية!');
+            } catch (error) {
+                updateStatus('❌ خطأ في الإرسال: ' + error.message);
+            }
+        }
+        
+        function testCallback(callbackData) {
+            updateStatus('🧪 جاري اختبار الزر: ' + callbackData);
+            
+            try {
+                const bot = new TelegramBotInterface();
+                bot.handleCallback(callbackData);
+                updateStatus('✅ تم اختبار الزر بنجاح!');
+            } catch (error) {
+                updateStatus('❌ خطأ في الاختبار: ' + error.message);
+            }
+        }
+        
+        // تفعيل تلقائي عند تحميل الصفحة
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                updateStatus('🔄 تفعيل تلقائي...');
+                activateButtons();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
