@@ -1,134 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار اتصال البوت</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
-        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
-        .btn { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px; }
-        .btn:hover { background: #0056b3; }
-        .result { margin: 20px 0; padding: 15px; border-radius: 5px; }
-        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🤖 اختبار اتصال بوت التيليجرام</h1>
-        
-        <div>
-            <p><strong>توكن البوت:</strong> 7285756328:AAFHLQU8e72LO2U_IAhNrR99cttRBkT6CEU</p>
-            <p><strong>معرف الدردشة:</strong> 2126771039</p>
-        </div>
-        
-        <button class="btn" onclick="testConnection()">اختبار الاتصال</button>
-        <button class="btn" onclick="sendTestMessage()">إرسال رسالة تجريبية</button>
-        <button class="btn" onclick="startTracking()">تشغيل نظام التتبع</button>
-        
-        <div id="result"></div>
-    </div>
-
-    <script src="js/telegram-config.js"></script>
-    <script>
-        const BOT_TOKEN = '7285756328:AAFHLQU8e72LO2U_IAhNrR99cttRBkT6CEU';
-        const CHAT_ID = '2126771039';
-        
-        async function testConnection() {
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = '<p>جاري اختبار الاتصال...</p>';
-            
-            try {
-                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/getMe`);
-                const data = await response.json();
-                
-                if (data.ok) {
-                    resultDiv.innerHTML = `
-                        <div class="result success">
-                            ✅ تم الاتصال بنجاح!<br>
-                            🤖 اسم البوت: ${data.result.first_name}<br>
-                            📝 معرف البوت: @${data.result.username}
-                        </div>
-                    `;
-                } else {
-                    resultDiv.innerHTML = '<div class="result error">❌ فشل في الاتصال - تحقق من التوكن</div>';
-                }
-            } catch (error) {
-                resultDiv.innerHTML = '<div class="result error">❌ خطأ في الشبكة</div>';
-            }
-        }
-        
-        async function sendTestMessage() {
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = '<p>جاري إرسال الرسالة...</p>';
-            
-            const testMessage = `
-🧪 <b>رسالة اختبار نظام التتبع</b>
-
-⏰ الوقت: ${new Date().toLocaleString('ar-EG')}
-🔧 حالة النظام: يعمل بنجاح ✅
-🎯 نوع الاختبار: اختبار الاتصال المباشر
-
-✅ النظام جاهز لتتبع المستخدمين!
-            `;
-            
-            try {
-                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: testMessage,
-                        parse_mode: 'HTML'
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (data.ok) {
-                    resultDiv.innerHTML = '<div class="result success">✅ تم إرسال الرسالة التجريبية بنجاح!</div>';
-                } else {
-                    resultDiv.innerHTML = '<div class="result error">❌ فشل في إرسال الرسالة - تحقق من معرف الدردشة</div>';
-                }
-            } catch (error) {
-                resultDiv.innerHTML = '<div class="result error">❌ خطأ في إرسال الرسالة</div>';
-            }
-        }
-        
-        function startTracking() {
-            const resultDiv = document.getElementById('result');
-            
-            // محاكاة بدء نظام التتبع
-            const trackingMessage = `
-🚀 <b>تم تشغيل نظام التتبع المتقدم</b>
-
-⏰ وقت التشغيل: ${new Date().toLocaleString('ar-EG')}
-🆔 معرف الجلسة: session_${Date.now()}
-🌐 الصفحة: صفحة الاختبار
-📱 الجهاز: ${navigator.platform}
-🌍 اللغة: ${navigator.language}
-
-🔄 النظام نشط ويتتبع التفاعلات...
-            `;
-            
-            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: trackingMessage,
-                    parse_mode: 'HTML'
-                })
-            }).then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    resultDiv.innerHTML = '<div class="result success">🚀 تم تشغيل نظام التتبع وإرسال الإشعار!</div>';
-                } else {
-                    resultDiv.innerHTML = '<div class="result error">❌ فشل في تشغيل النظام</div>';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
