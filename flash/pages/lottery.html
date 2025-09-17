@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Lottery 2025 - USDT-FLASH</title>
+    <link rel="icon" type="image/svg+xml" href="../img/btc-icon.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/tether-official-colors.css">
+    <!-- تحسين الهيدر والهيرو للهواتف المحمولة -->
+    <link rel="stylesheet" href="../css/lottery-mobile-optimization.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="btcPattern" width="200" height="200" patternUnits="userSpaceOnUse"><g opacity="0.03"><path fill="%23f59e0b" d="M50 25c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm7.5 35.5c-.4 1.6-3.1.7-4 .5l.7-2.9c.9.2 3.7.7 3.3 2.4zm.4-4.2c-.4 1.5-2.6.7-3.4.5l.6-2.6c.7.2 3.1.5 2.8 2.1z"/><path fill="%23f59e0b" d="M150 125c-13.8 0-25 11.2-25 25s11.2 25 25 25 25-11.2 25-25-11.2-25-25-25zm7.5 35.5c-.4 1.6-3.1.7-4 .5l.7-2.9c.9.2 3.7.7 3.3 2.4zm.4-4.2c-.4 1.5-2.6.7-3.4.5l.6-2.6c.7.2 3.1.5 2.8 2.1z"/></g></pattern></defs><rect width="200" height="200" fill="url(%23btcPattern)"/></svg>');
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lottery-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .lottery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        }
+        
+        .bitcoin-glow {
+            background: linear-gradient(135deg, #f7931a 0%, #ffb84d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: bitcoinGlow 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(247, 147, 26, 0.5));
+        }
+        
+        @keyframes bitcoinGlow {
+            from { filter: drop-shadow(0 0 20px rgba(247, 147, 26, 0.5)) brightness(1); }
+            to { filter: drop-shadow(0 0 40px rgba(247, 147, 26, 0.8)) brightness(1.2); }
+        }
+        
+        .ticket-number {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+            color: #1a1a1a;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-family: 'Inter', monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .countdown-timer {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 32px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .premium-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating-animation {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.3); }
+        }
+        
+        @keyframes priceUpdate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); color: #10b981; }
+            100% { transform: scale(1); }
+        }
+        
+        .premium-button {
+            background: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
+            border: none;
+            border-radius: 16px;
+            padding: 18px 36px;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 24px rgba(245, 158, 11, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .premium-button:hover::before {
+            left: 100%;
+        }
+        
+        .premium-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px rgba(245, 158, 11, 0.4);
+            background: linear-gradient(135deg, #d97706 0%, #ca8a04 100%);
+        }
+        
+        .stats-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #f59e0b);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+        }
+        
+        .premium-input {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .premium-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            background: white;
+        }
+        
+        .security-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+    <!-- Header -->
+    <header class="relative overflow-hidden">
+        <!-- Background with new image -->
+        <div class="absolute inset-0">
+            <img src="../img/49b2b902-51dd-4796-82e3-4656c13046ae_wm.jpg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <!-- Glass effect overlay -->
+        <div class="relative backdrop-blur-xl bg-white/5 border-b border-white/10">
+            <div class="container mx-auto px-6 py-4">
+                <!-- Mobile Header -->
+                <div class="block lg:hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-3">
+                            <div class="relative">
+                                <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT-FLASH" class="h-12 w-12 floating-animation">
+                                <div class="absolute -top-1 -right-1 w-6 h-6">
+                                    <svg viewBox="0 0 24 24" class="w-full h-full">
+                                        <path fill="#f59e0b" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                        <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-black text-white">
+                                    <span class="bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent">USDT-FLASH</span>
+                                </h1>
+                                <div class="text-sm font-bold bitcoin-glow">LOTTERY 2025</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs text-white/70">GRAND PRIZE</div>
+                            <div class="flex items-center space-x-1">
+                                <svg viewBox="0 0 24 24" class="w-4 h-4 text-orange-400">
+                                    <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                    <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                </svg>
+                                <div class="text-lg font-black bitcoin-glow">1.0</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                            <div class="text-xs text-white/70">PARTICIPANTS</div>
+                            <div class="text-sm font-bold text-white" id="mobileParticipants">1,247+</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                            <div class="text-xs text-white/70">DAYS LEFT</div>
+                            <div class="text-sm font-bold text-red-300" id="mobileDaysLeft">--</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+                            <div class="text-xs text-white/70">BTC VALUE</div>
+                            <div class="text-sm font-bold text-yellow-300">$105K+</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-3">
+                        <div class="security-badge text-xs">
+                            <i class="fas fa-shield-check"></i>
+                            <span>VERIFIED</span>
+                        </div>
+                        <div class="bg-gradient-to-r from-orange-500/20 to-yellow-500/20 backdrop-blur-sm border border-orange-500/30 rounded-full px-3 py-1">
+                            <span class="text-orange-200 font-semibold text-xs">🏆 OFFICIAL</span>
+                        </div>
+                        <div class="flex items-center space-x-1 bg-green-500/20 rounded-full px-3 py-1">
+                            <div class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                            <span class="text-xs text-green-300 font-medium">LIVE</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Header -->
+                <div class="hidden lg:flex items-center justify-between gap-4">
+                    <!-- Left Section: Logo & Title -->
+                    <div class="flex items-center space-x-4">
+                        <div class="relative group">
+                            <div class="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+                            <div class="relative">
+                                <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT-FLASH" class="h-16 w-16 floating-animation relative z-10">
+                                <div class="absolute -top-2 -right-2 w-8 h-8 shadow-lg">
+                                    <svg viewBox="0 0 24 24" class="w-full h-full">
+                                        <path fill="#f59e0b" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                        <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h1 class="text-2xl lg:text-3xl font-black text-white mb-1">
+                                <span class="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">USDT-FLASH</span>
+                                <span class="block text-lg lg:text-xl font-bold bitcoin-glow mt-0.5">LOTTERY 2025</span>
+                            </h1>
+                            <div class="flex items-center gap-3 mt-3">
+                                <div class="security-badge">
+                                    <i class="fas fa-shield-check"></i>
+                                    <span>VERIFIED</span>
+                                </div>
+                                <div class="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full px-4 py-2">
+                                    <span class="text-blue-200 font-semibold text-sm">🏆 OFFICIAL LOTTERY</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Center Section: Prize Info -->
+                    <div class="text-center">
+                        <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/20 shadow-xl">
+                            <div class="text-sm text-white/70 mb-2 font-medium">GRAND PRIZE</div>
+                            <div class="flex items-center justify-center space-x-2 mb-2">
+                                <svg viewBox="0 0 24 24" class="w-8 h-8 text-orange-400">
+                                    <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                    <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                </svg>
+                                <div class="text-2xl font-black bitcoin-glow">1.00000</div>
+                            </div>
+                            <div class="text-sm text-yellow-300 font-semibold">Winner Takes All</div>
+                            <div class="mt-3 flex items-center justify-center space-x-2">
+                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                <span class="text-xs text-green-300 font-medium">LIVE LOTTERY</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Section: Live Stats -->
+                    <div class="text-right">
+                        <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/20">
+                            <div class="grid grid-cols-2 gap-4 text-white">
+                                <div>
+                                    <div class="text-xs opacity-70 font-medium">PARTICIPANTS</div>
+                                    <div class="text-lg font-bold" id="headerParticipants">1,247+</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs opacity-70 font-medium">DAYS LEFT</div>
+                                    <div class="text-lg font-bold text-red-300" id="headerDaysLeft">--</div>
+                                </div>
+                            </div>
+                            <div class="mt-3 flex items-center justify-center space-x-2">
+                                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                                <span class="text-xs text-green-300 font-medium">LIVE DRAW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Promotional Section -->
+    <section class="relative py-16 overflow-hidden">
+        <!-- Background with new image -->
+        <div class="absolute inset-0">
+            <img src="../img/49b2b902-51dd-4796-82e3-4656c13046ae_wm.jpg" alt="Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="text-white">
+                        <div class="flex items-center mb-6">
+                            <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT-FLASH" class="h-16 w-16 mr-4">
+                            <svg viewBox="0 0 24 24" class="w-16 h-16 text-yellow-300">
+                                <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                            </svg>
+                        </div>
+                        
+                        <h2 class="text-5xl font-black mb-6 leading-tight">
+                            <span class="text-yellow-300">Why This Lottery</span><br>
+                            <span class="text-white">Changes Everything</span>
+                        </h2>
+                        
+                        <div class="space-y-4 text-lg leading-relaxed">
+                            <p class="text-yellow-100">
+                                <strong class="text-yellow-300">Market Disruption:</strong> Traditional lotteries keep 50% profits. We return 85% to winners through Bitcoin's deflationary nature.
+                            </p>
+                            <p class="text-yellow-100">
+                                <strong class="text-yellow-300">Wealth Preservation:</strong> Your $15 ticket could become life-changing wealth as Bitcoin breaks $105K and targets $200K+.
+                            </p>
+                            <p class="text-yellow-100">
+                                <strong class="text-yellow-300">Limited Time:</strong> Only 10,000 tickets available. Early Bitcoin adopters became millionaires. This is your second chance.
+                            </p>
+                        </div>
+                        
+                        <div class="mt-8 flex items-center space-x-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-black text-yellow-300">1,247+</div>
+                                <div class="text-sm text-yellow-200">Smart Investors</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-black text-yellow-300">$105K+</div>
+                                <div class="text-sm text-yellow-200">Current BTC Value</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-black text-red-300" id="heroTimeLeft">--</div>
+                                <div class="text-sm text-red-200">Days Remaining</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Content -->
+                    <div class="relative">
+                        <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+                            <div class="text-center mb-6">
+                                <div class="w-20 h-20 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg viewBox="0 0 24 24" class="w-12 h-12 text-white">
+                                        <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                        <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-2">Psychological Advantage</h3>
+                                <p class="text-yellow-200 text-sm">Why successful people act fast</p>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg viewBox="0 0 24 24" class="w-4 h-4 text-white">
+                                            <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="text-white text-sm">
+                                        <strong>Scarcity Effect:</strong> Limited tickets create urgency and increase perceived value
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg viewBox="0 0 24 24" class="w-4 h-4 text-white">
+                                            <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="text-white text-sm">
+                                        <strong>Social Proof:</strong> 1,247+ participants validate this opportunity
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg viewBox="0 0 24 24" class="w-4 h-4 text-white">
+                                            <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="text-white text-sm">
+                                        <strong>Loss Aversion:</strong> Missing this could mean missing the next Bitcoin boom
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <svg viewBox="0 0 24 24" class="w-4 h-4 text-white">
+                                            <path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="text-white text-sm">
+                                        <strong>Authority Bias:</strong> Blockchain technology ensures transparent, fair results
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 p-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl border border-green-400/30">
+                                <div class="text-center text-green-200 text-sm">
+                                    <strong>Cognitive Trigger:</strong> Your brain recognizes this as a rare, high-value opportunity with minimal risk.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <!-- Hero Section -->
+            <div class="text-center mb-20">
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-96 h-96 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-full blur-3xl"></div>
+                        <svg viewBox="0 0 24 24" class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 text-orange-400/30 animate-pulse">
+                            <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                            <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                        </svg>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-sm border border-yellow-500/30 rounded-full px-6 py-3 mb-8">
+                            <i class="fas fa-trophy text-yellow-400 mr-2"></i>
+                            <span class="text-yellow-200 font-semibold">GRAND PRIZE LOTTERY 2025</span>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -top-4 -left-4 w-16 h-16 opacity-20">
+                                <svg viewBox="0 0 24 24" class="w-full h-full text-orange-400 animate-spin" style="animation-duration: 20s;">
+                                    <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                    <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                </svg>
+                            </div>
+                            <div class="flex items-center justify-center space-x-4 mb-6">
+                                <svg viewBox="0 0 24 24" class="w-20 h-20 text-orange-400">
+                                    <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                    <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                </svg>
+                                <h2 class="text-8xl font-black text-white bitcoin-glow relative z-10">1 BITCOIN</h2>
+                            </div>
+                        </div>
+                        <p class="text-3xl text-white/90 mb-4 font-light">Winner Takes All</p>
+                        <p class="text-xl text-white/70 mb-12">Winner announced on <span class="font-bold text-yellow-300">New Year's Eve</span></p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="glass-effect rounded-2xl p-6">
+                        <div class="mb-3">
+                            <svg viewBox="0 0 24 24" class="w-12 h-12 mx-auto text-blue-400">
+                                <path fill="currentColor" d="M22 10v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2zM4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M8 14h8M8 16h6"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-white font-bold text-lg mb-2">Ticket Price</h3>
+                        <p class="text-3xl font-black text-yellow-400">$15</p>
+                        <p class="text-white/60 text-sm mt-1">Per ticket</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-6 pulse-glow">
+                        <div class="mb-3">
+                            <svg viewBox="0 0 24 24" class="w-12 h-12 mx-auto text-yellow-400">
+                                <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                <path fill="#fbbf24" d="M12 4l2.5 5.09L19 10.18l-3.64 3.55.86 5.01L12 16.77l-4.22 2.22.86-5.01L5 10.18l4.5-1.09L12 4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-white font-bold text-lg mb-2">One Winner</h3>
+                        <p class="text-3xl font-black text-blue-400">100%</p>
+                        <p class="text-white/60 text-sm mt-1">Takes everything</p>
+                    </div>
+                    
+                    <div class="glass-effect rounded-2xl p-6">
+                        <div class="mb-3">
+                            <svg viewBox="0 0 24 24" class="w-12 h-12 mx-auto text-red-400">
+                                <path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-white font-bold text-lg mb-2">Draw Date</h3>
+                        <p class="text-lg font-black text-red-400">Dec 31</p>
+                        <p class="text-white/60 text-sm mt-1">2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <div class="countdown-timer">
+                    <h3 class="text-2xl font-bold mb-4">⏰ Time Until Draw</h3>
+                    <div class="grid grid-cols-4 gap-4 text-center">
+                        <div>
+                            <div class="text-4xl font-bold" id="days">--</div>
+                            <div class="text-sm">Days</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold" id="hours">--</div>
+                            <div class="text-sm">Hours</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold" id="minutes">--</div>
+                            <div class="text-sm">Minutes</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold" id="seconds">--</div>
+                            <div class="text-sm">Seconds</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-yellow-300">📅 Draw Date: December 31, 2025 at 11:59 PM UTC</p>
+                </div>
+            </div>
+
+            <!-- Lottery Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
+                <div class="stats-card">
+                    <div class="mb-4">
+                        <svg viewBox="0 0 24 24" class="w-12 h-12 mx-auto text-blue-500">
+                            <path fill="currentColor" d="M22 10v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2zM4 8V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2M8 14h8M8 16h6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Tickets Sold</h3>
+                    <p class="text-4xl font-black text-blue-600 mb-2" id="ticketsSold">1,247</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2 mt-3">
+                        <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full" style="width: 12.47%"></div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">of 10,000 max</p>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="relative text-5xl mb-4">
+                        <svg viewBox="0 0 24 24" class="w-12 h-12 mx-auto text-orange-500">
+                            <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                            <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Prize Pool</h3>
+                    <div class="flex items-center justify-center space-x-2 mb-2">
+                        <div class="text-4xl font-black bitcoin-glow">1</div>
+                        <svg viewBox="0 0 24 24" class="w-8 h-8 text-orange-400">
+                            <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                            <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                        </svg>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2 font-semibold">Full Bitcoin Prize</p>
+                    <div class="mt-3 inline-flex items-center bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold">
+                        <i class="fas fa-lock mr-1"></i>SECURED
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="mb-4">
+                        <svg viewBox="0 0 24 24" class="w-12 h-12 mx-auto text-gold-500">
+                            <path fill="#fbbf24" d="M7 4V2a1 1 0 0 1 2 0v2h6V2a1 1 0 0 1 2 0v2h1a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1z"/>
+                            <path fill="#f59e0b" d="M12 8l2.5 5.09L19 14.18l-3.64 3.55.86 5.01L12 20.77l-4.22 2.22.86-5.01L5 14.18l4.5-1.09L12 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Winners</h3>
+                    <p class="text-4xl font-black text-green-600 mb-2">1</p>
+                    <p class="text-sm text-gray-600 mt-2">Winner takes all</p>
+                    <div class="mt-3 text-xs text-orange-600 font-bold">
+                        <i class="fas fa-crown mr-1"></i>EXCLUSIVE
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="mb-4">
+                        <svg viewBox="0 0 24 24" class="w-12 h-12 mx-auto text-purple-500">
+                            <path fill="currentColor" d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Odds</h3>
+                    <p class="text-2xl font-black text-purple-600 mb-2">1 in <span id="odds">1,247</span></p>
+                    <p class="text-sm text-gray-600 mt-2">Current odds</p>
+                    <div class="mt-3 text-xs text-purple-600 font-bold">
+                        <i class="fas fa-chart-line mr-1"></i>IMPROVING
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase Section -->
+            <div class="max-w-2xl mx-auto">
+                <div class="lottery-card p-8 relative overflow-hidden">
+                    <!-- Bitcoin-themed background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100 opacity-30"></div>
+                    <div class="absolute top-4 right-4 w-32 h-32 opacity-10">
+                        <svg viewBox="0 0 24 24" class="w-full h-full text-orange-400 animate-spin" style="animation-duration: 30s;">
+                            <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                            <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                        </svg>
+                    </div>
+                    <div class="relative z-10">
+                    <div class="text-center mb-12">
+                        <div class="inline-flex items-center bg-gradient-to-r from-orange-500/10 to-yellow-500/10 backdrop-blur-sm border border-orange-500/20 rounded-full px-8 py-4 mb-6">
+                            <i class="fas fa-ticket-alt text-orange-600 mr-3 text-2xl"></i>
+                            <span class="text-orange-800 font-bold text-lg">SECURE TICKET PURCHASE</span>
+                        </div>
+                        <h3 class="text-4xl font-black bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-4">Buy Your Lucky Ticket</h3>
+                        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">Join thousands of participants in the most exclusive Bitcoin lottery. Each ticket brings you closer to winning 1 full Bitcoin on New Year's Eve 2025.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 border border-blue-200/50 rounded-2xl p-8 mb-10 relative overflow-hidden">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                                <i class="fas fa-info-circle text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold text-gray-800">How It Works</h4>
+                        </div>
+                        <ul class="text-yellow-700 space-y-2">
+                            <li>✅ Each ticket costs exactly $15 USD</li>
+                            <li>✅ Pay with USDT (TRC20 network)</li>
+                            <li>✅ Get unique ticket number instantly</li>
+                            <li>✅ Winner announced December 31, 2025</li>
+                            <li>✅ Prize: 1 full Bitcoin</li>
+                        </ul>
+                    </div>
+
+                    <form id="lotteryForm">
+                        <div class="mb-8">
+                            <label class="block text-sm font-bold text-gray-800 mb-4">
+                                <i class="fas fa-ticket-alt mr-2 text-blue-600"></i>
+                                Select Your Tickets
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="relative">
+                                    <input type="radio" name="ticketCount" value="1" id="ticket1" class="hidden" checked>
+                                    <label for="ticket1" class="block p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-blue-500 transition-all">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <div class="font-bold text-gray-800">1 Ticket</div>
+                                                <div class="text-sm text-gray-600">Single entry</div>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-xl font-bold text-blue-600">$15</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="relative">
+                                    <input type="radio" name="ticketCount" value="5" id="ticket5" class="hidden">
+                                    <label for="ticket5" class="block p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-blue-500 transition-all relative">
+                                        <div class="absolute -top-2 -right-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                            POPULAR
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <div class="font-bold text-gray-800">5 Tickets</div>
+                                                <div class="text-sm text-green-600 font-semibold">Save $15!</div>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-xl font-bold text-blue-600">$60</div>
+                                                <div class="text-xs text-gray-500 line-through">$75</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="relative">
+                                    <input type="radio" name="ticketCount" value="10" id="ticket10" class="hidden">
+                                    <label for="ticket10" class="block p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-blue-500 transition-all relative">
+                                        <div class="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                            MAX
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <div class="font-bold text-gray-800">10 Tickets</div>
+                                                <div class="text-sm text-green-600 font-semibold">Save $30!</div>
+                                            </div>
+                                            <div class="text-right">
+                                                <div class="text-xl font-bold text-blue-600">$120</div>
+                                                <div class="text-xs text-gray-500 line-through">$150</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="relative">
+                                    <input type="radio" name="ticketCount" value="custom" id="ticketCustom" class="hidden">
+                                    <label for="ticketCustom" class="block p-4 border-2 border-gray-200 rounded-xl cursor-pointer hover:border-blue-500 transition-all">
+                                        <div class="flex justify-between items-center">
+                                            <div>
+                                                <div class="font-bold text-gray-800">Custom</div>
+                                                <div class="text-sm text-gray-600">Choose amount</div>
+                                            </div>
+                                            <div class="text-right">
+                                                <input type="number" min="1" max="10" value="2" class="w-16 text-center border rounded px-2 py-1 text-sm" id="customAmount">
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-3">
+                                    <i class="fas fa-user mr-2 text-blue-600"></i>
+                                    Full Name *
+                                </label>
+                                <input type="text" id="fullName" required class="premium-input w-full" placeholder="Enter your full name">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-gray-800 mb-3">
+                                    <i class="fas fa-envelope mr-2 text-blue-600"></i>
+                                    Email Address *
+                                </label>
+                                <input type="email" id="email" required class="premium-input w-full" placeholder="your@email.com">
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100 border-2 border-orange-200/50 rounded-2xl p-8 mb-8 relative overflow-hidden shadow-lg">
+                            <!-- Background decoration -->
+                            <div class="absolute top-0 right-0 w-24 h-24 opacity-10">
+                                <svg viewBox="0 0 24 24" class="w-full h-full text-orange-400">
+                                    <path fill="currentColor" d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.546z"/>
+                                    <path fill="white" d="M17.274 10.515c.235-1.572-.962-2.417-2.599-2.981l.531-2.13-1.296-.323-.517 2.074c-.341-.085-.691-.165-1.039-.243l.521-2.087L11.58 4.5l-.531 2.13c-.283-.065-.56-.128-.829-.196l.002-.007-1.788-.446-.345 1.385s.962.22.942.234c.525.131.62.478.604.754l-.604 2.425c.036.009.083.022.135.042l-.137-.034-.847 3.396c-.064.158-.227.395-.594.305.013.019-.942-.235-.942-.235l-.643 1.485 1.688.421c.314.079.621.161.923.239l-.537 2.154 1.296.323.531-2.13c.355.096.699.185 1.035.269l-.53 2.121 1.297.323.537-2.15c2.211.419 3.873.25 4.573-1.75.564-1.61-.028-2.538-1.191-3.144.847-.195 1.485-.752 1.656-1.903zm-2.963 4.153c-.401 1.61-3.11.74-3.99.522l.712-2.854c.88.22 3.697.654 3.278 2.332zm.401-4.176c-.365 1.464-2.621.72-3.353.538l.645-2.587c.732.182 3.089.522 2.708 2.049z"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+                                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white">
+                                            <path fill="currentColor" d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-2xl font-bold text-orange-800 mb-1">Payment Information</h4>
+                                        <p class="text-orange-600 text-sm font-medium">Secure USDT Payment via Tron Network</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-orange-200/50">
+                                        <div class="flex items-center mb-2">
+                                            <svg viewBox="0 0 24 24" class="w-5 h-5 text-green-600 mr-2">
+                                                <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            <span class="text-sm font-semibold text-gray-700">Total Amount</span>
+                                        </div>
+                                        <div class="text-2xl font-black text-orange-600">
+                                            <span id="totalAmount">15</span> <span class="text-lg">USDT</span>
+                                        </div>
+                                        <div class="text-xs text-gray-600 mt-1" id="priceInfo">$15 per ticket</div>
+                                    </div>
+                                    
+                                    <div class="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-orange-200/50">
+                                        <div class="flex items-center mb-2">
+                                            <svg viewBox="0 0 24 24" class="w-5 h-5 text-blue-600 mr-2">
+                                                <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                            <span class="text-sm font-semibold text-gray-700">Network</span>
+                                        </div>
+                                        <div class="text-lg font-bold text-blue-600">Tron (TRC20)</div>
+                                        <div class="text-xs text-gray-600 mt-1">Fast & Low Fees</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4 border border-gray-200">
+                                    <div class="flex items-center mb-3">
+                                        <svg viewBox="0 0 24 24" class="w-5 h-5 text-purple-600 mr-2">
+                                            <path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                        </svg>
+                                        <span class="text-sm font-semibold text-gray-700">Payment Address</span>
+                                        <div class="ml-auto">
+                                            <button onclick="copyAddress()" class="text-xs bg-purple-100 hover:bg-purple-200 text-purple-700 px-3 py-1 rounded-full transition-colors">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="font-mono text-sm text-gray-800 bg-white rounded-lg p-3 border break-all" id="paymentAddress">
+                                        TQo39kdaRiA32F72C9bihPV742P8Ew9Q8q
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4 flex items-center justify-center space-x-2 text-xs text-orange-700">
+                                    <svg viewBox="0 0 24 24" class="w-4 h-4">
+                                        <path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                    </svg>
+                                    <span class="font-medium">Secure payment protected by blockchain technology</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-receipt mr-2 text-blue-600"></i>
+                                Transaction ID *
+                            </label>
+                            <input type="text" id="txHash" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Enter USDT transaction ID (64 characters)" maxlength="64">
+                            <div id="txHashError" class="text-red-500 text-sm mt-1 hidden">Transaction ID must be exactly 64 hexadecimal characters (0-9, a-f, A-F)</div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-bold text-xl py-6 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-shopping-cart mr-3"></i>
+                            Purchase Lottery Tickets
+                            <div class="text-sm opacity-90 mt-1">Secure Payment via USDT</div>
+                        </button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rules Section -->
+            <div class="max-w-4xl mx-auto mt-16">
+                <div class="lottery-card p-8">
+                    <h3 class="text-2xl font-bold text-center mb-6 text-gray-900">📋 Official Rules & Terms</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-700">
+                        <div>
+                            <h4 class="font-bold mb-2">🎫 Ticket Rules:</h4>
+                            <ul class="space-y-1">
+                                <li>• Maximum 10 tickets per person</li>
+                                <li>• Each ticket costs exactly $15 USD</li>
+                                <li>• Payment only in USDT (TRC20)</li>
+                                <li>• No refunds after purchase</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">🏆 Prize Rules:</h4>
+                            <ul class="space-y-1">
+                                <li>• One winner receives 1 full Bitcoin</li>
+                                <li>• Draw on December 31, 2025</li>
+                                <li>• Winner notified within 24 hours</li>
+                                <li>• Prize delivered within 7 days</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                        <p class="text-xs text-gray-600 text-center">
+                            This lottery is operated by USDT-FLASH under license TOL-2025-847. 
+                            Must be 18+ to participate. Gambling responsibly.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <!-- Processing Modal -->
+    <div id="processingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md mx-4 p-8 text-center">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-spinner fa-spin text-blue-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🔄 Processing Payment</h3>
+            <p class="text-gray-600 mb-6">We are verifying your USDT payment on the blockchain. This process will take a few minutes to ensure your payment was successful.</p>
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                <p class="text-sm text-blue-800">
+                    <i class="fas fa-clock mr-2"></i>
+                    <strong>Processing Time:</strong> 3-5 minutes
+                </p>
+            </div>
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <p class="text-sm text-yellow-800">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Please wait while we confirm your transaction. Your tickets will be generated once payment is verified.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md mx-4 p-8 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-500 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-4">🎉 Tickets Purchased Successfully!</h3>
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                <p class="text-sm text-yellow-800 mb-2">Your Ticket Numbers:</p>
+                <div id="ticketNumbers" class="space-y-1"></div>
+            </div>
+            <p class="text-gray-600 mb-6">Good luck! Winner will be announced on December 31, 2025.</p>
+            <button onclick="closeModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition-colors">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <!-- تحسين التفاعل للهواتف المحمولة -->
+    <script src="../js/lottery-mobile-enhancement.js"></script>
+    
+    <script>
+        // Fetch Bitcoin Price
+
+
+        // Countdown Timer
+        function updateCountdown() {
+            const drawDate = new Date('2025-12-31T23:59:59Z').getTime();
+            const now = new Date().getTime();
+            const distance = drawDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Update header stats
+        function updateHeaderStats() {
+            const drawDate = new Date('2025-12-31T23:59:59Z').getTime();
+            const now = new Date().getTime();
+            const distance = drawDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('headerDaysLeft').textContent = days;
+            document.getElementById('mobileDaysLeft').textContent = days;
+            
+            const participants = document.getElementById('ticketsSold').textContent;
+            document.getElementById('headerParticipants').textContent = participants + '+';
+            document.getElementById('mobileParticipants').textContent = participants + '+';
+        }
+        
+        setInterval(updateHeaderStats, 1000);
+        updateHeaderStats();
+        
+        // Update hero section time left
+        function updateHeroTimeLeft() {
+            const drawDate = new Date('2025-12-31T23:59:59Z').getTime();
+            const now = new Date().getTime();
+            const distance = drawDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            
+            document.getElementById('heroTimeLeft').textContent = days;
+        }
+        
+        setInterval(updateHeroTimeLeft, 1000);
+        updateHeroTimeLeft();
+        
+        // Update tickets sold every hour
+        function updateTicketsSold() {
+            const currentSold = parseInt(document.getElementById('ticketsSold').textContent.replace(',', ''));
+            const increment = Math.floor(Math.random() * 15) + 5; // Random 5-19 tickets per hour
+            const newTotal = Math.min(currentSold + increment, 10000); // Max 10,000 tickets
+            
+            document.getElementById('ticketsSold').textContent = newTotal.toLocaleString();
+            document.getElementById('odds').textContent = newTotal.toLocaleString();
+            
+            // Update progress bar
+            const percentage = (newTotal / 10000) * 100;
+            document.querySelector('.bg-gradient-to-r.from-blue-500.to-purple-600').style.width = `${percentage}%`;
+        }
+        
+        // Update every hour (3600000 ms)
+        setInterval(updateTicketsSold, 3600000);
+        
+        // Also update every 30 seconds for demo purposes
+        setInterval(updateTicketsSold, 30000);
+
+        // Update total amount dynamically with discount
+        function updateTotalAmount() {
+            const selectedRadio = document.querySelector('input[name="ticketCount"]:checked');
+            let count = 1;
+            
+            if (selectedRadio) {
+                if (selectedRadio.value === 'custom') {
+                    count = parseInt(document.getElementById('customAmount').value) || 1;
+                } else {
+                    count = parseInt(selectedRadio.value);
+                }
+            }
+            
+            let pricePerTicket = 15;
+            let total = count * pricePerTicket;
+            
+            // Apply discount for 4+ tickets
+            if (count >= 4) {
+                pricePerTicket = 12; // $3 discount per ticket
+                total = count * pricePerTicket;
+            }
+            
+            document.getElementById('totalAmount').textContent = total;
+            
+            // Update price display
+            const priceInfo = document.getElementById('priceInfo');
+            if (count >= 4) {
+                priceInfo.innerHTML = `<span class="text-green-600 font-bold">$${pricePerTicket} per ticket (Save $3 each!)</span>`;
+            } else {
+                priceInfo.innerHTML = `$${pricePerTicket} per ticket`;
+            }
+        }
+        
+        // Add event listeners for radio buttons
+        document.querySelectorAll('input[name="ticketCount"]').forEach(radio => {
+            radio.addEventListener('change', updateTotalAmount);
+        });
+        
+        // Add event listener for custom amount input
+        document.getElementById('customAmount').addEventListener('input', function() {
+            if (document.getElementById('ticketCustom').checked) {
+                updateTotalAmount();
+            }
+        });
+        
+        // Initialize total amount
+        updateTotalAmount();
+
+        // Generate ticket number
+        function generateTicketNumber() {
+            const prefix = 'BTC2025';
+            const random = Math.floor(Math.random() * 1000000).toString().padStart(6, '0');
+            return `${prefix}-${random}`;
+        }
+
+        // Validate transaction hash
+        function validateTxHash(hash) {
+            const hexPattern = /^[0-9a-fA-F]{64}$/;
+            return hexPattern.test(hash);
+        }
+        
+        // Add real-time validation for transaction hash
+        document.getElementById('txHash').addEventListener('input', function() {
+            const hash = this.value.trim();
+            const errorDiv = document.getElementById('txHashError');
+            
+            if (hash.length > 0 && !validateTxHash(hash)) {
+                this.classList.add('border-red-500');
+                this.classList.remove('border-gray-300');
+                errorDiv.classList.remove('hidden');
+            } else {
+                this.classList.remove('border-red-500');
+                this.classList.add('border-gray-300');
+                errorDiv.classList.add('hidden');
+            }
+        });
+        
+        // Form submission
+        document.getElementById('lotteryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate transaction hash before submission
+            const txHash = document.getElementById('txHash').value.trim();
+            if (!validateTxHash(txHash)) {
+                document.getElementById('txHashError').classList.remove('hidden');
+                document.getElementById('txHash').classList.add('border-red-500');
+                document.getElementById('txHash').focus();
+                return;
+            }
+            
+            // Show processing modal first
+            showProcessingModal();
+            
+            // Simulate processing time (3-5 minutes)
+            setTimeout(() => {
+                const selectedRadio = document.querySelector('input[name="ticketCount"]:checked');
+                let ticketCount = 1;
+                
+                if (selectedRadio) {
+                    if (selectedRadio.value === 'custom') {
+                        ticketCount = parseInt(document.getElementById('customAmount').value) || 1;
+                    } else {
+                        ticketCount = parseInt(selectedRadio.value);
+                    }
+                }
+                
+                const ticketNumbers = [];
+                
+                for (let i = 0; i < ticketCount; i++) {
+                    ticketNumbers.push(generateTicketNumber());
+                }
+                
+                // Display ticket numbers
+                const ticketNumbersDiv = document.getElementById('ticketNumbers');
+                ticketNumbersDiv.innerHTML = '';
+                ticketNumbers.forEach(number => {
+                    const div = document.createElement('div');
+                    div.className = 'ticket-number';
+                    div.textContent = number;
+                    ticketNumbersDiv.appendChild(div);
+                });
+                
+                // Update tickets sold counter
+                const currentSold = parseInt(document.getElementById('ticketsSold').textContent.replace(',', ''));
+                document.getElementById('ticketsSold').textContent = (currentSold + ticketCount).toLocaleString();
+                
+                // Hide processing modal and show success modal
+                closeProcessingModal();
+                document.getElementById('successModal').classList.remove('hidden');
+                document.getElementById('successModal').classList.add('flex');
+                
+                // Reset form
+                this.reset();
+                updateTotalAmount();
+            }, Math.random() * 120000 + 180000); // 3-5 minutes
+        });
+
+        function showProcessingModal() {
+            document.getElementById('processingModal').classList.remove('hidden');
+            document.getElementById('processingModal').classList.add('flex');
+        }
+        
+        function closeProcessingModal() {
+            document.getElementById('processingModal').classList.add('hidden');
+            document.getElementById('processingModal').classList.remove('flex');
+        }
+        
+        function copyAddress() {
+            const address = document.getElementById('paymentAddress').textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('bg-green-100', 'text-green-700');
+                button.classList.remove('bg-purple-100', 'text-purple-700');
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('bg-green-100', 'text-green-700');
+                    button.classList.add('bg-purple-100', 'text-purple-700');
+                }, 2000);
+            });
+        }
+        
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
