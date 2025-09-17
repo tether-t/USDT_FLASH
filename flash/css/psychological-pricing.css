@@ -1,0 +1,27 @@
+/* Psychological Pricing Effects */
+
+/* Strike-through original prices */
+.tether-price-original {
+    text-decoration: line-through;
+    color: #ef4444;
+    font-size: 0.9em;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+/* White prominent prices */
+.tether-price-main {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 1.4em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Price anchoring effect */
+.package-card:nth-child(2) .tether-price-main {
+    font-size: 1.4em;
+    color: #3b82f6;
+}
+

@@ -1,0 +1,247 @@
+/* ألوان الموقع الرسمية المؤسسية */
+
+:root {
+    --primary-blue: #1e3a8a;
+    --secondary-blue: #1e40af;
+    --dark-blue: #1e293b;
+    --light-blue: #3b82f6;
+    --accent-blue: #2563eb;
+    --corporate-gray: #374151;
+    --light-gray: #f8fafc;
+    --white: #ffffff;
+    --text-dark: #1f2937;
+    --border-color: #e5e7eb;
+}
+
+/* الهيدر الرئيسي */
+header {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%) !important;
+}
+
+/* الأزرار الرئيسية */
+.bg-green-500,
+.bg-green-600,
+.btn-success,
+button[class*="green"] {
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)) !important;
+    border-color: var(--primary-blue) !important;
+    color: white !important;
+}
+
+.bg-green-500:hover,
+.bg-green-600:hover,
+.btn-success:hover {
+    background: linear-gradient(45deg, var(--dark-blue), var(--primary-blue)) !important;
+}
+
+/* أزرار الباقات */
+.package-card:nth-child(1) button,
+.package-card:nth-child(1) .tether-action-button {
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)) !important;
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3) !important;
+}
+
+.package-card:nth-child(2) button,
+.package-card:nth-child(2) .tether-action-button {
+    background: linear-gradient(45deg, var(--corporate-gray), var(--dark-blue)) !important;
+    border-color: var(--corporate-gray) !important;
+    box-shadow: 0 4px 15px rgba(55, 65, 81, 0.3) !important;
+}
+
+.package-card:nth-child(3) button,
+.package-card:nth-child(3) .tether-action-button {
+    background: linear-gradient(45deg, var(--accent-blue), var(--light-blue)) !important;
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* الخلفيات */
+.hero-section,
+section[style*="background"] {
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%) !important;
+}
+
+/* النصوص والعناوين */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark) !important;
+}
+
+.text-green-500,
+.text-green-600 {
+    color: var(--primary-blue) !important;
+}
+
+/* الأيقونات */
+.fas.text-green-500,
+.fas.text-green-600,
+i[class*="text-green"] {
+    color: var(--primary-blue) !important;
+}
+
+/* الشارات والعلامات */
+.badge,
+.bg-green-100 {
+    background-color: rgba(30, 58, 138, 0.1) !important;
+    color: var(--primary-blue) !important;
+}
+
+/* الحدود */
+.border-green-200,
+.border-green-300 {
+    border-color: rgba(30, 58, 138, 0.2) !important;
+}
+
+/* التدرجات في الخلفية */
+.bg-gradient-to-r.from-green-500.to-blue-600 {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* الروابط */
+a {
+    color: var(--primary-blue) !important;
+}
+
+a:hover {
+    color: var(--dark-blue) !important;
+}
+
+/* البطاقات */
+.card,
+.bg-white {
+    background: var(--white) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* التذييل */
+footer {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--corporate-gray) 100%) !important;
+}
+
+/* الأقسام الخاصة */
+#pricing {
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%) !important;
+}
+
+/* إزالة الألوان الخضراء من الخلفيات */
+[style*="background: linear-gradient"][style*="green"],
+[class*="bg-green"] {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* تحديث ألوان العدادات */
+.counter {
+    color: var(--primary-blue) !important;
+}
+
+/* الأزرار الثانوية */
+.bg-blue-500,
+.bg-blue-600 {
+    background: linear-gradient(45deg, var(--accent-blue), var(--light-blue)) !important;
+}
+
+/* الأزرار البنفسجية تصبح رمادية */
+.bg-purple-500,
+.bg-purple-600 {
+    background: linear-gradient(45deg, var(--corporate-gray), var(--dark-blue)) !important;
+}
+
+/* تحديث ألوان النجوم والتقييمات */
+.text-yellow-400,
+.text-yellow-500 {
+    color: #f59e0b !important;
+}
+
+/* الخلفيات الملونة تصبح محايدة */
+.bg-gradient-to-br.from-gray-900.via-blue-900.to-purple-900 {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--corporate-gray) 50%, var(--primary-blue) 100%) !important;
+}
+
+/* تحديث ألوان الإشعارات */
+.bg-yellow-100 {
+    background-color: rgba(30, 58, 138, 0.05) !important;
+}
+
+.text-yellow-800 {
+    color: var(--primary-blue) !important;
+}
+
+/* الأزرار المتدرجة */
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)) !important;
+    border: none !important;
+}
+
+/* تحديث ألوان الأيقونات الملونة */
+.text-orange-500,
+.text-red-500,
+.text-pink-500 {
+    color: var(--corporate-gray) !important;
+}
+
+/* الخلفيات الملونة في الأقسام */
+.bg-gradient-to-r.from-green-600.to-blue-600 {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* تحديث ألوان الشهادات */
+.testimonial-slide .user-avatar {
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* الأزرار في الفوتر */
+footer .bg-gradient-to-br {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* تحديث ألوان المنصات */
+.platform-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.15) !important;
+}
+
+/* الخلفيات المتحركة */
+.absolute.bg-gradient-to-br {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), transparent) !important;
+}
+
+/* تحديث ألوان الإحصائيات */
+.bg-gradient-to-r.from-blue-600.to-green-600 {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* الأزرار الخاصة */
+.bg-white.text-green-600 {
+    background: var(--white) !important;
+    color: var(--primary-blue) !important;
+}
+
+/* تحديث ألوان الـ FAQ */
+.faq-card-header {
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* الشارات الملونة */
+.bg-green-600.to-green-700 {
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)) !important;
+}
+
+/* تأثيرات الهوفر */
+button:hover,
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2) !important;
+}
+
+/* الخلفيات الشفافة */
+.bg-white.bg-opacity-95 {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* النصوص المتدرجة */
+[style*="-webkit-background-clip: text"] {
+    background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue), var(--accent-blue)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}

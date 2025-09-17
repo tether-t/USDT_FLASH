@@ -1,0 +1,613 @@
+/* 🎨 أنماط المساعد الاحترافي العالمي */
+
+.assistant-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.assistant-container.minimized {
+    height: 60px;
+    overflow: hidden;
+}
+
+.assistant-sidebar {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.logo-section i {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.logo-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.status-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.questions-panel {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.questions-panel h4 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #667eea;
+}
+
+.questions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.question-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.question-card:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.card-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.card-text {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.chat-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.minimize-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.minimize-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.welcome-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.bot-avatar, .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.bot-avatar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.user-avatar {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+}
+
+.message-content {
+    flex: 1;
+    padding: 15px 20px;
+    border-radius: 15px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.bot-content {
+    background: #f8f9fa;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+
+.user-content {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border-bottom-right-radius: 5px;
+    margin-left: auto;
+    max-width: 80%;
+}
+
+.user-message {
+    flex-direction: row-reverse;
+}
+
+.chat-input-area {
+    padding: 20px;
+    background: rgba(248, 249, 250, 0.8);
+    border-top: 1px solid #e0e0e0;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    padding: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 20px;
+    background: transparent;
+}
+
+.input-wrapper button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* تصميم متجاوب محسن */
+@media (max-width: 1024px) {
+    .assistant-sidebar {
+        width: 350px;
+    }
+    
+    .questions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .assistant-container {
+        flex-direction: column;
+    }
+    
+    .assistant-sidebar {
+        width: 100%;
+        height: 40vh;
+        min-height: 280px;
+    }
+    
+    .sidebar-header {
+        padding: 15px;
+    }
+    
+    .logo-section h3 {
+        font-size: 16px;
+    }
+    
+    .questions-panel {
+        padding: 10px;
+    }
+    
+    .questions-panel h4 {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .questions-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .question-card {
+        padding: 12px 8px;
+        min-height: 70px;
+    }
+    
+    .card-icon {
+        font-size: 20px;
+    }
+    
+    .card-text {
+        font-size: 11px;
+        line-height: 1.2;
+    }
+    
+    .chat-main {
+        height: 60vh;
+    }
+    
+    .chat-header {
+        padding: 15px;
+    }
+    
+    .chat-header h2 {
+        font-size: 18px;
+    }
+    
+    .chat-messages {
+        padding: 15px 10px;
+    }
+    
+    .message-content {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+    
+    .chat-input-area {
+        padding: 15px 10px;
+    }
+    
+    .input-wrapper {
+        padding: 6px;
+    }
+    
+    .input-wrapper input {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+    
+    .input-wrapper button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* تجربة هاتف احترافية متقدمة */
+@media (max-width: 480px) {
+    .assistant-container {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    
+    .assistant-sidebar {
+        height: 35vh;
+        min-height: 250px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .sidebar-header {
+        padding: 12px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .logo-section i {
+        font-size: 28px;
+    }
+    
+    .logo-section h3 {
+        font-size: 15px;
+    }
+    
+    .status-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+    
+    .questions-panel {
+        padding: 8px;
+    }
+    
+    .questions-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    
+    .question-card {
+        padding: 12px 15px;
+        min-height: 55px;
+        flex-direction: row;
+        text-align: right;
+        gap: 12px;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+    }
+    
+    .question-card:active {
+        transform: scale(0.98);
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .card-icon {
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+    
+    .card-text {
+        font-size: 13px;
+        font-weight: 600;
+        flex: 1;
+    }
+    
+    .chat-main {
+        height: 65vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .chat-header {
+        padding: 12px 15px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .chat-header h2 {
+        font-size: 16px;
+    }
+    
+    .minimize-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    .chat-messages {
+        padding: 10px 12px;
+        gap: 12px;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    .welcome-message {
+        padding: 15px;
+        background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+        backdrop-filter: blur(10px);
+        border-radius: 18px;
+    }
+    
+    .chat-message {
+        animation: slideInMobile 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    @keyframes slideInMobile {
+        from {
+            opacity: 0;
+            transform: translateY(10px) scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    
+    .bot-avatar, .user-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .message-content {
+        padding: 12px 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        border-radius: 18px;
+    }
+    
+    .chat-input-area {
+        padding: 12px 15px;
+        background: rgba(248, 249, 250, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .input-wrapper {
+        padding: 6px;
+        border-radius: 25px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 1000;
+    }
+    
+    .input-wrapper input {
+        padding: 14px 18px;
+        font-size: 16px;
+        -webkit-appearance: none;
+        border-radius: 20px;
+        -webkit-user-select: text;
+        user-select: text;
+    }
+    
+    .input-wrapper input:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3);
+    }
+    
+    .input-wrapper button {
+        width: 42px;
+        height: 42px;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+    
+    /* تحسينات اللمس والتفاعل */
+    * {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    input {
+        -webkit-user-select: text;
+        user-select: text;
+    }
+    
+    .question-card, .minimize-btn, .input-wrapper button {
+        touch-action: manipulation;
+        cursor: pointer;
+    }
+    
+    .questions-panel, .chat-messages {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* دعم الوضع الليلي */
+    @media (prefers-color-scheme: dark) {
+        .assistant-container {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        }
+        
+        .assistant-sidebar, .chat-main {
+            background: rgba(26, 32, 44, 0.95);
+        }
+        
+        .question-card {
+            background: rgba(45, 55, 72, 0.9);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+/* تأثيرات التمرير المحسنة */
+.questions-panel::-webkit-scrollbar,
+.chat-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+.questions-panel::-webkit-scrollbar-track,
+.chat-messages::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 2px;
+}
+
+.questions-panel::-webkit-scrollbar-thumb,
+.chat-messages::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+/* تحسينات إضافية */
+.assistant-container * {
+    box-sizing: border-box;
+}
+
+.message-content {
+    user-select: text;
+}

@@ -1,0 +1,180 @@
+/* 🏦 Real Wallet Logos - Professional Icons */
+/* شعارات المحافظ الحقيقية - أيقونات احترافية */
+
+.wallet-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* 🟡 Binance - Real Logo */
+.wallet-logo.binance, .notification-wallet-logo.binance {
+    background: linear-gradient(135deg, #F0B90B 0%, #F3BA4C 100%);
+    position: relative;
+}
+
+.wallet-logo.binance::before, .notification-wallet-logo.binance::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: white;
+    clip-path: polygon(50% 0%, 80% 50%, 50% 100%, 20% 50%);
+}
+
+/* 🔵 Trust Wallet - Real Logo */
+.wallet-logo.trust, .notification-wallet-logo.trust {
+    background: linear-gradient(135deg, #3375BB 0%, #4A90E2 100%);
+    position: relative;
+}
+
+.wallet-logo.trust::before, .notification-wallet-logo.trust::before {
+    content: "🛡️";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+}
+
+/* 🟠 MetaMask - Real Logo */
+.wallet-logo.metamask, .notification-wallet-logo.metamask {
+    background: linear-gradient(135deg, #F6851B 0%, #E2761B 100%);
+    position: relative;
+}
+
+.wallet-logo.metamask::before, .notification-wallet-logo.metamask::before {
+    content: "🦊";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+}
+
+/* 🟡 Bybit - Real Logo */
+.wallet-logo.bybit, .notification-wallet-logo.bybit {
+    background: linear-gradient(135deg, #F7A600 0%, #FDB833 100%);
+    position: relative;
+}
+
+.wallet-logo.bybit::before, .notification-wallet-logo.bybit::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+/* تأثيرات إضافية للشعارات */
+.wallet-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+.wallet-logo.binance:hover {
+    box-shadow: 0 4px 12px rgba(240, 185, 11, 0.4);
+}
+
+.wallet-logo.trust:hover {
+    box-shadow: 0 4px 12px rgba(51, 117, 187, 0.4);
+}
+
+.wallet-logo.metamask:hover {
+    box-shadow: 0 4px 12px rgba(246, 133, 27, 0.4);
+}
+
+.wallet-logo.bybit:hover {
+    box-shadow: 0 4px 12px rgba(247, 166, 0, 0.4);
+}
+
+/* شعارات كبيرة للإشعارات */
+.notification-wallet-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.notification-wallet-logo::before {
+    font-size: 12px;
+}
+
+/* أنيميشن للشعارات */
+@keyframes walletPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.wallet-logo-animated {
+    animation: walletPulse 2s infinite;
+}
+
+/* تحسين التباين للشعارات */
+.wallet-logo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.0) 100%);
+    pointer-events: none;
+}
+
+/* تأثيرات الانتقال */
+.wallet-logo {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* إضافة تأثير التوهج */
+.wallet-logo.binance {
+    box-shadow: 0 0 0 0 rgba(240, 185, 11, 0.4);
+    animation: walletGlow 2s infinite;
+}
+
+.wallet-logo.trust {
+    box-shadow: 0 0 0 0 rgba(51, 117, 187, 0.4);
+    animation: walletGlow 2s infinite;
+}
+
+.wallet-logo.metamask {
+    box-shadow: 0 0 0 0 rgba(246, 133, 27, 0.4);
+    animation: walletGlow 2s infinite;
+}
+
+.wallet-logo.bybit {
+    box-shadow: 0 0 0 0 rgba(247, 166, 0, 0.4);
+    animation: walletGlow 2s infinite;
+}
+
+@keyframes walletGlow {
+    0% {
+        box-shadow: 0 0 0 0 currentColor;
+    }
+    70% {
+        box-shadow: 0 0 0 6px transparent;
+    }
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}

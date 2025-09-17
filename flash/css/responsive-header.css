@@ -1,0 +1,553 @@
+/* Advanced Responsive Header System */
+
+/* Base Header Styles */
+header {
+    position: relative;
+    z-index: 1000;
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Container Responsive System */
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+}
+
+/* Logo Section - Ultra Responsive */
+.logo-section {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 0;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-section img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    margin-right: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-section img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(38, 161, 123, 0.4);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.logo-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    margin: 0;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #26A17B, #1A8462, #0F5132);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.logo-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.badge-verified { 
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white; 
+}
+
+.badge-secure { 
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white; 
+}
+
+.badge-premium { 
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white; 
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle-btn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+    position: relative;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.menu-toggle-btn:hover {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.menu-toggle-btn i {
+    font-size: 20px;
+}
+
+/* Navigation Icons Section */
+.nav-icons-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 20px;
+}
+
+.pro-nav-icon {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.pro-nav-icon:hover {
+    transform: translateY(-3px);
+}
+
+.icon-wrapper {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: white;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.icon-wrapper i {
+    position: relative;
+    z-index: 2;
+}
+
+.icon-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.icon-pulse {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    background: inherit;
+    filter: blur(10px);
+    opacity: 0.6;
+    z-index: 1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+}
+
+/* Specific icon styles */
+.cards-wrapper {
+    background: linear-gradient(135deg, #10b981, #059669);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.live-wrapper {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.support-wrapper {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.profile-wrapper {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+}
+
+/* Badges */
+.new-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 10px;
+    z-index: 3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.live-dot {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    background: #10b981;
+    border-radius: 50%;
+    z-index: 3;
+    animation: liveDotPulse 1.5s infinite;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+}
+
+.support-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #0ea5e9;
+    color: white;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 3px;
+    z-index: 3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes liveDotPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Auth Section */
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.auth-btn {
+    background: linear-gradient(135deg, #374151, #4b5563);
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-btn:hover {
+    background: linear-gradient(135deg, #4b5563, #6b7280);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-btn i {
+    font-size: 0.9rem;
+}
+
+.login-button {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+.register {
+    background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.register:hover {
+    background: linear-gradient(135deg, #059669, #10b981);
+}
+
+.guest-button {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+}
+
+.guest-button:hover {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+}
+
+/* Responsive Tablet */
+@media (max-width: 1024px) {
+    .header-container {
+        padding: 0.6rem 0.8rem;
+        min-height: 65px;
+    }
+    
+    .logo-section img {
+        width: 44px;
+        height: 44px;
+        margin-right: 10px;
+    }
+    
+    .logo-title {
+        font-size: 1.3rem;
+    }
+    
+    .badge {
+        font-size: 0.65rem;
+        padding: 0.1rem 0.3rem;
+    }
+    
+    .nav-icons-section {
+        gap: 12px;
+        margin: 0 15px;
+    }
+    
+    .icon-wrapper {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+    
+    .auth-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 10px 15px;
+        min-height: 60px;
+    }
+    
+    .menu-toggle-btn {
+        display: none;
+    }
+    
+    .nav-icons-section {
+        display: flex !important;
+        gap: 8px;
+        margin: 0 10px;
+    }
+    
+    .icon-wrapper {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+    
+    .new-badge {
+        font-size: 8px;
+        padding: 1px 3px;
+    }
+    
+    .live-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .support-badge {
+        font-size: 6px;
+        padding: 1px 2px;
+    }
+    
+    .logo-section {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .logo-section img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0;
+        margin-right: 10px;
+    }
+    
+    .logo-title {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    
+    .logo-badges {
+        display: flex;
+        gap: 6px;
+        margin-top: 3px;
+    }
+    
+    .badge {
+        padding: 3px 8px;
+        font-size: 9px;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+    
+    .auth-section .hidden.sm\:inline {
+        display: none !important;
+    }
+    
+    .auth-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .auth-btn i {
+        font-size: 1rem;
+    }
+    
+    .auth-btn span.ml-1 {
+        display: none;
+    }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+    .header-container {
+        padding: 8px 12px;
+        min-height: 56px;
+    }
+    
+    .logo-section img {
+        width: 36px;
+        height: 36px;
+        margin-right: 8px;
+    }
+    
+    .logo-title {
+        font-size: 18px;
+    }
+    
+    .logo-badges {
+        gap: 4px;
+        margin-top: 2px;
+    }
+    
+    .badge {
+        padding: 2px 6px;
+        font-size: 8px;
+    }
+    
+    .nav-icons-section {
+        display: flex !important;
+        gap: 6px;
+        margin: 0 8px;
+    }
+    
+    .icon-wrapper {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .auth-btn {
+        padding: 6px 10px;
+    }
+    
+    .auth-btn i {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ultra Small Mobile (320px and below) */
+@media (max-width: 320px) {
+    .header-container {
+        padding: 6px 10px;
+        min-height: 52px;
+    }
+    
+    .logo-section img {
+        width: 32px;
+        height: 32px;
+        margin-right: 6px;
+    }
+    
+    .logo-title {
+        font-size: 16px;
+    }
+    
+    .logo-badges {
+        gap: 3px;
+        margin-top: 1px;
+    }
+    
+    .badge {
+        padding: 1px 5px;
+        font-size: 7px;
+    }
+    
+    .nav-icons-section {
+        display: flex !important;
+        gap: 4px;
+        margin: 0 6px;
+    }
+    
+    .icon-wrapper {
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+    }
+    
+    .auth-btn {
+        padding: 5px 8px;
+        font-size: 0.7rem;
+    }
+}

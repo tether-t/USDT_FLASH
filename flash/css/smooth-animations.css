@@ -1,0 +1,217 @@
+/* 🎨 حركات سلسة وألوان عصرية */
+
+/* متغيرات الألوان العصرية */
+:root {
+    --primary-teal: #26a17b;
+    --secondary-cyan: #00d4ff;
+    --accent-purple: #667eea;
+    --gradient-primary: linear-gradient(135deg, var(--primary-teal), var(--secondary-cyan));
+    --gradient-secondary: linear-gradient(135deg, var(--secondary-cyan), var(--accent-purple));
+    --smooth-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* تحسين الحركات العامة */
+* {
+    transition: var(--smooth-transition);
+}
+
+/* الهيدر الأول - حركات سلسة */
+.ultra-header {
+    transition: height 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header-glass {
+    background: linear-gradient(135deg, 
+        rgba(38, 161, 123, 0.15) 0%, 
+        rgba(0, 212, 255, 0.1) 50%,
+        rgba(102, 126, 234, 0.15) 100%);
+    backdrop-filter: blur(20px);
+    transition: var(--smooth-transition);
+}
+
+.logo-wrapper {
+    transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.logo-title {
+    font-family: 'Arial Black', 'Helvetica', sans-serif !important;
+    font-size: 2.25rem !important;
+    font-weight: 900 !important;
+    color: #26a17b !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #26a17b !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    letter-spacing: 1px !important;
+    transition: var(--smooth-transition);
+}
+
+.logo-title::after {
+    content: '®' !important;
+    font-size: 0.6em !important;
+    vertical-align: super !important;
+    color: #26a17b !important;
+    opacity: 0.8 !important;
+}
+
+
+
+/* الهيدر الثانوي - حركات سلسة */
+.secondary-header {
+    background: transparent;
+    backdrop-filter: none;
+    transition: var(--smooth-transition);
+}
+
+.secondary-icon {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.secondary-icon:hover {
+    transform: translateY(-8px) scale(1.1);
+}
+
+.secondary-icon-wrapper {
+    transition: var(--smooth-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.secondary-icon-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.secondary-icon:hover .secondary-icon-wrapper::before {
+    transform: translateX(100%);
+}
+
+/* ألوان الأيقونات العصرية */
+.secondary-profile-icon {
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-cyan));
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3);
+}
+
+.secondary-live-icon {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+}
+
+.secondary-support-icon {
+    background: linear-gradient(135deg, #ff6b6b, #ffa726);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.secondary-notifications-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+/* شارات الإشعارات - حركات نابضة */
+.secondary-badge {
+    animation: smoothPulse 2s ease-in-out infinite;
+    transition: var(--smooth-transition);
+}
+
+.secondary-badge-live {
+    animation: liveBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes smoothPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes liveBeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1.05); }
+    75% { transform: scale(1.15); }
+}
+
+/* أزرار المصادقة - حركات سلسة */
+.auth-section a {
+    transition: var(--smooth-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-section a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.auth-section a:hover::before {
+    transform: translateX(100%);
+}
+
+.auth-section a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* تأثيرات الخلفية المتحركة */
+.header-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(38, 161, 123, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+    animation: backgroundFlow 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes backgroundFlow {
+    0%, 100% { opacity: 0.5; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(10px); }
+}
+
+/* تحسينات الأداء */
+.ultra-header,
+.secondary-header,
+.logo-wrapper,
+.secondary-icon,
+.auth-section a {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* تحسينات الهواتف */
+@media (max-width: 768px) {
+    .site-name-marquee {
+        animation-duration: 15s;
+    }
+    
+    .secondary-icon:hover {
+        transform: translateY(-4px) scale(1.05);
+    }
+    
+    .header-glass {
+        backdrop-filter: blur(10px);
+    }
+    
+    .secondary-header {
+        backdrop-filter: blur(8px);
+    }
+}
+
+/* تقليل الحركة للمستخدمين الذين يفضلون ذلك */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

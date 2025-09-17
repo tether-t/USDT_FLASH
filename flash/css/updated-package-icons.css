@@ -1,0 +1,119 @@
+/* Updated Package Icons and Names - Professional Style */
+
+/* Trial Package - Flask Icon */
+.package-card:nth-child(1) .fas.fa-rocket,
+.package-card:nth-child(1) .fas.fa-fire {
+    font-family: "Font Awesome 6 Free";
+}
+
+.package-card:nth-child(1) .fas.fa-rocket::before,
+.package-card:nth-child(1) .fas.fa-fire::before {
+    content: "\f0c3"; /* Flask icon */
+}
+
+/* Basic Package - Layer Group Icon */
+.package-card:nth-child(2) .fas.fa-gem,
+.package-card:nth-child(2) .fas.fa-star {
+    font-family: "Font Awesome 6 Free";
+}
+
+.package-card:nth-child(2) .fas.fa-gem::before,
+.package-card:nth-child(2) .fas.fa-star::before {
+    content: "\f5fd"; /* Layer group icon */
+}
+
+/* Professional Package - Crown Icon (already correct) */
+.package-card:nth-child(3) .fas.fa-crown {
+    font-family: "Font Awesome 6 Free";
+}
+
+/* Package Names Update */
+.package-card h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Arabic Text Support */
+.package-card h3[dir="rtl"] {
+    direction: rtl;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Icon Container Styling */
+.package-card .w-20.h-20 {
+    transition: all 0.3s ease;
+}
+
+.package-card:hover .w-20.h-20 {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Professional Icon Colors */
+.package-card:nth-child(1) .w-20.h-20 {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.package-card:nth-child(2) .w-20.h-20 {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.package-card:nth-child(3) .w-20.h-20 {
+    background: linear-gradient(135deg, #7c3aed, #5b21b6);
+}
+
+/* Icon Text Enhancement */
+.package-card .text-white.text-2xl {
+    font-size: 1.75rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Icon Adjustments */
+@media (max-width: 768px) {
+    .package-card .w-20.h-20 {
+        width: 4rem;
+        height: 4rem;
+    }
+    
+    .package-card .text-white.text-2xl {
+        font-size: 1.5rem;
+    }
+    
+    .package-card h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Enhanced Package Card Styling */
+.package-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Package Badge Styling */
+.package-card .bg-gradient-to-r {
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

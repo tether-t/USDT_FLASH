@@ -1,0 +1,396 @@
+/* عرض ترويجي متقدم للبطاقات */
+
+.promotional-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #dc2626 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        url('../img/usdt_cryptocurrencies_icon_188337.png');
+    background-size: auto, auto, 100px 100px;
+    opacity: 0.1;
+    animation: heroFloat 20s ease-in-out infinite;
+}
+
+.promotional-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #b45309;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    animation: badgePulse 2s ease-in-out infinite;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight {
+    background: linear-gradient(45deg, #ffd700, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    animation: highlightPulse 2s ease-in-out infinite;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 100px;
+    animation: countdownPulse 1s ease-in-out infinite;
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 0.5rem;
+}
+
+.promotional-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 4rem 0;
+    position: relative;
+}
+
+.promotional-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 50px,
+            rgba(59, 130, 246, 0.02) 50px,
+            rgba(59, 130, 246, 0.02) 100px
+        );
+}
+
+.promo-announcement {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(45deg, #dc2626, #ef4444);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    animation: announcementBounce 2s ease-in-out infinite;
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+}
+
+.promo-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.promo-subtitle {
+    font-size: 1.3rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.cards-showcase {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    perspective: 1200px;
+}
+
+.card-container {
+    position: relative;
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.card-container:nth-child(1) { animation-delay: 0s; }
+.card-container:nth-child(2) { animation-delay: 2s; }
+.card-container:nth-child(3) { animation-delay: 4s; }
+
+.promo-offer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #dc2626, #ef4444);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: bold;
+    z-index: 20;
+    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
+    animation: offerPulse 2s ease-in-out infinite;
+}
+
+.premium-offer {
+    background: linear-gradient(45deg, #7c3aed, #a855f7);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+}
+
+.gold-offer {
+    background: linear-gradient(45deg, #f59e0b, #fbbf24);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.original-price {
+    text-decoration: line-through;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+.promo-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.discount-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.premium-badge {
+    background: linear-gradient(45deg, #ffd700, #ffed4e);
+    color: #b45309;
+}
+
+.gold-badge {
+    background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+    color: white;
+}
+
+.promo-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    animation: btnGlow 2s ease-in-out infinite alternate;
+}
+
+.classic-btn {
+    background: linear-gradient(45deg, #10b981, #059669);
+}
+
+.premium-btn {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+}
+
+.gold-btn {
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+}
+
+.promo-btn:hover {
+    transform: translateX(-50%) translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.6);
+}
+
+.premium-btn:hover {
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.6);
+}
+
+.gold-btn:hover {
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.6);
+}
+
+/* الرسوم المتحركة */
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-5px) rotate(-1deg); }
+    75% { transform: translateY(-15px) rotate(2deg); }
+}
+
+@keyframes badgePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes titleGlow {
+    0% { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
+    100% { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.3); }
+}
+
+@keyframes highlightPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes countdownPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes announcementBounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0px) rotateY(0deg); }
+    33% { transform: translateY(-10px) rotateY(2deg); }
+    66% { transform: translateY(-5px) rotateY(-2deg); }
+}
+
+@keyframes offerPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.05); }
+}
+
+@keyframes btnGlow {
+    0% { box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4); }
+    100% { box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6), 0 0 20px rgba(16, 185, 129, 0.3); }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-timer {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        padding: 1rem;
+        min-width: 80px;
+    }
+    
+    .countdown-number {
+        font-size: 2rem;
+    }
+    
+    .promo-title {
+        font-size: 2rem;
+    }
+    
+    .cards-showcase {
+        gap: 2rem;
+    }
+    
+    .promo-offer {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .promo-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .promotional-hero {
+        min-height: 80vh;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .countdown-timer {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .countdown-item {
+        padding: 0.8rem;
+        min-width: 70px;
+    }
+    
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    
+    .promo-announcement {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .cards-showcase {
+        gap: 1.5rem;
+    }
+}
