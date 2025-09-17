@@ -1,0 +1,46 @@
+/* 🎬 اسم الموقع المتحرك */
+.animated-site-name {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.site-name-marquee {
+    display: inline-block;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, #26a17b, #00d4ff, #667eea, #26a17b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    animation: marquee 15s linear infinite;
+    letter-spacing: 2px;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* تحسينات الهواتف */
+@media (max-width: 768px) {
+    .site-name-marquee {
+        font-size: 1.5rem;
+        animation-duration: 12s;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-name-marquee {
+        font-size: 1.25rem;
+        animation-duration: 10s;
+    }
+}

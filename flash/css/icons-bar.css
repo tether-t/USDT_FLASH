@@ -1,0 +1,550 @@
+/* شريط الأيقونات الاحترافي المتطور */
+.icons-bar {
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95) 0%,
+        rgba(30, 41, 59, 0.95) 25%,
+        rgba(51, 65, 85, 0.95) 50%,
+        rgba(30, 41, 59, 0.95) 75%,
+        rgba(15, 23, 42, 0.95) 100%);
+    background-size: 400% 400%;
+    animation: professional-gradient 12s ease infinite;
+}
+
+.icons-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(59, 130, 246, 0.1), 
+        rgba(147, 51, 234, 0.1), 
+        rgba(16, 185, 129, 0.1), 
+        transparent);
+    animation: professional-shimmer 4s infinite;
+}
+
+.icons-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 25% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 50%, rgba(147, 51, 234, 0.05) 0%, transparent 50%);
+    animation: glow-pulse 6s ease-in-out infinite;
+}
+
+@keyframes professional-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes professional-shimmer {
+    0% { left: -100%; opacity: 0; }
+    50% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+.icon-item {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.icon-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.icon-item .w-12,
+.icon-item .w-16 {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.icon-item .w-12::before,
+.icon-item .w-16::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.05) 50%, 
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 18px;
+}
+
+.icon-item:hover .w-12::before,
+.icon-item:hover .w-16::before {
+    opacity: 1;
+}
+
+/* تأثيرات احترافية متقدمة لكل أيقونة */
+
+/* أيقونة البطاقات - تدرج أزرق بنفسجي */
+.icon-item:nth-child(1) .w-12,
+.icon-item:nth-child(1) .w-16 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 8px 32px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.icon-item:nth-child(1):hover .w-12,
+.icon-item:nth-child(1):hover .w-16 {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+    box-shadow: 0 16px 48px rgba(102, 126, 234, 0.6),
+                0 0 0 4px rgba(102, 126, 234, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: scale(1.1) translateY(-2px);
+}
+
+/* أيقونة المعاملات المباشرة - تدرج أخضر فيروزي */
+.icon-item:nth-child(2) .w-12,
+.icon-item:nth-child(2) .w-16 {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    box-shadow: 0 8px 32px rgba(17, 153, 142, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(17, 153, 142, 0.3);
+}
+
+.icon-item:nth-child(2):hover .w-12,
+.icon-item:nth-child(2):hover .w-16 {
+    background: linear-gradient(135deg, #0d7377 0%, #2dd4bf 100%);
+    box-shadow: 0 16px 48px rgba(17, 153, 142, 0.6),
+                0 0 0 4px rgba(17, 153, 142, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(17, 153, 142, 0.5);
+    transform: scale(1.1) translateY(-2px);
+}
+
+/* أيقونة الدعم الفني - تدرج برتقالي أحمر */
+.icon-item:nth-child(3) .w-12,
+.icon-item:nth-child(3) .w-16 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+    box-shadow: 0 8px 32px rgba(255, 107, 107, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 107, 107, 0.3);
+}
+
+.icon-item:nth-child(3):hover .w-12,
+.icon-item:nth-child(3):hover .w-16 {
+    background: linear-gradient(135deg, #ff5252 0%, #ff9800 100%);
+    box-shadow: 0 16px 48px rgba(255, 107, 107, 0.6),
+                0 0 0 4px rgba(255, 107, 107, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 107, 107, 0.5);
+    transform: scale(1.1) translateY(-2px);
+}
+
+/* أيقونة الملف الشخصي - تدرج أزرق سماوي */
+.icon-item:nth-child(4) .w-12,
+.icon-item:nth-child(4) .w-16 {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 8px 32px rgba(79, 172, 254, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(79, 172, 254, 0.3);
+}
+
+.icon-item:nth-child(4):hover .w-12,
+.icon-item:nth-child(4):hover .w-16 {
+    background: linear-gradient(135deg, #2196f3 0%, #00bcd4 100%);
+    box-shadow: 0 16px 48px rgba(79, 172, 254, 0.6),
+                0 0 0 4px rgba(79, 172, 254, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(79, 172, 254, 0.5);
+    transform: scale(1.1) translateY(-2px);
+}
+
+/* تأثيرات الإشعارات والشارات الاحترافية */
+.icon-item .animate-pulse {
+    animation: professional-pulse 2s infinite;
+    background: linear-gradient(45deg, #ef4444, #f97316);
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+}
+
+@keyframes professional-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.6),
+                    0 0 40px rgba(239, 68, 68, 0.3);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.3);
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.8),
+                    0 0 60px rgba(239, 68, 68, 0.5);
+    }
+}
+
+/* شارات الإشعارات المتقدمة */
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    animation: badge-glow 3s ease-in-out infinite;
+}
+
+.badge-new {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+}
+
+.badge-live {
+    background: linear-gradient(45deg, #11998e, #38ef7d);
+    box-shadow: 0 4px 20px rgba(17, 153, 142, 0.5);
+    animation: live-pulse 1.5s infinite;
+}
+
+.badge-support {
+    background: linear-gradient(45deg, #ff6b6b, #ffa726);
+    box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5);
+}
+
+@keyframes badge-glow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes live-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* تحسينات احترافية للهواتف المحمولة */
+@media (max-width: 768px) {
+    .icons-bar {
+        padding: 16px 0;
+        background-size: 300% 300%;
+    }
+    
+    .icon-item {
+        margin: 0 6px;
+        padding: 0.75rem;
+        border-radius: 20px;
+    }
+    
+    .icon-item .w-12,
+    .icon-item .w-16 {
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 18px;
+    }
+    
+    .icon-item .text-xs {
+        font-size: 11px;
+        font-weight: 600;
+    }
+    
+    .icon-item .text-lg {
+        font-size: 20px !important;
+    }
+    
+    /* تأثير اللمس المحسن للهواتف */
+    .icon-item:active {
+        transform: scale(0.92) translateY(-2px);
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .icon-item:active .w-12,
+    .icon-item:active .w-16 {
+        transform: scale(0.95);
+    }
+    
+    .notification-badge {
+        top: -6px;
+        right: -6px;
+        min-width: 20px;
+        height: 20px;
+        font-size: 10px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .icons-bar {
+        padding: 12px 0;
+    }
+    
+    .icon-item {
+        margin: 0 4px;
+        padding: 0.5rem;
+    }
+    
+    .icon-item .w-12,
+    .icon-item .w-16 {
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 16px;
+    }
+    
+    .icon-item .text-lg {
+        font-size: 18px !important;
+    }
+    
+    .icon-item .text-xs {
+        font-size: 10px;
+    }
+    
+    .notification-badge {
+        top: -4px;
+        right: -4px;
+        min-width: 18px;
+        height: 18px;
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 360px) {
+    .icon-item .w-12,
+    .icon-item .w-16 {
+        width: 44px !important;
+        height: 44px !important;
+    }
+    
+    .icon-item .text-lg {
+        font-size: 16px !important;
+    }
+    
+    .icon-item .text-xs {
+        font-size: 9px;
+    }
+}
+
+/* تأثيرات تفاعلية احترافية متقدمة */
+.icon-item:hover .fas {
+    animation: professional-bounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
+}
+
+@keyframes professional-bounce {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-4px) rotate(-2deg) scale(1.1); }
+    50% { transform: translateY(-6px) rotate(2deg) scale(1.15); }
+    75% { transform: translateY(-2px) rotate(-1deg) scale(1.05); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* تأثير الإضاءة الداخلية المتقدم */
+.icon-item .w-12::after,
+.icon-item .w-16::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.3) 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 100%);
+    opacity: 0;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(5px);
+}
+
+.icon-item:hover .w-12::after,
+.icon-item:hover .w-16::after {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* تأثير الظل الديناميكي */
+.icon-item {
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-item:hover {
+    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.25))
+            drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+/* تأثيرات النص المحسنة */
+.icon-item .text-white {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.icon-item:hover .text-white {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4),
+                 0 0 10px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* تأثير الحدود المتوهجة */
+.icon-item .w-12,
+.icon-item .w-16 {
+    position: relative;
+}
+
+.icon-item .w-12::before,
+.icon-item .w-16::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    padding: 2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.icon-item:hover .w-12::before,
+.icon-item:hover .w-16::before {
+    opacity: 1;
+    animation: border-glow 2s ease-in-out infinite;
+}
+
+@keyframes border-glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* تأثير الجسيمات المتحركة */
+.icon-item:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: particle-burst 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes particle-burst {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+/* تأثيرات الأيقونات المخصصة */
+.icon-item .fas {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* تأثير التركيز للوصولية */
+.icon-item:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* تأثير التحميل */
+.icon-item.loading .w-12,
+.icon-item.loading .w-16 {
+    animation: loading-spin 1s linear infinite;
+}
+
+@keyframes loading-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* تأثير النجاح */
+.icon-item.success {
+    animation: success-flash 0.6s ease;
+}
+
+@keyframes success-flash {
+    0% { background: rgba(34, 197, 94, 0.2); }
+    50% { background: rgba(34, 197, 94, 0.4); }
+    100% { background: transparent; }
+}
+
+/* تحسينات الأداء */
+.icon-item {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.icon-item .w-12,
+.icon-item .w-16 {
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+}
+
+/* تأثير الموضوع الداكن */
+@media (prefers-color-scheme: dark) {
+    .icons-bar {
+        background: linear-gradient(135deg, 
+            rgba(5, 5, 15, 0.98) 0%,
+            rgba(15, 15, 25, 0.98) 25%,
+            rgba(25, 25, 35, 0.98) 50%,
+            rgba(15, 15, 25, 0.98) 75%,
+            rgba(5, 5, 15, 0.98) 100%);
+    }
+    
+    .icon-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+    }
+}
+
+/* تأثير الحركة المخفضة */
+@media (prefers-reduced-motion: reduce) {
+    .icon-item,
+    .icon-item .w-12,
+    .icon-item .w-16,
+    .icon-item .fas {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .icon-item:hover {
+        transform: none;
+    }
+}

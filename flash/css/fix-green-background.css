@@ -1,0 +1,65 @@
+/* إصلاح الطبقة الخضراء التي تظهر على شاشات الحاسوب */
+
+/* إزالة الخلفية الخضراء من العنصر الرئيسي */
+.gradient-bg {
+    background: transparent !important;
+}
+
+/* إزالة الخلفية الخضراء من جميع العناصر المحتملة */
+.gradient-bg::before,
+.gradient-bg::after {
+    display: none !important;
+    background: none !important;
+}
+
+/* إصلاح خلفية القسم الرئيسي */
+section.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* إصلاح خلفية الهيرو */
+.hero-section,
+#main-content {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* إزالة أي خلفيات خضراء إضافية */
+.packages-bg,
+#pricing {
+    background: #f9fafb !important;
+}
+
+.packages-bg::before,
+.packages-bg::after,
+#pricing::before,
+#pricing::after {
+    display: none !important;
+}
+
+/* إصلاح للشاشات الكبيرة فقط */
+@media (min-width: 769px) {
+    .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    }
+    
+    .gradient-bg::before,
+    .gradient-bg::after {
+        display: none !important;
+    }
+    
+    /* إزالة أي تأثيرات خضراء */
+    .tether-package::before {
+        filter: none !important;
+    }
+    
+    .tether-package:first-child::before {
+        filter: brightness(1) saturate(1) hue-rotate(0deg) !important;
+    }
+}
+
+/* الحفاظ على التصميم للهواتف */
+@media (max-width: 768px) {
+    .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    }
+}

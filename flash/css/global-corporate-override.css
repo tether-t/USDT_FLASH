@@ -1,0 +1,245 @@
+/* تطبيق الألوان الرسمية على جميع عناصر الموقع */
+
+/* إعادة تعريف جميع الألوان الخضراء */
+* {
+    --green-50: #f8fafc !important;
+    --green-100: rgba(30, 58, 138, 0.1) !important;
+    --green-200: rgba(30, 58, 138, 0.2) !important;
+    --green-300: rgba(30, 58, 138, 0.3) !important;
+    --green-400: #1e3a8a !important;
+    --green-500: #1e3a8a !important;
+    --green-600: #1e40af !important;
+    --green-700: #1e293b !important;
+    --green-800: #1f2937 !important;
+    --green-900: #111827 !important;
+}
+
+/* تطبيق فوري على جميع العناصر الخضراء */
+[class*="bg-green"],
+[class*="text-green"],
+[class*="border-green"],
+[style*="green"] {
+    color: #1e3a8a !important;
+    background-color: #1e3a8a !important;
+    border-color: #1e3a8a !important;
+}
+
+/* الخلفيات المتدرجة */
+[style*="linear-gradient"][style*="green"] {
+    background: linear-gradient(135deg, #1e3a8a, #1e40af) !important;
+}
+
+/* الأزرار */
+button,
+.btn,
+input[type="submit"],
+input[type="button"] {
+    background: linear-gradient(45deg, #1e3a8a, #1e40af) !important;
+    border-color: #1e3a8a !important;
+    color: white !important;
+}
+
+button:hover,
+.btn:hover {
+    background: linear-gradient(45deg, #1e293b, #1e3a8a) !important;
+}
+
+/* الروابط */
+a {
+    color: #1e3a8a !important;
+}
+
+a:hover {
+    color: #1e293b !important;
+}
+
+/* العناوين */
+h1, h2, h3, h4, h5, h6 {
+    color: #1f2937 !important;
+}
+
+/* الأيقونات */
+i[class*="fa"] {
+    color: #1e3a8a !important;
+}
+
+/* الشارات */
+.badge,
+.tag,
+[class*="badge"] {
+    background: #1e3a8a !important;
+    color: white !important;
+}
+
+/* الحدود */
+[class*="border"] {
+    border-color: #e5e7eb !important;
+}
+
+/* الخلفيات */
+[class*="bg-gradient"] {
+    background: linear-gradient(135deg, #1e3a8a, #1e40af) !important;
+}
+
+/* النصوص الملونة */
+.text-success,
+.text-primary {
+    color: #1e3a8a !important;
+}
+
+/* الجداول */
+table th {
+    background: #1e3a8a !important;
+    color: white !important;
+}
+
+/* النماذج */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #1e3a8a !important;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1) !important;
+}
+
+/* الإشعارات */
+.alert-success,
+.notification-success {
+    background: rgba(30, 58, 138, 0.1) !important;
+    border-color: #1e3a8a !important;
+    color: #1e3a8a !important;
+}
+
+/* الأقسام الخاصة */
+.hero-section,
+.pricing-section,
+.features-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+}
+
+/* الهيدر والفوتر */
+header,
+footer {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%) !important;
+}
+
+/* البطاقات */
+.card {
+    border: 1px solid #e5e7eb !important;
+    background: white !important;
+}
+
+.card-header {
+    background: #1e3a8a !important;
+    color: white !important;
+}
+
+/* القوائم */
+.nav-link.active {
+    background: #1e3a8a !important;
+    color: white !important;
+}
+
+/* الأزرار الخاصة */
+.btn-outline-success {
+    border-color: #1e3a8a !important;
+    color: #1e3a8a !important;
+}
+
+.btn-outline-success:hover {
+    background: #1e3a8a !important;
+    color: white !important;
+}
+
+/* التقدم والشرائح */
+.progress-bar {
+    background: #1e3a8a !important;
+}
+
+/* الأيقونات الملونة تصبح زرقاء */
+.text-yellow-400,
+.text-orange-500,
+.text-red-500,
+.text-pink-500,
+.text-purple-500 {
+    color: #374151 !important;
+}
+
+/* الخلفيات الملونة */
+.bg-yellow-100,
+.bg-orange-100,
+.bg-red-100,
+.bg-pink-100,
+.bg-purple-100 {
+    background: rgba(30, 58, 138, 0.05) !important;
+}
+
+/* النصوص الملونة */
+.text-yellow-800,
+.text-orange-800,
+.text-red-800,
+.text-pink-800,
+.text-purple-800 {
+    color: #1e3a8a !important;
+}
+
+/* تأثيرات الظلال */
+.shadow-lg,
+.shadow-xl {
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1) !important;
+}
+
+/* الحالات التفاعلية */
+.hover\:bg-green-600:hover {
+    background: #1e293b !important;
+}
+
+.focus\:ring-green-500:focus {
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1) !important;
+}
+
+/* الأزرار المتخصصة */
+.package-btn,
+.payment-btn,
+.submit-btn {
+    background: linear-gradient(45deg, #1e3a8a, #1e40af) !important;
+    border: none !important;
+    color: white !important;
+}
+
+/* الشارات المتحركة */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* تحديث خاص للعناصر المهمة */
+.tether-official-icon,
+.security-icon,
+.verified-icon {
+    color: #1e3a8a !important;
+}
+
+/* الخلفيات الشفافة */
+.bg-opacity-10 {
+    background: rgba(30, 58, 138, 0.1) !important;
+}
+
+.bg-opacity-20 {
+    background: rgba(30, 58, 138, 0.2) !important;
+}
+
+/* النصوص المتدرجة */
+.gradient-text {
+    background: linear-gradient(45deg, #1e3a8a, #1e40af, #2563eb) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
