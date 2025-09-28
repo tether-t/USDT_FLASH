@@ -1,0 +1,157 @@
+/* ألوان Tether الرسمية */
+
+:root {
+    --tether-green: #26a17b;
+    --tether-dark-green: #1a8462;
+    --tether-light-green: #2ecc71;
+    --tether-white: #ffffff;
+    --tether-black: #000000;
+    --tether-gray: #2c3e50;
+    --tether-light-gray: #ecf0f1;
+}
+
+/* الهيدر بألوان Tether الرسمية */
+header {
+    background: linear-gradient(135deg, var(--tether-green) 0%, var(--tether-dark-green) 100%) !important;
+}
+
+/* جميع الأزرار بلون Tether الأخضر */
+button,
+.btn,
+input[type="submit"],
+input[type="button"],
+.package-btn,
+.tether-action-button {
+    background: linear-gradient(45deg, var(--tether-green), var(--tether-dark-green)) !important;
+    border-color: var(--tether-green) !important;
+    color: white !important;
+}
+
+button:hover,
+.btn:hover {
+    background: linear-gradient(45deg, var(--tether-dark-green), #0e4b36) !important;
+}
+
+/* أزرار الباقات بألوان Tether متدرجة */
+.package-card:nth-child(1) button {
+    background: linear-gradient(45deg, var(--tether-green), var(--tether-dark-green)) !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+}
+
+.package-card:nth-child(2) button {
+    background: linear-gradient(45deg, var(--tether-light-green), var(--tether-green)) !important;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3) !important;
+}
+
+.package-card:nth-child(3) button {
+    background: linear-gradient(45deg, var(--tether-dark-green), #0e4b36) !important;
+    box-shadow: 0 4px 15px rgba(26, 132, 98, 0.3) !important;
+}
+
+/* الخلفيات الرئيسية */
+#main-content {
+    background: linear-gradient(135deg, var(--tether-green) 0%, var(--tether-dark-green) 25%, var(--tether-light-green) 50%, var(--tether-green) 75%, var(--tether-dark-green) 100%) !important;
+}
+
+#pricing {
+    background: linear-gradient(135deg, var(--tether-light-gray) 0%, var(--tether-white) 50%, var(--tether-light-gray) 100%) !important;
+}
+
+/* النصوص والأيقونات */
+.text-green-500,
+.text-green-600,
+i[class*="text-green"] {
+    color: var(--tether-green) !important;
+}
+
+/* الشارات الرسمية */
+.badge,
+.bg-green-100 {
+    background-color: rgba(38, 161, 123, 0.1) !important;
+    color: var(--tether-green) !important;
+}
+
+/* الروابط */
+a {
+    color: var(--tether-green) !important;
+}
+
+a:hover {
+    color: var(--tether-dark-green) !important;
+}
+
+/* الحدود */
+.border-green-200,
+.border-green-300 {
+    border-color: rgba(38, 161, 123, 0.3) !important;
+}
+
+/* الخلفيات الشفافة */
+.bg-green-50 {
+    background-color: rgba(38, 161, 123, 0.05) !important;
+}
+
+/* التدرجات */
+.bg-gradient-to-r.from-green-500.to-blue-600,
+.bg-gradient-to-r.from-green-600.to-blue-600 {
+    background: linear-gradient(to right, var(--tether-green), var(--tether-dark-green)) !important;
+}
+
+/* الأيقونات */
+.fas {
+    color: var(--tether-green) !important;
+}
+
+/* العدادات */
+.counter {
+    color: var(--tether-green) !important;
+}
+
+/* الشهادات في قسم الباقات */
+.bg-blue-100 {
+    background-color: rgba(38, 161, 123, 0.1) !important;
+}
+
+.text-blue-800 {
+    color: var(--tether-green) !important;
+}
+
+/* النصوص في قسم الباقات */
+.text-gray-900 {
+    color: var(--tether-gray) !important;
+}
+
+.text-gray-700 {
+    color: var(--tether-gray) !important;
+}
+
+/* إعادة تعيين الألوان المحايدة */
+* {
+    --green-500: var(--tether-green) !important;
+    --green-600: var(--tether-dark-green) !important;
+    --green-400: var(--tether-light-green) !important;
+}
+
+/* الخلفيات المتدرجة الخاصة */
+[style*="linear-gradient"][style*="green"] {
+    background: linear-gradient(135deg, var(--tether-green), var(--tether-dark-green)) !important;
+}
+
+/* التأثيرات الخاصة */
+.shadow-lg,
+.shadow-xl {
+    box-shadow: 0 10px 25px rgba(38, 161, 123, 0.15) !important;
+}
+
+/* الهوفر للعناصر التفاعلية */
+.hover\:bg-green-600:hover {
+    background: var(--tether-dark-green) !important;
+}
+
+/* الفوكس للنماذج */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--tether-green) !important;
+    box-shadow: 0 0 0 3px rgba(38, 161, 123, 0.1) !important;
+}

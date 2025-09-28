@@ -1,0 +1,184 @@
+/* Package Buttons Fix - إصلاح مظهر أزرار الباقات */
+
+/* تأكيد ألوان الأزرار حسب نوع الباقة */
+.package-card:nth-child(1) button,
+.package-card:nth-child(1) .tether-action-button,
+.package-card:nth-child(1) .package-btn {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border-color: #10b981 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+.package-card:nth-child(2) button,
+.package-card:nth-child(2) .tether-action-button,
+.package-card:nth-child(2) .package-btn {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border-color: #3b82f6 !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+.package-card:nth-child(3) button,
+.package-card:nth-child(3) .tether-action-button,
+.package-card:nth-child(3) .package-btn {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border-color: #7c3aed !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* تأثيرات التمرير */
+.package-card:nth-child(1) button:hover,
+.package-card:nth-child(1) .tether-action-button:hover,
+.package-card:nth-child(1) .package-btn:hover {
+    background: linear-gradient(45deg, #059669, #047857) !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+.package-card:nth-child(2) button:hover,
+.package-card:nth-child(2) .tether-action-button:hover,
+.package-card:nth-child(2) .package-btn:hover {
+    background: linear-gradient(45deg, #2563eb, #1d4ed8) !important;
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+.package-card:nth-child(3) button:hover,
+.package-card:nth-child(3) .tether-action-button:hover,
+.package-card:nth-child(3) .package-btn:hover {
+    background: linear-gradient(45deg, #5b21b6, #4c1d95) !important;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4) !important;
+    transform: translateY(-2px);
+}
+
+/* تأكيد أن الأزرار قابلة للنقر */
+.package-card button,
+.package-card .tether-action-button,
+.package-card .package-btn,
+.tether-package button,
+.tether-package .tether-action-button {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* تأثير النقر */
+.package-card button:active,
+.package-card .tether-action-button:active,
+.package-card .package-btn:active,
+.tether-package button:active,
+.tether-package .tether-action-button:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* تأكيد أن البطاقات قابلة للنقر */
+.package-card,
+.tether-package {
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.package-card:hover,
+.tether-package:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* إزالة أي تأثيرات تعطيل */
+.package-card.disabled,
+.package-card[disabled],
+.tether-package.disabled,
+.tether-package[disabled] {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+.package-card button.disabled,
+.package-card button[disabled],
+.package-card .tether-action-button.disabled,
+.package-card .tether-action-button[disabled],
+.package-card .package-btn.disabled,
+.package-card .package-btn[disabled] {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* تأكيد الألوان للباقات المحددة */
+[data-package="basic"] button,
+[data-package="basic"] .tether-action-button {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+}
+
+[data-package="pro"] button,
+[data-package="pro"] .tether-action-button {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+}
+
+[data-package="enterprise"] button,
+[data-package="enterprise"] .tether-action-button,
+[data-package="professional"] button,
+[data-package="professional"] .tether-action-button {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+}
+
+/* تحسين النصوص */
+.package-card button span,
+.package-card .tether-action-button span,
+.package-card .package-btn span {
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* تأثير التحميل */
+.package-card button.loading,
+.package-card .tether-action-button.loading,
+.package-card .package-btn.loading {
+    background: linear-gradient(45deg, #fbbf24, #f59e0b) !important;
+    color: #000 !important;
+}
+
+.package-card button.success,
+.package-card .tether-action-button.success,
+.package-card .package-btn.success {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    color: white !important;
+}
+
+/* تأكيد الرؤية */
+.package-card,
+.tether-package {
+    visibility: visible !important;
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* إزالة أي overlay أو mask */
+.package-card::before,
+.package-card::after,
+.tether-package::before,
+.tether-package::after {
+    display: none !important;
+}
+
+/* تأكيد z-index */
+.package-card button,
+.package-card .tether-action-button,
+.package-card .package-btn,
+.tether-package button,
+.tether-package .tether-action-button {
+    position: relative !important;
+    z-index: 10 !important;
+}

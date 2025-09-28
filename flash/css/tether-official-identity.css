@@ -1,0 +1,132 @@
+/* هوية شركة Tether الرسمية */
+
+:root {
+    --tether-green: #26A17B;
+    --tether-dark-green: #1A8462;
+    --tether-light-green: #53C1A0;
+    --tether-blue: #2775CA;
+    --tether-dark-blue: #1e5aa8;
+}
+
+/* الهيدر الرئيسي - ألوان Tether */
+.gradient-bg {
+    background: linear-gradient(135deg, var(--tether-green) 0%, var(--tether-dark-green) 100%) !important;
+}
+
+/* شريط Tether الرسمي */
+.tether-official-header {
+    background: linear-gradient(135deg, var(--tether-blue) 0%, var(--tether-dark-blue) 100%) !important;
+}
+
+/* الأزرار الرئيسية */
+.bg-green-500,
+.btn-success,
+button[class*="green"] {
+    background: linear-gradient(45deg, var(--tether-green), var(--tether-dark-green)) !important;
+    border-color: var(--tether-green) !important;
+}
+
+.bg-green-500:hover,
+.btn-success:hover,
+button[class*="green"]:hover {
+    background: linear-gradient(45deg, var(--tether-dark-green), #0E4B36) !important;
+}
+
+/* النصوص الخضراء */
+.text-green-400,
+.text-green-500,
+.text-green-600,
+.text-green-700 {
+    color: var(--tether-green) !important;
+}
+
+/* الأيقونات */
+.tether-icon,
+.fas.text-green-500,
+.fas.text-green-600 {
+    color: var(--tether-green) !important;
+}
+
+/* الشارات والبادجات */
+.badge-verified {
+    background: linear-gradient(135deg, var(--tether-green), var(--tether-dark-green)) !important;
+}
+
+.badge-secure {
+    background: linear-gradient(135deg, var(--tether-blue), var(--tether-dark-blue)) !important;
+}
+
+/* الروابط */
+.tether-link,
+a[href*="tether"] {
+    color: var(--tether-green) !important;
+}
+
+.tether-link:hover,
+a[href*="tether"]:hover {
+    color: var(--tether-dark-green) !important;
+}
+
+/* العدادات والإحصائيات */
+.counter,
+.stat-number {
+    color: var(--tether-green) !important;
+}
+
+/* الحدود */
+.border-green-200,
+.border-green-300 {
+    border-color: var(--tether-light-green) !important;
+}
+
+/* الخلفيات الفاتحة */
+.bg-green-50,
+.bg-green-100 {
+    background-color: rgba(38, 161, 123, 0.1) !important;
+}
+
+/* أزرار الباقات - الحفاظ على الألوان المميزة */
+.package-card:nth-child(1) button {
+    background: linear-gradient(45deg, var(--tether-green), var(--tether-dark-green)) !important;
+}
+
+/* التذييل */
+footer .text-green-500,
+footer .text-green-400 {
+    color: var(--tether-green) !important;
+}
+
+/* شريط الأمان */
+.security-bar {
+    background: rgba(38, 161, 123, 0.95) !important;
+}
+
+/* مؤشر الأمان */
+.security-pulse {
+    background-color: var(--tether-green) !important;
+}
+
+/* الشارات الرسمية */
+.tether-badge,
+.verified-badge {
+    background: var(--tether-green) !important;
+}
+
+/* العناوين المهمة */
+.tether-heading::after {
+    background-color: var(--tether-green) !important;
+}
+
+/* الجداول */
+.tether-table th {
+    background-color: var(--tether-green) !important;
+}
+
+/* الأزرار الثانوية */
+.tether-button {
+    background-color: var(--tether-green) !important;
+}
+
+.tether-button:hover {
+    background-color: var(--tether-dark-green) !important;
+}
