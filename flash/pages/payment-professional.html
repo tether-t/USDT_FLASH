@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دفع البطاقة الاحترافية - $399 | Tether USDT</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Loading Modal */
+        .loading-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #374151;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Official Tether Header -->
+    <header class="bg-gray-900 border-b border-green-600 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="40" height="40" class="mr-3">
+                    <div>
+                        <h1 class="text-xl font-bold text-white">Tether Limited</h1>
+                        <p class="text-green-400 text-xs">Official USDT Financial Services</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div class="flex items-center text-green-400 text-sm">
+                        <i class="fas fa-shield-check mr-1"></i>
+                        <span>Regulated</span>
+                    </div>
+                    <div class="flex items-center text-green-400 text-sm">
+                        <i class="fas fa-certificate mr-1"></i>
+                        <span>ISO Certified</span>
+                    </div>
+                    <a href="payment-professional-en.html" class="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                        <i class="fas fa-globe mr-1"></i>
+                        <span class="text-sm">EN</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Payment Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="bg-white rounded-2xl shadow-2xl p-8">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-briefcase text-blue-600 text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">💳 Complete Payment - Professional Package</h2>
+                    <p class="text-gray-600">Enterprise Level</p>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl p-6 text-white mb-8">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-xl font-bold">Total Amount</h3>
+                            <p class="text-blue-200">One-time payment</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-4xl font-bold">$399</div>
+                            <div class="text-blue-200">USD</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <h4 class="font-bold text-blue-800 mb-2">Professional Benefits:</h4>
+                        <ul class="text-blue-700 space-y-1">
+                            <li>• 10,000 USDT Flash instantly</li>
+                            <li>• Instant withdrawal via Binance</li>
+                            <li>• Direct withdrawal via ByBit</li>
+                            <li>• 15x profit multiplier</li>
+                            <li>• Enterprise access to offers</li>
+                            <li>• Dedicated account manager</li>
+                            <li>• Custom investment strategies</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                        <h4 class="font-bold text-gray-800 mb-4 text-center">
+                            <i class="fas fa-wallet mr-2"></i>Pay with USDT (TRC20)
+                        </h4>
+                        
+                        <div class="text-center mb-4">
+                            <img src="../img/RC20.jpg" alt="USDT TRC20 QR Code" class="mx-auto rounded-lg shadow-md" style="max-width: 200px;">
+                        </div>
+                        
+                        <div class="bg-white border-2 border-blue-500 rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-600 mb-2 text-center">TRC20 Address:</p>
+                            <div class="font-mono text-center bg-gray-100 p-3 rounded border" id="wallet-address">
+                                TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP
+                            </div>
+                            <button onclick="copyAddress()" class="w-full mt-3 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-copy mr-2"></i>Copy Address
+                            </button>
+                        </div>
+                        
+                        <div class="text-center text-sm text-gray-600">
+                            <p><strong>Amount:</strong> 399 USDT</p>
+                            <p><strong>Network:</strong> Tron (TRC20)</p>
+                        </div>
+                    </div>
+
+                    <button onclick="showPaymentAlert()" class="w-full bg-yellow-500 text-white py-3 px-4 rounded-lg font-bold hover:bg-yellow-600 transition-colors mb-6">
+                        <i class="fas fa-clock mr-2"></i>
+                        بعد الدفع سيتم تفعيل بطاقتك خلال 60 ثانية
+                    </button>
+                    
+                    <div class="bg-white border border-gray-300 rounded-lg p-4">
+                        <label class="block text-sm font-bold mb-2 text-gray-700">Transaction ID (Hash) - TXID:</label>
+                        <input type="text" id="txId" class="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none" placeholder="Enter your TRC20 transaction hash" required>
+                        <button onclick="verifyPayment()" class="w-full mt-3 bg-green-600 text-white py-3 px-4 rounded-lg font-bold hover:bg-green-700 transition-colors">
+                            <i class="fas fa-check mr-2"></i>Verify Payment
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Professional Modal -->
+                <div id="paymentModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+                    <div class="bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl transform transition-all">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-info-circle text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Payment Required</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                يجب عليك الدفع أولاً لتفعيل البطاقة.<br><br>
+                                <strong class="text-blue-600">طمأنينة:</strong> في حالة الدفع سيتم تفعيل بطاقتك خلال 24 ساعة.
+                            </p>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                                <div class="text-sm text-blue-800">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-arrow-right text-blue-600 mr-2"></i>
+                                        <span>ادفع 399 USDT للعنوان أعلاه</span>
+                                    </div>
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-arrow-right text-blue-600 mr-2"></i>
+                                        <span>أدخل معرف المعاملة</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-arrow-right text-blue-600 mr-2"></i>
+                                        <span>اضغط "Verify Payment"</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="closeModal()" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                                <i class="fas fa-check mr-2"></i>فهمت
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                function showModal() {
+                    document.getElementById('paymentModal').classList.remove('hidden');
+                }
+                
+                function closeModal() {
+                    document.getElementById('paymentModal').classList.add('hidden');
+                }
+                
+                function copyAddress() {
+                    showModal();
+                }
+                
+                function showPaymentAlert() {
+                    showModal();
+                }
+                
+                function verifyPayment() {
+                    const txId = document.getElementById('txId').value.trim();
+                    if (!txId) {
+                        alert('⚠️ Please enter a transaction ID first');
+                        return;
+                    }
+                    document.getElementById('loadingModal').style.display = 'flex';
+                    setTimeout(() => {
+                        window.location.href = 'account-info.html';
+                    }, 15000);
+                }
+                </script>
+
+                <div class="mt-8 text-center text-sm text-gray-500">
+                    <p>🔒 Secured by 256-bit SSL encryption</p>
+                    <p>💳 All major payment methods accepted</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="loading-modal">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3 class="text-xl font-bold mb-2">Processing Payment...</h3>
+            <p class="text-gray-600">Please wait while we verify your transaction</p>
+        </div>
+    </div>
+
+</body>
+</html>

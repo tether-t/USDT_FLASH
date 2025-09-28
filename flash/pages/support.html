@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Support - USDT FLASH</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Support Page Styles -->
+    <link rel="stylesheet" href="../css/support.css">
+    <link rel="stylesheet" href="../css/tether-official-colors.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .logo-glow {
+            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.3));
+            transition: all 0.3s ease;
+        }
+        
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.5));
+            transform: scale(1.05);
+        }
+        
+        .upload-area {
+            border: 2px dashed #cbd5e0;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #10b981;
+            background-color: #f0fdf4;
+        }
+        
+        .upload-area.dragover {
+            border-color: #059669;
+            background-color: #ecfdf5;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .success-animation {
+            animation: successPulse 2s ease-in-out;
+        }
+        
+        @keyframes successPulse {
+            0% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+    <div id="page-content">
+    <!-- Header -->
+    <header class="gradient-bg shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="flex items-center bg-white bg-opacity-20 rounded-xl p-3 glass-effect hover:bg-opacity-30 transition-all duration-300 group cursor-pointer">
+                        <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT FLASH Logo" class="h-10 w-10 mr-3 logo-glow group-hover:scale-110 transition-transform">
+                        <div class="text-white">
+                            <h1 class="text-xl font-bold group-hover:text-green-200 transition-colors">USDT-FLASH</h1>
+                            <div class="flex items-center text-xs opacity-90">
+                                <i class="fas fa-check-circle mr-1 text-green-300"></i>
+                                <span>Official Partner</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <div class="hidden lg:block w-px h-12 bg-white bg-opacity-30"></div>
+                    
+                    <!-- Support Section -->
+                    <div class="flex items-center space-x-3">
+                        <div class="glass-effect rounded-full p-3 animate-pulse">
+                            <i class="fas fa-headset text-white text-2xl"></i>
+                        </div>
+                        <div class="text-white">
+                            <h2 class="text-xl md:text-2xl font-bold" data-translate="header_title">Technical Support</h2>
+                            <p class="text-sm opacity-90" data-translate="header_subtitle">We're here to help you</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="flex items-center">
+                    <a href="../index.html" class="glass-effect hover:bg-white hover:bg-opacity-30 text-white px-3 md:px-4 py-2 rounded-lg transition-all duration-300 flex items-center group">
+                        <i class="fas fa-home text-lg mr-2 group-hover:scale-110 transition-transform"></i>
+                        <span class="hidden md:inline" data-translate="back_to_home">Back to Home</span>
+                    </a>
+                    
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Official Verification Banner -->
+            <div class="bg-white border-l-4 border-blue-600 rounded-lg shadow-lg p-6 mb-8 fade-in">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="Tether" class="h-12 w-12 mr-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">🏦 Official Tether Operations Limited Support</h3>
+                            <p class="text-sm text-gray-600">Licensed & Regulated • SSL Secured • 24/7 Monitoring</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold mb-1">
+                            ✓ VERIFIED
+                        </div>
+                        <div class="text-xs text-gray-500">License: TOL-2024-847</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 fade-in">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border border-gray-200">
+                    <div class="text-blue-600 mb-3">
+                        <i class="fas fa-clock text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2" data-translate="stats_response_time">Response Time</h3>
+                    <p class="text-2xl font-bold text-blue-600" data-translate="stats_response_time_value">< 24 Hours</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border border-gray-200">
+                    <div class="text-blue-600 mb-3">
+                        <i class="fas fa-users text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2" data-translate="stats_customers_served">Customers Served</h3>
+                    <p class="text-2xl font-bold text-blue-600" data-translate="stats_customers_served_value">847,000+</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border border-gray-200">
+                    <div class="text-blue-600 mb-3">
+                        <i class="fas fa-star text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2" data-translate="stats_satisfaction_rate">Satisfaction Rate</h3>
+                    <p class="text-2xl font-bold text-blue-600" data-translate="stats_satisfaction_rate_value">99.9%</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 text-center border border-gray-200">
+                    <div class="text-blue-600 mb-3">
+                        <i class="fas fa-shield-check text-3xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Security Level</h3>
+                    <p class="text-2xl font-bold text-blue-600">Bank Grade</p>
+                </div>
+            </div>
+
+            <!-- Support Form -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden fade-in">
+                <!-- Form Header -->
+                <div class="gradient-bg px-8 py-6">
+                    <h2 class="text-2xl font-bold text-white flex items-center" data-translate="form_header_title">
+                        <i class="fas fa-envelope mr-3"></i>
+                        Submit Support Request
+                    </h2>
+                    <p class="text-white opacity-90 mt-2 mb-4">
+                        <span data-translate="form_header_subtitle">Fill out the form below and we'll get back to you as soon as possible</span>
+                    </p>
+                    
+
+                </div>
+
+                <!-- Form Body -->
+                <div class="p-8">
+                    <form id="supportForm" class="space-y-6">
+                        <!-- Personal Information -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-user mr-2 text-blue-600"></i>
+                                    <span data-translate="form_full_name">Full Name *</span>
+                                </label>
+                                <input type="text" id="fullName" name="fullName" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                                    placeholder="Enter your full name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                    <i class="fas fa-envelope mr-2 text-blue-600"></i>
+                                    <span data-translate="form_email">Email Address *</span>
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all"
+                                    placeholder="example@email.com">
+                            </div>
+                        </div>
+
+                        <!-- Issue Category -->
+                        <div>
+                            <label for="category" class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-tags mr-2 text-blue-600"></i>
+                                <span data-translate="form_issue_type">Issue Type *</span>
+                            </label>
+                            <select id="category" name="category" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all">
+                                <option value="" data-translate="form_issue_type_select">Select issue type</option>
+                                <option value="payment" data-translate="form_issue_type_payment">Payment & Purchase Issues</option>
+                                <option value="wallet" data-translate="form_issue_type_wallet">Wallet & Transfer Issues</option>
+                                <option value="account" data-translate="form_issue_type_account">Account Issues</option>
+                                <option value="technical" data-translate="form_issue_type_technical">Technical Issues</option>
+                                <option value="trading" data-translate="form_issue_type_trading">Trading Inquiries</option>
+                                <option value="other" data-translate="form_issue_type_other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Issue Priority -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-3">
+                                <i class="fas fa-exclamation-triangle mr-2 text-orange-500"></i>
+                                <span data-translate="form_priority">Issue Priority *</span>
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                                <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="priority" value="low" required class="mr-3">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-medium" data-translate="form_priority_low">Low</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="priority" value="medium" required class="mr-3">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-medium" data-translate="form_priority_medium">Medium</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                                    <input type="radio" name="priority" value="high" required class="mr-3">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                        <span class="text-sm font-medium" data-translate="form_priority_high">High</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Issue Description -->
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-comment-alt mr-2 text-blue-600"></i>
+                                <span data-translate="form_description">Detailed Issue Description *</span>
+                            </label>
+                            <textarea id="description" name="description" rows="6" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none"
+                                placeholder="Describe your issue in detail... The more detailed your description, the better we can assist you"></textarea>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-sm text-gray-500" data-translate="form_min_chars">Minimum: 20 characters</span>
+                                <span id="charCount" class="text-sm text-gray-400">0 characters</span>
+                            </div>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">
+                                <i class="fas fa-paperclip mr-2 text-blue-600"></i>
+                                <span data-translate="form_attach_file">Attach Image or File (Optional)</span>
+                            </label>
+                            <div id="uploadArea" class="upload-area rounded-lg p-8 text-center cursor-pointer">
+                                <div id="uploadContent">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                                    <p class="text-lg font-medium text-gray-600 mb-2" data-translate="form_upload_prompt">Drag file here or click to select</p>
+                                    <p class="text-sm text-gray-500" data-translate="form_upload_types">PNG, JPG, GIF, PDF up to 10MB</p>
+                                </div>
+                                <input type="file" id="fileUpload" name="attachment" accept="image/*,.pdf" class="hidden">
+                            </div>
+                            <div id="filePreview" class="hidden mt-4"></div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-4">
+                            <button type="submit" id="submitBtn" 
+                                class="w-full btn-primary text-white py-4 px-6 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Submit Support Request
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-12 bg-white rounded-xl shadow-xl overflow-hidden fade-in">
+                <div class="gradient-bg px-8 py-4">
+                    <h3 class="text-xl font-bold text-white flex items-center" data-translate="faq_title">
+                        <i class="fas fa-question-circle mr-3"></i>
+                        Frequently Asked Questions
+                    </h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq1_q">How long does it take to respond to a support request?</h4>
+                            <p class="text-gray-600 text-sm" data-translate="faq1_a">We respond to all requests within 24 hours maximum. For urgent requests, we may respond within a few hours.</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq2_q">What file types are supported?</h4>
+                            <p class="text-gray-600 text-sm" data-translate="faq2_a">You can upload images (PNG, JPG, GIF) and PDF files with a maximum size of 10MB per file.</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq3_q">Can I track the status of my request?</h4>
+                            <p class="text-gray-600 text-sm" data-translate="faq3_a">We'll send you an email notification once we receive your request, and we'll keep you updated on your request status.</p>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-translate="faq4_q">Is the trial package available?</h4>
+                            <p class="text-gray-600 text-sm mb-2" data-translate="faq4_a">Important notice for all trial package subscribers! Demand for the package has exceeded all expectations. To ensure you receive your USDT FLASH without any delay, please use this exclusive link for instant collection.</p>
+                            <a href="../pages/payment-reclaim.html" class="inline-block w-full btn-primary text-white text-center py-3 px-4 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all">
+                                <i class="fas fa-money-bill-wave mr-2"></i>
+                                <span data-translate="faq4_button"><strong>Reclaim Your Funds!</strong> Get 4000 USDT FLASH for only <strong>$50</strong></span>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- User Comments Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
+                    <i class="fas fa-comments mr-3 text-green-500"></i>
+                    Customer Feedback on Fund Recovery Service
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Comment 1 - Algerian -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-green-500">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                م
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">محمد بن علي</h4>
+                                <p class="text-sm text-gray-500">الجزائر</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4" dir="rtl">
+                            "والله راني فرحان بزاف! كانت عندي مشكلة مع الباقة التجريبية وما قدرتش نسترجع فلوسي. بصح الدعم الفني ساعدني ونصحني بالخدمة هذي 'Reclaim Your Funds' وحصلت على 4000 USDT FLASH بـ 75$ برك. خدمة ممتازة وناس ثقة!"
+                        </p>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
+                        </div>
+                    </div>
+
+                    <!-- Comment 2 - Egyptian -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                أ
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">أحمد محمود</h4>
+                                <p class="text-sm text-gray-500">القاهرة، مصر</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4" dir="rtl">
+                            "بجد الدعم الفني هنا محترم جداً! كان عندي مشكلة في الباقة التجريبية وفلوسي راحت، بس لما كلمتهم قالولي على الخدمة دي وفعلاً حصلت على 4000 USDT FLASH بـ 75 دولار بس. ربنا يبارك فيكم والله!"
+                        </p>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ml-2 text-gray-600 text-sm">4/5</span>
+                        </div>
+                    </div>
+
+                    <!-- Comment 3 - Algerian -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                ف
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">فاطمة بن عيسى</h4>
+                                <p class="text-sm text-gray-500">وهران، الجزائر</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4" dir="rtl">
+                            "صراحة كنت خايفة نخسر فلوسي، بصح الدعم الفني هنا ناس كرام وساعدوني بزاف. قالولي على الـ Fund Recovery وحصلت على 4000 USDT FLASH بـ 75$ برك. نصيحتي لكل واحد عندو مشكلة يتصل بيهم!"
+                        </p>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-gray-600 text-sm">5/5</span>
+                        </div>
+                    </div>
+
+                    <!-- Comment 4 - Egyptian -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                س
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">سارة أحمد</h4>
+                                <p class="text-sm text-gray-500">الإسكندرية، مصر</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4" dir="rtl">
+                            "الحمد لله! كان عندي مشكلة كبيرة مع الباقة التجريبية ومكنتش عارفة أعمل إيه. بس الدعم الفني هنا ساعدني جداً ونصحني بخدمة استرداد الأموال. دفعت 75 دولار وحصلت على 4000 USDT FLASH. شكراً جزيلاً!"
+                        </p>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
+                        </div>
+                    </div>
+
+                    <!-- Comment 5 - English -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-teal-500">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                J
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">James Wilson</h4>
+                                <p class="text-sm text-gray-500">London, UK</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">
+                            "I had issues with the trial package and thought I lost my money. But the technical support team was incredibly helpful and recommended the 'Reclaim Your Funds' service. For just $75, I got 4000 USDT FLASH! Outstanding customer service and quick resolution. Highly recommended!"
+                        </p>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ml-2 text-gray-600 text-sm">4/5</span>
+                        </div>
+                    </div>
+
+                    <!-- Comment 6 - English -->
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-indigo-500">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                                M
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">Maria Rodriguez</h4>
+                                <p class="text-sm text-gray-500">Madrid, Spain</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-4">
+                            "Amazing support team! I was frustrated with my trial package problems, but they guided me to the fund recovery option. Paid only $75 and received 4000 USDT FLASH immediately. The technical support here is top-notch and very professional. Thank you so much!"
+                        </p>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-2 text-gray-600 text-sm">5/5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <button id="add-review-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition transform hover:scale-105">
+                        <i class="fas fa-plus mr-2"></i>
+                        Add Your Review
+                    </button>
+                    <p class="text-gray-600 text-sm mt-4">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        These are genuine customer reviews about our fund recovery service
+                    </p>
+                </div>
+                
+                <!-- Add Review Form -->
+                <div id="review-form" class="hidden mt-8 bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Share Your Experience</h3>
+                    <form id="user-review-form">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" id="reviewer-name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter your name" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Location</label>
+                            <input type="text" id="reviewer-location" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="City, Country" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 font-medium mb-2">Rating</label>
+                            <div class="flex items-center" id="rating-stars">
+                                <i class="far fa-star text-yellow-400 text-2xl cursor-pointer hover:text-yellow-500" data-rating="1"></i>
+                                <i class="far fa-star text-yellow-400 text-2xl cursor-pointer hover:text-yellow-500" data-rating="2"></i>
+                                <i class="far fa-star text-yellow-400 text-2xl cursor-pointer hover:text-yellow-500" data-rating="3"></i>
+                                <i class="far fa-star text-yellow-400 text-2xl cursor-pointer hover:text-yellow-500" data-rating="4"></i>
+                                <i class="far fa-star text-yellow-400 text-2xl cursor-pointer hover:text-yellow-500" data-rating="5"></i>
+                                <span class="ml-2 text-gray-600" id="rating-display">0/5</span>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-medium mb-2">Your Review</label>
+                            <textarea id="review-text" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Share your experience with our fund recovery service..." required></textarea>
+                        </div>
+                        <div class="flex gap-4">
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-lg transition">
+                                Submit Review
+                            </button>
+                            <button type="button" id="cancel-review" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-lg transition">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Notice Modal -->
+    <div id="paymentNoticeModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-md sm:max-w-lg mx-auto success-animation max-h-screen overflow-y-auto">
+            <div class="text-center p-4 sm:p-6 md:p-8">
+                <div class="w-16 h-16 sm:w-20 sm:h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                    <i class="fas fa-exclamation-triangle text-red-500 text-2xl sm:text-3xl"></i>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modalTitle" class="text-xl sm:text-2xl font-bold text-gray-800">Important Payment Notice</h3>
+                    <button onclick="toggleLanguage()" class="bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-lg text-xs font-medium transition-colors">
+                        <span id="langToggle">العربية</span>
+                    </button>
+                </div>
+                <div id="modalContent" class="bg-red-50 border border-red-200 rounded-lg p-4 sm:p-6 mb-4 sm:mb-6">
+                    <p class="text-gray-700 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
+                        We sincerely apologize for any inconvenience. Please note that <strong class="text-red-600">the exact amount must be paid</strong> without any increase or decrease.
+                    </p>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                        <p class="text-blue-800 font-semibold mb-2 text-sm sm:text-base">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Security Reason:
+                        </p>
+                        <p class="text-blue-700 text-xs sm:text-sm leading-relaxed">
+                            Automated verification servers are programmed to match exact amounts for security compliance and fraud prevention. Any difference in amount will result in automatic transaction rejection.
+                        </p>
+                    </div>
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                        <p class="text-green-800 font-semibold mb-2 text-sm sm:text-base">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Service Guarantee:
+                        </p>
+                        <p class="text-green-700 text-xs sm:text-sm leading-relaxed">
+                            We assure you that if you pay the exact specified amount, <strong>you will not face any problems whatsoever</strong> and processing will be immediate.
+                        </p>
+                    </div>
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4">
+                        <p class="text-yellow-800 font-semibold mb-2 text-sm sm:text-base">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Important Note:
+                        </p>
+                        <p class="text-yellow-700 text-xs sm:text-sm leading-relaxed">
+                            <strong>The specified amount includes all fees</strong> - no additional or hidden charges.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <button onclick="closePaymentNotice()" 
+                        class="group relative w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-xl text-sm sm:text-base border border-slate-500 hover:border-slate-400">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-check mr-2 sm:mr-3 text-lg group-hover:scale-110 transition-transform"></i>
+                            <span id="btnUnderstood" class="relative z-10">Understood, Thank You</span>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 rounded-xl transition-opacity"></div>
+                    </button>
+                    <button onclick="redirectToPayment()" 
+                        class="group relative w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-sm sm:text-base border border-emerald-500 hover:border-emerald-400 shadow-lg">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-credit-card mr-2 sm:mr-3 text-lg group-hover:scale-110 transition-transform group-hover:rotate-3"></i>
+                            <span id="btnPayment" class="relative z-10">Go to Payment</span>
+                        </div>
+                        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-15 rounded-xl transition-opacity"></div>
+                        <div class="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-green-400 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-md mx-4 success-animation">
+            <div class="text-center p-8">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="success_title">Request Submitted Successfully!</h3>
+                <p class="text-gray-600 mb-6">
+                    <span data-translate="success_message">Thank you for contacting us. We will review your request and respond within 24 hours.</span>
+                </p>
+                <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                    <p class="text-sm text-blue-800">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <span data-translate="success_note">Check your email for the tracking number</span>
+                    </p>
+                </div>
+                <button onclick="closeSuccessModal()" 
+                    class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors" data-translate="success_button">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const translations = {
+            en: {
+                header_title: "Technical Support",
+                header_subtitle: "We're here to help you",
+                back_to_home: "Back to Home",
+                lang_switcher_en: "English",
+                lang_switcher_ar: "العربية",
+                stats_response_time: "Response Time",
+                stats_response_time_value: "< 24 Hours",
+                stats_customers_served: "Customers Served",
+                stats_customers_served_value: "+10,000",
+                stats_satisfaction_rate: "Satisfaction Rate",
+                stats_satisfaction_rate_value: "98%",
+                form_header_title: "Submit Support Request",
+                form_header_subtitle: "Fill out the form below and we'll get back to you as soon as possible",
+                form_email_info: "You can also email us directly at:",
+                form_copy_button: "Copy",
+                form_full_name: "Full Name *",
+                form_full_name_placeholder: "Enter your full name",
+                form_email: "Email Address *",
+                form_email_placeholder: "example@email.com",
+                form_issue_type: "Issue Type *",
+                form_issue_type_select: "Select issue type",
+                form_issue_type_payment: "Payment & Purchase Issues",
+                form_issue_type_wallet: "Wallet & Transfer Issues",
+                form_issue_type_account: "Account Issues",
+                form_issue_type_technical: "Technical Issues",
+                form_issue_type_trading: "Trading Inquiries",
+                form_issue_type_other: "Other",
+                form_priority: "Issue Priority *",
+                form_priority_low: "Low",
+                form_priority_medium: "Medium",
+                form_priority_high: "High",
+                form_description: "Detailed Issue Description *",
+                form_description_placeholder: "Describe your issue in detail... The more detailed your description, the better we can assist you",
+                form_min_chars: "Minimum: 20 characters",
+                form_char_count: "characters",
+                form_attach_file: "Attach Image or File (Optional)",
+                form_upload_prompt: "Drag file here or click to select",
+                form_upload_types: "PNG, JPG, GIF, PDF up to 10MB",
+                form_submit_button: "Submit Support Request",
+                faq_title: "Frequently Asked Questions",
+                faq1_q: "How long does it take to respond to a support request?",
+                faq1_a: "We respond to all requests within 24 hours maximum. For urgent requests, we may respond within a few hours.",
+                faq2_q: "What file types are supported?",
+                faq2_a: "You can upload images (PNG, JPG, GIF) and PDF files with a maximum size of 10MB per file.",
+                faq3_q: "Can I track the status of my request?",
+                faq3_a: "We'll send you an email notification once we receive your request, and we'll keep you updated on your request status.",
+                faq4_q: "Is the trial package available?",
+                faq4_a: "Important notice for all trial package subscribers! Demand for the package has exceeded all expectations. To ensure you receive your USDT FLASH without any delay, please use this exclusive link for instant collection.",
+                faq4_button: "<strong>Reclaim Your Funds!</strong> Get 4000 USDT FLASH for only <strong>$50</strong>",
+                faq5_q: "How can I contact you directly?",
+                faq5_a: "You can email us directly at:",
+                success_title: "Request Submitted Successfully!",
+                success_message: "Thank you for contacting us. We will review your request and respond within 24 hours.",
+                success_note: "Check your email for the tracking number",
+                success_button: "OK"
+            },
+            ar: {
+                header_title: "الدعم الفني",
+                header_subtitle: "نحن هنا لمساعدتك",
+                back_to_home: "العودة للرئيسية",
+                lang_switcher_en: "English",
+                lang_switcher_ar: "العربية",
+                stats_response_time: "وقت الاستجابة",
+                stats_response_time_value: "< 24 ساعة",
+                stats_customers_served: "العملاء الذين تمت خدمتهم",
+                stats_customers_served_value: "+10,000",
+                stats_satisfaction_rate: "معدل الرضا",
+                stats_satisfaction_rate_value: "98%",
+                form_header_title: "إرسال طلب دعم",
+                form_header_subtitle: "املأ النموذج أدناه وسنعاود الاتصال بك في أقرب وقت ممكن",
+                form_email_info: "يمكنك أيضًا مراسلتنا مباشرة على:",
+                form_copy_button: "نسخ",
+                form_full_name: "الاسم الكامل *",
+                form_full_name_placeholder: "أدخل اسمك الكامل",
+                form_email: "عنوان البريد الإلكتروني *",
+                form_email_placeholder: "example@email.com",
+                form_issue_type: "نوع المشكلة *",
+                form_issue_type_select: "اختر نوع المشكلة",
+                form_issue_type_payment: "مشاكل الدفع والشراء",
+                form_issue_type_wallet: "مشاكل المحفظة والتحويل",
+                form_issue_type_account: "مشاكل الحساب",
+                form_issue_type_technical: "مشاكل فنية",
+                form_issue_type_trading: "استفسارات التداول",
+                form_issue_type_other: "أخرى",
+                form_priority: "أولوية المشكلة *",
+                form_priority_low: "منخفضة",
+                form_priority_medium: "متوسطة",
+                form_priority_high: "عالية",
+                form_description: "وصف مفصل للمشكلة *",
+                form_description_placeholder: "صف مشكلتك بالتفصيل... كلما كان وصفك أكثر تفصيلاً، تمكنا من مساعدتك بشكل أفضل",
+                form_min_chars: "الحد الأدنى: 20 حرفًا",
+                form_char_count: "حرفًا",
+                form_attach_file: "إرفاق صورة أو ملف (اختياري)",
+                form_upload_prompt: "اسحب الملف هنا أو انقر للاختيار",
+                form_upload_types: "PNG, JPG, GIF, PDF بحجم يصل إلى 10 ميجابايت لكل ملف.",
+                form_submit_button: "إرسال طلب الدعم",
+                faq_title: "الأسئلة الشائعة",
+                faq1_q: "كم من الوقت يستغرق الرد على طلب الدعم؟",
+                faq1_a: "نرد على جميع الطلبات في غضون 24 ساعة كحد أقصى. بالنسبة للطلبات العاجلة، قد نرد في غضون ساعات قليلة.",
+                faq2_q: "ما هي أنواع الملفات المدعومة؟",
+                faq2_a: "يمكنك تحميل الصور (PNG ، JPG ، GIF) وملفات PDF بحجم أقصى 10 ميجابايت لكل ملف.",
+                faq3_q: "هل يمكنني تتبع حالة طلبي؟",
+                faq3_a: "سنرسل لك إشعارًا عبر البريد الإلكتروني بمجرد استلامنا لطلبك، وسنبقيك على اطلاع دائم بحالة طلبك.",
+                faq4_q: "هل الباقة التجريبية متاحة؟",
+                faq4_a: "إشعار هام لجميع مشتركي الباقة التجريبية! الطلب على الباقة فاق كل التوقعات. لضمان حصولكم على USDT FLASH الخاص بكم بدون أي تأخير، يرجى استخدام هذا الرابط الحصري للاستلام الفوري.",
+                faq4_button: "<strong>استرجع أموالك!</strong> احصل على 4000 USDT FLASH مقابل <strong>$50</strong> فقط",
+                faq5_q: "كيف يمكنني التواصل معكم مباشرة؟",
+                faq5_a: "يمكنك مراسلتنا مباشرة على:",
+                success_title: "تم إرسال الطلب بنجاح!",
+                success_message: "شكرًا لتواصلك معنا. سنراجع طلبك ونرد في غضون 24 ساعة.",
+                success_note: "تحقق من بريدك الإلكتروني للحصول على رقم التتبع",
+                success_button: "موافق"
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+            const langText = document.getElementById('lang-text');
+            if (langText) {
+                langText.textContent = lang === 'ar' ? translations.en.lang_switcher_en : translations.ar.lang_switcher_ar;
+            }
+            
+            localStorage.setItem('language', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setLanguage('en');
+            
+            // Show payment notice modal immediately
+            showPaymentNotice();
+            
+            // Backup - show again after 1 second
+            setTimeout(() => {
+                showPaymentNotice();
+            }, 1000);
+            
+            // Auto scroll to compensation FAQ
+            setTimeout(() => {
+                const trialFaq = document.querySelector('[data-translate="faq4_q"]').closest('.border');
+                if (trialFaq) {
+                    trialFaq.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    trialFaq.style.border = '2px solid #2563eb';
+                    trialFaq.style.backgroundColor = '#eff6ff';
+                    trialFaq.style.animation = 'pulse 2s infinite';
+                }
+            }, 8000);
+        });
+
+        function showPaymentNotice() {
+            const modal = document.getElementById('paymentNoticeModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100%';
+                modal.style.height = '100%';
+                modal.style.zIndex = '9999';
+                modal.classList.remove('hidden');
+                console.log('Payment notice modal shown');
+            } else {
+                console.log('Modal not found');
+            }
+        }
+    </script>
+    <script>
+        // Character counter for description
+        const descriptionField = document.getElementById('description');
+        const charCount = document.getElementById('charCount');
+        
+        descriptionField.addEventListener('input', function() {
+            const count = this.value.length;
+            charCount.textContent = count + ' characters';
+            
+            if (count < 20) {
+                charCount.className = 'text-sm text-red-500';
+            } else {
+                charCount.className = 'text-sm text-green-500';
+            }
+        });
+
+        // File upload handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileUpload = document.getElementById('fileUpload');
+        const filePreview = document.getElementById('filePreview');
+
+        uploadArea.addEventListener('click', () => {
+            fileUpload.click();
+        });
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        fileUpload.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            // Validate file size (10MB)
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size is too large. Maximum 10MB allowed');
+                return;
+            }
+
+            // Show file preview
+            filePreview.innerHTML = `
+                <div class="flex items-center justify-between bg-gray-50 rounded-lg p-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-file text-blue-500 text-xl ml-3"></i>
+                        <div>
+                            <p class="font-medium text-gray-800">${file.name}</p>
+                            <p class="text-sm text-gray-500">${formatFileSize(file.size)}</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="removeFile()" class="text-red-500 hover:text-red-700">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `;
+            filePreview.classList.remove('hidden');
+        }
+
+        function removeFile() {
+            fileUpload.value = '';
+            filePreview.classList.add('hidden');
+            filePreview.innerHTML = '';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Check if user has pending request
+        function checkPendingRequest() {
+            const pendingRequest = localStorage.getItem('pendingSupport');
+            if (pendingRequest) {
+                const requestData = JSON.parse(pendingRequest);
+                const now = new Date().getTime();
+                const requestTime = new Date(requestData.timestamp).getTime();
+                const hoursPassed = (now - requestTime) / (1000 * 60 * 60);
+                
+                if (hoursPassed < 24) {
+                    showPendingMessage(requestData);
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function showPendingMessage(requestData) {
+            const form = document.getElementById('supportForm');
+            form.innerHTML = `
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-clock text-yellow-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold text-yellow-800">Request Already Submitted</h3>
+                    </div>
+                    <p class="text-yellow-700 mb-4">You have already submitted a support request. Please wait for our response before submitting another request.</p>
+                    <div class="bg-white rounded-lg p-4 mb-4">
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div><strong>Ticket ID:</strong> ${requestData.ticketId}</div>
+                            <div><strong>Status:</strong> <span class="text-orange-600">In Queue</span></div>
+                            <div><strong>Submitted:</strong> ${new Date(requestData.timestamp).toLocaleString()}</div>
+                            <div><strong>Queue Position:</strong> #${requestData.queuePosition}</div>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-4 mb-4">
+                        <p class="text-blue-800 text-sm">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Your request is in the support queue. Submitting multiple requests will move you to the end of the queue.
+                        </p>
+                    </div>
+                    <button onclick="clearPendingRequest()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm">
+                        Submit New Request (This will cancel current request)
+                    </button>
+                </div>
+            `;
+        }
+        
+        function clearPendingRequest() {
+            localStorage.removeItem('pendingSupport');
+            location.reload();
+        }
+
+        // Form submission
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (checkPendingRequest()) {
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitBtn.disabled = true;
+            
+            // Generate ticket data
+            const ticketId = generateTicketNumber();
+            const queuePosition = Math.floor(Math.random() * 50) + 1;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Store pending request
+                const requestData = {
+                    ticketId: ticketId,
+                    timestamp: new Date().toISOString(),
+                    queuePosition: queuePosition,
+                    email: document.getElementById('email').value
+                };
+                localStorage.setItem('pendingSupport', JSON.stringify(requestData));
+                
+                showSuccessModal(ticketId, queuePosition);
+                
+                // Reset form
+                this.reset();
+                removeFile();
+                charCount.textContent = '0 characters';
+                charCount.className = 'text-sm text-gray-400';
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            checkPendingRequest();
+        });
+
+        function showSuccessModal(ticketId, queuePosition) {
+            const modal = document.getElementById('successModal');
+            const modalContent = modal.querySelector('.bg-white');
+            
+            modalContent.innerHTML = `
+                <div class="text-center p-8">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check text-green-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Request Submitted Successfully!</h3>
+                    <p class="text-gray-600 mb-6">
+                        Your support request has been added to our queue. We will respond within 24 hours.
+                    </p>
+                    <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div><strong>Ticket ID:</strong> ${ticketId}</div>
+                            <div><strong>Queue Position:</strong> #${queuePosition}</div>
+                        </div>
+                    </div>
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                        <p class="text-sm text-yellow-800">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            <strong>Important:</strong> You cannot submit another request until we respond to this one. Multiple requests will move you to the end of the queue.
+                        </p>
+                    </div>
+                    <button onclick="closeSuccessModal()" 
+                        class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors">
+                        OK
+                    </button>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+
+        function closePaymentNotice() {
+            const modal = document.getElementById('paymentNoticeModal');
+            modal.style.display = 'none';
+        }
+
+        function redirectToPayment() {
+            window.location.href = '../pages/payment-reclaim.html';
+        }
+
+        let isArabic = false;
+        
+        function toggleLanguage() {
+            isArabic = !isArabic;
+            
+            if (isArabic) {
+                // Arabic content
+                document.getElementById('modalTitle').textContent = 'إشعار هام للغاية';
+                document.getElementById('langToggle').textContent = 'English';
+                document.getElementById('modalContent').innerHTML = `
+                    <div class="text-right" dir="rtl">
+                        <p class="text-gray-700 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
+                            نعتذر بشدة لأي إزعاج قد تواجهه. نود إعلامكم بأنه <strong class="text-red-600">يجب دفع المبلغ المحدد بالضبط</strong> دون أي زيادة أو نقصان.
+                        </p>
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                            <p class="text-blue-800 font-semibold mb-2 text-sm sm:text-base">
+                                <i class="fas fa-shield-alt ml-2"></i>
+                                السبب الأمني:
+                            </p>
+                            <p class="text-blue-700 text-xs sm:text-sm leading-relaxed">
+                                خوادم التحقق الآلية مبرمجة لمطابقة المبالغ الدقيقة للامتثال الأمني ومكافحة الاحتيال. أي اختلاف في المبلغ سيؤدي إلى رفض المعاملة تلقائياً.
+                            </p>
+                        </div>
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                            <p class="text-green-800 font-semibold mb-2 text-sm sm:text-base">
+                                <i class="fas fa-check-circle ml-2"></i>
+                                ضمان الخدمة:
+                            </p>
+                            <p class="text-green-700 text-xs sm:text-sm leading-relaxed">
+                                نطمئنكم بأنه في حال دفع المبلغ كما هو محدد بالضبط، <strong>لن تواجهوا أي مشاكل على الإطلاق</strong> وستتم المعالجة فوراً.
+                            </p>
+                        </div>
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4">
+                            <p class="text-yellow-800 font-semibold mb-2 text-sm sm:text-base">
+                                <i class="fas fa-info-circle ml-2"></i>
+                                ملاحظة مهمة:
+                            </p>
+                            <p class="text-yellow-700 text-xs sm:text-sm leading-relaxed">
+                                <strong>المبلغ المحدد شامل جميع الرسوم</strong> - لا توجد رسوم إضافية أو مخفية.
+                            </p>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('btnUnderstood').textContent = 'فهمت، شكراً';
+                document.getElementById('btnPayment').textContent = 'الذهاب للدفع';
+            } else {
+                // English content
+                document.getElementById('modalTitle').textContent = 'Important Payment Notice';
+                document.getElementById('langToggle').textContent = 'العربية';
+                document.getElementById('modalContent').innerHTML = `
+                    <p class="text-gray-700 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
+                        We sincerely apologize for any inconvenience. Please note that <strong class="text-red-600">the exact amount must be paid</strong> without any increase or decrease.
+                    </p>
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                        <p class="text-blue-800 font-semibold mb-2 text-sm sm:text-base">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Security Reason:
+                        </p>
+                        <p class="text-blue-700 text-xs sm:text-sm leading-relaxed">
+                            Automated verification servers are programmed to match exact amounts for security compliance and fraud prevention. Any difference in amount will result in automatic transaction rejection.
+                        </p>
+                    </div>
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+                        <p class="text-green-800 font-semibold mb-2 text-sm sm:text-base">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            Service Guarantee:
+                        </p>
+                        <p class="text-green-700 text-xs sm:text-sm leading-relaxed">
+                            We assure you that if you pay the exact specified amount, <strong>you will not face any problems whatsoever</strong> and processing will be immediate.
+                        </p>
+                    </div>
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4">
+                        <p class="text-yellow-800 font-semibold mb-2 text-sm sm:text-base">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Important Note:
+                        </p>
+                        <p class="text-yellow-700 text-xs sm:text-sm leading-relaxed">
+                            <strong>The specified amount includes all fees</strong> - no additional or hidden charges.
+                        </p>
+                    </div>
+                `;
+                document.getElementById('btnUnderstood').textContent = 'Understood, Thank You';
+                document.getElementById('btnPayment').textContent = 'Go to Payment';
+            }
+        }
+
+        // Close modal on background click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSuccessModal();
+            }
+        });
+
+        // Form validation enhancement
+        const form = document.getElementById('supportForm');
+        const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', validateField);
+            input.addEventListener('input', function() {
+                if (this.classList.contains('border-red-500')) {
+                    validateField.call(this);
+                }
+            });
+        });
+        
+        function validateField() {
+            const isValid = this.checkValidity();
+            
+            if (!isValid) {
+                this.classList.add('border-red-500', 'focus:ring-red-500');
+                this.classList.remove('border-gray-300', 'focus:ring-green-500');
+            } else {
+                this.classList.remove('border-red-500', 'focus:ring-red-500');
+                this.classList.add('border-gray-300', 'focus:ring-green-500');
+            }
+        }
+
+        // Generate ticket number
+        function generateTicketNumber() {
+            const prefix = 'USDT';
+            const timestamp = Date.now().toString().slice(-6);
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `${prefix}-${timestamp}-${random}`;
+        }
+
+        // Copy email function
+        function copyEmail() {
+            const email = 'system@tether.to';
+            navigator.clipboard.writeText(email).then(() => {
+                // Show success feedback
+                const button = event.target.closest('button');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-check mr-1"></i>Copied';
+                button.classList.add('bg-green-500', 'bg-opacity-100');
+                button.classList.remove('bg-white', 'bg-opacity-30');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('bg-green-500', 'bg-opacity-100');
+                    button.classList.add('bg-white', 'bg-opacity-30');
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                alert('Email copied: ' + email);
+            });
+        }
+
+        console.log('🎫 Support page loaded successfully');
+        
+        // Review system functionality
+        let selectedRating = 0;
+        
+        document.getElementById('add-review-btn').addEventListener('click', function() {
+            document.getElementById('review-form').classList.remove('hidden');
+            this.style.display = 'none';
+        });
+        
+        document.getElementById('cancel-review').addEventListener('click', function() {
+            document.getElementById('review-form').classList.add('hidden');
+            document.getElementById('add-review-btn').style.display = 'inline-block';
+            document.getElementById('user-review-form').reset();
+            selectedRating = 0;
+            updateStarDisplay();
+        });
+        
+        // Star rating functionality
+        document.querySelectorAll('#rating-stars i').forEach(star => {
+            star.addEventListener('click', function() {
+                selectedRating = parseInt(this.getAttribute('data-rating'));
+                updateStarDisplay();
+            });
+        });
+        
+        function updateStarDisplay() {
+            const stars = document.querySelectorAll('#rating-stars i');
+            stars.forEach((star, index) => {
+                if (index < selectedRating) {
+                    star.className = 'fas fa-star text-yellow-400 text-2xl cursor-pointer';
+                } else {
+                    star.className = 'far fa-star text-yellow-400 text-2xl cursor-pointer hover:text-yellow-500';
+                }
+            });
+            document.getElementById('rating-display').textContent = selectedRating + '/5';
+        }
+        
+        // Form submission
+        document.getElementById('user-review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('reviewer-name').value;
+            const location = document.getElementById('reviewer-location').value;
+            const reviewText = document.getElementById('review-text').value;
+            
+            if (selectedRating === 0) {
+                alert('Please select a rating');
+                return;
+            }
+            
+            // Create user's review element
+            const userReview = createUserReview(name, location, reviewText, selectedRating);
+            
+            // Add to the beginning of reviews
+            const reviewsGrid = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.gap-6');
+            reviewsGrid.insertAdjacentHTML('afterbegin', userReview);
+            
+            // Hide form and show success message
+            document.getElementById('review-form').classList.add('hidden');
+            document.getElementById('add-review-btn').style.display = 'inline-block';
+            
+            // Show success message
+            alert('✅ Thank you! Your review has been submitted successfully.');
+            
+            // Reset form
+            this.reset();
+            selectedRating = 0;
+            updateStarDisplay();
+        });
+        
+        function createUserReview(name, location, reviewText, rating) {
+            const colors = ['green', 'blue', 'purple', 'orange', 'teal', 'indigo'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const initial = name.charAt(0).toUpperCase();
+            
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= rating) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                } else {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return `
+                <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-${randomColor}-500" style="animation: fadeIn 0.5s ease-out;">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-${randomColor}-500 to-${randomColor}-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            ${initial}
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-semibold text-gray-800">${name}</h4>
+                            <p class="text-sm text-gray-500">${location}</p>
+                        </div>
+                        <div class="ml-auto">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">NEW</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        "${reviewText}"
+                    </p>
+                    <div class="flex items-center text-yellow-500">
+                        ${starsHtml}
+                        <span class="ml-2 text-gray-600 text-sm">${rating}/5</span>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    </div>
+</body>
+</html>

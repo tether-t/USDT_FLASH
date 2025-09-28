@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Premium Card - USDT Flash</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .card-container {
+            perspective: 1000px;
+            width: 450px;
+            height: 280px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .activation-notice {
+            flex-shrink: 0;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            transform-origin: center center;
+        }
+        .card-container.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        .visa-card {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(75, 0, 130, 0.9) 0%, 
+                    rgba(138, 43, 226, 0.85) 25%, 
+                    rgba(148, 0, 211, 0.8) 50%, 
+                    rgba(186, 85, 211, 0.85) 75%, 
+                    rgba(123, 104, 238, 0.9) 100%
+                ),
+                radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 20, 147, 0.15) 0%, transparent 50%);
+            border: 2px solid rgba(186, 85, 211, 0.4);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.6),
+                0 12px 40px rgba(0, 31, 63, 0.4),
+                inset 0 3px 0 rgba(255, 255, 255, 0.15),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+        .visa-card.classic {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 35, 0.95) 0%, 
+                    rgba(25, 25, 45, 0.9) 25%, 
+                    rgba(35, 35, 65, 0.85) 50%, 
+                    rgba(45, 45, 85, 0.9) 75%, 
+                    rgba(25, 25, 55, 0.95) 100%
+                ),
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        .visa-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(0, 255, 255, 0.05) 50%, transparent 70%);
+            animation: holographicShine 4s ease-in-out infinite;
+            border-radius: 24px;
+        }
+        .card-content {
+            padding: 32px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        .visa-logo {
+            position: absolute;
+            top: 28px;
+            left: 28px;
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 3px;
+            text-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.3);
+            transform: skew(-8deg);
+            z-index: 10;
+        }
+        .site-branding {
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            text-align: right;
+            z-index: 10;
+        }
+        .site-logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: #26a17b;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 2px;
+            letter-spacing: 1px;
+        }
+        .site-url {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .contactless-symbol {
+            position: absolute;
+            top: 80px;
+            left: 28px;
+            width: 28px;
+            height: 28px;
+            opacity: 0.9;
+        }
+        .contactless-symbol::before,
+        .contactless-symbol::after {
+            content: '';
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            border-right: transparent;
+            border-bottom: transparent;
+            transform: rotate(45deg);
+        }
+        .contactless-symbol::before {
+            width: 14px;
+            height: 14px;
+            top: 7px;
+            left: 7px;
+        }
+        .contactless-symbol::after {
+            width: 22px;
+            height: 22px;
+            top: 3px;
+            left: 3px;
+        }
+        .card-chip {
+            width: 56px;
+            height: 42px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            border-radius: 8px;
+            border: 2px solid rgba(255, 215, 0, 0.9);
+            box-shadow: 
+                0 6px 12px rgba(0, 0, 0, 0.5),
+                inset 0 3px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .chip-circuits {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 34"><g stroke="%2300ffff" stroke-width="0.5" opacity="0.6"><path d="M4,4 L44,4 M4,8 L44,8 M4,12 L44,12 M4,16 L44,16 M4,20 L44,20 M4,24 L44,24 M4,28 L44,28"/><path d="M4,4 L4,30 M8,4 L8,30 M12,4 L12,30 M16,4 L16,30 M20,4 L20,30 M24,4 L24,30 M28,4 L28,30 M32,4 L32,30 M36,4 L36,30 M40,4 L40,30 M44,4 L44,30"/></g><text x="24" y="15" text-anchor="middle" font-size="3" fill="%23ffffff" opacity="0.9" font-weight="bold">USDT</text><text x="24" y="22" text-anchor="middle" font-size="3" fill="%23ffffff" opacity="0.9" font-weight="bold">FLASH</text></svg>') no-repeat center;
+            border-radius: 6px;
+            animation: chipAnimation 3s ease-in-out infinite;
+        }
+        .card-middle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        .card-number {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin: 24px 0;
+            text-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            text-align: center;
+        }
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+        }
+        .card-holder-label, .card-expiry-label {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .card-holder {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .card-expiry {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: right;
+        }
+        .card-back-design {
+            background: 
+                linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100%;
+            box-sizing: border-box;
+        }
+        .magnetic-strip {
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(90deg, #2a2a2a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            margin: 20px 0;
+            border-radius: 4px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .signature-panel {
+            width: 70%;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            font-size: 14px;
+            color: #333;
+            font-style: italic;
+        }
+        .cvv-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .cvv-number {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            color: #333;
+        }
+        .website-branding {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .website-logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffd700, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .website-url {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+        @keyframes holographicShine {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: translateX(-100%) rotate(45deg);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+        @keyframes chipAnimation {
+            0%, 100% { 
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+        @media (max-width: 768px) {
+            .card-container {
+                width: 100%;
+                max-width: 380px;
+                height: 240px;
+                margin: 0 auto;
+            }
+            .card-number {
+                font-size: 20px;
+                letter-spacing: 3px;
+                margin: 20px 0;
+            }
+            .visa-logo {
+                font-size: 32px;
+                top: 24px;
+                left: 24px;
+            }
+            .site-branding {
+                top: 24px;
+                right: 24px;
+            }
+            .site-logo {
+                font-size: 16px;
+            }
+            .site-url {
+                font-size: 10px;
+            }
+            .card-content {
+                padding: 24px;
+            }
+            .card-holder, .card-expiry {
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+            .card-holder-label, .card-expiry-label {
+                font-size: 9px;
+            }
+            .card-chip {
+                width: 50px;
+                height: 38px;
+            }
+            .contactless-symbol {
+                top: 85px;
+                left: 24px;
+                width: 32px;
+                height: 32px;
+            }
+            .contactless-symbol::before {
+                width: 16px;
+                height: 16px;
+                top: 8px;
+                left: 8px;
+            }
+            .contactless-symbol::after {
+                width: 24px;
+                height: 24px;
+                top: 4px;
+                left: 4px;
+            }
+            .card-back-design {
+                padding: 24px;
+                justify-content: flex-start;
+                gap: 12px;
+            }
+            .magnetic-strip {
+                height: 40px;
+                margin: 12px 0;
+                flex-shrink: 0;
+            }
+            .signature-panel {
+                height: 32px;
+                margin: 12px 0;
+                font-size: 12px;
+                flex-shrink: 0;
+            }
+            .cvv-area {
+                margin-top: 12px;
+                flex-shrink: 0;
+            }
+            .cvv-number {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+            .website-branding {
+                margin-top: 12px;
+                flex-shrink: 0;
+            }
+            .website-logo {
+                font-size: 18px;
+                margin-bottom: 4px;
+            }
+            .website-url {
+                font-size: 10px;
+            }
+            .cvv-area > div:first-child {
+                font-size: 11px;
+                line-height: 1.3;
+            }
+            .cvv-area > div:first-child p {
+                margin-bottom: 4px;
+            }
+            .activation-notice {
+                margin-top: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .card-container {
+                max-width: 340px;
+                height: 215px;
+            }
+            .card-number {
+                font-size: 18px;
+                letter-spacing: 2px;
+            }
+            .visa-logo {
+                font-size: 28px;
+                top: 20px;
+                left: 20px;
+            }
+            .site-branding {
+                top: 20px;
+                right: 20px;
+            }
+            .site-logo {
+                font-size: 14px;
+            }
+            .site-url {
+                font-size: 9px;
+            }
+            .card-content {
+                padding: 20px;
+            }
+            .card-holder, .card-expiry {
+                font-size: 12px;
+            }
+            .card-holder-label, .card-expiry-label {
+                font-size: 8px;
+            }
+            .card-chip {
+                width: 45px;
+                height: 35px;
+            }
+            .card-back-design {
+                padding: 20px;
+                gap: 8px;
+            }
+            .magnetic-strip {
+                height: 35px;
+                margin: 8px 0;
+            }
+            .signature-panel {
+                height: 28px;
+                margin: 8px 0;
+                font-size: 11px;
+                padding: 0 8px;
+            }
+            .cvv-area {
+                margin-top: 8px;
+            }
+            .cvv-number {
+                padding: 4px 10px;
+                font-size: 12px;
+            }
+            .website-branding {
+                margin-top: 8px;
+            }
+            .website-logo {
+                font-size: 16px;
+                margin-bottom: 2px;
+            }
+            .website-url {
+                font-size: 9px;
+            }
+            .cvv-area > div:first-child {
+                font-size: 10px;
+                line-height: 1.2;
+            }
+            .cvv-area > div:first-child p {
+                margin-bottom: 2px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- نافذة إدخال المعلومات -->
+    <div id="userInfoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">📝 Complete Your Card Information</h2>
+            <form id="userInfoForm">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                    <input type="text" id="fullName" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+                    <input type="date" id="birthDate" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Country</label>
+                    <select id="country" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required>
+                        <option value="">Select your country</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Canada">Canada</option>
+                        <option value="China">China</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Greece">Greece</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Iran">Iran</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Libya">Libya</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Palestine">Palestine</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Syria">Syria</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="UAE">United Arab Emirates</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="USA">United States</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Yemen">Yemen</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                    ✅ Confirm Information
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2" id="pageTitle">🎉 Congratulations! Your Premium Card is Activated</h1>
+            <p class="text-gray-600">Click on the card to see the other side</p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row justify-center items-start gap-8 mb-8">
+            <!-- البطاقة -->
+            <div class="card-container" id="userCard" onclick="flipCard()">
+                <div class="card-inner">
+                    <!-- الوجه الأمامي -->
+                    <div class="card-front visa-card" id="cardFront">
+                        <div class="card-content">
+                            <div class="contactless-symbol"></div>
+                            <div class="visa-logo">VISA</div>
+                            <div class="site-branding">
+                                <div class="site-logo">₮ TETHER</div>
+                                <div class="site-url">USDT</div>
+                            </div>
+                            <div class="card-middle">
+                                <div class="card-number">4532 1234 5678 9012</div>
+                            </div>
+                            <div class="card-bottom">
+                                <div>
+                                    <div class="card-holder-label">CARD HOLDER</div>
+                                    <div class="card-holder" id="cardHolderName">PREMIUM USER</div>
+                                </div>
+                                <div class="card-chip">
+                                    <div class="chip-circuits"></div>
+                                </div>
+                                <div>
+                                    <div class="card-expiry-label">VALID THRU</div>
+                                    <div class="card-expiry">12/29</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- الوجه الخلفي -->
+                    <div class="card-back card-back-design">
+                        <div class="magnetic-strip"></div>
+                        
+                        <div class="signature-panel">
+                            <span id="cardHolderSignature">Premium User</span>
+                        </div>
+                        
+                        <div class="cvv-area">
+                            <div class="text-white text-sm">
+                                <p>Registered to: <span id="registeredName" class="font-bold text-yellow-300">Rami Hussein Ahmed</span></p>
+                                <p>This card is valid for worldwide use</p>
+                                <p>For help: +1-800-USDT-HELP</p>
+                            </div>
+                            <div class="cvv-number">629</div>
+                        </div>
+                        
+                        <div class="website-branding">
+                            <div class="website-logo">₮ USDT FLASH</div>
+                            <div class="website-url">Authorized by Tether Limited</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- إشعار التفعيل -->
+            <div class="activation-notice">
+                <div class="bg-gradient-to-br from-green-500 via-emerald-600 to-teal-700 rounded-2xl p-6 shadow-2xl border border-green-400 relative overflow-hidden max-w-md">
+                    <!-- تأثير الإضاءة -->
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-10 animate-pulse"></div>
+                    
+                    <div class="relative z-10">
+                        <!-- أيقونة النجاح -->
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-check-circle text-white text-3xl animate-bounce"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- العنوان -->
+                        <h3 class="text-2xl font-bold text-white text-center mb-3">
+                            🎉 Your Card Created Successfully!
+                        </h3>
+                        
+                        <!-- الرسالة الرئيسية -->
+                        <div class="bg-white bg-opacity-15 rounded-xl p-4 mb-4 backdrop-blur-sm">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-clock text-yellow-300 text-xl mr-3"></i>
+                                <div class="text-white">
+                                    <div class="font-bold text-lg">Activation Time</div>
+                                    <div class="text-green-100 text-sm">24 - 72 Hours</div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-white text-sm leading-relaxed">
+                                <p class="mb-2">✅ <strong>Complete Security:</strong> Your card is safe and protected</p>
+                                <p class="mb-2">🔒 <strong>Advanced Encryption:</strong> Highest security standards</p>
+                                <p>💎 <strong>Guaranteed Quality:</strong> Exclusive VIP service</p>
+                            </div>
+                        </div>
+                        
+                        <!-- شريط التقدم -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-white text-xs mb-2">
+                                <span>Preparing...</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-white bg-opacity-20 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full animate-pulse" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- رسالة الطمأنينة -->
+                        <div class="bg-blue-500 bg-opacity-20 rounded-lg p-3 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt text-blue-300 text-lg mr-2"></i>
+                                <div class="text-white text-sm">
+                                    <strong>100% Guarantee:</strong> In case of any issue, full refund guaranteed
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- معلومات إضافية -->
+                        <div class="text-center">
+                            <div class="text-white text-xs opacity-90 mb-2">
+                                Notification will be sent upon card activation
+                            </div>
+                            <div class="flex justify-center space-x-4 text-white text-xs">
+                                <span>📧 Email</span>
+                                <span>📱 SMS</span>
+                                <span>🔔 Push Notification</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-4" id="benefitsTitle">✨ Your Premium Card Benefits</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="benefitsList">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>5,500 USDT Available Instantly</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Instant Withdrawal via Binance</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Direct Withdrawal via ByBit</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Lifetime VIP Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="editInfo()" class="bg-orange-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-700 transition-colors mr-2">
+                    <i class="fas fa-edit mr-2"></i>Edit Info
+                </button>
+                <button onclick="goToDashboard()" class="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition-colors mr-2">
+                    <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                </button>
+                <button onclick="downloadCard()" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-download mr-2"></i>Download
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function flipCard() {
+            document.getElementById('userCard').classList.toggle('flipped');
+        }
+
+        function goToDashboard() {
+            window.location.href = '../index.html';
+        }
+
+        function downloadCard() {
+            alert('Download feature will be added soon');
+        }
+        
+        function editInfo() {
+            document.getElementById('userInfoModal').style.display = 'flex';
+            // ملء الحقول بالبيانات المحفوظة
+            document.getElementById('fullName').value = localStorage.getItem('userFullName') || '';
+            document.getElementById('birthDate').value = localStorage.getItem('userBirthDate') || '';
+            document.getElementById('country').value = localStorage.getItem('userCountry') || '';
+        }
+
+        // معالجة نموذج المعلومات
+        document.getElementById('userInfoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const birthDate = document.getElementById('birthDate').value;
+            const country = document.getElementById('country').value;
+            
+            // حفظ المعلومات
+            localStorage.setItem('userFullName', fullName);
+            localStorage.setItem('userBirthDate', birthDate);
+            localStorage.setItem('userCountry', country);
+            
+            // تحديث البطاقة
+            document.getElementById('cardHolderName').textContent = fullName.toUpperCase();
+            document.getElementById('cardHolderSignature').textContent = fullName;
+            document.getElementById('registeredName').textContent = fullName;
+            
+            // إخفاء النافذة
+            document.getElementById('userInfoModal').style.display = 'none';
+        });
+
+        // استخراج اسم المستخدم من URL أو localStorage
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('name') || localStorage.getItem('userName') || 'CLASSIC USER';
+            
+            // تحديد نوع البطاقة
+            const isClassic = userName.includes('CLASSIC');
+            
+            if (isClassic) {
+                document.getElementById('pageTitle').textContent = '🎉 Congratulations! Your Classic Card is Activated';
+                document.getElementById('cardFront').classList.add('classic');
+                document.getElementById('benefitsTitle').textContent = '✨ Your Classic Card Benefits';
+                document.getElementById('benefitsList').innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>1,500 USDT Available Instantly</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Instant Withdrawal via Binance</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>Direct Withdrawal via ByBit</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>24/7 Customer Support</span>
+                    </div>
+                `;
+            }
+            
+            // تحقق من وجود معلومات محفوظة
+            const savedName = localStorage.getItem('userFullName');
+            if (savedName) {
+                document.getElementById('cardHolderName').textContent = savedName.toUpperCase();
+                document.getElementById('cardHolderSignature').textContent = savedName;
+                document.getElementById('registeredName').textContent = savedName;
+                document.getElementById('userInfoModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
