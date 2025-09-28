@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار أيقونة الملف الشخصي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/profile-icon-fix.css">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">اختبار أيقونة الملف الشخصي</h1>
+        
+        <!-- Test Profile Icon -->
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+            <h2 class="text-xl font-bold mb-4">أيقونة الملف الشخصي:</h2>
+            
+            <div class="flex justify-center">
+                <div class="pro-nav-icon">
+                    <div class="icon-wrapper profile-icon">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="icon-pulse" style="background: linear-gradient(135deg, #4facfe, #00f2fe);"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center mt-4 text-gray-600">انقر على الأيقونة أعلاه لاختبارها</p>
+        </div>
+        
+        <!-- Test Results -->
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-xl font-bold mb-4">نتائج الاختبار:</h2>
+            <div id="test-results" class="space-y-2">
+                <p class="text-gray-600">انتظار النقر على الأيقونة...</p>
+            </div>
+        </div>
+        
+        <!-- Login Status -->
+        <div class="bg-white p-8 rounded-lg shadow-lg mt-8">
+            <h2 class="text-xl font-bold mb-4">حالة تسجيل الدخول:</h2>
+            <div id="login-status" class="space-y-2">
+                <p class="text-gray-600">جاري التحقق...</p>
+            </div>
+            
+            <div class="mt-4 space-x-4">
+                <button onclick="simulateLogin()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    محاكاة تسجيل الدخول
+                </button>
+                <button onclick="simulateLogout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                    محاكاة تسجيل الخروج
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profile-icon-emergency-fix.js"></script>
+    <script>
+        // Test functions
+        function updateLoginStatus() {
+            const userData = JSON.parse(localStorage.getItem('user') || '{}');
+            const statusDiv = document.getElementById('login-status');
+            
+            if (userData.email || userData.isLoggedIn) {
+                statusDiv.innerHTML = `
+                    <p class="text-green-600">✅ المستخدم مسجل الدخول</p>
+                    <p class="text-sm text-gray-600">البريد الإلكتروني: ${userData.email || 'غير محدد'}</p>
+                    <p class="text-sm text-gray-600">الاسم: ${userData.displayName || userData.name || 'غير محدد'}</p>
+                `;
+            } else {
+                statusDiv.innerHTML = `
+                    <p class="text-red-600">❌ المستخدم غير مسجل الدخول</p>
+                `;
+            }
+        }
+        
+        function simulateLogin() {
+            const userData = {
+                email: 'test@example.com',
+                displayName: 'مستخدم تجريبي',
+                isLoggedIn: true
+            };
+            localStorage.setItem('user', JSON.stringify(userData));
+            updateLoginStatus();
+            
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML += '<p class="text-blue-600">🔄 تم محاكاة تسجيل الدخول</p>';
+        }
+        
+        function simulateLogout() {
+            localStorage.removeItem('user');
+            updateLoginStatus();
+            
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML += '<p class="text-orange-600">🔄 تم محاكاة تسجيل الخروج</p>';
+        }
+        
+        // Override the profile access function to show results
+        const originalHandleProfileAccess = window.handleProfileAccess;
+        window.handleProfileAccess = function() {
+            const resultsDiv = document.getElementById('test-results');
+            const userData = JSON.parse(localStorage.getItem('user') || '{}');
+            
+            if (userData.email || userData.isLoggedIn) {
+                resultsDiv.innerHTML += '<p class="text-green-600">✅ النقر نجح! سيتم التوجه إلى صفحة الملف الشخصي</p>';
+                setTimeout(() => {
+                    alert('سيتم التوجه إلى: pages/profile.html');
+                }, 500);
+            } else {
+                resultsDiv.innerHTML += '<p class="text-blue-600">✅ النقر نجح! سيتم التوجه إلى صفحة التسجيل</p>';
+                setTimeout(() => {
+                    alert('سيتم التوجه إلى: pages/register.html');
+                }, 500);
+            }
+        };
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLoginStatus();
+            
+            // Add click listener to track clicks
+            document.querySelector('.pro-nav-icon').addEventListener('click', function() {
+                const resultsDiv = document.getElementById('test-results');
+                resultsDiv.innerHTML += '<p class="text-purple-600">🖱️ تم النقر على الأيقونة!</p>';
+            });
+        });
+    </script>
+</body>
+</html>

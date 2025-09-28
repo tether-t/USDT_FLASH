@@ -1,0 +1,20 @@
+✅ تم حذف جميع الملفات المشبوهة:
+
+المحذوف:
+- advanced-notifications.js
+- binance-notifications.js  
+- button-protection.js
+- security-verification.js
+- trust-signals.js
+- wallet-notifications.js
+- dynamic-stats.js
+- live-activity.js
+- live-stats.js
+- notification-manager.js
+- notifications-system.js
+- firebase-config.js
+- error-handler.js
+- security.js
+- textcontent-error-fix.js
+
+النتيجة: الموقع آمن ونظيف
