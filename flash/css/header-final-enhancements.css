@@ -1,0 +1,464 @@
+/* Header Final Enhancements - Ultimate Professional Mobile Experience */
+
+/* Critical Performance Optimizations */
+.ultra-header * {
+    will-change: auto !important;
+    contain: layout style paint !important;
+}
+
+.ultra-header.loaded * {
+    will-change: transform, opacity !important;
+}
+
+/* Enhanced Glass Effect with Better Performance */
+.header-glass {
+    background: 
+        linear-gradient(135deg, 
+            rgba(15, 15, 35, 0.98) 0%, 
+            rgba(25, 25, 45, 0.96) 25%,
+            rgba(35, 35, 65, 0.98) 50%,
+            rgba(25, 25, 45, 0.96) 75%,
+            rgba(15, 15, 35, 0.98) 100%),
+        radial-gradient(circle at 20% 30%, rgba(38, 161, 123, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.06) 0%, transparent 50%) !important;
+    backdrop-filter: blur(25px) saturate(180%) brightness(1.1) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) brightness(1.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 4px 16px rgba(0, 0, 0, 0.2),
+        0 2px 8px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Scrolled State Enhancement */
+.ultra-header.scrolled .header-glass {
+    background: 
+        linear-gradient(135deg, 
+            rgba(10, 10, 25, 0.99) 0%, 
+            rgba(20, 20, 35, 0.98) 25%,
+            rgba(30, 30, 55, 0.99) 50%,
+            rgba(20, 20, 35, 0.98) 75%,
+            rgba(10, 10, 25, 0.99) 100%) !important;
+    backdrop-filter: blur(30px) saturate(200%) brightness(1.2) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(200%) brightness(1.2) !important;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        0 6px 20px rgba(0, 0, 0, 0.3),
+        0 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Logo Enhancements */
+.logo-wrapper {
+    background: 
+        linear-gradient(135deg, #26a17b 0%, #1a7a5e 50%, #0f5d47 100%),
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 70%) !important;
+    box-shadow: 
+        0 6px 20px rgba(38, 161, 123, 0.4),
+        0 3px 10px rgba(0, 0, 0, 0.3),
+        0 1px 3px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.logo-wrapper::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+    transform: rotate(45deg) !important;
+    transition: transform 0.6s ease !important;
+    opacity: 0 !important;
+}
+
+.logo-wrapper:hover::after {
+    opacity: 1 !important;
+    transform: rotate(45deg) translateX(100%) !important;
+}
+
+/* Enhanced Logo Title */
+.logo-title {
+    background: linear-gradient(135deg, 
+        #26a17b 0%, 
+        #00d4ff 25%, 
+        #667eea 50%, 
+        #00d4ff 75%, 
+        #26a17b 100%) !important;
+    background-size: 200% 200% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: logoGradientShift 4s ease-in-out infinite !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    filter: drop-shadow(0 1px 2px rgba(38, 161, 123, 0.3)) !important;
+}
+
+@keyframes logoGradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Enhanced Badges */
+.ultra-badge {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        0 2px 6px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.ultra-badge.verified {
+    background: 
+        rgba(34, 197, 94, 0.25),
+        linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.3)) !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+    box-shadow: 
+        0 4px 12px rgba(34, 197, 94, 0.2),
+        0 2px 6px rgba(34, 197, 94, 0.1),
+        inset 0 1px 0 rgba(34, 197, 94, 0.2) !important;
+    color: #22c55e !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.ultra-badge.secure {
+    background: 
+        rgba(59, 130, 246, 0.25),
+        linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.3)) !important;
+    border-color: rgba(59, 130, 246, 0.4) !important;
+    box-shadow: 
+        0 4px 12px rgba(59, 130, 246, 0.2),
+        0 2px 6px rgba(59, 130, 246, 0.1),
+        inset 0 1px 0 rgba(59, 130, 246, 0.2) !important;
+    color: #3b82f6 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Enhanced Navigation Icons */
+.icon-wrapper {
+    background-size: 200% 200% !important;
+    animation: iconGradientShift 6s ease-in-out infinite !important;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.25),
+        0 3px 10px rgba(0, 0, 0, 0.15),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+@keyframes iconGradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.icon-wrapper::after {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%) !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.pro-nav-icon:hover .icon-wrapper::after {
+    opacity: 1 !important;
+}
+
+/* Specific Enhanced Icon Gradients */
+.icon-wrapper.profile-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #4facfe 100%) !important;
+}
+
+.icon-wrapper.live-icon {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 50%, #11998e 100%) !important;
+}
+
+.icon-wrapper.support-icon {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffa726 50%, #ff6b6b 100%) !important;
+}
+
+.icon-wrapper.notifications-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #f59e0b 100%) !important;
+}
+
+/* Enhanced Auth Buttons */
+.header-container > div:last-child a {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.15),
+        0 3px 10px rgba(0, 0, 0, 0.1),
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.header-container > div:last-child a[href*="register"] {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    box-shadow: 
+        0 6px 20px rgba(16, 185, 129, 0.3),
+        0 3px 10px rgba(16, 185, 129, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+.header-container > div:last-child a[href*="register"]:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    box-shadow: 
+        0 8px 25px rgba(16, 185, 129, 0.4),
+        0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Loading Animation */
+.ultra-header:not(.loaded) {
+    opacity: 0 !important;
+    transform: translateY(-20px) !important;
+}
+
+.ultra-header.loaded {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.ultra-header.loaded .logo-wrapper {
+    animation: logoEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both !important;
+}
+
+.ultra-header.loaded .pro-nav-icon {
+    animation: iconEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both !important;
+}
+
+.ultra-header.loaded .pro-nav-icon:nth-child(1) { animation-delay: 0.3s !important; }
+.ultra-header.loaded .pro-nav-icon:nth-child(2) { animation-delay: 0.4s !important; }
+.ultra-header.loaded .pro-nav-icon:nth-child(3) { animation-delay: 0.5s !important; }
+.ultra-header.loaded .pro-nav-icon:nth-child(4) { animation-delay: 0.6s !important; }
+
+.ultra-header.loaded .header-container > div:last-child a {
+    animation: buttonEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.7s both !important;
+}
+
+@keyframes logoEntrance {
+    0% { opacity: 0; transform: scale(0.8) rotate(-10deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes iconEntrance {
+    0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes buttonEntrance {
+    0% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .header-glass {
+        backdrop-filter: blur(20px) saturate(160%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    }
+    
+    .ultra-header.scrolled .header-glass {
+        backdrop-filter: blur(25px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    }
+    
+    .logo-title {
+        animation-duration: 6s !important;
+    }
+    
+    .icon-wrapper {
+        animation-duration: 8s !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-glass {
+        backdrop-filter: blur(15px) saturate(140%) !important;
+        -webkit-backdrop-filter: blur(15px) saturate(140%) !important;
+    }
+    
+    .ultra-header.scrolled .header-glass {
+        backdrop-filter: blur(20px) saturate(160%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .header-glass {
+        backdrop-filter: blur(12px) saturate(120%) !important;
+        -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+    }
+}
+
+/* Enhanced Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .ultra-header *,
+    .ultra-header *::before,
+    .ultra-header *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .logo-title {
+        background: #26a17b !important;
+        -webkit-background-clip: initial !important;
+        -webkit-text-fill-color: initial !important;
+        color: #26a17b !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .header-glass {
+        background: rgba(0, 0, 0, 0.95) !important;
+        border-bottom: 3px solid white !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    .logo-title,
+    .icon-wrapper i,
+    .header-container > div:last-child a {
+        color: white !important;
+        text-shadow: none !important;
+        filter: none !important;
+    }
+    
+    .ultra-badge {
+        border: 2px solid white !important;
+        background: rgba(0, 0, 0, 0.8) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    .icon-wrapper,
+    .logo-wrapper {
+        border: 3px solid white !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+    .header-glass {
+        background: 
+            linear-gradient(135deg, 
+                rgba(5, 5, 15, 0.98) 0%, 
+                rgba(15, 15, 25, 0.96) 25%,
+                rgba(25, 25, 35, 0.98) 50%,
+                rgba(15, 15, 25, 0.96) 75%,
+                rgba(5, 5, 15, 0.98) 100%) !important;
+    }
+    
+    .ultra-header.scrolled .header-glass {
+        background: 
+            linear-gradient(135deg, 
+                rgba(0, 0, 10, 0.99) 0%, 
+                rgba(10, 10, 20, 0.98) 25%,
+                rgba(20, 20, 30, 0.99) 50%,
+                rgba(10, 10, 20, 0.98) 75%,
+                rgba(0, 0, 10, 0.99) 100%) !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .ultra-header {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 0 !important;
+    }
+    
+    #main-content {
+        margin-top: 0 !important;
+    }
+}
+
+/* Performance Optimizations for Low-End Devices */
+@media (max-resolution: 150dpi) {
+    .header-glass {
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+    }
+    
+    .ultra-header.scrolled .header-glass {
+        backdrop-filter: blur(15px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
+    }
+    
+    .logo-title,
+    .icon-wrapper {
+        animation: none !important;
+    }
+}
+
+/* Enhanced Focus States */
+.pro-nav-icon:focus-visible,
+.header-container > div:last-child a:focus-visible {
+    outline: 3px solid #00d4ff !important;
+    outline-offset: 2px !important;
+    border-radius: 8px !important;
+}
+
+.logo-wrapper:focus-visible {
+    outline: 3px solid #26a17b !important;
+    outline-offset: 3px !important;
+}
+
+/* Smooth Transitions for All Interactive Elements */
+.pro-nav-icon,
+.header-container > div:last-child a,
+.logo-wrapper,
+.ultra-badge {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced Hover States for Desktop */
+@media (hover: hover) and (pointer: fine) {
+    .pro-nav-icon:hover .icon-wrapper {
+        transform: translateY(-3px) scale(1.08) !important;
+        box-shadow: 
+            0 12px 30px rgba(0, 0, 0, 0.3),
+            0 6px 15px rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    .header-container > div:last-child a:hover {
+        transform: translateY(-2px) scale(1.02) !important;
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.2),
+            0 5px 15px rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .logo-wrapper:hover {
+        transform: scale(1.05) rotate(2deg) !important;
+        box-shadow: 
+            0 8px 25px rgba(38, 161, 123, 0.5),
+            0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+}

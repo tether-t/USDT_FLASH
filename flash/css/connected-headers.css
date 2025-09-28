@@ -1,0 +1,57 @@
+/* 🔗 ربط الهيدر الأول والثانوي */
+.ultra-header {
+    border-bottom: none !important;
+}
+
+.header-glass {
+    border-bottom: none !important;
+}
+
+.secondary-header {
+    top: 80px !important;
+    border-top: none !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* نقل المحتوى أسفل الهيدرين المتصلين */
+body {
+    padding-top: 140px !important;
+}
+
+#main-content,
+.gradient-bg,
+section:first-of-type {
+    margin-top: 140px !important;
+    padding-top: 0 !important;
+}
+
+/* تحسينات الهواتف */
+@media (max-width: 768px) {
+    .secondary-header {
+        top: 60px !important;
+    }
+    
+    body {
+        padding-top: 110px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .secondary-header {
+        top: 55px !important;
+    }
+    
+    body {
+        padding-top: 100px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .secondary-header {
+        top: 50px !important;
+    }
+    
+    body {
+        padding-top: 90px !important;
+    }
+}
