@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يانصيب USDT-FLASH الأسبوعي</title>
+    <style>
+        .raffle-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .prize-display {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFD700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+            margin: 1rem 0;
+        }
+        
+        .ticket-counter {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+        
+        .buy-ticket-btn {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255,107,53,0.4);
+        }
+        
+        .buy-ticket-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,107,53,0.6);
+        }
+        
+        .countdown-timer {
+            font-size: 1.5rem;
+            color: #FFD700;
+            margin: 1rem 0;
+        }
+        
+        .recent-winners {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        /* أنماط قسم الشرح */
+        .explanation-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 3rem 0;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .concept-overview {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .psychology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .psychology-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .psychology-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-style: italic;
+            margin-top: 1rem;
+            border-left: 3px solid #007bff;
+        }
+        
+        .business-model {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .model-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .calculation {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .calc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .calc-item.total {
+            font-weight: bold;
+            border-bottom: none;
+            border-top: 2px solid #007bff;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+        }
+        
+        .profit-display {
+            text-align: center;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .profit-amount {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .steps-container {
+            margin: 2rem 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin: 2rem 0;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .formula {
+            background: #e3f2fd;
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 1rem;
+            border-left: 3px solid #2196f3;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .legal-considerations {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .legal-points {
+            margin: 1rem 0;
+        }
+        
+        .legal-point {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .point-icon {
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* أنماط الفكرة الجديدة */
+        .money-making-idea {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+        
+        .idea-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .idea-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .idea-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .main-concept {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .concept-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            gap: 0.5rem;
+        }
+        
+        .pricing-breakdown {
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+        
+        .roi-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+        }
+        
+        .roi-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00FF88;
+        }
+        
+        .timeline {
+            margin: 2rem 0;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin: 2rem 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+        }
+        
+        .timeline-day {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-left: 1rem;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .timeline-content li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .timeline-content li:before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #00FF88;
+            font-weight: bold;
+        }
+        
+        .triggers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .trigger-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .trigger-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .trigger-example {
+            background: rgba(0,0,0,0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        
+        .calculator-container {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .input-group input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.3);
+            outline: none;
+        }
+        
+        .calculator-result {
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        
+        .result-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFD700;
+            display: block;
+            margin: 1rem 0;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .story-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .story-avatar {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .story-result {
+            background: rgba(0,255,136,0.2);
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #00FF88;
+        }
+        
+        .cta-container {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .cta-primary, .cta-secondary {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-primary {
+            background: linear-gradient(45deg, #FF6B35, #F7931E);
+            color: white;
+        }
+        
+        .cta-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .cta-primary:hover, .cta-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .guarantee-badge {
+            background: rgba(0,255,136,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border: 2px solid #00FF88;
+        }
+        
+        @media (max-width: 768px) {
+            .idea-header h1 {
+                font-size: 2rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شرح مفصل عن تقنية اليانصيب المدفوع -->
+    <div class="explanation-section">
+        <div class="container">
+            <h1>🧠 تقنية "اليانصيب المدفوع" - دليل شامل</h1>
+            
+            <div class="concept-overview">
+                <h2>💡 ما هي تقنية اليانصيب المدفوع؟</h2>
+                <p>هي استراتيجية تسويقية ذكية تجمع بين <strong>علم النفس التسويقي</strong> و<strong>نموذج الأعمال المربح</strong>، حيث يدفع العملاء مبلغاً صغيراً للمشاركة في يانصيب بجائزة كبيرة، مما يحقق أرباحاً مضمونة للشركة.</p>
+            </div>
+            
+            <div class="psychology-section">
+                <h2>🧠 التقنيات النفسية المستخدمة</h2>
+                
+                <div class="psychology-grid">
+                    <div class="psychology-card">
+                        <div class="card-icon">🎯</div>
+                        <h3>تأثير الندرة</h3>
+                        <p>عدد محدود من التذاكر (100 فقط) يخلق شعوراً بالعجلة والحاجة للشراء السريع</p>
+                        <div class="example">مثال: "متبقي 13 تذكرة فقط!"</div>
+                    </div>
+                    
+                    <div class="psychology-card">
+                        <div class="card-icon">👥</div>
+                        <h3>الإثبات الاجتماعي</h3>
+                        <p>عرض مشتريات الآخرين يحفز على المشاركة ويبني الثقة</p>
+                        <div class="example">مثال: "أحمد اشترى 3 تذاكر منذ 5 دقائق"</div>
+                    </div>
+                    
+                    <div class="psychology-card">
+                        <div class="card-icon">😰</div>
+                        <h3>الخوف من الفقدان (FOMO)</h3>
+                        <p>العد التنازلي والتحذيرات تخلق خوفاً من فقدان الفرصة</p>
+                        <div class="example">مثال: "ينتهي خلال 2 يوم 14 ساعة"</div>
+                    </div>
+                    
+                    <div class="psychology-card">
+                        <div class="card-icon">💰</div>
+                        <h3>نسبة المخاطرة/المكافأة</h3>
+                        <p>استثمار صغير ($10) مقابل جائزة كبيرة ($300) يبدو منطقياً</p>
+                        <div class="example">نسبة 1:30 تبدو مغرية جداً</div>
+                    </div>
+                    
+                    <div class="psychology-card">
+                        <div class="card-icon">🎲</div>
+                        <h3>متعة المقامرة</h3>
+                        <p>الإثارة والترقب يحفزان على المشاركة المتكررة</p>
+                        <div class="example">الأدرينالين = إدمان إيجابي</div>
+                    </div>
+                    
+                    <div class="psychology-card">
+                        <div class="card-icon">🏆</div>
+                        <h3>عرض الفائزين</h3>
+                        <p>إظهار الفائزين السابقين يؤكد مصداقية النظام</p>
+                        <div class="example">"فاطمة فازت بـ $300 الأسبوع الماضي"</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="business-model">
+                <h2>💼 النموذج التجاري</h2>
+                
+                <div class="model-breakdown">
+                    <div class="revenue-section">
+                        <h3>📈 الإيرادات</h3>
+                        <div class="calculation">
+                            <div class="calc-item">
+                                <span>عدد التذاكر:</span>
+                                <span>100 تذكرة</span>
+                            </div>
+                            <div class="calc-item">
+                                <span>سعر التذكرة:</span>
+                                <span>$10</span>
+                            </div>
+                            <div class="calc-item total">
+                                <span>إجمالي الإيرادات:</span>
+                                <span>$1,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cost-section">
+                        <h3>📉 التكاليف</h3>
+                        <div class="calculation">
+                            <div class="calc-item">
+                                <span>الجائزة الأولى:</span>
+                                <span>$300</span>
+                            </div>
+                            <div class="calc-item">
+                                <span>الجائزة الثانية:</span>
+                                <span>$150</span>
+                            </div>
+                            <div class="calc-item">
+                                <span>الجائزة الثالثة:</span>
+                                <span>$50</span>
+                            </div>
+                            <div class="calc-item total">
+                                <span>إجمالي التكاليف:</span>
+                                <span>$500</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profit-section">
+                        <h3>💎 الربح الصافي</h3>
+                        <div class="profit-display">
+                            <div class="profit-amount">$500</div>
+                            <div class="profit-percentage">هامش ربح 50%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="implementation-guide">
+                <h2>🛠️ دليل التطبيق</h2>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>تحديد الجائزة والسعر</h3>
+                            <p>اختر جائزة جذابة وسعر تذكرة معقول يضمن الربح</p>
+                            <div class="formula">الإيرادات = عدد التذاكر × سعر التذكرة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>إنشاء صفحة اليانصيب</h3>
+                            <p>تصميم جذاب مع عداد تنازلي وإحصائيات مباشرة</p>
+                            <div class="formula">التصميم + علم النفس = تحويل أعلى</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>نظام الدفع الآمن</h3>
+                            <p>تكامل مع بوابات دفع موثوقة لضمان الأمان</p>
+                            <div class="formula">الثقة = مبيعات أكثر</div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>السحب والإعلان</h3>
+                            <p>سحب شفاف ومباشر مع إعلان الفائزين علناً</p>
+                            <div class="formula">الشفافية = مصداقية = عملاء دائمون</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="success-metrics">
+                <h2>📊 مؤشرات النجاح</h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">$2,000</div>
+                        <div class="metric-label">ربح شهري متوقع</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">85%</div>
+                        <div class="metric-label">معدل بيع التذاكر</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">60%</div>
+                        <div class="metric-label">معدل العودة للمشاركة</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">40%</div>
+                        <div class="metric-label">عملاء جدد من اليانصيب</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legal-considerations">
+                <h2>⚖️ الاعتبارات القانونية</h2>
+                <div class="legal-points">
+                    <div class="legal-point">
+                        <span class="point-icon">✅</span>
+                        <span>التأكد من قوانين اليانصيب في البلد المستهدف</span>
+                    </div>
+                    <div class="legal-point">
+                        <span class="point-icon">✅</span>
+                        <span>وضع شروط وأحكام واضحة</span>
+                    </div>
+                    <div class="legal-point">
+                        <span class="point-icon">✅</span>
+                        <span>ضمان الشفافية في عملية السحب</span>
+                    </div>
+                    <div class="legal-point">
+                        <span class="point-icon">✅</span>
+                        <span>الحصول على التراخيص المطلوبة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="raffle-container">
+        <h1>🎰 يانصيب USDT-FLASH الأسبوعي</h1>
+        
+        <div class="prize-display">
+            💰 $500 USDT-FLASH
+        </div>
+        
+        <div class="countdown-timer" id="countdown">
+            ⏰ ينتهي خلال: 2 يوم 14 ساعة 23 دقيقة
+        </div>
+        
+        <div class="ticket-counter">
+            <h3>📊 حالة التذاكر</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>تم البيع: <strong id="sold-tickets">87</strong>/100</span>
+                <div style="width: 200px; height: 10px; background: rgba(255,255,255,0.3); border-radius: 5px;">
+                    <div style="width: 87%; height: 100%; background: linear-gradient(45deg, #FF6B35, #FFD700); border-radius: 5px;"></div>
+                </div>
+            </div>
+            <p style="color: #FFD700; margin-top: 10px;">🚨 متبقي 13 تذكرة فقط!</p>
+        </div>
+        
+        <div style="margin: 2rem 0;">
+            <h3>🏆 الجوائز:</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1rem 0;">
+                <div style="background: rgba(255,215,0,0.2); padding: 1rem; border-radius: 10px;">
+                    <div>🥇</div>
+                    <div>$300</div>
+                </div>
+                <div style="background: rgba(192,192,192,0.2); padding: 1rem; border-radius: 10px;">
+                    <div>🥈</div>
+                    <div>$150</div>
+                </div>
+                <div style="background: rgba(205,127,50,0.2); padding: 1rem; border-radius: 10px;">
+                    <div>🥉</div>
+                    <div>$50</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="buy-ticket-btn" onclick="buyTicket()">
+            🎫 اشتري تذكرة الآن - $10 فقط!
+        </button>
+        
+        <div class="recent-winners">
+            <h4>🎉 الفائزون الأخيرون:</h4>
+            <div id="recent-activity">
+                <p>🎫 أحمد م. من الرياض اشترى 3 تذاكر منذ 5 دقائق</p>
+                <p>🏆 فاطمة ك. فازت بـ $300 الأسبوع الماضي</p>
+                <p>🎫 يوسف ا. من دبي اشترى تذكرتين منذ 12 دقيقة</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- فكرة جذابة لجمع 500 دولار -->
+    <div class="money-making-idea">
+        <div class="container">
+            <div class="idea-header">
+                <h1>💡 فكرة عبقرية لجمع $500 في 7 أيام!</h1>
+                <p class="idea-subtitle">استراتيجية "نادي بطاقات USDT-FLASH الحصري" - نموذج مبتكر يحقق أرباحاً مضمونة</p>
+            </div>
+            
+            <div class="idea-concept">
+                <div class="concept-card main-concept">
+                    <div class="concept-icon">💳</div>
+                    <h2>نادي بطاقات USDT-FLASH الحصري</h2>
+                    <p class="concept-description">انضم لنادي حصري من 50 عضو، كل واحد يدفع $10 فقط للحصول على:</p>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">💳</span>
+                            <span>بطاقة USDT-FLASH مخصصة</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🎁</span>
+                            <span>رصيد مجاني $5 USDT-FLASH</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚡</span>
+                            <span>تسليم فوري خلال 5 دقائق</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🏆</span>
+                            <span>عضوية VIP مدى الحياة</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🔒</span>
+                            <span>أمان إضافي للمعاملات</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📞</span>
+                            <span>دعم فني مخصص 24/7</span>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-breakdown">
+                        <div class="price-item">
+                            <span>50 عضو × $10 =</span>
+                            <span class="price-value">$500</span>
+                        </div>
+                        <div class="roi-display">
+                            <span class="roi-label">عائد الاستثمار:</span>
+                            <span class="roi-value">50% (تكلفة الرصيد $250)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="implementation-strategy">
+                <h2>🚀 خطة التنفيذ السريعة</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-day">يوم 1-2</div>
+                        <div class="timeline-content">
+                            <h3>إعداد العرض</h3>
+                            <ul>
+                                <li>تصميم بطاقات USDT-FLASH مخصصة</li>
+                                <li>إعداد نظام التسليم الفوري</li>
+                                <li>تحضير رصيد $5 لكل عضو</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-day">يوم 3-4</div>
+                        <div class="timeline-content">
+                            <h3>الإطلاق والتسويق</h3>
+                            <ul>
+                                <li>إعلان العضوية المحدودة (50 فقط)</li>
+                                <li>عرض خاص: بطاقة + رصيد مجاني</li>
+                                <li>عرض التسليم الفوري</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-day">يوم 5-7</div>
+                        <div class="timeline-content">
+                            <h3>التحصيل والتسليم</h3>
+                            <ul>
+                                <li>جمع المدفوعات ($10 × 50)</li>
+                                <li>تسليم البطاقات فوراً</li>
+                                <li>إضافة الرصيد المجاني</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="psychological-triggers">
+                <h2>🧠 التقنيات النفسية المستخدمة</h2>
+                
+                <div class="triggers-grid">
+                    <div class="trigger-card">
+                        <div class="trigger-icon">⏰</div>
+                        <h3>الندرة الزمنية</h3>
+                        <p>"العرض ينتهي خلال 48 ساعة فقط!"</p>
+                        <div class="trigger-example">عداد تنازلي مرئي</div>
+                    </div>
+                    
+                    <div class="trigger-card">
+                        <div class="trigger-icon">👥</div>
+                        <h3>الندرة العددية</h3>
+                        <p>"50 مقعد فقط متاح - تم حجز 37 مقعد"</p>
+                        <div class="trigger-example">شريط تقدم ديناميكي</div>
+                    </div>
+                    
+                    <div class="trigger-card">
+                        <div class="trigger-icon">💎</div>
+                        <h3>القيمة المضافة</h3>
+                        <p>"بطاقة + رصيد $5 مجاني - سعرك $10 فقط"</p>
+                        <div class="trigger-example">قيمة حقيقية $15 مقابل $10</div>
+                    </div>
+                    
+                    <div class="trigger-card">
+                        <div class="trigger-icon">🏆</div>
+                        <h3>الحصرية</h3>
+                        <p>"نادي VIP لحاملي بطاقات USDT-FLASH فقط"</p>
+                        <div class="trigger-example">شعور بالتميز والانتماء</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="revenue-calculator">
+                <h2>🧮 حاسبة الأرباح التفاعلية</h2>
+                
+                <div class="calculator-container">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label>عدد الأعضاء:</label>
+                            <input type="range" id="members" min="10" max="100" value="50" oninput="calculateRevenue()">
+                            <span id="members-value">50</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>سعر العضوية ($):</label>
+                            <input type="range" id="price" min="5" max="25" value="10" oninput="calculateRevenue()">
+                            <span id="price-value">10</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-result">
+                        <div class="result-display">
+                            <span class="result-label">إجمالي الإيرادات:</span>
+                            <span class="result-value" id="total-revenue">$500</span>
+                        </div>
+                        <div class="profit-margin">
+                            <span>هامش الربح: </span>
+                            <span class="profit-percentage">50%</span>
+                            <span class="profit-note">(تكلفة الرصيد المجاني $250 فقط)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="success-stories">
+                <h2>🌟 قصص نجاح ملهمة</h2>
+                
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-avatar">👨💼</div>
+                        <div class="story-content">
+                            <h3>أحمد المالكي</h3>
+                            <p>"جمعت $800 من نادي بطاقات USDT-FLASH. العملاء أحبوا البطاقات المخصصة!"</p>
+                            <div class="story-result">النتيجة: $800 في 7 أيام</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-avatar">👩💻</div>
+                        <div class="story-content">
+                            <h3>فاطمة الزهراء</h3>
+                            <p>"أنشأت نادي بطاقات USDT-FLASH للنساء وحققت $1200 في شهر واحد"</p>
+                            <div class="story-result">النتيجة: $1,200 شهرياً</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-avatar">👨🎓</div>
+                        <div class="story-content">
+                            <h3>يوسف التقني</h3>
+                            <p>"نادي بطاقات USDT-FLASH التقنية حقق لي دخل ثابت $600 أسبوعياً"</p>
+                            <div class="story-result">النتيجة: $2,400 شهرياً</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-section">
+                <div class="cta-container">
+                    <h2>🚀 ابدأ الآن واجمع $500 في أسبوع!</h2>
+                    <p class="cta-description">كل ما تحتاجه هو إعداد البطاقات والرصيد المجاني، والباقي أرباح صافية!</p>
+                    
+                    <div class="cta-buttons">
+                        <button class="cta-primary" onclick="startClub()">🎯 أنشئ ناديك الآن</button>
+                        <button class="cta-secondary" onclick="showTemplate()">📋 احصل على القالب الجاهز</button>
+                    </div>
+                    
+                    <div class="guarantee-badge">
+                        <span class="badge-icon">🛡️</span>
+                        <span class="badge-text">ضمان استرداد 100% إذا لم تحقق $300 على الأقل</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let soldTickets = 87;
+        
+        function buyTicket() {
+            if (soldTickets >= 100) {
+                alert('🚫 عذراً، تم بيع جميع التذاكر!');
+                return;
+            }
+            
+            // محاكاة عملية الشراء
+            soldTickets++;
+            document.getElementById('sold-tickets').textContent = soldTickets;
+            
+            // تحديث شريط التقدم
+            const progressBar = document.querySelector('[style*="width: 87%"]');
+            progressBar.style.width = soldTickets + '%';
+            
+            // إضافة نشاط جديد
+            const activity = document.getElementById('recent-activity');
+            const newActivity = document.createElement('p');
+            newActivity.innerHTML = `🎫 أنت اشتريت تذكرة منذ الآن - رقم التذكرة: ${soldTickets}`;
+            activity.insertBefore(newActivity, activity.firstChild);
+            
+            alert(`🎉 تم شراء التذكرة بنجاح!\nرقم تذكرتك: ${soldTickets}\nحظاً موفقاً! 🍀`);
+            
+            // إذا تم بيع جميع التذاكر
+            if (soldTickets >= 100) {
+                document.querySelector('.buy-ticket-btn').innerHTML = '🔒 تم بيع جميع التذاكر';
+                document.querySelector('.buy-ticket-btn').disabled = true;
+            }
+        }
+        
+        // محاكاة النشاط المباشر
+        setInterval(() => {
+            if (Math.random() < 0.3 && soldTickets < 95) {
+                const names = ['محمد', 'أحمد', 'فاطمة', 'عائشة', 'علي', 'سارة'];
+                const cities = ['الرياض', 'دبي', 'القاهرة', 'عمان', 'الكويت'];
+                const name = names[Math.floor(Math.random() * names.length)];
+                const city = cities[Math.floor(Math.random() * cities.length)];
+                const tickets = Math.floor(Math.random() * 3) + 1;
+                
+                const activity = document.getElementById('recent-activity');
+                const newActivity = document.createElement('p');
+                newActivity.innerHTML = `🎫 ${name} من ${city} اشترى ${tickets} تذكرة منذ ${Math.floor(Math.random() * 15) + 1} دقيقة`;
+                activity.insertBefore(newActivity, activity.firstChild);
+                
+                // إزالة النشاط القديم
+                if (activity.children.length > 5) {
+                    activity.removeChild(activity.lastChild);
+                }
+            }
+        }, 10000);
+
+        function calculateRevenue() {
+            const members = document.getElementById('members').value;
+            const price = document.getElementById('price').value;
+            const total = members * price;
+            
+            document.getElementById('members-value').textContent = members;
+            document.getElementById('price-value').textContent = price;
+            document.getElementById('total-revenue').textContent = '$' + total;
+        }
+        
+        function startClub() {
+            alert('🎉 ممتاز! ستحتاج إلى:\n\n1. تصميم بطاقات USDT-FLASH مخصصة\n2. إعداد رصيد $5 لكل عضو\n3. تصميم صفحة تسجيل\n4. بدء التسويق\n\n💰 توقع جمع $500 خلال أسبوع!');
+        }
+        
+        function showTemplate() {
+            alert('📋 القالب الجاهز يتضمن:\n\n✅ تصاميم البطاقات المخصصة\n✅ رسائل التسويق\n✅ صفحة التسجيل\n✅ نظام التسليم الفوري\n✅ استراتيجيات البيع\n\n🚀 كل ما تحتاجه للبدء فوراً!');
+        }
+        
+        // محاكاة تحديث العضوية
+        let currentMembers = 37;
+        setInterval(() => {
+            if (Math.random() < 0.3 && currentMembers < 48) {
+                currentMembers++;
+                // يمكن إضافة تحديث مرئي هنا
+            }
+        }, 15000);
+    </script>
+
+</body>
+</html>

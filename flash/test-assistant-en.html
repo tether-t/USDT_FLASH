@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Assistant Test</title>
+    <link rel="icon" type="image/png" href="img/usdt_cryptocurrencies_icon_188337.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/simple-assistant-en.css">
+    <style>
+        body { margin: 0; padding: 20px; background: #f0f0f0; min-height: 100vh; }
+        .test-content { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="test-content">
+        <h1>🤖 Advanced Assistant Test</h1>
+        <p>The assistant should appear in the bottom right corner</p>
+        
+        <div style="background: #f0f8ff; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #667eea;">
+            <h3 style="color: #667eea; margin-top: 0;">✨ New Features:</h3>
+            <ul style="color: #555; line-height: 1.6;">
+                <li>🎯 Interactive icons for frequently asked questions</li>
+                <li>🎨 Modern design similar to about-ar.html page</li>
+                <li>📱 Responsive design for smartphones</li>
+                <li>⚡ Smart responses updated from project information</li>
+                <li>🔍 6 main topics with distinctive icons</li>
+            </ul>
+        </div>
+        
+        <div style="background: #f0fff0; padding: 15px; border-radius: 8px; text-align: center;">
+            <p style="margin: 0; color: #28a745; font-weight: bold;">👆 Click on the assistant icon to try the new system!</p>
+        </div>
+    </div>
+    
+    <script src="js/simple-assistant-en.js"></script>
+    <script>
+        // Run assistant on test page only
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAssistant);
+        } else {
+            initAssistant();
+        }
+    </script>
+</body>
+</html>

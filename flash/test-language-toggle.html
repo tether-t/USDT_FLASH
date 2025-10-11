@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Language Toggle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Language Toggle -->
+        <div class="flex justify-center mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-2 flex items-center gap-2">
+                <button id="lang-en-btn" onclick="switchLanguage('en')" class="px-4 py-2 rounded-md text-sm font-medium transition-all bg-blue-500 text-white">
+                    <i class="fas fa-globe mr-2"></i>English
+                </button>
+                <button id="lang-ar-btn" onclick="switchLanguage('ar')" class="px-4 py-2 rounded-md text-sm font-medium transition-all text-gray-600 hover:text-blue-500">
+                    <i class="fas fa-globe mr-2"></i>العربية
+                </button>
+            </div>
+        </div>
+        
+        <!-- English Content -->
+        <div id="content-en" class="bg-white p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+            <div class="flex justify-center mb-8">
+                <div class="bg-green-100 px-4 py-2 rounded-full text-green-800 font-semibold">
+                    <i class="fas fa-check-circle mr-2"></i>Tether Approved Process
+                </div>
+            </div>
+            
+            <!-- Steps -->
+            <div class="space-y-8">
+                <div class="flex items-start">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-6 flex-shrink-0">
+                        <span class="text-xl font-bold">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Create Your Account</h3>
+                        <p class="text-gray-600">Register in minutes using just your email. Complete verification for higher limits.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center mr-6 flex-shrink-0">
+                        <span class="text-xl font-bold">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">Choose Your Package</h3>
+                        <p class="text-gray-600">Select from our professionally designed packages with competitive pricing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Arabic Content -->
+        <div id="content-ar" class="bg-white p-8 rounded-lg shadow-lg hidden" dir="rtl">
+            <h2 class="text-3xl font-bold text-center mb-8">كيف يعمل النظام</h2>
+            <div class="flex justify-center mb-8">
+                <div class="bg-green-100 px-4 py-2 rounded-full text-green-800 font-semibold">
+                    <i class="fas fa-check-circle mr-2"></i>عملية معتمدة من تيثر
+                </div>
+            </div>
+            
+            <!-- Steps -->
+            <div class="space-y-8">
+                <div class="flex items-start">
+                    <div class="bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center ml-6 flex-shrink-0">
+                        <span class="text-xl font-bold">1</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">إنشاء حسابك</h3>
+                        <p class="text-gray-600">سجل في دقائق باستخدام بريدك الإلكتروني فقط. أكمل التحقق للحصول على حدود أعلى.</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-green-500 text-white rounded-full w-12 h-12 flex items-center justify-center ml-6 flex-shrink-0">
+                        <span class="text-xl font-bold">2</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">اختر باقتك</h3>
+                        <p class="text-gray-600">اختر من باقاتنا المصممة بشكل احترافي مع أسعار تنافسية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            console.log('Switching to:', lang);
+            
+            const enBtn = document.getElementById('lang-en-btn');
+            const arBtn = document.getElementById('lang-ar-btn');
+            const enContent = document.getElementById('content-en');
+            const arContent = document.getElementById('content-ar');
+            
+            console.log('Elements found:', {
+                enBtn: !!enBtn,
+                arBtn: !!arBtn,
+                enContent: !!enContent,
+                arContent: !!arContent
+            });
+            
+            if (lang === 'en') {
+                enBtn.className = 'px-4 py-2 rounded-md text-sm font-medium transition-all bg-blue-500 text-white';
+                arBtn.className = 'px-4 py-2 rounded-md text-sm font-medium transition-all text-gray-600 hover:text-blue-500';
+                enContent.classList.remove('hidden');
+                arContent.classList.add('hidden');
+                console.log('Switched to English');
+            } else {
+                arBtn.className = 'px-4 py-2 rounded-md text-sm font-medium transition-all bg-blue-500 text-white';
+                enBtn.className = 'px-4 py-2 rounded-md text-sm font-medium transition-all text-gray-600 hover:text-blue-500';
+                arContent.classList.remove('hidden');
+                enContent.classList.add('hidden');
+                console.log('Switched to Arabic');
+            }
+        }
+    </script>
+</body>
+</html>
