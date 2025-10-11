@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDT-FLASH - Account Information</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/flash.css">
+    <link rel="stylesheet" href="../css/chat.css">
+    <style>
+        /* Critical CSS for immediate rendering */
+        .container {
+            max-width: 1200px;
+        }
+        
+        /* Improved focus states for accessibility */
+        .form-input:focus,
+        .network-button:focus,
+        .platform-card:focus {
+            outline: 2px solid #10b981;
+            outline-offset: 2px;
+        }
+        
+        /* Loading states */
+        .loading {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #10b981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        /* Professional Animations */
+        @keyframes slideInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .animate-slide-up { animation: slideInUp 0.6s ease-out; }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out; }
+        .animate-pulse-hover:hover { animation: pulse 0.3s ease-in-out; }
+        
+        /* Professional Form Styling */
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #ffffff;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .form-input.valid {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+        
+        .form-input.invalid {
+            border-color: #ef4444;
+            background: #fef2f2;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+            font-size: 0.95rem;
+        }
+        
+        /* Professional Button Styling */
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        /* Platform Selection */
+        .platform-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .platform-card:hover {
+            border-color: #10b981;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .platform-card.selected {
+            border-color: #10b981;
+            background: #f0fdf4;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+        
+        /* Network Dropdown */
+        .network-dropdown {
+            position: relative;
+        }
+        
+        .network-button {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .network-button:hover {
+            border-color: #10b981;
+        }
+        
+        .network-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            margin-top: 0.5rem;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .network-option {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .network-option:hover {
+            background-color: #f9fafb;
+        }
+        
+        /* Progress Steps */
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .step-circle {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .step-circle.completed {
+            background: #10b981;
+            color: white;
+        }
+        
+        .step-circle.active {
+            background: #3b82f6;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+        
+        .step-circle.pending {
+            background: #e5e7eb;
+            color: #6b7280;
+        }
+        
+        .step-line {
+            height: 2px;
+            background: #e5e7eb;
+            flex: 1;
+            margin: 0 1rem;
+        }
+        
+        .step-line.completed {
+            background: #10b981;
+        }
+        
+        /* Security Badge */
+        .security-badge {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.75rem;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Loading Spinner */
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #10b981;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .platform-card:hover {
+                transform: none;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            }
+            
+            .btn-primary:hover {
+                transform: none;
+            }
+            
+            .animate-pulse-hover:hover {
+                animation: none;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .form-input {
+                border-width: 2px;
+            }
+            
+            .platform-card {
+                border-width: 2px;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-slide-up,
+            .animate-fade-in,
+            .animate-pulse-hover {
+                animation: none;
+            }
+            
+            .transition-all {
+                transition: none;
+            }
+        }
+        
+        /* Mobile-First Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            /* Header adjustments */
+            header .container {
+                padding: 0.75rem 1rem;
+            }
+            
+            header h1 {
+                font-size: 1.25rem;
+            }
+            
+            header p {
+                font-size: 0.75rem;
+            }
+            
+            /* Progress steps mobile */
+            .progress-step {
+                text-align: center;
+            }
+            
+            .step-circle {
+                width: 2rem;
+                height: 2rem;
+                font-size: 0.75rem;
+            }
+            
+            .progress-step span {
+                font-size: 0.625rem;
+                margin-top: 0.25rem;
+            }
+            
+            .step-line {
+                height: 1px;
+                margin: 0 0.5rem;
+            }
+            
+            /* Main form container */
+            .bg-white.rounded-2xl {
+                padding: 1rem;
+                margin: 0.5rem;
+                border-radius: 1rem;
+            }
+            
+            /* Typography */
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            h3 {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Form sections */
+            .bg-gray-50.rounded-xl {
+                padding: 0.75rem;
+                margin-bottom: 1rem;
+            }
+            
+            /* Form inputs */
+            .form-input {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+                border-radius: 0.5rem;
+            }
+            
+            .form-label {
+                font-size: 0.875rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            /* Network dropdown */
+            .network-button {
+                padding: 0.75rem;
+                font-size: 0.875rem;
+            }
+            
+            .network-option {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.875rem;
+            }
+            
+            .network-option img {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+            
+            /* Platform cards */
+            .grid.grid-cols-2.md\:grid-cols-3.lg\:grid-cols-5 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+            
+            .platform-card {
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+            }
+            
+            .platform-card img {
+                height: 2rem;
+                width: 2rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .platform-card span {
+                font-size: 0.75rem;
+            }
+            
+            /* Submit button */
+            .btn-primary {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1rem;
+                border-radius: 0.75rem;
+            }
+            
+            /* Security badge */
+            .security-badge {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+            
+            /* Tooltips - hide on mobile */
+            .tooltip .tooltip-text {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+            
+            .bg-white.rounded-2xl {
+                padding: 0.75rem;
+                margin: 0.25rem;
+            }
+            
+            /* Single column layout */
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            /* Smaller progress steps */
+            .step-circle {
+                width: 1.75rem;
+                height: 1.75rem;
+                font-size: 0.625rem;
+            }
+            
+            .progress-step span {
+                font-size: 0.5rem;
+            }
+            
+            /* Platform grid - single column on very small screens */
+            .grid.grid-cols-2.md\:grid-cols-3.lg\:grid-cols-5 {
+                grid-template-columns: 1fr;
+                gap: 0.375rem;
+            }
+            
+            .platform-card {
+                padding: 0.375rem;
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .platform-card img {
+                height: 1.5rem;
+                width: 1.5rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0;
+            }
+            
+            .platform-card span {
+                font-size: 0.875rem;
+            }
+            
+            /* Smaller form elements */
+            .form-input {
+                padding: 0.625rem;
+            }
+            
+            .network-button {
+                padding: 0.625rem;
+            }
+            
+            /* Hide step lines completely */
+            .step-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b shadow-2xl" style="background: linear-gradient(135deg, #0f1419 0%, #1a2e1a 25%, #26a17b 50%, #1a8462 75%, #0e4b36 100%); backdrop-filter: blur(25px) saturate(180%); border-bottom: 2px solid rgba(38, 161, 123, 0.4); box-shadow: 0 10px 40px rgba(14, 75, 54, 0.5);">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT-FLASH Logo" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-xl font-black" style="background: linear-gradient(45deg, #ffffff 0%, #34d399 25%, #26a17b 50%, #ffffff 75%, #2ecc71 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 15px rgba(38, 161, 123, 0.6));">USDT-FLASH</h1>
+                        <p class="text-xs" style="color: rgba(52, 211, 153, 0.95); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 15px rgba(38, 161, 123, 0.4);">Professional Crypto Solutions</p>
+                    </div>
+                </a>
+                <div class="flex items-center">
+                    <a href="../index.html" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-all text-sm font-semibold flex items-center">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        <span class="hidden md:inline">Back to Home</span>
+                        <span class="md:hidden">Back</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-8 md:pt-24 md:pb-16">
+        <div class="container mx-auto px-4">
+            <!-- Progress Steps -->
+            <div class="max-w-4xl mx-auto mb-8 md:mb-12 animate-fade-in px-4">
+                <div class="flex items-center justify-between">
+                    <div class="progress-step flex-1">
+                        <div class="step-circle completed">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-xs md:text-sm mt-1 md:mt-2 font-medium text-gray-700">Select Package</span>
+                    </div>
+                    <div class="step-line completed flex-1"></div>
+                    <div class="progress-step flex-1">
+                        <div class="step-circle completed">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-xs md:text-sm mt-1 md:mt-2 font-medium text-gray-700">Payment</span>
+                    </div>
+                    <div class="step-line completed flex-1"></div>
+                    <div class="progress-step flex-1">
+                        <div class="step-circle active">
+                            <span>3</span>
+                        </div>
+                        <span class="text-xs md:text-sm mt-1 md:mt-2 font-medium text-blue-600">Account Info</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Information Form -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8 animate-slide-up">
+                    <div class="text-center mb-6 md:mb-8">
+                        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Account Information</h2>
+                        <p class="text-sm md:text-base text-gray-600">Please provide your account details to complete the transaction</p>
+                    </div>
+
+                    <form id="accountForm" class="space-y-6">
+                        <!-- Personal Information Section -->
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-user-circle text-blue-500 mr-2"></i>
+                                Personal Information
+                            </h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                                <!-- Full Name -->
+                                <div class="form-group">
+                                    <label for="fullName" class="form-label">
+                                        <i class="fas fa-user text-blue-500 mr-1"></i>
+                                        Full Name
+                                        <span class="tooltip ml-1">
+                                            <i class="fas fa-info-circle text-gray-400 cursor-help"></i>
+                                            <span class="tooltip-text">Enter your full legal name as it appears on your ID</span>
+                                        </span>
+                                    </label>
+                                    <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+                                    <div id="fullNameFeedback" class="text-xs mt-1 hidden"></div>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope text-blue-500 mr-1"></i>
+                                        Email Address
+                                        <span class="tooltip ml-1">
+                                            <i class="fas fa-info-circle text-gray-400 cursor-help"></i>
+                                            <span class="tooltip-text">We'll send transaction confirmations to this email</span>
+                                        </span>
+                                    </label>
+                                    <input type="email" id="email" name="email" class="form-input" placeholder="example@domain.com" required>
+                                    <div id="emailFeedback" class="text-xs mt-1 hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Network Selection Section -->
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-network-wired text-green-500 mr-2"></i>
+                                Network Selection
+                            </h3>
+                            
+                            <div class="network-dropdown">
+                                <button type="button" id="networkButton" class="network-button">
+                                    <div id="selectedNetwork" class="flex items-center">
+                                        <span class="text-gray-500">🌐 Choose Network</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down text-gray-400"></i>
+                                </button>
+                                <div id="networkOptions" class="network-options hidden">
+                                    <div class="network-option" data-value="erc20">
+                                        <img src="../cryptologos/ethereum-eth-logo.png" alt="Ethereum" class="w-6 h-6 mr-3 rounded">
+                                        <span>ERC20 (Ethereum)</span>
+                                    </div>
+                                    <div class="network-option" data-value="bep20">
+                                        <img src="../cryptologos/binance-coin-bnb-logo.png" alt="Binance" class="w-6 h-6 mr-3 rounded">
+                                        <span>BEP20 (BSC)</span>
+                                    </div>
+                                    <div class="network-option" data-value="polygon">
+                                        <img src="../cryptologos/polygon-matic-logo.png" alt="Polygon" class="w-6 h-6 mr-3 rounded">
+                                        <span>Polygon (MATIC)</span>
+                                    </div>
+                                    <div class="network-option" data-value="arbitrum">
+                                        <img src="../cryptologos/arbitrum-arb-logo.png" alt="Arbitrum" class="w-6 h-6 mr-3 rounded">
+                                        <span>Arbitrum</span>
+                                    </div>
+                                    <div class="network-option" data-value="optimism">
+                                        <img src="../cryptologos/optimism-ethereum-op-logo.png" alt="Optimism" class="w-6 h-6 mr-3 rounded">
+                                        <span>Optimism</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="networkSelect" name="networkSelect" required>
+                            </div>
+                        </div>
+
+                        <!-- Platform Selection Section -->
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-wallet text-purple-500 mr-2"></i>
+                                Select Platform
+                            </h3>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                                <div class="platform-card animate-pulse-hover" data-value="binance">
+                                    <img src="../img/Binance Web3.jpeg" alt="Binance" class="h-12 w-12 object-contain mx-auto mb-2 rounded">
+                                    <span class="text-sm font-medium text-center block">Binance</span>
+                                </div>
+                                <div class="platform-card animate-pulse-hover" data-value="trustwallet">
+                                    <img src="../img/Trust_Wallet_2023_b-stacked.webp" alt="Trust Wallet" class="h-12 w-12 object-contain mx-auto mb-2 rounded">
+                                    <span class="text-sm font-medium text-center block">Trust Wallet</span>
+                                </div>
+                                <div class="platform-card animate-pulse-hover" data-value="bybit">
+                                    <img src="../img/BYBIT.jpg" alt="Bybit" class="h-12 w-12 object-contain mx-auto mb-2 rounded">
+                                    <span class="text-sm font-medium text-center block">Bybit</span>
+                                </div>
+                                <div class="platform-card animate-pulse-hover" data-value="metamask">
+                                    <img src="../img/META MASK.png" alt="MetaMask" class="h-12 w-12 object-contain mx-auto mb-2 rounded">
+                                    <span class="text-sm font-medium text-center block">MetaMask</span>
+                                </div>
+                                <div class="platform-card animate-pulse-hover" data-value="okx">
+                                    <img src="../img/OKX_Logo.svg" alt="OKX" class="h-12 w-12 object-contain mx-auto mb-2 rounded">
+                                    <span class="text-sm font-medium text-center block">OKX</span>
+                                </div>
+                            </div>
+                            <input type="hidden" id="platform" name="platform" value="binance">
+                        </div>
+
+                        <!-- Wallet Address Section -->
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-key text-orange-500 mr-2"></i>
+                                Wallet Address
+                                <span id="platformDisplay" class="text-sm text-blue-600 ml-2">- Binance Platform</span>
+                            </h3>
+                            
+                            <div class="form-group">
+                                <label for="walletAddress" class="form-label">
+                                    <i class="fas fa-wallet text-orange-500 mr-1"></i>
+                                    Wallet Address
+                                    <span class="tooltip ml-1">
+                                        <i class="fas fa-exclamation-triangle text-orange-400 cursor-help"></i>
+                                        <span class="tooltip-text">Double-check this address! Incorrect addresses result in permanent loss of funds</span>
+                                    </span>
+                                </label>
+                                <div class="relative">
+                                    <input type="text" id="walletAddress" name="walletAddress" class="form-input pr-12" placeholder="Enter your wallet address" required>
+                                    <button type="button" id="pasteBtn" class="absolute right-3 top-1/2 transform -translate-y-1/2 px-3 py-1 text-xs bg-gray-100 hover:bg-gray-200 rounded transition-colors">
+                                        <i class="fas fa-paste"></i>
+                                    </button>
+                                </div>
+                                <div id="addressFeedback" class="text-xs mt-1 hidden"></div>
+                            </div>
+
+                            <!-- Security Warning -->
+                            <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+                                <div class="flex">
+                                    <i class="fas fa-exclamation-triangle text-yellow-400 mr-3 mt-0.5"></i>
+                                    <div>
+                                        <p class="text-sm text-yellow-700 font-medium">Critical Security Notice</p>
+                                        <p class="text-sm text-yellow-600 mt-1">
+                                            Verify your wallet address carefully. USDT-FLASH will be sent to this address and cannot be recovered if incorrect.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <div class="flex items-start">
+                                <input type="checkbox" id="terms" class="h-5 w-5 text-green-600 focus:ring-green-500 border-gray-300 rounded mt-1" required>
+                                <label for="terms" class="ml-3 text-sm text-gray-700">
+                                    I agree to the <a href="#" class="text-blue-600 hover:underline font-medium">Terms and Conditions</a>. 
+                                    I understand that I am responsible for providing a valid wallet address and that any errors 
+                                    in the provided address may result in permanent loss of funds.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Security Features -->
+                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-200">
+                            <div class="flex items-start">
+                                <i class="fas fa-shield-alt text-blue-500 mr-3 mt-1 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold text-blue-800 mb-3">Security & Privacy Features</h4>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-lock text-blue-500 mr-2"></i>
+                                            <span class="text-sm text-blue-700">256-bit SSL Encryption</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-user-shield text-blue-500 mr-2"></i>
+                                            <span class="text-sm text-blue-700">Private Key Protection</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-eye-slash text-blue-500 mr-2"></i>
+                                            <span class="text-sm text-blue-700">Confidential Transactions</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-certificate text-blue-500 mr-2"></i>
+                                            <span class="text-sm text-blue-700">Regulatory Compliant</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="text-center pt-4 md:pt-6">
+                            <button type="button" id="submitBtn" class="btn-primary w-full px-8 md:px-12 py-3 md:py-4 text-base md:text-lg font-semibold">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span class="hidden md:inline">Confirm Information & Proceed</span>
+                                <span class="md:hidden">Confirm & Proceed</span>
+                            </button>
+                            <div class="mt-3 md:mt-4">
+                                <span class="security-badge">
+                                    <i class="fas fa-lock"></i>
+                                    <span class="hidden md:inline">Secured by 256-bit SSL Encryption</span>
+                                    <span class="md:hidden">SSL Secured</span>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Network Dropdown
+            const networkButton = document.getElementById('networkButton');
+            const networkOptions = document.getElementById('networkOptions');
+            const selectedNetwork = document.getElementById('selectedNetwork');
+            const networkSelect = document.getElementById('networkSelect');
+
+            networkButton.addEventListener('click', function() {
+                networkOptions.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.network-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    const img = this.querySelector('img').cloneNode(true);
+                    const text = this.querySelector('span').textContent;
+                    
+                    selectedNetwork.innerHTML = '';
+                    selectedNetwork.appendChild(img);
+                    const textNode = document.createElement('span');
+                    textNode.textContent = text;
+                    selectedNetwork.appendChild(textNode);
+                    
+                    networkSelect.value = value;
+                    networkOptions.classList.add('hidden');
+                });
+            });
+
+            // Platform Selection
+            const platformCards = document.querySelectorAll('.platform-card');
+            const platformInput = document.getElementById('platform');
+            const platformDisplay = document.getElementById('platformDisplay');
+
+            platformCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    platformCards.forEach(c => c.classList.remove('selected'));
+                    this.classList.add('selected');
+                    
+                    const value = this.getAttribute('data-value');
+                    const name = this.querySelector('span').textContent;
+                    
+                    platformInput.value = value;
+                    platformDisplay.textContent = `- ${name} Platform`;
+                });
+            });
+
+            // Default selection
+            platformCards[0].classList.add('selected');
+
+            // Form Validation
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+                
+                input.addEventListener('input', function() {
+                    if (this.classList.contains('invalid')) {
+                        validateField(this);
+                    }
+                });
+            });
+
+            function validateField(field) {
+                const value = field.value.trim();
+                let isValid = true;
+
+                if (field.type === 'email') {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    isValid = emailRegex.test(value);
+                } else if (field.name === 'walletAddress') {
+                    isValid = value.length >= 26; // Basic wallet address length check
+                } else {
+                    isValid = value.length >= 2;
+                }
+
+                field.classList.remove('valid', 'invalid');
+                field.classList.add(isValid ? 'valid' : 'invalid');
+                
+                return isValid;
+            }
+
+            // Paste Button
+            const pasteBtn = document.getElementById('pasteBtn');
+            const walletInput = document.getElementById('walletAddress');
+
+            pasteBtn.addEventListener('click', async function() {
+                try {
+                    const text = await navigator.clipboard.readText();
+                    walletInput.value = text;
+                    validateField(walletInput);
+                    
+                    this.innerHTML = '<i class="fas fa-check text-green-600"></i>';
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-paste"></i>';
+                    }, 1000);
+                } catch (err) {
+                    console.log('Paste not supported');
+                }
+            });
+
+            // Form Submission
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('accountForm');
+
+            submitBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const fullName = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const walletAddress = document.getElementById('walletAddress').value.trim();
+                const network = document.getElementById('networkSelect').value;
+                const terms = document.getElementById('terms').checked;
+
+                // Validate all fields
+                let allValid = true;
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        allValid = false;
+                    }
+                });
+
+                if (!network) {
+                    alert('Please select a network');
+                    return;
+                }
+
+                if (!terms) {
+                    alert('Please accept the terms and conditions');
+                    return;
+                }
+
+                if (allValid && fullName && email && walletAddress && network && terms) {
+                    submitBtn.innerHTML = '<div class="loading-spinner mr-2"></div>Processing...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        window.location.href = 'transaction-confirmation.html';
+                    }, 2000);
+                } else {
+                    alert('Please fill all required fields correctly');
+                }
+            });
+
+
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!networkButton.contains(e.target) && !networkOptions.contains(e.target)) {
+                    networkOptions.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
