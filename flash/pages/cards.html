@@ -1,0 +1,3242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Official Tether USDT Cards | Premium Digital Payment Solutions</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#26a17b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="USDT Cards">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        input, textarea, button {
+            -webkit-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Prevent zoom on input focus */
+        input[type="text"], input[type="email"], input[type="tel"], textarea {
+            font-size: 16px;
+        }
+        
+        .ultra-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        
+        .hero-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.3"/><circle cx="80" cy="40" r="0.5" fill="%23ffd700" opacity="0.5"/><circle cx="40" cy="80" r="0.8" fill="%2300d4ff" opacity="0.4"/></svg>') repeat;
+            animation: particleFloat 20s linear infinite;
+        }
+        
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            animation: gradientShift 8s ease-in-out infinite alternate;
+        }
+        
+        .flash-announcement {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: linear-gradient(45deg, #ff0000, #ff6b35, #ffd700);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            animation: flashPulse 1s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+        }
+        
+        .flash-text {
+            color: white;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .flash-discount {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .mega-title {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .title-line-1 {
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            animation: titleGlow1 3s ease-in-out infinite alternate;
+        }
+        
+        .title-line-2 {
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            animation: titleGlow2 3s ease-in-out infinite alternate;
+            transform: scale(1.2);
+        }
+        
+        .title-line-3 {
+            color: #ff6b35;
+            text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            animation: titleGlow3 3s ease-in-out infinite alternate;
+        }
+        
+        .premium-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .golden-text {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+        
+        .mega-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .countdown-mega {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            min-width: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-mega::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        .countdown-num {
+            display: block;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+        
+        .countdown-txt {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #00d4ff;
+            text-shadow: 0 0 15px rgba(0,212,255,0.5);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Advanced Card Styles */
+        .cards-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 6rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            perspective: 2000px;
+            padding: 6rem 2rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .feature-card:hover::before {
+            left: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (hover: none) {
+            .feature-card:hover {
+                transform: none;
+            }
+            .feature-card:active {
+                transform: scale(0.98);
+            }
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffd700, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .pricing-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            perspective: 2000px;
+        }
+        
+        .pricing-card {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 35, 0.95) 0%, 
+                    rgba(25, 25, 45, 0.9) 25%, 
+                    rgba(35, 35, 65, 0.85) 50%, 
+                    rgba(45, 45, 85, 0.9) 75%, 
+                    rgba(25, 25, 55, 0.95) 100%
+                ),
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.06) 0%, transparent 50%);
+            backdrop-filter: blur(25px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.3),
+                0 6px 20px rgba(0, 31, 63, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent
+            );
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+        
+        .pricing-card:hover::before {
+            left: 100%;
+        }
+        
+        .pricing-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(0, 255, 255, 0.03) 50%, transparent 70%);
+            animation: holographicShine 6s ease-in-out infinite;
+            border-radius: 28px;
+            pointer-events: none;
+        }
+        
+        .pricing-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .pricing-card.popular {
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            background-image: 
+                linear-gradient(135deg, 
+                    rgba(255, 215, 0, 0.15) 0%, 
+                    rgba(255, 165, 0, 0.1) 25%, 
+                    rgba(255, 140, 0, 0.08) 50%, 
+                    rgba(255, 165, 0, 0.1) 75%, 
+                    rgba(255, 215, 0, 0.15) 100%
+                ),
+                radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 140, 0, 0.15) 0%, transparent 50%);
+            transform: scale(1.08) rotateY(2deg);
+            box-shadow: 
+                0 0 80px rgba(255, 215, 0, 0.4),
+                0 25px 80px rgba(0, 0, 0, 0.5),
+                0 12px 40px rgba(255, 165, 0, 0.3),
+                inset 0 3px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        .pricing-card.popular::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #ffd700, #ff8c00, #ffd700, #ff8c00);
+            background-size: 400% 400%;
+            animation: gradientBorder 3s ease infinite;
+            border-radius: 31px;
+            z-index: -1;
+        }
+        
+        .pricing-card.popular .popular-badge {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffa500);
+            color: #1a1a1a;
+            padding: 0.75rem 2.5rem;
+            border-radius: 30px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 8px 25px rgba(255, 215, 0, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: 
+                0 35px 80px rgba(0, 0, 0, 0.5),
+                0 15px 40px rgba(0, 31, 63, 0.4),
+                inset 0 3px 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: translateY(-15px) scale(1.08) rotateX(5deg) rotateY(2deg);
+            box-shadow: 
+                0 0 100px rgba(255, 215, 0, 0.5),
+                0 35px 100px rgba(0, 0, 0, 0.6),
+                0 15px 50px rgba(255, 165, 0, 0.4);
+        }
+        
+        @media (hover: none) {
+            .pricing-card:hover {
+                transform: none;
+            }
+            .pricing-card.popular {
+                transform: scale(1.05);
+            }
+            .pricing-card.popular:hover {
+                transform: scale(1.05);
+            }
+            .pricing-card:active {
+                transform: scale(0.98);
+            }
+        }
+        
+        @keyframes gradientBorder {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes badgePulse {
+            0%, 100% { 
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            }
+            50% { 
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+            }
+        }
+        
+        .card-type {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+        }
+        
+        .card-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffa500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .card-price::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            border-radius: 2px;
+        }
+        
+        .card-price-desc {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 1.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .card-features li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.75rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .card-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .card-features li:hover {
+            color: #ffffff;
+            padding-left: 0.5rem;
+        }
+        
+        .card-features li::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 0;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+        
+        .card-features li:hover::before {
+            height: 100%;
+        }
+        
+        .card-features li i {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            min-width: 20px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .card-features li:hover i {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
+            transform: scale(1.1);
+        }
+        
+        .apply-btn {
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffa500, #ff8c00);
+            background-size: 300% 300%;
+            color: #1a1a1a;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 100%;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 6px 20px rgba(255, 215, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .apply-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.3), 
+                transparent
+            );
+            transition: left 0.5s ease;
+        }
+        
+        .apply-btn:hover::before {
+            left: 100%;
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(255, 215, 0, 0.6),
+                inset 0 3px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+            background-position: 100% 0;
+        }
+        
+        @media (hover: none) {
+            .apply-btn:hover {
+                transform: none;
+                background-position: 0 0;
+            }
+            .apply-btn:active {
+                transform: scale(0.98);
+            }
+            .card-features li:hover {
+                padding-left: 0;
+                color: rgba(255, 255, 255, 0.95);
+            }
+            .card-features li:hover::before {
+                height: 0;
+            }
+            .card-features li:hover i {
+                color: #00d4ff;
+                text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+                transform: none;
+            }
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .security-section {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #533483 100%);
+            padding: 6rem 0;
+        }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .security-item {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .security-icon {
+            font-size: 4rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .security-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .security-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .testimonials-section {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            padding: 6rem 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .testimonial-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ffd700, #00d4ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .author-info h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .stars {
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+        
+        .card-container {
+            position: relative;
+            width: 450px;
+            height: 280px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            transform-origin: center center;
+        }
+        
+        .card-container.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        
+        /* Ultra Realistic Card Front */
+        .visa-card {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(15, 15, 35, 0.95) 0%, 
+                    rgba(25, 25, 45, 0.9) 25%, 
+                    rgba(35, 35, 65, 0.85) 50%, 
+                    rgba(45, 45, 85, 0.9) 75%, 
+                    rgba(25, 25, 55, 0.95) 100%
+                ),
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250"><defs><pattern id="hologram" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%2300ffff" opacity="0.1"/></pattern></defs><rect width="400" height="250" fill="url(%23hologram)"/></svg>');
+            position: relative;
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.6),
+                0 12px 40px rgba(0, 31, 63, 0.4),
+                inset 0 3px 0 rgba(255, 255, 255, 0.15),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+        
+        .premium-card {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(75, 0, 130, 0.9) 0%, 
+                    rgba(138, 43, 226, 0.85) 25%, 
+                    rgba(148, 0, 211, 0.8) 50%, 
+                    rgba(186, 85, 211, 0.85) 75%, 
+                    rgba(123, 104, 238, 0.9) 100%
+                ),
+                radial-gradient(circle at 30% 20%, rgba(255, 215, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 20, 147, 0.15) 0%, transparent 50%);
+            border: 2px solid rgba(186, 85, 211, 0.4);
+        }
+        
+        .gold-card {
+            background: 
+                linear-gradient(135deg, 
+                    rgba(184, 134, 11, 0.9) 0%, 
+                    rgba(245, 158, 11, 0.85) 25%, 
+                    rgba(251, 191, 36, 0.8) 50%, 
+                    rgba(252, 211, 77, 0.85) 75%, 
+                    rgba(217, 119, 6, 0.9) 100%
+                ),
+                radial-gradient(circle at 40% 30%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 60% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 50%);
+            border: 2px solid rgba(245, 158, 11, 0.5);
+        }
+        
+        .card-content {
+            padding: 32px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-middle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        /* Holographic Effects */
+        .visa-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(0, 255, 255, 0.05) 50%, transparent 70%);
+            animation: holographicShine 4s ease-in-out infinite;
+            border-radius: 24px;
+        }
+        
+        .visa-logo {
+            position: absolute;
+            top: 28px;
+            left: 28px;
+            font-size: 36px;
+            font-weight: 900;
+            color: white;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 3px;
+            text-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.3);
+            transform: skew(-8deg);
+            z-index: 10;
+        }
+        
+        .site-branding {
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            text-align: right;
+            z-index: 10;
+        }
+        
+        .site-logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: #26a17b;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 2px;
+            letter-spacing: 1px;
+        }
+        
+        .site-url {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .contactless-symbol {
+            position: absolute;
+            top: 80px;
+            left: 28px;
+            width: 28px;
+            height: 28px;
+            opacity: 0.9;
+        }
+        
+        .contactless-symbol::before,
+        .contactless-symbol::after {
+            content: '';
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            border-right: transparent;
+            border-bottom: transparent;
+            transform: rotate(45deg);
+        }
+        
+        .contactless-symbol::before {
+            width: 14px;
+            height: 14px;
+            top: 7px;
+            left: 7px;
+        }
+        
+        .contactless-symbol::after {
+            width: 22px;
+            height: 22px;
+            top: 3px;
+            left: 3px;
+        }
+        
+        .card-chip {
+            width: 56px;
+            height: 42px;
+            background-image: url('../img/شريحة.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 215, 0, 0.9);
+            box-shadow: 
+                0 6px 12px rgba(0, 0, 0, 0.5),
+                inset 0 3px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -3px 0 rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chip-circuits {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 34"><g stroke="%2300ffff" stroke-width="0.5" opacity="0.6"><path d="M4,4 L44,4 M4,8 L44,8 M4,12 L44,12 M4,16 L44,16 M4,20 L44,20 M4,24 L44,24 M4,28 L44,28"/><path d="M4,4 L4,30 M8,4 L8,30 M12,4 L12,30 M16,4 L16,30 M20,4 L20,30 M24,4 L24,30 M28,4 L28,30 M32,4 L32,30 M36,4 L36,30 M40,4 L40,30 M44,4 L44,30"/></g><text x="24" y="15" text-anchor="middle" font-size="3" fill="%23ffffff" opacity="0.9" font-weight="bold">USDT</text><text x="24" y="22" text-anchor="middle" font-size="3" fill="%23ffffff" opacity="0.9" font-weight="bold">FLASH</text></svg>') no-repeat center,
+                repeating-linear-gradient(45deg, transparent 0px, rgba(0, 255, 255, 0.3) 1px, transparent 2px);
+            border-radius: 6px;
+            animation: chipAnimation 3s ease-in-out infinite;
+        }
+        
+        .card-number {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin: 24px 0;
+            text-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.8),
+                0 0 12px rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            text-align: center;
+        }
+        
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+        }
+        
+        .card-holder-label, .card-expiry-label {
+            font-size: 9px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .card-holder {
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .card-expiry {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: right;
+        }
+        /* Card Back Design */
+        .card-back {
+            background: 
+                linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .magnetic-strip {
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(90deg, #2a2a2a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            margin: 20px 0;
+            border-radius: 4px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .signature-panel {
+            width: 70%;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            font-size: 14px;
+            color: #333;
+            font-style: italic;
+        }
+        
+        .cvv-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .cvv-number {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .website-branding {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .website-logo {
+            font-size: 24px;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffd700, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        
+        .website-url {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+        }
+        
+        .card-container {
+            cursor: pointer;
+        }
+        
+        /* Animations */
+        @keyframes particleFloat {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        
+        @keyframes gradientShift {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes flashPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes titleGlow1 {
+            0% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+            100% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.3); }
+        }
+        
+        @keyframes titleGlow2 {
+            0% { text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
+            100% { text-shadow: 0 0 40px rgba(0, 212, 255, 0.8), 0 0 60px rgba(0, 212, 255, 0.3); }
+        }
+        
+        @keyframes titleGlow3 {
+            0% { text-shadow: 0 0 20px rgba(255, 107, 53, 0.5); }
+            100% { text-shadow: 0 0 40px rgba(255, 107, 53, 0.8), 0 0 60px rgba(255, 107, 53, 0.3); }
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        @keyframes holographicShine {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: translateX(-100%) rotate(45deg);
+            }
+            50% { 
+                opacity: 0.8;
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+        
+        @keyframes chipAnimation {
+            0%, 100% { 
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Animated Cards Showcase */
+        .animated-cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            animation: floatCards 6s ease-in-out infinite;
+        }
+        
+        .animated-card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: cardFloat 4s ease-in-out infinite;
+        }
+        
+        .animated-card-wrapper:nth-child(2) {
+            animation-delay: -1.3s;
+        }
+        
+        .animated-card-wrapper:nth-child(3) {
+            animation-delay: -2.6s;
+        }
+        
+        .animated-card {
+            width: 350px;
+            height: 220px;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .animated-card .card-number {
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        
+        .animated-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        @media (hover: none) {
+            .animated-card:hover {
+                transform: none;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            }
+            .animated-card:active {
+                transform: scale(0.98);
+            }
+        }
+        
+        .card-label {
+            margin-top: 1rem;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        @keyframes floatCards {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(1deg); }
+            66% { transform: translateY(-5px) rotate(-1deg); }
+        }
+        
+        @keyframes cardShine {
+            0%, 100% { transform: translateX(-100%) rotate(45deg); opacity: 0; }
+            50% { transform: translateX(100%) rotate(45deg); opacity: 1; }
+        }
+
+
+        
+        /* Mobile-First Responsive Design */
+        @media (max-width: 1024px) {
+            .animated-cards-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Header Optimizations */
+            header .container {
+                padding: 0 1rem;
+            }
+            header .flex {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            header .flex.items-center.space-x-6 {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            header .flex.items-center.space-x-6 > div {
+                font-size: 0.75rem;
+            }
+            
+            /* Hero Section */
+            .ultra-hero {
+                min-height: 70vh;
+                padding: 1rem 0;
+            }
+            
+            /* Main Title */
+            .text-4xl.md\:text-5xl {
+                font-size: 2rem !important;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+            .text-lg.md\:text-xl {
+                font-size: 1rem !important;
+                margin-bottom: 2rem;
+            }
+            
+            /* Profile Icon */
+            .text-center.mb-12 > div[onclick] {
+                width: 80px !important;
+                height: 80px !important;
+                margin: 0 auto 1rem;
+            }
+            .text-center.mb-12 > div[onclick] i {
+                font-size: 2rem !important;
+            }
+            
+            /* Cards Container */
+            .animated-cards-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+            .animated-card {
+                width: 100%;
+                max-width: 340px;
+                height: 210px;
+                margin: 0 auto;
+            }
+            .card-label {
+                font-size: 1rem;
+                margin-top: 0.75rem;
+            }
+            
+            /* Card Details */
+            .card-number {
+                font-size: 16px;
+                letter-spacing: 1.5px;
+                margin: 16px 0;
+            }
+            .visa-logo {
+                font-size: 24px;
+                top: 16px;
+                left: 16px;
+            }
+            .site-branding {
+                top: 16px;
+                right: 16px;
+            }
+            .site-logo {
+                font-size: 12px;
+            }
+            .site-url {
+                font-size: 7px;
+            }
+            .card-content {
+                padding: 16px;
+            }
+            .card-holder, .card-expiry {
+                font-size: 11px;
+            }
+            .card-holder-label, .card-expiry-label {
+                font-size: 7px;
+            }
+            .card-chip {
+                width: 40px;
+                height: 30px;
+            }
+            .contactless-symbol {
+                top: 60px;
+                left: 16px;
+                width: 20px;
+                height: 20px;
+            }
+            
+            /* Features Grid */
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+            .feature-card {
+                padding: 1.5rem;
+                text-align: center;
+            }
+            .feature-icon {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+            .feature-title {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Compatibility Section */
+            .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+            .flex.flex-wrap.items-center.justify-center {
+                gap: 1rem !important;
+            }
+            .flex.flex-wrap.items-center.justify-center img {
+                height: 2rem !important;
+            }
+            
+            /* Pricing Cards */
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+                perspective: none;
+            }
+            .pricing-card {
+                padding: 2rem 1.5rem;
+                margin: 0;
+                transform: none !important;
+                border-radius: 20px;
+                box-shadow: 
+                    0 15px 40px rgba(0, 0, 0, 0.3),
+                    0 6px 20px rgba(0, 31, 63, 0.2),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+            .pricing-card.popular {
+                transform: none !important;
+                margin: 1rem 0;
+                border: 2px solid #ffd700;
+                box-shadow: 
+                    0 0 40px rgba(255, 215, 0, 0.3),
+                    0 15px 50px rgba(0, 0, 0, 0.4),
+                    0 8px 25px rgba(255, 165, 0, 0.2);
+            }
+            .pricing-card.popular .popular-badge {
+                top: -12px;
+                padding: 0.5rem 2rem;
+                font-size: 0.8rem;
+            }
+            .card-type {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            .card-price {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .card-price::after {
+                width: 80%;
+                height: 1px;
+            }
+            .card-price-desc {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            .card-features {
+                margin: 1.5rem 0;
+                padding: 1.5rem 1rem;
+                border-radius: 15px;
+            }
+            .card-features li {
+                padding: 0.6rem 0;
+                font-size: 0.9rem;
+                gap: 0.75rem;
+            }
+            .card-features li i {
+                font-size: 1rem;
+            }
+            .apply-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                border-radius: 50px;
+                margin-top: 2rem;
+            }
+            
+            /* Security Grid */
+            .security-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .security-item {
+                padding: 1.5rem;
+            }
+            .security-icon {
+                font-size: 3rem;
+            }
+            
+            /* Testimonials */
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+            
+            /* Footer */
+            footer .flex.flex-col.md\:flex-row {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            footer .text-center.md\:text-right {
+                text-align: center !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Extra Small Screens */
+            .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+            
+            /* Header */
+            header {
+                padding: 0.75rem 0;
+            }
+            header h1 {
+                font-size: 1.125rem;
+            }
+            header .text-xs {
+                font-size: 0.625rem;
+            }
+            
+            /* Hero Section */
+            .ultra-hero {
+                min-height: 60vh;
+                padding: 1rem 0;
+            }
+            
+            /* Main Title */
+            .text-4xl.md\:text-5xl {
+                font-size: 1.75rem !important;
+                line-height: 1.1;
+            }
+            .text-lg.md\:text-xl {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Profile Icon */
+            .text-center.mb-12 > div[onclick] {
+                width: 70px !important;
+                height: 70px !important;
+            }
+            .text-center.mb-12 > div[onclick] i {
+                font-size: 1.75rem !important;
+            }
+            
+            /* Cards */
+            .animated-card {
+                width: 100%;
+                max-width: 300px;
+                height: 190px;
+            }
+            .card-number {
+                font-size: 14px;
+                letter-spacing: 1px;
+                margin: 12px 0;
+            }
+            .visa-logo {
+                font-size: 20px;
+                top: 12px;
+                left: 12px;
+            }
+            .site-branding {
+                top: 12px;
+                right: 12px;
+            }
+            .site-logo {
+                font-size: 10px;
+            }
+            .site-url {
+                font-size: 6px;
+            }
+            .card-content {
+                padding: 12px;
+            }
+            .card-holder, .card-expiry {
+                font-size: 9px;
+            }
+            .card-holder-label, .card-expiry-label {
+                font-size: 6px;
+            }
+            .card-chip {
+                width: 35px;
+                height: 25px;
+            }
+            .contactless-symbol {
+                top: 50px;
+                left: 12px;
+                width: 16px;
+                height: 16px;
+            }
+            
+            /* Sections Padding */
+            section {
+                padding: 3rem 0 !important;
+            }
+            
+            /* Feature Cards */
+            .feature-card {
+                padding: 1.25rem;
+            }
+            .feature-icon {
+                font-size: 2rem;
+            }
+            .feature-title {
+                font-size: 1.125rem;
+            }
+            
+            /* Pricing Cards */
+            .pricing-card {
+                padding: 1.5rem 1rem;
+                border-radius: 18px;
+            }
+            .pricing-card.popular .popular-badge {
+                top: -10px;
+                padding: 0.4rem 1.5rem;
+                font-size: 0.75rem;
+            }
+            .card-type {
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+            }
+            .card-price {
+                font-size: 2rem;
+                margin-bottom: 0.4rem;
+            }
+            .card-price-desc {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+            .card-features {
+                margin: 1.25rem 0;
+                padding: 1.25rem 0.75rem;
+                border-radius: 12px;
+            }
+            .card-features li {
+                font-size: 0.8rem;
+                padding: 0.5rem 0;
+                gap: 0.5rem;
+            }
+            .card-features li i {
+                font-size: 0.9rem;
+            }
+            .apply-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+                border-radius: 40px;
+                margin-top: 1.5rem;
+            }
+            
+            /* Security Items */
+            .security-item {
+                padding: 1.25rem;
+            }
+            .security-icon {
+                font-size: 2.5rem;
+            }
+            .security-title {
+                font-size: 1.125rem;
+            }
+            
+            /* Testimonials */
+            .testimonial-card {
+                padding: 1.25rem;
+            }
+            .testimonial-text {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            .author-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+            
+            /* Modal Adjustments */
+            #flashGuidanceModal .max-w-2xl {
+                max-width: 95vw;
+            }
+            #flashGuidanceModal .px-6 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            #flashGuidanceModal .text-xl.md\:text-2xl {
+                font-size: 1.25rem !important;
+            }
+            #flashGuidanceModal .text-sm.md\:text-base {
+                font-size: 0.875rem !important;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            /* Very Small Screens */
+            .animated-card {
+                max-width: 280px;
+                height: 175px;
+            }
+            .card-number {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+            .visa-logo {
+                font-size: 18px;
+            }
+            .site-logo {
+                font-size: 9px;
+            }
+            .card-holder, .card-expiry {
+                font-size: 8px;
+            }
+            .card-chip {
+                width: 30px;
+                height: 22px;
+            }
+            
+            .pricing-cards {
+                gap: 1.5rem;
+                padding: 0 0.75rem;
+            }
+            .pricing-card {
+                padding: 1.25rem 0.75rem;
+                border-radius: 16px;
+            }
+            .pricing-card.popular .popular-badge {
+                top: -8px;
+                padding: 0.3rem 1.25rem;
+                font-size: 0.7rem;
+            }
+            .card-type {
+                font-size: 1.125rem;
+            }
+            .card-price {
+                font-size: 1.75rem;
+            }
+            .card-price-desc {
+                font-size: 0.8rem;
+            }
+            .card-features {
+                padding: 1rem 0.5rem;
+                margin: 1rem 0;
+            }
+            .card-features li {
+                font-size: 0.75rem;
+                padding: 0.4rem 0;
+            }
+            .apply-btn {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.9rem;
+                margin-top: 1.25rem;
+            }
+        }
+        
+        /* Touch Optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .animated-card:hover {
+                transform: none;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            }
+            .animated-card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s;
+            }
+            .feature-card:hover {
+                transform: none;
+            }
+            .feature-card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s;
+            }
+            .pricing-card:hover {
+                transform: none;
+            }
+            .pricing-card:active {
+                transform: scale(0.98);
+                transition: transform 0.1s;
+            }
+            .apply-btn:hover {
+                transform: none;
+            }
+            .apply-btn:active {
+                transform: scale(0.95);
+                transition: transform 0.1s;
+            }
+            
+            /* Larger touch targets */
+            .apply-btn {
+                min-height: 48px;
+            }
+            button {
+                min-height: 44px;
+            }
+        }
+        
+        /* Performance Optimizations */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Mobile-specific optimizations */
+        .mobile-btn {
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+            -webkit-user-select: none;
+            user-select: none;
+            outline: none;
+            border: none;
+            background-clip: padding-box;
+        }
+        
+        .mobile-touch-card {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        .mobile-card-icon {
+            -webkit-tap-highlight-color: rgba(255, 215, 0, 0.2);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        /* Improved scrolling on mobile */
+        body {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: hidden;
+        }
+        
+        /* Better text rendering on mobile */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        
+        /* Prevent horizontal scroll */
+        .container {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        
+        /* Mobile-optimized animations */
+        @media (max-width: 768px) {
+            .hero-particles {
+                animation-duration: 30s;
+            }
+            .holographicShine {
+                animation-duration: 6s;
+            }
+            .chipAnimation {
+                animation-duration: 4s;
+            }
+        }
+        
+        /* Loading optimization */
+        img {
+            loading: lazy;
+        }
+        
+        /* Focus styles for accessibility */
+        button:focus-visible {
+            outline: 2px solid #ffd700;
+            outline-offset: 2px;
+        }
+        
+        /* Better contrast for mobile */
+        @media (max-width: 768px) {
+            .text-gray-300 {
+                color: rgba(255, 255, 255, 0.9) !important;
+            }
+            .text-gray-400 {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+
+    <!-- Official Tether Header -->
+    <header class="bg-gray-900 border-b border-green-600 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="40" height="40" class="mr-3">
+                    <div>
+                        <h1 class="text-xl font-bold text-white">Tether Limited</h1>
+                        <p class="text-green-400 text-xs">Official USDT Financial Services</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div class="flex items-center text-green-400 text-sm">
+                        <i class="fas fa-shield-check mr-1"></i>
+                        <span data-translate="regulated">Regulated</span>
+                    </div>
+                    <div class="flex items-center text-green-400 text-sm">
+                        <i class="fas fa-certificate mr-1"></i>
+                        <span data-translate="iso-certified">ISO Certified</span>
+                    </div>
+                    <div class="flex items-center text-green-400 text-sm">
+                        <i class="fas fa-globe mr-1"></i>
+                        <span data-translate="global-license">Global License</span>
+                    </div>
+                    <button id="langToggle" class="flex items-center text-blue-400 hover:text-blue-300 transition-colors text-sm px-3 py-1 rounded-full border border-blue-400/30 hover:border-blue-300/50 mobile-btn" style="touch-action: manipulation; min-height: 44px;" ontouchstart="this.style.transform='scale(0.95)'" ontouchend="this.style.transform='scale(1)'">
+                        <i class="fas fa-language mr-1"></i>
+                        <span id="langText">العربية</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Animated Cards Showcase -->
+    <section class="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">
+                    <span class="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent" data-translate="main-title">
+                        Official Tether USDT Cards
+                    </span>
+                </h2>
+                <p class="text-gray-300 text-lg" data-translate="main-subtitle">Premium Digital Payment Solutions</p>
+            </div>
+            
+            <!-- Profile Icon -->
+            <div class="text-center mb-12">
+                <div onclick="openMyCard()" class="mobile-card-icon" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; width: 120px; height: 120px; background: linear-gradient(135deg, #ffd700, #ffed4e); border-radius: 20px; color: #1a1a1a; box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4), inset 0 2px 0 rgba(255,255,255,0.3); transition: all 0.3s ease; position: relative; overflow: hidden; touch-action: manipulation;" ontouchstart="this.style.transform='scale(0.95)'" ontouchend="this.style.transform='scale(1)'">
+                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%); animation: cardShine 3s ease-in-out infinite;"></div>
+                    <i class="fas fa-credit-card" style="font-size: 3rem; z-index: 2;"></i>
+                </div>
+                <p style="color: white; margin-top: 1rem; font-weight: bold;" data-translate="my-card">My Card</p>
+            </div>
+            
+            <div class="animated-cards-container">
+                <div class="animated-card-wrapper">
+                    <div class="animated-card visa-card mobile-touch-card" onclick="applyForSpecificCard('classic')" style="cursor: pointer; touch-action: manipulation;" ontouchstart="this.style.transform='scale(0.98)'" ontouchend="this.style.transform='scale(1)'">
+                        <div class="card-content">
+                            <div class="contactless-symbol"></div>
+                            <div class="visa-logo">VISA</div>
+                            <div class="site-branding">
+                                <div class="site-logo">₮ TETHER</div>
+                                <div class="site-url">USDT</div>
+                            </div>
+                            <div class="card-middle">
+                                <div class="card-number">4532 1234 5678 9012</div>
+                            </div>
+                            <div class="card-bottom">
+                                <div>
+                                    <div class="card-holder-label">CARD HOLDER</div>
+                                    <div class="card-holder">JOHN DOE</div>
+                                </div>
+                                <div class="card-chip">
+                                    <div class="chip-circuits"></div>
+                                </div>
+                                <div>
+                                    <div class="card-expiry-label">VALID THRU</div>
+                                    <div class="card-expiry">12/28</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-label" data-translate="classic">Classic</div>
+                </div>
+                
+                <div class="animated-card-wrapper">
+                    <div class="animated-card visa-card premium-card mobile-touch-card" onclick="applyForSpecificCard('premium')" style="cursor: pointer; touch-action: manipulation;" ontouchstart="this.style.transform='scale(0.98)'" ontouchend="this.style.transform='scale(1)'">
+                        <div class="card-content">
+                            <div class="contactless-symbol"></div>
+                            <div class="visa-logo">VISA</div>
+                            <div class="site-branding">
+                                <div class="site-logo">₮ TETHER</div>
+                                <div class="site-url">USDT</div>
+                            </div>
+                            <div class="card-middle">
+                                <div class="card-number">4532 8765 4321 0987</div>
+                            </div>
+                            <div class="card-bottom">
+                                <div>
+                                    <div class="card-holder-label">CARD HOLDER</div>
+                                    <div class="card-holder">JOHN DOE</div>
+                                </div>
+                                <div class="card-chip">
+                                    <div class="chip-circuits"></div>
+                                </div>
+                                <div>
+                                    <div class="card-expiry-label">VALID THRU</div>
+                                    <div class="card-expiry">12/28</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-label" data-translate="premium">Premium</div>
+                </div>
+                
+                <div class="animated-card-wrapper">
+                    <div class="animated-card visa-card gold-card mobile-touch-card" onclick="applyForSpecificCard('gold')" style="cursor: pointer; touch-action: manipulation;" ontouchstart="this.style.transform='scale(0.98)'" ontouchend="this.style.transform='scale(1)'">
+                        <div class="card-content">
+                            <div class="contactless-symbol"></div>
+                            <div class="visa-logo">VISA</div>
+                            <div class="site-branding">
+                                <div class="site-logo">₮ TETHER</div>
+                                <div class="site-url">USDT</div>
+                            </div>
+                            <div class="card-middle">
+                                <div class="card-number">4532 9876 5432 1098</div>
+                            </div>
+                            <div class="card-bottom">
+                                <div>
+                                    <div class="card-holder-label">CARD HOLDER</div>
+                                    <div class="card-holder">JOHN DOE</div>
+                                </div>
+                                <div class="card-chip">
+                                    <div class="chip-circuits"></div>
+                                </div>
+                                <div>
+                                    <div class="card-expiry-label">VALID THRU</div>
+                                    <div class="card-expiry">12/28</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-label" data-translate="elite">Elite</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ultra Premium Hero Section -->
+    <div class="ultra-hero">
+        <div class="hero-particles"></div>
+        <div class="hero-gradient"></div>
+        <div class="container mx-auto px-4 relative z-20">
+            <div class="text-center">
+                <div class="bg-green-800 bg-opacity-20 border border-green-600 rounded-lg p-4 mb-8 max-w-2xl mx-auto">
+                    <div class="flex items-center justify-center mb-2">
+                        <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                        <span class="text-white font-semibold" data-translate="official-product">Official Tether Limited Product</span>
+                    </div>
+                    <p class="text-green-300 text-sm" data-translate="license-info">Licensed by British Virgin Islands Financial Services | Regulated Entity #BVI-2024-USDT</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-black">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="flex justify-center items-center mb-6">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="60" height="60" class="mr-4">
+                    <h2 class="text-5xl font-bold text-white">
+                        <span class="bg-gradient-to-r from-green-400 to-teal-400 bg-clip-text text-transparent" data-translate="features-title">
+                            Tether Official Features
+                        </span>
+                    </h2>
+                </div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-translate="features-subtitle">
+                    Official features certified by Tether Limited - The leading company in USDT world
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title" data-translate="advanced-security">Advanced Security</h3>
+                    <p class="feature-desc" data-translate="advanced-security-desc">
+                        Multi-layer protection with military-grade encryption and blockchain technology
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title" data-translate="instant-transactions">Instant Transactions</h3>
+                    <p class="feature-desc" data-translate="instant-transactions-desc">
+                        Fast transfers within seconds anytime, anywhere in the world
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title" data-translate="global-acceptance">Global Acceptance</h3>
+                    <p class="feature-desc" data-translate="global-acceptance-desc">
+                        Use your card in over 200 countries worldwide
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title" data-translate="support-247">24/7 Support</h3>
+                    <p class="feature-desc" data-translate="support-247-desc">
+                        Specialized support team available around the clock to help you
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title" data-translate="smart-app">Smart App</h3>
+                    <p class="feature-desc" data-translate="smart-app-desc">
+                        Complete control of your account through an advanced and easy-to-use app
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="feature-title" data-translate="exclusive-rewards">Exclusive Rewards</h3>
+                    <p class="feature-desc" data-translate="exclusive-rewards-desc">
+                        Earn reward points with every purchase and redeem them for valuable prizes
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universal USDT Compatibility & Partners Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                    <span class="bg-gradient-to-r from-green-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent" data-translate="compatibility-title">Universal USDT Compatibility</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto" data-translate="compatibility-subtitle">
+                    Our cards are engineered to work across all platforms that accept USDT for trading, deposits, or transfers — including centralized exchanges, Web3 wallets, and DeFi services — through our integration partners.
+                </p>
+            </div>
+
+            <!-- Compatibility Highlights -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-building-columns text-cyan-300"></i>
+                        <h3 class="text-white font-semibold" data-translate="cex-platforms">CEX Platforms</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-6" data-translate="cex-platforms-desc">
+                        Compatible with major exchanges that support USDT (e.g., Binance, Bybit, OKX, KuCoin), subject to each platform's regional terms and policies.
+                    </p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-wallet text-green-300"></i>
+                        <h3 class="text-white font-semibold" data-translate="wallets-web3">Wallets & Web3</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-6" data-translate="wallets-web3-desc">
+                        Works with leading wallets that accept USDT on supported networks (e.g., Trust Wallet, MetaMask, TronLink) for deposits and transfers.
+                    </p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-network-wired text-teal-300"></i>
+                        <h3 class="text-white font-semibold" data-translate="supported-networks">Supported Networks</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-6" data-translate="supported-networks-desc">
+                        USDT on TRC20, ERC20, BEP20, and other compatible chains where USDT is officially supported by the platform.
+                    </p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-chart-line text-blue-300"></i>
+                        <h3 class="text-white font-semibold" data-translate="trading-transfers">Trading & Transfers</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-6" data-translate="trading-transfers-desc">
+                        Use for spot trading, P2P, deposits, and withdrawals wherever USDT is accepted, in accordance with platform rules.
+                    </p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-globe text-yellow-300"></i>
+                        <h3 class="text-white font-semibold" data-translate="global-reach">Global Reach</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-6" data-translate="global-reach-desc">
+                        Availability may vary by country, platform policies, and compliance standards. Check regional support before use.
+                    </p>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fas fa-handshake text-emerald-300"></i>
+                        <h3 class="text-white font-semibold" data-translate="integration-partners">Integration Partners</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-6" data-translate="integration-partners-desc">
+                        Operates via our integration partners to ensure reliable connectivity across supported platforms.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Partner Logos (illustrative) -->
+            <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-8 opacity-90">
+                <img src="../img/Binance%20Web3.jpeg" alt="Binance" class="h-10 md:h-12 object-contain rounded-sm shadow-sm"/>
+                <img src="../img/BYBIT.jpg" alt="Bybit" class="h-10 md:h-12 object-contain rounded-sm shadow-sm"/>
+                <img src="../img/Trust_Wallet_2023_b-stacked.webp" alt="Trust Wallet" class="h-10 md:h-12 object-contain rounded-sm shadow-sm"/>
+                <img src="../img/META%20MASK.png" alt="MetaMask" class="h-10 md:h-12 object-contain rounded-sm shadow-sm"/>
+                <img src="../img/Web3-Wallet.png" alt="Web3 Wallet" class="h-10 md:h-12 object-contain rounded-sm shadow-sm"/>
+            </div>
+            <p class="text-center text-xs text-gray-400 mb-10">Logos are for illustration only. All trademarks are property of their respective owners.</p>
+
+            <!-- OTP Notice -->
+            <div class="max-w-4xl mx-auto bg-yellow-900/40 border border-yellow-500/60 text-yellow-100 rounded-xl p-4 md:p-5 flex items-start gap-3">
+                <i class="fas fa-exclamation-triangle text-yellow-400 text-xl mt-0.5"></i>
+                <div>
+                    <p class="font-semibold" data-translate="otp-notice">Important Notice — OTP Not Supported Yet</p>
+                    <p class="text-sm leading-6" data-translate="otp-notice-desc">
+                        One-Time Password (OTP/SMS/phone verification) is currently not supported. If a platform strictly requires OTP to complete a transaction, please use an alternative verification flow provided by the platform or contact our support for guidance. OTP support is planned for a future update.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-white mb-6">
+                    <span class="bg-gradient-to-r from-yellow-400 to-blue-400 bg-clip-text text-transparent" data-translate="pricing-title">
+                        Pricing Plans
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-translate="pricing-subtitle">
+                    Choose the plan that suits you and enjoy exclusive benefits
+                </p>
+            </div>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="text-center mb-4">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="40" height="40" class="mx-auto mb-2">
+                        <div class="text-sm text-green-400 font-bold" data-translate="tether-official">Tether Official</div>
+                    </div>
+                    <h3 class="card-type" data-translate="classic-card">USDT Classic Card</h3>
+                    <div class="card-price">$60</div>
+                    <p class="card-price-desc" data-translate="one-time-fee">One-time fee</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-treasure-chest"></i> <strong data-translate="classic-flash">650 USDT Instant Flash</strong></li>
+                        <li><i class="fas fa-rocket"></i> <strong data-translate="instant-withdrawal-binance">Instant withdrawal via Binance</strong></li>
+                        <li><i class="fas fa-credit-card"></i> <strong data-translate="direct-withdrawal-bybit">Direct withdrawal via ByBit</strong></li>
+                        <li><i class="fas fa-clock"></i> <span data-translate="activation-60">Activation within 60 seconds</span></li>
+                        <li><i class="fas fa-shield-alt"></i> <span data-translate="money-back-guarantee">100% money-back guarantee</span></li>
+                    </ul>
+                    <button class="apply-btn mobile-btn" onclick="applyForSpecificCard('classic')" data-translate="reserve-spot" style="touch-action: manipulation;" ontouchstart="this.style.transform='scale(0.98)'" ontouchend="this.style.transform='scale(1)'">
+                        Reserve Your Spot Now
+                    </button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge" data-translate="most-popular">Most Popular</div>
+                    <div class="text-center mb-4">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="40" height="40" class="mx-auto mb-2">
+                        <div class="text-sm text-green-400 font-bold" data-translate="tether-official">Tether Official</div>
+                    </div>
+                    <h3 class="card-type" data-translate="premium-card">USDT Premium Card</h3>
+                    <div class="card-price">$165</div>
+                    <p class="card-price-desc" data-translate="one-time-fee">One-time fee</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-gem"></i> <strong data-translate="premium-flash">2,200 USDT Instant Flash</strong></li>
+                        <li><i class="fas fa-lightning-bolt"></i> <strong data-translate="instant-withdrawal-binance">Instant withdrawal via Binance</strong></li>
+                        <li><i class="fas fa-credit-card"></i> <strong data-translate="direct-withdrawal-bybit">Direct withdrawal via ByBit</strong></li>
+                        <li><i class="fas fa-fire"></i> <strong data-translate="profit-multiplier-3x">3x Profit Multiplier</strong></li>
+                        <li><i class="fas fa-vip"></i> <span data-translate="vip-access">VIP access to offers</span></li>
+                        <li><i class="fas fa-crown"></i> <span data-translate="priority-support">Priority support</span></li>
+                    </ul>
+                    <button class="apply-btn mobile-btn" onclick="applyForSpecificCard('premium')" data-translate="join-elite" style="touch-action: manipulation;" ontouchstart="this.style.transform='scale(0.98)'" ontouchend="this.style.transform='scale(1)'">
+                        Join Elite Now
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="text-center mb-4">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="40" height="40" class="mx-auto mb-2">
+                        <div class="text-sm text-green-400 font-bold" data-translate="tether-official">Tether Official</div>
+                    </div>
+                    <h3 class="card-type" data-translate="elite-card">USDT Elite Card</h3>
+                    <div class="card-price">$330</div>
+                    <p class="card-price-desc" data-translate="one-time-fee">One-time fee</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-diamond"></i> <strong data-translate="elite-flash">5,500 USDT Instant Flash</strong></li>
+                        <li><i class="fas fa-bolt"></i> <strong data-translate="instant-withdrawal-binance">Instant withdrawal via Binance</strong></li>
+                        <li><i class="fas fa-credit-card"></i> <strong data-translate="direct-withdrawal-bybit">Direct withdrawal via ByBit</strong></li>
+                        <li><i class="fas fa-infinity"></i> <strong data-translate="profit-multiplier-10x">10x Profit Multiplier</strong></li>
+                        <li><i class="fas fa-key"></i> <strong data-translate="exclusive-access">Exclusive access to offers</strong></li>
+                        <li><i class="fas fa-phone-alt"></i> <span data-translate="direct-line">Direct line with management</span></li>
+                        <li><i class="fas fa-star"></i> <span data-translate="personal-advisor">Personal investment advisor</span></li>
+                    </ul>
+                    <button class="apply-btn mobile-btn" onclick="applyForSpecificCard('gold')" data-translate="join-vip-elite" style="touch-action: manipulation;" ontouchstart="this.style.transform='scale(0.98)'" ontouchend="this.style.transform='scale(1)'">
+                        Join VIP Elite
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-white mb-6">
+                    <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent" data-translate="security-title">
+                        Unmatched Security
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-translate="security-subtitle">
+                    We protect your money and data with the latest global security technologies
+                </p>
+            </div>
+            
+            <div class="security-grid">
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="security-title" data-translate="aes-encryption">AES-256 Encryption</h3>
+                    <p class="security-desc" data-translate="aes-encryption-desc">
+                        Military-grade encryption protects all your transactions and personal data
+                    </p>
+                </div>
+                
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3 class="security-title" data-translate="biometric-auth">Biometric Authentication</h3>
+                    <p class="security-desc" data-translate="biometric-auth-desc">
+                        Secure login using fingerprint or facial recognition
+                    </p>
+                </div>
+                
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="security-title" data-translate="monitoring-247">24/7 Monitoring</h3>
+                    <p class="security-desc" data-translate="monitoring-247-desc">
+                        Advanced monitoring system detects any suspicious activity instantly
+                    </p>
+                </div>
+                
+                <div class="security-item">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <h3 class="security-title" data-translate="fraud-protection">Fraud Protection</h3>
+                    <p class="security-desc" data-translate="fraud-protection-desc">
+                        Advanced AI prevents fraud and hacking attempts
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-white mb-6">
+                    <span class="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent" data-translate="testimonials-title">
+                        Customer Reviews
+                    </span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" data-translate="testimonials-subtitle">
+                    Discover experiences from our satisfied customers worldwide
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text" data-translate="testimonial-1">
+                        "Amazing experience! The card works seamlessly worldwide and the technical support is excellent. Highly recommend it."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div class="author-info">
+                            <h4 data-translate="ahmed">Ahmed Mohammed</h4>
+                            <p data-translate="dubai">Dubai</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text" data-translate="testimonial-2">
+                        "The security and speed of transactions are unmatched. The gold card is worth every penny I paid for it."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">FZ</div>
+                        <div class="author-info">
+                            <h4 data-translate="fatima">Fatima Al-Zahra</h4>
+                            <p data-translate="riyadh">Riyadh</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text" data-translate="testimonial-3">
+                        "Exceptional customer service and easy-to-use app. Haven't faced any issues for over a year."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">OR</div>
+                        <div class="author-info">
+                            <h4 data-translate="omar">Omar Al-Rashid</h4>
+                            <p data-translate="kuwait">Kuwait</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Official Tether Footer -->
+    <footer class="bg-gray-900 border-t border-green-600 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2326a17b'/%3E%3Ctext x='50' y='60' text-anchor='middle' fill='white' font-size='40' font-weight='bold'%3E₮%3C/text%3E%3C/svg%3E" width="50" height="50" class="mr-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white" data-translate="footer-title">Tether Limited</h3>
+                        <p class="text-green-400 text-sm" data-translate="footer-subtitle">Official USDT Card Provider</p>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <div class="flex items-center justify-center md:justify-end mb-2">
+                        <i class="fas fa-shield-alt text-green-400 mr-2"></i>
+                        <span class="text-white font-semibold" data-translate="licensed-regulated">Licensed & Regulated</span>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-end mb-2">
+                        <i class="fas fa-certificate text-green-400 mr-2"></i>
+                        <span class="text-white font-semibold" data-translate="iso-27001">ISO 27001 Certified</span>
+                    </div>
+                    <div class="flex items-center justify-center md:justify-end">
+                        <i class="fas fa-globe text-green-400 mr-2"></i>
+                        <span class="text-white font-semibold" data-translate="global-financial">Global Financial Services</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm mb-2" data-translate="copyright">
+                    © 2025 Tether Limited. All rights reserved. | Registered in British Virgin Islands
+                </p>
+                <p class="text-gray-500 text-xs" data-translate="disclaimer">
+                    Tether USDT Cards are issued under license from Tether Limited and comply with international financial regulations.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function startCountdown() {
+            const countdownDate = new Date().getTime() + (23 * 24 * 60 * 60 * 1000);
+            
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.querySelector('.mega-countdown').innerHTML = '<div class="text-2xl font-bold text-red-500">انتهى العرض!</div>';
+                }
+            }, 1000);
+        }
+        
+
+        
+        function openMyCard() {
+            // Add haptic feedback for mobile devices
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+            
+            const userData = localStorage.getItem('user');
+            const isLoggedIn = userData && JSON.parse(userData).isLoggedIn;
+            
+            if (isLoggedIn) {
+                window.location.href = 'my-card.html';
+            } else {
+                showCardAlert();
+            }
+        }
+        
+        function showCardAlert() {
+            const modal = document.createElement('div');
+            modal.innerHTML = `
+                <div class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4">
+                    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 max-w-md mx-auto shadow-2xl border border-gray-700">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i class="fas fa-credit-card text-gray-900 text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-4">🚫 No Card Available</h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                You need to purchase a card first to access your card dashboard.
+                            </p>
+                            <div class="bg-yellow-900/30 border border-yellow-600/50 rounded-lg p-4 mb-6">
+                                <div class="text-sm text-yellow-200">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-arrow-right text-yellow-400 mr-2"></i>
+                                        <span>Choose your preferred card type</span>
+                                    </div>
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-arrow-right text-yellow-400 mr-2"></i>
+                                        <span>Complete the payment process</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-arrow-right text-yellow-400 mr-2"></i>
+                                        <span>Access your card dashboard</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">
+                                <button onclick="this.closest('.fixed').remove()" class="flex-1 bg-gray-700 text-white py-3 px-6 rounded-lg font-bold hover:bg-gray-600 transition-colors">
+                                    Close
+                                </button>
+                                <button onclick="window.location.href='register.html'" class="flex-1 bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 py-3 px-6 rounded-lg font-bold hover:from-yellow-400 hover:to-yellow-500 transition-colors">
+                                    Get Card
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        function applyForSpecificCard(cardType) {
+            // Add haptic feedback for mobile devices
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+            
+            const userData = localStorage.getItem('user');
+            const isLoggedIn = userData && JSON.parse(userData).isLoggedIn;
+            
+            if (!isLoggedIn) {
+                localStorage.setItem('selectedCardType', cardType);
+                window.location.href = 'register.html';
+                return;
+            }
+            
+            const paymentPages = {
+                'classic': 'payment-classic.html',
+                'premium': 'payment-premium.html',
+                'gold': 'payment-elite.html'
+            };
+            
+            window.location.href = paymentPages[cardType] || 'payment-classic.html';
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            startCountdown();
+            initLanguageToggle();
+            initMobileOptimizations();
+            
+            // Auto-scroll to pricing section on page load
+            setTimeout(() => {
+                const pricingSection = document.querySelector('.pricing-section');
+                if (pricingSection) {
+                    pricingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 500);
+        });
+        
+        // Mobile optimizations
+        function initMobileOptimizations() {
+            // Prevent zoom on double tap
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function (event) {
+                const now = (new Date()).getTime();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+            
+            // Optimize scroll performance
+            let ticking = false;
+            function updateScrollPosition() {
+                ticking = false;
+                // Add scroll-based optimizations here if needed
+            }
+            
+            document.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateScrollPosition);
+                    ticking = true;
+                }
+            }, { passive: true });
+            
+            // Preload critical images
+            const criticalImages = [
+                '../img/Binance%20Web3.jpeg',
+                '../img/BYBIT.jpg',
+                '../img/Trust_Wallet_2023_b-stacked.webp',
+                '../img/META%20MASK.png',
+                '../img/Web3-Wallet.png'
+            ];
+            
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+            
+            // Add touch feedback for better UX
+            document.querySelectorAll('.mobile-btn, .mobile-touch-card, .mobile-card-icon').forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transition = 'transform 0.1s ease';
+                }, { passive: true });
+                
+                element.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.transition = 'transform 0.3s ease';
+                    }, 100);
+                }, { passive: true });
+            });
+        }
+        
+        // Language Toggle System
+        function initLanguageToggle() {
+            const langToggle = document.getElementById('langToggle');
+            const langText = document.getElementById('langText');
+            let isArabic = false;
+            
+            const translations = {
+                en: {
+                    // Sale Banner
+                    saleBanner: '🔥 SPECIAL DISCOUNT 15% OFF - Valid Until October 1st! 🔥',
+                    
+                    // Header
+                    headerTitle: 'Tether Limited',
+                    headerSubtitle: 'Official USDT Financial Services',
+                    regulated: 'Regulated',
+                    isoCertified: 'ISO Certified',
+                    globalLicense: 'Global License',
+                    langButton: 'العربية',
+                    
+                    // Main Section
+                    mainTitle: 'Official Tether USDT Cards',
+                    mainSubtitle: 'Premium Digital Payment Solutions',
+                    myProfile: 'My Card',
+                    classic: 'Classic',
+                    premium: 'Premium',
+                    elite: 'Elite',
+                    
+                    // Official Notice
+                    officialProduct: 'Official Tether Limited Product',
+                    licenseInfo: 'Licensed by British Virgin Islands Financial Services | Regulated Entity #BVI-2024-USDT',
+                    
+                    // Features Section
+                    featuresTitle: 'Tether Official Features',
+                    featuresSubtitle: 'Official features certified by Tether Limited - The leading company in USDT world',
+                    
+                    advancedSecurity: 'Advanced Security',
+                    advancedSecurityDesc: 'Multi-layer protection with military-grade encryption and blockchain technology',
+                    
+                    instantTransactions: 'Instant Transactions',
+                    instantTransactionsDesc: 'Fast transfers within seconds anytime, anywhere in the world',
+                    
+                    globalAcceptance: 'Global Acceptance',
+                    globalAcceptanceDesc: 'Use your card in over 200 countries worldwide',
+                    
+                    support247: '24/7 Support',
+                    support247Desc: 'Specialized support team available around the clock to help you',
+                    
+                    smartApp: 'Smart App',
+                    smartAppDesc: 'Complete control of your account through an advanced and easy-to-use app',
+                    
+                    exclusiveRewards: 'Exclusive Rewards',
+                    exclusiveRewardsDesc: 'Earn reward points with every purchase and redeem them for valuable prizes',
+                    
+                    // Compatibility Section
+                    compatibilityTitle: 'Universal USDT Compatibility',
+                    compatibilitySubtitle: 'Our cards are engineered to work across all platforms that accept USDT for trading, deposits, or transfers — including centralized exchanges, Web3 wallets, and DeFi services — through our integration partners.',
+                    
+                    cexPlatforms: 'CEX Platforms',
+                    cexPlatformsDesc: 'Compatible with major exchanges that support USDT (e.g., Binance, Bybit, OKX, KuCoin), subject to each platform\'s regional terms and policies.',
+                    
+                    walletsWeb3: 'Wallets & Web3',
+                    walletsWeb3Desc: 'Works with leading wallets that accept USDT on supported networks (e.g., Trust Wallet, MetaMask, TronLink) for deposits and transfers.',
+                    
+                    supportedNetworks: 'Supported Networks',
+                    supportedNetworksDesc: 'USDT on TRC20, ERC20, BEP20, and other compatible chains where USDT is officially supported by the platform.',
+                    
+                    tradingTransfers: 'Trading & Transfers',
+                    tradingTransfersDesc: 'Use for spot trading, P2P, deposits, and withdrawals wherever USDT is accepted, in accordance with platform rules.',
+                    
+                    globalReach: 'Global Reach',
+                    globalReachDesc: 'Availability may vary by country, platform policies, and compliance standards. Check regional support before use.',
+                    
+                    integrationPartners: 'Integration Partners',
+                    integrationPartnersDesc: 'Operates via our integration partners to ensure reliable connectivity across supported platforms.',
+                    
+                    otpNotice: 'Important Notice — OTP Not Supported Yet',
+                    otpNoticeDesc: 'One-Time Password (OTP/SMS/phone verification) is currently not supported. If a platform strictly requires OTP to complete a transaction, please use an alternative verification flow provided by the platform or contact our support for guidance. OTP support is planned for a future update.',
+                    
+                    // Pricing Section
+                    pricingTitle: 'Pricing Plans',
+                    pricingSubtitle: 'Choose the plan that suits you and enjoy exclusive benefits',
+                    
+                    tetherOfficial: 'Tether Official',
+                    classicCard: 'USDT Classic Card',
+                    premiumCard: 'USDT Premium Card',
+                    eliteCard: 'USDT Elite Card',
+                    oneTimeFee: 'One-time fee',
+                    mostPopular: 'Most Popular',
+                    
+                    // Classic Card Features
+                    classicFlash: '1,500 USDT Instant Flash',
+                    instantWithdrawalBinance: 'Instant withdrawal via Binance',
+                    directWithdrawalBybit: 'Direct withdrawal via ByBit',
+                    activation60: 'Activation within 60 seconds',
+                    moneyBackGuarantee: '100% money-back guarantee',
+                    reserveSpot: 'Reserve Your Spot Now',
+                    
+                    // Premium Card Features
+                    premiumFlash: '5,500 USDT Instant Flash',
+                    profitMultiplier3x: '3x Profit Multiplier',
+                    vipAccess: 'VIP access to offers',
+                    prioritySupport: 'Priority support',
+                    joinElite: 'Join Elite Now',
+                    
+                    // Elite Card Features
+                    eliteFlash: '10,000 USDT Instant Flash',
+                    profitMultiplier10x: '10x Profit Multiplier',
+                    exclusiveAccess: 'Exclusive access to offers',
+                    directLine: 'Direct line with management',
+                    personalAdvisor: 'Personal investment advisor',
+                    joinVipElite: 'Join VIP Elite',
+                    
+                    // Security Section
+                    securityTitle: 'Unmatched Security',
+                    securitySubtitle: 'We protect your money and data with the latest global security technologies',
+                    
+                    aesEncryption: 'AES-256 Encryption',
+                    aesEncryptionDesc: 'Military-grade encryption protects all your transactions and personal data',
+                    
+                    biometricAuth: 'Biometric Authentication',
+                    biometricAuthDesc: 'Secure login using fingerprint or facial recognition',
+                    
+                    monitoring247: '24/7 Monitoring',
+                    monitoring247Desc: 'Advanced monitoring system detects any suspicious activity instantly',
+                    
+                    fraudProtection: 'Fraud Protection',
+                    fraudProtectionDesc: 'Advanced AI prevents fraud and hacking attempts',
+                    
+                    // Testimonials Section
+                    testimonialsTitle: 'Customer Reviews',
+                    testimonialsSubtitle: 'Discover experiences from our satisfied customers worldwide',
+                    
+                    testimonial1: '"Amazing experience! The card works seamlessly worldwide and the technical support is excellent. Highly recommend it."',
+                    testimonial2: '"The security and speed of transactions are unmatched. The gold card is worth every penny I paid for it."',
+                    testimonial3: '"Exceptional customer service and easy-to-use app. Haven\'t faced any issues for over a year."',
+                    
+                    ahmed: 'Ahmed Mohammed',
+                    fatima: 'Fatima Al-Zahra',
+                    omar: 'Omar Al-Rashid',
+                    dubai: 'Dubai',
+                    riyadh: 'Riyadh',
+                    kuwait: 'Kuwait',
+                    
+                    // Footer
+                    footerTitle: 'Tether Limited',
+                    footerSubtitle: 'Official USDT Card Provider',
+                    licensedRegulated: 'Licensed & Regulated',
+                    iso27001: 'ISO 27001 Certified',
+                    globalFinancial: 'Global Financial Services',
+                    copyright: '© 2025 Tether Limited. All rights reserved. | Registered in British Virgin Islands',
+                    disclaimer: 'Tether USDT Cards are issued under license from Tether Limited and comply with international financial regulations.'
+                },
+                ar: {
+                    // Sale Banner
+                    saleBanner: '🔥 خصم خاص 15% - ساري حتى 1 أكتوبر! 🔥',
+                    
+                    // Header
+                    headerTitle: 'تيثر المحدودة',
+                    headerSubtitle: 'الخدمات المالية الرسمية لـ USDT',
+                    regulated: 'مُنظَّم',
+                    isoCertified: 'معتمد ISO',
+                    globalLicense: 'ترخيص عالمي',
+                    langButton: 'English',
+                    
+                    // Main Section
+                    mainTitle: 'بطاقات تيثر USDT الرسمية',
+                    mainSubtitle: 'حلول الدفع الرقمية المتميزة',
+                    myProfile: 'بطاقتي',
+                    classic: 'كلاسيكية',
+                    premium: 'مميزة',
+                    elite: 'نخبة',
+                    
+                    // Official Notice
+                    officialProduct: 'منتج رسمي من تيثر المحدودة',
+                    licenseInfo: 'مرخص من الخدمات المالية لجزر العذراء البريطانية | كيان منظم #BVI-2024-USDT',
+                    
+                    // Features Section
+                    featuresTitle: 'الميزات الرسمية لتيثر',
+                    featuresSubtitle: 'ميزات رسمية معتمدة من تيثر المحدودة - الشركة الرائدة في عالم USDT',
+                    
+                    advancedSecurity: 'أمان متقدم',
+                    advancedSecurityDesc: 'حماية متعددة الطبقات بتشفير عسكري وتقنية البلوك تشين',
+                    
+                    instantTransactions: 'معاملات فورية',
+                    instantTransactionsDesc: 'تحويلات سريعة خلال ثوانٍ في أي وقت وأي مكان في العالم',
+                    
+                    globalAcceptance: 'قبول عالمي',
+                    globalAcceptanceDesc: 'استخدم بطاقتك في أكثر من 200 دولة حول العالم',
+                    
+                    support247: 'دعم 24/7',
+                    support247Desc: 'فريق دعم متخصص متاح على مدار الساعة لمساعدتك',
+                    
+                    smartApp: 'تطبيق ذكي',
+                    smartAppDesc: 'تحكم كامل في حسابك من خلال تطبيق متقدم وسهل الاستخدام',
+                    
+                    exclusiveRewards: 'مكافآت حصرية',
+                    exclusiveRewardsDesc: 'اكسب نقاط مكافآت مع كل عملية شراء واستبدلها بجوائز قيمة',
+                    
+                    // Compatibility Section
+                    compatibilityTitle: 'توافق USDT الشامل',
+                    compatibilitySubtitle: 'بطاقاتنا مصممة للعمل عبر جميع المنصات التي تقبل USDT للتداول والإيداع والتحويلات — بما في ذلك البورصات المركزية ومحافظ Web3 وخدمات DeFi — من خلال شركاء التكامل لدينا.',
+                    
+                    cexPlatforms: 'منصات CEX',
+                    cexPlatformsDesc: 'متوافق مع البورصات الرئيسية التي تدعم USDT (مثل Binance، Bybit، OKX، KuCoin)، وفقاً لشروط وسياسات كل منصة الإقليمية.',
+                    
+                    walletsWeb3: 'المحافظ و Web3',
+                    walletsWeb3Desc: 'يعمل مع المحافظ الرائدة التي تقبل USDT على الشبكات المدعومة (مثل Trust Wallet، MetaMask، TronLink) للإيداعات والتحويلات.',
+                    
+                    supportedNetworks: 'الشبكات المدعومة',
+                    supportedNetworksDesc: 'USDT على TRC20، ERC20، BEP20، والسلاسل المتوافقة الأخرى حيث يتم دعم USDT رسمياً من قبل المنصة.',
+                    
+                    tradingTransfers: 'التداول والتحويلات',
+                    tradingTransfersDesc: 'استخدم للتداول الفوري، P2P، الإيداعات، والسحوبات حيثما يتم قبول USDT، وفقاً لقواعد المنصة.',
+                    
+                    globalReach: 'الوصول العالمي',
+                    globalReachDesc: 'قد تختلف التوفر حسب البلد وسياسات المنصة ومعايير الامتثال. تحقق من الدعم الإقليمي قبل الاستخدام.',
+                    
+                    integrationPartners: 'شركاء التكامل',
+                    integrationPartnersDesc: 'يعمل عبر شركاء التكامل لدينا لضمان الاتصال الموثوق عبر المنصات المدعومة.',
+                    
+                    otpNotice: 'إشعار مهم — OTP غير مدعوم حتى الآن',
+                    otpNoticeDesc: 'كلمة المرور لمرة واحدة (OTP/SMS/التحقق الهاتفي) غير مدعومة حالياً. إذا كانت المنصة تتطلب بشكل صارم OTP لإكمال المعاملة، يرجى استخدام تدفق التحقق البديل المقدم من المنصة أو الاتصال بدعمنا للحصول على التوجيه. دعم OTP مخطط له في تحديث مستقبلي.',
+                    
+                    // Pricing Section
+                    pricingTitle: 'خطط الأسعار',
+                    pricingSubtitle: 'اختر الخطة التي تناسبك واستمتع بالمزايا الحصرية',
+                    
+                    tetherOfficial: 'تيثر الرسمي',
+                    classicCard: 'بطاقة USDT الكلاسيكية',
+                    premiumCard: 'بطاقة USDT المميزة',
+                    eliteCard: 'بطاقة USDT النخبة',
+                    oneTimeFee: 'رسوم لمرة واحدة',
+                    mostPopular: 'الأكثر شعبية',
+                    
+                    // Classic Card Features
+                    classicFlash: '1,500 USDT فلاش فوري',
+                    instantWithdrawalBinance: 'سحب فوري عبر Binance',
+                    directWithdrawalBybit: 'سحب مباشر عبر ByBit',
+                    activation60: 'تفعيل خلال 60 ثانية',
+                    moneyBackGuarantee: 'ضمان استرداد الأموال 100%',
+                    reserveSpot: 'احجز مكانك الآن',
+                    
+                    // Premium Card Features
+                    premiumFlash: '5,500 USDT فلاش فوري',
+                    profitMultiplier3x: 'مضاعف الربح 3x',
+                    vipAccess: 'وصول VIP للعروض',
+                    prioritySupport: 'دعم أولوية',
+                    joinElite: 'انضم للنخبة الآن',
+                    
+                    // Elite Card Features
+                    eliteFlash: '10,000 USDT فلاش فوري',
+                    profitMultiplier10x: 'مضاعف الربح 10x',
+                    exclusiveAccess: 'وصول حصري للعروض',
+                    directLine: 'خط مباشر مع الإدارة',
+                    personalAdvisor: 'مستشار استثمار شخصي',
+                    joinVipElite: 'انضم لنخبة VIP',
+                    
+                    // Security Section
+                    securityTitle: 'أمان لا مثيل له',
+                    securitySubtitle: 'نحمي أموالك وبياناتك بأحدث تقنيات الأمان العالمية',
+                    
+                    aesEncryption: 'تشفير AES-256',
+                    aesEncryptionDesc: 'تشفير عسكري يحمي جميع معاملاتك وبياناتك الشخصية',
+                    
+                    biometricAuth: 'المصادقة البيومترية',
+                    biometricAuthDesc: 'تسجيل دخول آمن باستخدام بصمة الإصبع أو التعرف على الوجه',
+                    
+                    monitoring247: 'مراقبة 24/7',
+                    monitoring247Desc: 'نظام مراقبة متقدم يكتشف أي نشاط مشبوه فوراً',
+                    
+                    fraudProtection: 'حماية من الاحتيال',
+                    fraudProtectionDesc: 'ذكاء اصطناعي متقدم يمنع محاولات الاحتيال والاختراق',
+                    
+                    // Testimonials Section
+                    testimonialsTitle: 'آراء العملاء',
+                    testimonialsSubtitle: 'اكتشف تجارب عملائنا الراضين حول العالم',
+                    
+                    testimonial1: '"تجربة رائعة! البطاقة تعمل بسلاسة في جميع أنحاء العالم والدعم الفني ممتاز. أنصح بها بشدة."',
+                    testimonial2: '"الأمان وسرعة المعاملات لا مثيل لهما. البطاقة الذهبية تستحق كل قرش دفعته فيها."',
+                    testimonial3: '"خدمة عملاء استثنائية وتطبيق سهل الاستخدام. لم أواجه أي مشاكل لأكثر من عام."',
+                    
+                    ahmed: 'أحمد محمد',
+                    fatima: 'فاطمة الزهراء',
+                    omar: 'عمر الراشد',
+                    dubai: 'دبي',
+                    riyadh: 'الرياض',
+                    kuwait: 'الكويت',
+                    
+                    // Footer
+                    footerTitle: 'تيثر المحدودة',
+                    footerSubtitle: 'مزود بطاقات USDT الرسمي',
+                    licensedRegulated: 'مرخص ومنظم',
+                    iso27001: 'معتمد ISO 27001',
+                    globalFinancial: 'خدمات مالية عالمية',
+                    copyright: '© 2025 تيثر المحدودة. جميع الحقوق محفوظة. | مسجل في جزر العذراء البريطانية',
+                    disclaimer: 'بطاقات تيثر USDT صادرة بترخيص من تيثر المحدودة وتتوافق مع اللوائح المالية الدولية.'
+                }
+            };
+            
+            function updateContent(lang) {
+                const t = translations[lang];
+                const isRTL = lang === 'ar';
+                
+                // Update HTML attributes
+                document.documentElement.lang = lang;
+                document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+                
+                // Update sale banner
+                updateTextContent('[data-translate="sale-banner"]', t.saleBanner);
+                
+                // Update header
+                updateTextContent('h1', t.headerTitle);
+                updateTextContent('.text-green-400.text-xs', t.headerSubtitle);
+                updateTextContent('[data-translate="regulated"]', t.regulated);
+                updateTextContent('[data-translate="iso-certified"]', t.isoCertified);
+                updateTextContent('[data-translate="global-license"]', t.globalLicense);
+                langText.textContent = t.langButton;
+                
+                // Update main section
+                updateTextContent('[data-translate="main-title"]', t.mainTitle);
+                updateTextContent('[data-translate="main-subtitle"]', t.mainSubtitle);
+                updateTextContent('[data-translate="my-profile"]', t.myProfile);
+                updateTextContent('[data-translate="classic"]', t.classic);
+                updateTextContent('[data-translate="premium"]', t.premium);
+                updateTextContent('[data-translate="elite"]', t.elite);
+                
+                // Update official notice
+                updateTextContent('[data-translate="official-product"]', t.officialProduct);
+                updateTextContent('[data-translate="license-info"]', t.licenseInfo);
+                
+                // Update features section
+                updateTextContent('[data-translate="features-title"]', t.featuresTitle);
+                updateTextContent('[data-translate="features-subtitle"]', t.featuresSubtitle);
+                
+                updateTextContent('[data-translate="advanced-security"]', t.advancedSecurity);
+                updateTextContent('[data-translate="advanced-security-desc"]', t.advancedSecurityDesc);
+                updateTextContent('[data-translate="instant-transactions"]', t.instantTransactions);
+                updateTextContent('[data-translate="instant-transactions-desc"]', t.instantTransactionsDesc);
+                updateTextContent('[data-translate="global-acceptance"]', t.globalAcceptance);
+                updateTextContent('[data-translate="global-acceptance-desc"]', t.globalAcceptanceDesc);
+                updateTextContent('[data-translate="support-247"]', t.support247);
+                updateTextContent('[data-translate="support-247-desc"]', t.support247Desc);
+                updateTextContent('[data-translate="smart-app"]', t.smartApp);
+                updateTextContent('[data-translate="smart-app-desc"]', t.smartAppDesc);
+                updateTextContent('[data-translate="exclusive-rewards"]', t.exclusiveRewards);
+                updateTextContent('[data-translate="exclusive-rewards-desc"]', t.exclusiveRewardsDesc);
+                
+                // Update compatibility section
+                updateTextContent('[data-translate="compatibility-title"]', t.compatibilityTitle);
+                updateTextContent('[data-translate="compatibility-subtitle"]', t.compatibilitySubtitle);
+                updateTextContent('[data-translate="cex-platforms"]', t.cexPlatforms);
+                updateTextContent('[data-translate="cex-platforms-desc"]', t.cexPlatformsDesc);
+                updateTextContent('[data-translate="wallets-web3"]', t.walletsWeb3);
+                updateTextContent('[data-translate="wallets-web3-desc"]', t.walletsWeb3Desc);
+                updateTextContent('[data-translate="supported-networks"]', t.supportedNetworks);
+                updateTextContent('[data-translate="supported-networks-desc"]', t.supportedNetworksDesc);
+                updateTextContent('[data-translate="trading-transfers"]', t.tradingTransfers);
+                updateTextContent('[data-translate="trading-transfers-desc"]', t.tradingTransfersDesc);
+                updateTextContent('[data-translate="global-reach"]', t.globalReach);
+                updateTextContent('[data-translate="global-reach-desc"]', t.globalReachDesc);
+                updateTextContent('[data-translate="integration-partners"]', t.integrationPartners);
+                updateTextContent('[data-translate="integration-partners-desc"]', t.integrationPartnersDesc);
+                updateTextContent('[data-translate="otp-notice"]', t.otpNotice);
+                updateTextContent('[data-translate="otp-notice-desc"]', t.otpNoticeDesc);
+                
+                // Update pricing section
+                updateTextContent('[data-translate="pricing-title"]', t.pricingTitle);
+                updateTextContent('[data-translate="pricing-subtitle"]', t.pricingSubtitle);
+                updateTextContent('[data-translate="tether-official"]', t.tetherOfficial);
+                updateTextContent('[data-translate="classic-card"]', t.classicCard);
+                updateTextContent('[data-translate="premium-card"]', t.premiumCard);
+                updateTextContent('[data-translate="elite-card"]', t.eliteCard);
+                updateTextContent('[data-translate="one-time-fee"]', t.oneTimeFee);
+                updateTextContent('[data-translate="most-popular"]', t.mostPopular);
+                
+                // Update card features
+                updateTextContent('[data-translate="classic-flash"]', t.classicFlash);
+                updateTextContent('[data-translate="instant-withdrawal-binance"]', t.instantWithdrawalBinance);
+                updateTextContent('[data-translate="direct-withdrawal-bybit"]', t.directWithdrawalBybit);
+                updateTextContent('[data-translate="activation-60"]', t.activation60);
+                updateTextContent('[data-translate="money-back-guarantee"]', t.moneyBackGuarantee);
+                updateTextContent('[data-translate="reserve-spot"]', t.reserveSpot);
+                
+                updateTextContent('[data-translate="premium-flash"]', t.premiumFlash);
+                updateTextContent('[data-translate="profit-multiplier-3x"]', t.profitMultiplier3x);
+                updateTextContent('[data-translate="vip-access"]', t.vipAccess);
+                updateTextContent('[data-translate="priority-support"]', t.prioritySupport);
+                updateTextContent('[data-translate="join-elite"]', t.joinElite);
+                
+                updateTextContent('[data-translate="elite-flash"]', t.eliteFlash);
+                updateTextContent('[data-translate="profit-multiplier-10x"]', t.profitMultiplier10x);
+                updateTextContent('[data-translate="exclusive-access"]', t.exclusiveAccess);
+                updateTextContent('[data-translate="direct-line"]', t.directLine);
+                updateTextContent('[data-translate="personal-advisor"]', t.personalAdvisor);
+                updateTextContent('[data-translate="join-vip-elite"]', t.joinVipElite);
+                
+                // Update security section
+                updateTextContent('[data-translate="security-title"]', t.securityTitle);
+                updateTextContent('[data-translate="security-subtitle"]', t.securitySubtitle);
+                updateTextContent('[data-translate="aes-encryption"]', t.aesEncryption);
+                updateTextContent('[data-translate="aes-encryption-desc"]', t.aesEncryptionDesc);
+                updateTextContent('[data-translate="biometric-auth"]', t.biometricAuth);
+                updateTextContent('[data-translate="biometric-auth-desc"]', t.biometricAuthDesc);
+                updateTextContent('[data-translate="monitoring-247"]', t.monitoring247);
+                updateTextContent('[data-translate="monitoring-247-desc"]', t.monitoring247Desc);
+                updateTextContent('[data-translate="fraud-protection"]', t.fraudProtection);
+                updateTextContent('[data-translate="fraud-protection-desc"]', t.fraudProtectionDesc);
+                
+                // Update testimonials section
+                updateTextContent('[data-translate="testimonials-title"]', t.testimonialsTitle);
+                updateTextContent('[data-translate="testimonials-subtitle"]', t.testimonialsSubtitle);
+                updateTextContent('[data-translate="testimonial-1"]', t.testimonial1);
+                updateTextContent('[data-translate="testimonial-2"]', t.testimonial2);
+                updateTextContent('[data-translate="testimonial-3"]', t.testimonial3);
+                updateTextContent('[data-translate="ahmed"]', t.ahmed);
+                updateTextContent('[data-translate="fatima"]', t.fatima);
+                updateTextContent('[data-translate="omar"]', t.omar);
+                updateTextContent('[data-translate="dubai"]', t.dubai);
+                updateTextContent('[data-translate="riyadh"]', t.riyadh);
+                updateTextContent('[data-translate="kuwait"]', t.kuwait);
+                
+                // Update footer
+                updateTextContent('[data-translate="footer-title"]', t.footerTitle);
+                updateTextContent('[data-translate="footer-subtitle"]', t.footerSubtitle);
+                updateTextContent('[data-translate="licensed-regulated"]', t.licensedRegulated);
+                updateTextContent('[data-translate="iso-27001"]', t.iso27001);
+                updateTextContent('[data-translate="global-financial"]', t.globalFinancial);
+                updateTextContent('[data-translate="copyright"]', t.copyright);
+                updateTextContent('[data-translate="disclaimer"]', t.disclaimer);
+            }
+            
+            function updateTextContent(selector, text) {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    if (el) el.textContent = text;
+                });
+            }
+            
+            langToggle.addEventListener('click', function() {
+                isArabic = !isArabic;
+                updateContent(isArabic ? 'ar' : 'en');
+                
+                // Save preference
+                try {
+                    localStorage.setItem('preferredLanguage', isArabic ? 'ar' : 'en');
+                } catch (e) {}
+            });
+            
+            // Load saved preference
+            try {
+                const savedLang = localStorage.getItem('preferredLanguage');
+                if (savedLang === 'ar') {
+                    isArabic = true;
+                    updateContent('ar');
+                }
+            } catch (e) {}
+        }
+    </script>
+
+    <!-- USDT FLASH Guidance Modal -->
+    <div id="flashGuidanceModal" class="hidden fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="relative w-full max-w-2xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/5">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-bolt text-yellow-300"></i>
+                    <h3 class="text-lg md:text-xl font-extrabold text-white">Important Action Required</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button id="flashModalToggleLang" class="text-xs md:text-sm px-3 py-1.5 rounded-full border border-white/15 text-gray-200 hover:text-white hover:border-white/30 transition mobile-btn" aria-label="Translate" style="touch-action: manipulation; min-height: 44px;" ontouchstart="this.style.transform='scale(0.95)'" ontouchend="this.style.transform='scale(1)'">
+                        العربية
+                    </button>
+                    <button id="flashModalX" class="p-2 rounded-full hover:bg-white/10 text-gray-300 hover:text-white transition mobile-btn" aria-label="Close" style="touch-action: manipulation; min-height: 44px; min-width: 44px;" ontouchstart="this.style.transform='scale(0.95)'" ontouchend="this.style.transform='scale(1)'">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body EN -->
+            <div id="flashModalContentEN" class="px-6 py-5 text-gray-200">
+                <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Convert USDT FLASH to Supported Meme Coins First</h4>
+                <p class="text-sm md:text-base text-gray-300 mb-4">
+                    To activate and settle your USDT FLASH balance, please convert it first to one of the meme coins we support across our partner platforms. After settlement and clearance (within 24 hours), you can convert your balance into real USDT.
+                </p>
+                <ul class="list-none space-y-2 mb-5">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-1"></i><span class="text-sm md:text-base">Fast activation and compatibility through our partner ecosystem.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-clock text-yellow-300 mt-1"></i><span class="text-sm md:text-base">USDT FLASH clearance time: up to 24 hours.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-shield-alt text-cyan-300 mt-1"></i><span class="text-sm md:text-base">Once cleared, convert smoothly to real USDT whenever supported.</span></li>
+                </ul>
+                <div class="text-xs text-gray-400">
+                    Note: Availability and steps may vary by platform policy and region. If you need help selecting a supported meme coin, contact support.
+                </div>
+            </div>
+
+            <!-- Modal Body AR -->
+            <div id="flashModalContentAR" class="hidden px-6 py-5 text-gray-200" dir="rtl">
+                <h4 class="text-xl md:text-2xl font-bold text-white mb-3">إجراء مهم: حوِّل USDT FLASH أولًا إلى عملات الميم المدعومة</h4>
+                <p class="text-sm md:text-base text-gray-300 mb-4">
+                    لتفعيل وتصفيـة رصيد USDT FLASH، يرجى تحويله أولًا إلى إحدى عملات الميم التي ندعمها عبر منصّات شركائنا. بعد اكتمال التصفية خلال 24 ساعة، يمكنك تحويل الرصيد إلى USDT الحقيقي.
+                </p>
+                <ul class="list-none space-y-2 mb-5">
+                    <li class="flex items-start gap-2"><i class="fas fa-check text-emerald-400 mt-1"></i><span class="text-sm md:text-base">تفعيل سريع وتوافق كامل عبر شبكة شركائنا.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-clock text-yellow-300 mt-1"></i><span class="text-sm md:text-base">مدة تصفية USDT FLASH: حتى 24 ساعة.</span></li>
+                    <li class="flex items-start gap-2"><i class="fas fa-shield-alt text-cyan-300 mt-1"></i><span class="text-sm md:text-base">بعد التصفية، يمكنك التحويل بسلاسة إلى USDT الحقيقي حيثما كان مدعومًا.</span></li>
+                </ul>
+                <div class="text-xs text-gray-400">
+                    ملاحظة: قد تختلف الخطوات والتوفّر حسب سياسات المنصّة والمنطقة. إذا احتجت مساعدة في اختيار عملة ميم مدعومة، تواصل مع الدعم.
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 border-t border-white/10 bg-white/5 flex items-center justify-end gap-3">
+                <button id="flashModalAcknowledge" class="px-4 py-2 rounded-lg bg-gradient-to-r from-green-400 to-emerald-400 text-gray-900 font-semibold hover:from-green-300 hover:to-emerald-300 transition shadow mobile-btn" style="touch-action: manipulation; min-height: 48px;" ontouchstart="this.style.transform='scale(0.98)'" ontouchend="this.style.transform='scale(1)'">
+                    I Understand
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const modal = document.getElementById('flashGuidanceModal');
+            const btnClose = document.getElementById('flashModalAcknowledge');
+            const btnX = document.getElementById('flashModalX');
+            const btnLang = document.getElementById('flashModalToggleLang');
+            const en = document.getElementById('flashModalContentEN');
+            const ar = document.getElementById('flashModalContentAR');
+            const STORAGE_KEY = 'cardsFlashModalDismissed';
+
+            function showIfNeeded() {
+                try {
+                    const dismissed = localStorage.getItem(STORAGE_KEY) === 'true';
+                    if (!dismissed) {
+                        modal.classList.remove('hidden');
+                        document.body.classList.add('overflow-hidden');
+                    }
+                } catch (e) {
+                    modal.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                }
+            }
+
+            function hideModal() {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+                try { localStorage.setItem(STORAGE_KEY, 'true'); } catch (e) {}
+            }
+
+            function toggleLang() {
+                const isEN = !en.classList.contains('hidden');
+                if (isEN) {
+                    en.classList.add('hidden');
+                    ar.classList.remove('hidden');
+                    btnLang.textContent = 'English';
+                    btnLang.setAttribute('aria-label', 'Translate to English');
+                } else {
+                    ar.classList.add('hidden');
+                    en.classList.remove('hidden');
+                    btnLang.textContent = 'العربية';
+                    btnLang.setAttribute('aria-label', 'الترجمة إلى العربية');
+                }
+            }
+
+            // Events
+            btnClose && btnClose.addEventListener('click', hideModal);
+            btnX && btnX.addEventListener('click', hideModal);
+            btnLang && btnLang.addEventListener('click', toggleLang);
+            modal && modal.addEventListener('click', (e) => {
+                if (e.target === modal) hideModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('hidden') && e.key === 'Escape') hideModal();
+            });
+
+            // Show on load
+            document.addEventListener('DOMContentLoaded', showIfNeeded);
+        })();
+    </script>
+
+</body>
+</html>
