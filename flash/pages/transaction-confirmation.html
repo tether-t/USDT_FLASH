@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transaction Confirmation - USDT-FLASH</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Cairo', sans-serif; }
+        
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        @keyframes glow { 0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); } 50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.6); } }
+        @keyframes slideUp { 0% { transform: translateY(100%); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+        @keyframes ripple { 0% { transform: scale(0); opacity: 1; } 100% { transform: scale(4); opacity: 0; } }
+        
+        .spinner { animation: spin 1s linear infinite; }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        .pulse { animation: pulse 2s infinite; }
+        .glow { animation: glow 2s ease-in-out infinite; }
+        .slide-up { animation: slideUp 0.6s ease-out; }
+        .float { animation: float 3s ease-in-out infinite; }
+        .ripple { animation: ripple 0.6s linear; }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981, #06b6d4, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cyber-border {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.4), transparent);
+            animation: scan 2s linear infinite;
+        }
+        
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: particle-float 4s ease-in-out infinite;
+        }
+        
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            50% { transform: translateY(-100px) rotate(180deg); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-gray-900 to-black min-h-screen flex items-center justify-center relative overflow-hidden p-4">
+    <!-- Enhanced Animated Background -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full blur-3xl animate-pulse float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-80 sm:h-80 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse float" style="animation-delay: 1s"></div>
+        <div class="absolute top-1/2 left-1/2 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-r from-purple-500/15 to-pink-500/15 rounded-full blur-2xl animate-pulse float" style="animation-delay: 2s"></div>
+    </div>
+    
+    <!-- Floating Particles -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 80%; left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 30%; left: 70%; animation-delay: 3s;"></div>
+    </div>
+    <!-- Enhanced Processing Modal -->
+    <div id="processingModal" class="fixed inset-0 bg-black bg-opacity-95 backdrop-blur-lg flex items-center justify-center z-50 p-2 sm:p-4">
+        <div class="glass-effect cyber-border glow rounded-2xl sm:rounded-3xl shadow-2xl p-3 sm:p-4 md:p-6 w-full max-w-sm sm:max-w-md max-h-screen overflow-y-auto transform transition-all relative slide-up">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-2 left-2 sm:top-4 sm:left-4 text-2xl sm:text-4xl text-emerald-400 transform rotate-12">₮</div>
+                <div class="absolute top-4 right-4 sm:top-8 sm:right-8 text-lg sm:text-2xl text-teal-400 transform -rotate-12">₮</div>
+                <div class="absolute bottom-4 left-1/3 sm:bottom-8 text-xl sm:text-3xl text-cyan-400 transform rotate-45">₮</div>
+                <div class="absolute bottom-2 right-1/4 sm:bottom-4 text-sm sm:text-xl text-emerald-400 transform -rotate-45">₮</div>
+            </div>
+            
+            <div class="relative text-center">
+                <!-- Loading Spinner -->
+                <div class="mx-auto flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 mb-4 sm:mb-6 relative">
+                    <div class="spinner relative z-10">
+                        <img src="../img/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png" alt="USDT Logo" class="h-12 w-12 sm:h-16 sm:w-16 object-contain">
+                    </div>
+                </div>
+                
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent mb-3 sm:mb-4">🔄 Payment Verification</h3>
+                
+                <!-- Enhanced Processing Status -->
+                <div class="glass-effect border border-emerald-400/40 rounded-lg sm:rounded-xl p-3 sm:p-4 mb-3 sm:mb-4 cyber-border">
+                    <div class="flex items-center justify-center mb-2 sm:mb-3">
+                        <div class="flex space-x-1 mr-3">
+                            <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                            <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-teal-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                            <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                        </div>
+                        <span class="text-emerald-300 font-bold text-xs sm:text-sm">🔐 ADVANCED SECURITY VERIFICATION</span>
+                    </div>
+                    <p class="text-gray-200 text-xs sm:text-sm leading-relaxed font-medium">⚡ Verifying payment proof and transaction details...</p>
+                    <div class="mt-2 flex items-center justify-center space-x-2">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                        <span class="text-blue-300 text-xs font-bold">Protection System Active</span>
+                    </div>
+                </div>
+                
+                <p class="text-gray-200 mb-3 sm:mb-4 leading-relaxed pulse text-xs sm:text-sm font-medium">⚡ Please wait while we verify your payment proof</p>
+                
+                <!-- Real-time Status Updates -->
+                <div class="bg-slate-800/50 border border-cyan-400/30 rounded-lg p-2 mb-3 sm:mb-4">
+                    <div id="statusUpdates" class="text-cyan-300 text-xs font-medium text-center">
+                        <div class="animate-pulse">🔍 Initial data verification...</div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Progress Bar -->
+                <div class="w-full bg-slate-700/50 rounded-full h-3 sm:h-4 mb-3 sm:mb-4 border border-emerald-400/20 relative overflow-hidden">
+                    <div id="progressBar" class="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 h-3 sm:h-4 rounded-full transition-all duration-1000 relative shadow-lg glow" style="width: 0%">
+                        <div class="absolute inset-0 bg-white/30 rounded-full animate-pulse"></div>
+                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+                    </div>
+                    <div id="progressText" class="absolute inset-0 flex items-center justify-center text-xs font-bold text-white">0%</div>
+                </div>
+                
+                <!-- Enhanced Security Notice -->
+                <div class="glass-effect border border-emerald-400/40 rounded-lg sm:rounded-xl p-2 sm:p-3 cyber-border">
+                    <div class="flex items-center justify-center space-x-2 mb-1">
+                        <i class="fas fa-shield-alt text-emerald-400 animate-pulse"></i>
+                        <p class="text-emerald-300 text-xs sm:text-sm font-bold">🔒 Advanced Protection with SSL 256-bit Encryption</p>
+                    </div>
+                    <div class="flex items-center justify-center space-x-1 text-xs text-gray-300">
+                        <i class="fas fa-check-circle text-green-400"></i>
+                        <span>Anti-fraud system active</span>
+                        <i class="fas fa-eye text-blue-400 animate-pulse ml-2"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-gradient-to-br from-emerald-900/20 via-green-900/30 to-teal-900/20 backdrop-blur-xl flex items-center justify-center z-50 hidden p-2 sm:p-4">
+        <!-- Animated Success Background -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-green-400/10 rounded-full blur-2xl animate-pulse" style="animation-delay: 0s"></div>
+            <div class="absolute top-20 right-20 w-24 h-24 bg-emerald-400/15 rounded-full blur-xl animate-pulse" style="animation-delay: 1s"></div>
+            <div class="absolute bottom-20 left-20 w-28 h-28 bg-teal-400/10 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s"></div>
+            <div class="absolute bottom-10 right-10 w-20 h-20 bg-green-500/20 rounded-full blur-xl animate-pulse" style="animation-delay: 3s"></div>
+            
+            <!-- Success Particles -->
+            <div class="absolute top-1/4 left-1/3 w-2 h-2 bg-green-400 rounded-full animate-bounce" style="animation-delay: 0.5s"></div>
+            <div class="absolute top-1/3 right-1/4 w-1 h-1 bg-emerald-400 rounded-full animate-bounce" style="animation-delay: 1.5s"></div>
+            <div class="absolute bottom-1/3 left-1/4 w-1.5 h-1.5 bg-teal-400 rounded-full animate-bounce" style="animation-delay: 2.5s"></div>
+            <div class="absolute bottom-1/4 right-1/3 w-2 h-2 bg-green-500 rounded-full animate-bounce" style="animation-delay: 3.5s"></div>
+        </div>
+        
+        <div class="relative bg-gradient-to-br from-gray-900/95 via-slate-900/98 to-black/95 backdrop-blur-2xl border border-green-400/30 rounded-2xl sm:rounded-3xl shadow-2xl p-3 sm:p-4 md:p-6 w-full max-w-sm sm:max-w-md max-h-screen overflow-y-auto transform transition-all fade-in" style="box-shadow: 0 0 50px rgba(34, 197, 94, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)">
+            <div class="relative text-center">
+                <!-- Success Icon -->
+                <div class="mx-auto flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 mb-4 sm:mb-6 relative">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/30 to-emerald-500/20 blur-md animate-pulse"></div>
+                    <i class="fas fa-check-circle text-green-400 text-2xl sm:text-3xl relative z-10"></i>
+                </div>
+                
+                <!-- Binance-style Amount Display -->
+                <div class="mb-4 p-4 bg-gradient-to-r from-yellow-900/20 to-yellow-800/30 border border-yellow-400/40 rounded-xl">
+                    <div class="text-center">
+                        <div class="flex items-center justify-center mb-2">
+                            <img src="../img/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png" alt="USDT" class="w-10 h-10 mr-3">
+                            <span class="text-white font-semibold text-lg">USDT</span>
+                        </div>
+                        <div class="text-3xl sm:text-4xl font-bold text-white mb-1">+500.00</div>
+                        <div class="text-xs text-gray-400">Amount Received</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mr-3 relative">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z" fill="white"/>
+                        </svg>
+                        <div class="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="10" fill="#10B981"/>
+                                <path d="M9 12L11 14L15 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-white">Completed</h3>
+                </div>
+                
+                <!-- Enhanced Celebration Animation -->
+                <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden rounded-2xl sm:rounded-3xl">
+                    <!-- Floating Success Icons -->
+                    <div class="absolute top-4 left-4 text-yellow-400 text-2xl animate-bounce" style="animation-delay: 0s; filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.5))">🎉</div>
+                    <div class="absolute top-8 right-6 text-green-400 text-xl animate-bounce" style="animation-delay: 0.5s; filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.5))">✨</div>
+                    <div class="absolute bottom-8 left-8 text-blue-400 text-lg animate-bounce" style="animation-delay: 1s; filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.5))">🎆</div>
+                    <div class="absolute bottom-4 right-4 text-purple-400 text-2xl animate-bounce" style="animation-delay: 1.5s; filter: drop-shadow(0 0 10px rgba(147, 51, 234, 0.5))">🚀</div>
+                    
+                    <!-- Success Rays -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div class="w-1 h-20 bg-gradient-to-t from-transparent via-green-400/30 to-transparent rotate-0 animate-pulse"></div>
+                        <div class="w-1 h-16 bg-gradient-to-t from-transparent via-emerald-400/20 to-transparent rotate-45 animate-pulse absolute top-0 left-0" style="animation-delay: 0.5s"></div>
+                        <div class="w-1 h-18 bg-gradient-to-t from-transparent via-teal-400/25 to-transparent rotate-90 animate-pulse absolute top-0 left-0" style="animation-delay: 1s"></div>
+                        <div class="w-1 h-14 bg-gradient-to-t from-transparent via-green-500/15 to-transparent rotate-135 animate-pulse absolute top-0 left-0" style="animation-delay: 1.5s"></div>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Transaction ID -->
+                <div class="bg-gradient-to-r from-gray-800/60 via-slate-800/70 to-gray-800/60 border border-green-400/20 rounded-lg p-3 mb-4 backdrop-blur-sm" style="box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1)">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-gray-300 text-sm font-medium">Transaction ID</span>
+                        <button onclick="copyTxId()" class="text-green-400 hover:text-green-300 text-xs transition-colors duration-200">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"/>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                    <div class="font-mono text-sm text-green-100 break-all bg-black/20 p-2 rounded border border-green-400/10" id="txId">0x7a8f9b2c4d6e1f3a5b8c9d0e2f4a6b8c9d1e3f5a7b9c0d2e4f6a8b0c2d4e6f8a</div>
+                </div>
+                
+                <!-- Enhanced Status Badge -->
+                <div class="flex items-center justify-center mb-4">
+                    <div class="bg-gradient-to-r from-green-500/20 via-emerald-500/25 to-green-500/20 border border-green-400/50 rounded-full px-6 py-3 flex items-center backdrop-blur-sm" style="box-shadow: 0 0 20px rgba(34, 197, 94, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse" style="box-shadow: 0 0 10px rgba(34, 197, 94, 0.8)"></div>
+                        <span class="text-green-300 font-semibold text-sm tracking-wide">COMPLETED</span>
+                    </div>
+                </div>
+                
+                <!-- Enhanced Transaction Details -->
+                <div class="bg-gradient-to-br from-gray-800/40 via-slate-800/50 to-gray-800/40 border border-green-400/20 rounded-lg p-4 mb-4 backdrop-blur-sm" style="box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1)">
+                    <h4 class="text-white font-semibold mb-3 flex items-center">
+                        <svg class="w-5 h-5 text-green-400 mr-2" fill="currentColor" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.5))">
+                            <path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                        </svg>
+                        Transaction Details
+                    </h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                                </svg>
+                                Time
+                            </span>
+                            <span class="text-white font-mono" id="txTime">2024-01-15 14:32:18</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                                </svg>
+                                Network
+                            </span>
+                            <div class="flex items-center">
+                                <img src="../cryptologos/binance-coin-bnb-logo.png" alt="BNB" class="w-4 h-4 mr-2">
+                                <span class="text-yellow-400 font-medium">BNB Smart Chain</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 flex items-center">
+                                <img src="../img/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png" alt="USDT" class="w-4 h-4 mr-2">
+                                Asset
+                            </span>
+                            <div class="flex items-center">
+                                <img src="../img/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png" alt="USDT" class="w-4 h-4 mr-2">
+                                <span class="text-white font-medium">USDT</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/>
+                                </svg>
+                                Type
+                            </span>
+                            <span class="text-green-400 font-medium flex items-center">
+                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M7 14l5-5 5 5z"/>
+                                </svg>
+                                Deposit
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                                </svg>
+                                Confirmations
+                            </span>
+                            <span class="text-green-400 font-medium">64/64</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400 flex items-center">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                                </svg>
+                                To Address
+                            </span>
+                            <span class="text-blue-400 font-mono text-xs" id="walletAddress">0x742d...8f3a</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Binance-style Action Buttons -->
+                <div class="flex flex-col space-y-3">
+                    <button onclick="viewOnExplorer()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-3 px-4 rounded-lg transition flex items-center justify-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                        </svg>
+                        View on BSCScan
+                    </button>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button onclick="goToWallet()" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center text-sm">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21,18V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5A2,2 0 0,1 5,3H19A2,2 0 0,1 21,5V6H20A2,2 0 0,0 18,8V16A2,2 0 0,0 20,18M20,8V16H18V8H20M16,10V14H15V10H16Z"/>
+                            </svg>
+                            Wallet
+                        </button>
+                        <button onclick="goToHistory()" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center text-sm">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13.5,8H12V13L16.28,15.54L17,14.33L13.5,12.25V8M13,3A9,9 0 0,0 4,12H1L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z"/>
+                            </svg>
+                            History
+                        </button>
+                    </div>
+                    <button onclick="goHome()" class="bg-transparent border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white font-medium py-2.5 px-4 rounded-lg transition flex items-center justify-center">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"/>
+                        </svg>
+                        Back to Dashboard
+                    </button>
+                </div>
+                
+                <!-- Binance-style Footer -->
+                <div class="mt-4 pt-4 border-t border-gray-700">
+                    <div class="text-center">
+                        <p class="text-gray-400 text-xs mb-2">Transaction completed successfully</p>
+                        <div class="flex items-center justify-center space-x-4 text-xs">
+                            <button onclick="contactSupport()" class="text-yellow-400 hover:text-yellow-300 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,1C8.96,1 6.21,2.65 4.38,5.26L5.75,6.63C7.24,4.41 9.5,3 12,3C16.97,3 21,7.03 21,12C21,16.97 16.97,21 12,21C7.03,21 3,16.97 3,12H1C1,18.08 5.92,23 12,23C18.08,23 23,18.08 23,12C23,5.92 18.08,1 12,1M12,7A2,2 0 0,0 10,9A2,2 0 0,0 12,11A2,2 0 0,0 14,9A2,2 0 0,0 12,7M12,13C9.33,13 7,14.33 7,16V17H17V16C17,14.33 14.67,13 12,13Z"/>
+                                </svg>
+                                Support
+                            </button>
+                            <button onclick="downloadReceipt()" class="text-blue-400 hover:text-blue-300 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+                                </svg>
+                                Receipt
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Failed Modal -->
+    <div id="failedModal" class="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm flex items-center justify-center z-50 hidden p-2 sm:p-4">
+        <div class="bg-gradient-to-br from-slate-800/90 via-gray-900/95 to-black/90 backdrop-blur-xl border-2 border-red-400/40 rounded-2xl sm:rounded-3xl shadow-2xl p-3 sm:p-4 md:p-6 w-full max-w-sm sm:max-w-md max-h-screen overflow-y-auto transform transition-all relative fade-in">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-2 left-2 sm:top-4 sm:left-4 text-2xl sm:text-4xl text-red-400 transform rotate-12">⚠</div>
+                <div class="absolute top-4 right-4 sm:top-8 sm:right-8 text-lg sm:text-2xl text-orange-400 transform -rotate-12">⚠</div>
+                <div class="absolute bottom-4 left-1/3 sm:bottom-8 text-xl sm:text-3xl text-red-400 transform rotate-45">⚠</div>
+                <div class="absolute bottom-2 right-1/4 sm:bottom-4 text-sm sm:text-xl text-orange-400 transform -rotate-45">⚠</div>
+            </div>
+            
+            <div class="relative text-center">
+                <!-- Error Icon -->
+                <div class="mx-auto flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-gradient-to-r from-red-500/20 to-orange-500/20 mb-4 sm:mb-6 relative">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-red-500/30 to-orange-500/20 blur-md"></div>
+                    <i class="fas fa-exclamation-triangle text-red-400 text-2xl sm:text-3xl relative z-10"></i>
+                </div>
+                
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent mb-3 sm:mb-4">⚠️ Payment Verification Required</h3>
+                
+                <!-- Warning Details -->
+                <div class="bg-gradient-to-r from-red-900/50 to-orange-900/50 border-2 border-red-400/60 rounded-lg sm:rounded-xl p-3 sm:p-4 mb-3 sm:mb-4 backdrop-blur-sm animate-pulse">
+                    <div class="flex items-center justify-center mb-2 sm:mb-3">
+                        <i class="fas fa-exclamation-triangle text-red-400 mr-2 text-sm sm:text-base animate-bounce"></i>
+                        <span class="text-red-300 font-bold text-xs sm:text-sm">PAYMENT VERIFICATION FAILED</span>
+                    </div>
+                    <p class="text-gray-200 text-xs sm:text-sm leading-relaxed font-medium">🚨 <strong>CRITICAL:</strong> Our advanced fraud detection system has flagged this transaction. If you believe you have completed the payment, you MUST provide proof immediately.</p>
+                    <div class="mt-2 p-2 bg-red-800/30 rounded border border-red-500/50">
+                        <p class="text-red-200 text-xs font-bold">⚡ WARNING: Fraudulent claims are tracked and reported to authorities</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-amber-900/40 to-red-900/40 border-2 border-amber-400/60 rounded-lg sm:rounded-xl p-2 sm:p-3 mb-3 sm:mb-4 backdrop-blur-sm">
+                    <p class="text-amber-300 text-xs sm:text-sm font-bold">🔍 <strong>MANDATORY VERIFICATION STEPS:</strong></p>
+                    <ul class="text-gray-200 text-xs mt-1 sm:mt-2 space-y-0.5 sm:space-y-1 text-left font-medium">
+                        <li>🔸 <strong>IF YOU PAID:</strong> Contact support immediately with payment proof</li>
+                        <li>🔸 <strong>IF YOU DIDN'T PAY:</strong> Complete payment through official channels only</li>
+                        <li>🔸 <strong>FALSE CLAIMS:</strong> Will result in permanent account suspension</li>
+                        <li>🔸 <strong>LEGAL ACTION:</strong> Fraud attempts are prosecuted to the full extent</li>
+                    </ul>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col space-y-2 sm:space-y-3">
+                    <button onclick="contactSupport()" class="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl transition transform hover:scale-105 shadow-lg text-sm sm:text-base border-2 border-red-400/50 animate-pulse">
+                        <i class="fas fa-headset mr-1 sm:mr-2 text-xs sm:text-sm"></i>🚨 CONTACT SUPPORT NOW
+                    </button>
+                    <button onclick="retryPayment()" class="bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white font-bold py-2 sm:py-2 px-4 sm:px-6 rounded-lg sm:rounded-xl transition transform hover:scale-105 text-sm sm:text-base">
+                        <i class="fas fa-credit-card mr-1 sm:mr-2 text-xs sm:text-sm"></i>Complete Payment
+                    </button>
+                    <button onclick="goBack()" class="bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-600 hover:to-slate-700 text-white font-medium py-1.5 sm:py-2 px-4 sm:px-6 rounded-lg sm:rounded-xl transition text-xs sm:text-sm opacity-75">
+                        <i class="fas fa-arrow-left mr-1 sm:mr-2 text-xs"></i>Go Back
+                    </button>
+                </div>
+                
+                <!-- Support Info -->
+                <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t-2 border-red-500/50">
+                    <div class="bg-gradient-to-r from-red-900/30 to-orange-900/30 p-2 rounded border border-red-400/40">
+                        <p class="text-red-300 text-xs font-bold text-center">⚠️ FRAUD DETECTION ACTIVE ⚠️</p>
+                        <p class="text-gray-300 text-xs text-center mt-1">All transactions are monitored and logged</p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center mt-2 space-y-1 sm:space-y-0 sm:space-x-2">
+                            <div class="flex items-center space-x-1">
+                                <i class="fas fa-shield-alt text-red-400 text-sm"></i>
+                                <i class="fas fa-eye text-red-400 text-sm animate-pulse"></i>
+                            </div>
+                            <p class="text-blue-400 text-xs font-medium break-all">Contact Support Team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const processingModal = document.getElementById('processingModal');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const statusUpdates = document.getElementById('statusUpdates');
+            
+            // Status messages
+            const statusMessages = [
+                '🔍 Initial data verification...',
+                '🔐 Security verification...',
+                '🌐 Network connection...',
+                '⚙️ Processing transaction...',
+                '📊 Data analysis...',
+                '✅ Final confirmation...'
+            ];
+            
+            let progress = 0;
+            let messageIndex = 0;
+            
+            // Enhanced progress animation
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 12 + 3;
+                if (progress > 85) progress = 85;
+                
+                progressBar.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '%';
+                
+                // Update status messages
+                if (Math.round(progress) % 15 === 0 && messageIndex < statusMessages.length - 1) {
+                    messageIndex++;
+                    statusUpdates.innerHTML = `<div class="animate-pulse">${statusMessages[messageIndex]}</div>`;
+                }
+            }, 300);
+            
+            // Show failure after 8 seconds
+            setTimeout(() => {
+                clearInterval(progressInterval);
+                progressBar.style.width = '45%';
+                progressText.textContent = '45%';
+                statusUpdates.innerHTML = '<div class="text-red-400 font-bold animate-bounce">❌ Verification Failed!</div>';
+                
+                setTimeout(() => {
+                    processingModal.classList.add('hidden');
+                    showFailedModal();
+                }, 1500);
+            }, 8000);
+            
+            // Update transaction time
+            updateTransactionTime();
+        });
+        
+        function showFailedModal() {
+            const failedModal = document.getElementById('failedModal');
+            failedModal.classList.remove('hidden');
+        }
+        
+        function contactSupport() {
+            window.open('support.html', '_blank');
+        }
+        
+        function retryPayment() {
+            window.location.reload();
+        }
+        
+        function goBack() {
+            window.location.href = 'account-info.html';
+        }
+        
+        function goToProfile() {
+            window.location.href = 'profile.html';
+        }
+        
+        function trackTransaction() {
+            window.open('transaction-tracker.html', '_blank');
+        }
+        
+        function goHome() {
+            window.location.href = '../index.html';
+        }
+        
+        function copyTxId() {
+            const txId = document.getElementById('txId').textContent;
+            navigator.clipboard.writeText(txId).then(() => {
+                // Show copied notification
+                const btn = event.target.closest('button');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check mr-1"></i>Copied';
+                btn.className = 'text-green-400 text-xs';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.className = 'text-yellow-400 hover:text-yellow-300 text-xs';
+                }, 2000);
+            });
+        }
+        
+        function viewOnExplorer() {
+            const txId = document.getElementById('txId').textContent;
+            window.open(`https://bscscan.com/tx/${txId}`, '_blank');
+        }
+        
+        function goToWallet() {
+            window.location.href = 'wallet.html';
+        }
+        
+        function goToHistory() {
+            window.location.href = 'transaction-history.html';
+        }
+        
+        function downloadReceipt() {
+            // Generate and download receipt
+            const receiptData = {
+                txId: document.getElementById('txId').textContent,
+                amount: '500.00 USDT',
+                time: document.getElementById('txTime').textContent,
+                status: 'Completed'
+            };
+            
+            const dataStr = JSON.stringify(receiptData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `USDT_Receipt_${Date.now()}.json`;
+            link.click();
+        }
+        
+        // Update transaction time to current time
+        function updateTransactionTime() {
+            const now = new Date();
+            const timeString = now.toISOString().slice(0, 19).replace('T', ' ');
+            document.getElementById('txTime').textContent = timeString;
+        }
+        
+        // Generate random wallet address
+        function generateWalletAddress() {
+            const chars = '0123456789abcdef';
+            let address = '0x';
+            for (let i = 0; i < 40; i++) {
+                address += chars[Math.floor(Math.random() * chars.length)];
+            }
+            // Show shortened version
+            const shortened = address.slice(0, 6) + '...' + address.slice(-4);
+            document.getElementById('walletAddress').textContent = shortened;
+        }
+        
+        // Call on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTransactionTime();
+            generateWalletAddress();
+        });
+        
+        // Add ripple effect to buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                const ripple = document.createElement('div');
+                ripple.className = 'ripple absolute bg-white/20 rounded-full pointer-events-none';
+                ripple.style.width = ripple.style.height = '20px';
+                ripple.style.left = (e.clientX - e.target.offsetLeft - 10) + 'px';
+                ripple.style.top = (e.clientY - e.target.offsetTop - 10) + 'px';
+                
+                e.target.style.position = 'relative';
+                e.target.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            }
+        });
+    </script>
+    
+    <!-- Chat Widget Integration -->
+    <div id="chatWidget" class="fixed bottom-4 right-4 z-50">
+        <button onclick="toggleChat()" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white p-3 rounded-full shadow-lg transition transform hover:scale-110 glow">
+            <i class="fas fa-comments text-xl"></i>
+        </button>
+    </div>
+    
+    <script>
+        function toggleChat() {
+            // Integration with chat system
+            if (typeof window.chatSystem !== 'undefined') {
+                window.chatSystem.toggle();
+            } else {
+                // Fallback to support page
+                window.open('support.html', '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
