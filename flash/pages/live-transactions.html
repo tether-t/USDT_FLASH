@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Transactions - USDT-FLASH</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Mobile-First Responsive Design */
+        .transaction-item {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .wallet-glow {
+            animation: walletGlow 3s ease-in-out infinite;
+        }
+        @keyframes walletGlow {
+            0%, 100% { box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+        }
+        .user-avatar {
+            transition: transform 0.3s ease;
+        }
+        .user-avatar:hover {
+            transform: scale(1.1);
+        }
+        .transaction-item:hover .user-avatar {
+            transform: scale(1.05);
+        }
+        .new-transaction {
+            animation: newTransactionPulse 1s ease-out;
+        }
+        @keyframes newTransactionPulse {
+            0% { background-color: rgba(34, 197, 94, 0.1); }
+            100% { background-color: transparent; }
+        }
+        .chat-message {
+            transition: all 0.3s ease;
+        }
+        .chat-message:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .custom-scrollbar {
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #2563eb, #7c3aed);
+        }
+        @keyframes messageSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .new-message {
+            animation: messageSlideIn 0.5s ease-out;
+        }
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            border-radius: 20px;
+            margin: 8px 0;
+        }
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background: #6b7280;
+            border-radius: 50%;
+            animation: typingDots 1.4s infinite;
+        }
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes typingDots {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        .typing-indicator-container {
+            animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Header Mobile */
+            header .flex {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            header h1 {
+                font-size: 1.25rem !important;
+            }
+            
+            header p {
+                font-size: 0.75rem !important;
+            }
+            
+            /* Live Status Bar Mobile */
+            .py-2 .flex {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+            
+            /* Chat Container Mobile */
+            .bg-gradient-to-br {
+                margin-bottom: 1rem !important;
+            }
+            
+            .p-8 {
+                padding: 1rem !important;
+            }
+            
+            .p-6 {
+                padding: 0.75rem !important;
+            }
+            
+            /* Chat Header Mobile */
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.5rem !important;
+            }
+            
+            .grid-cols-4 > div {
+                padding: 0.5rem !important;
+            }
+            
+            .grid-cols-4 .text-lg {
+                font-size: 0.875rem !important;
+            }
+            
+            .grid-cols-4 .text-sm {
+                font-size: 0.75rem !important;
+            }
+            
+            .grid-cols-4 .text-xs {
+                font-size: 0.625rem !important;
+            }
+            
+            /* Chat Messages Mobile */
+            .h-\[500px\] {
+                height: 300px !important;
+            }
+            
+            .chat-message {
+                padding: 0.75rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            
+            .chat-message .w-12 {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+            
+            .chat-message .text-lg {
+                font-size: 0.875rem !important;
+            }
+            
+            .chat-message .mr-4 {
+                margin-right: 0.75rem !important;
+            }
+            
+            /* Chat Input Mobile */
+            .flex-1 input {
+                padding: 0.75rem 2.5rem 0.75rem 2.5rem !important;
+                font-size: 0.875rem !important;
+            }
+            
+            .flex-1 .absolute.left-4 {
+                left: 0.75rem !important;
+            }
+            
+            .flex-1 .absolute.right-4 {
+                right: 0.75rem !important;
+            }
+            
+            .flex .space-x-4 {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .flex .space-x-4 button {
+                padding: 0.75rem 1.5rem !important;
+                font-size: 0.875rem !important;
+            }
+            
+            /* Status Bar Mobile */
+            .flex.items-center.justify-between.mt-6 {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start !important;
+            }
+            
+            .flex.items-center.space-x-6 {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start !important;
+            }
+            
+            .flex.items-center.space-x-3 {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            /* Wallets Section Mobile */
+            .grid.grid-cols-2.md\:grid-cols-5 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+            
+            .grid.grid-cols-2.md\:grid-cols-5 > div {
+                padding: 0.75rem !important;
+            }
+            
+            .grid.grid-cols-2.md\:grid-cols-5 img {
+                width: 2rem !important;
+                height: 2rem !important;
+            }
+            
+            .grid.grid-cols-2.md\:grid-cols-5 .text-sm {
+                font-size: 0.75rem !important;
+            }
+            
+            .grid.grid-cols-2.md\:grid-cols-5 .text-xs {
+                font-size: 0.625rem !important;
+            }
+            
+            /* Stats Cards Mobile */
+            .grid.grid-cols-1.md\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+            
+            .grid.grid-cols-1.md\:grid-cols-4 .text-3xl {
+                font-size: 1.5rem !important;
+            }
+            
+            .grid.grid-cols-1.md\:grid-cols-4 .text-sm {
+                font-size: 0.75rem !important;
+            }
+            
+            /* Transaction Feed Mobile */
+            .h-96 {
+                height: 16rem !important;
+            }
+            
+            .transaction-item {
+                padding: 0.75rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+            
+            .transaction-item .w-14 {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+            }
+            
+            .transaction-item .w-7 {
+                width: 1.5rem !important;
+                height: 1.5rem !important;
+            }
+            
+            .transaction-item .text-xl {
+                font-size: 1rem !important;
+            }
+            
+            .transaction-item .text-sm {
+                font-size: 0.75rem !important;
+            }
+            
+            .transaction-item .text-xs {
+                font-size: 0.625rem !important;
+            }
+            
+            .transaction-item .flex-wrap {
+                flex-direction: column;
+                align-items: flex-start !important;
+                gap: 0.25rem;
+            }
+            
+            .transaction-item .ml-4 {
+                margin-left: 0.75rem !important;
+            }
+            
+            .transaction-item .mr-2 {
+                margin-right: 0.5rem !important;
+            }
+            
+            .transaction-item .space-x-4 {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .transaction-item .space-x-2 {
+                gap: 0.25rem;
+            }
+            
+            /* Live Feed Stats Mobile */
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .grid-cols-4 .text-2xl {
+                font-size: 1.25rem !important;
+            }
+            
+            /* Hide some elements on mobile */
+            @media (max-width: 640px) {
+                .hidden-mobile {
+                    display: none !important;
+                }
+                
+                .text-3xl {
+                    font-size: 1.25rem !important;
+                }
+                
+                .text-2xl {
+                    font-size: 1.125rem !important;
+                }
+                
+                .text-xl {
+                    font-size: 1rem !important;
+                }
+                
+                .px-8 {
+                    padding-left: 1rem !important;
+                    padding-right: 1rem !important;
+                }
+                
+                .py-8 {
+                    padding-top: 1rem !important;
+                    padding-bottom: 1rem !important;
+                }
+                
+                .px-6 {
+                    padding-left: 0.75rem !important;
+                    padding-right: 0.75rem !important;
+                }
+                
+                .py-6 {
+                    padding-top: 0.75rem !important;
+                    padding-bottom: 0.75rem !important;
+                }
+                
+                .px-4 {
+                    padding-left: 0.5rem !important;
+                    padding-right: 0.5rem !important;
+                }
+                
+                .py-4 {
+                    padding-top: 0.5rem !important;
+                    padding-bottom: 0.5rem !important;
+                }
+            }
+        }
+        
+        /* Touch-friendly buttons */
+        @media (max-width: 768px) {
+            button, .cursor-pointer {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            input, textarea {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 25%, #e5e7eb 50%, #f3f4f6 75%, #ffffff 100%) !important;">
+    <!-- Header -->
+    <header class="text-white shadow-lg" style="background: linear-gradient(135deg, #0f1419 0%, #1a2e1a 25%, #26a17b 50%, #1a8462 75%, #0e4b36 100%) !important; backdrop-filter: blur(25px) saturate(180%) !important; border-bottom: 2px solid rgba(38, 161, 123, 0.4) !important; box-shadow: 0 10px 40px rgba(14, 75, 54, 0.5) !important;">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="flex items-center">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT-FLASH Logo" class="h-8 w-8 md:h-10 md:w-10 mr-3">
+                    <div class="text-center md:text-left">
+                        <h1 class="text-lg md:text-xl font-bold" style="background: linear-gradient(45deg, #ffffff 0%, #34d399 25%, #26a17b 50%, #ffffff 75%, #2ecc71 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 15px rgba(38, 161, 123, 0.6));">Live Transactions</h1>
+                        <p class="text-xs md:text-sm" style="color: rgba(52, 211, 153, 0.95); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 15px rgba(38, 161, 123, 0.4);">Real-time USDT-FLASH activity</p>
+                    </div>
+                </div>
+                <a href="../index.html" class="text-white px-3 py-2 md:px-4 md:py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm md:text-base" style="background: linear-gradient(45deg, #26a17b, #1a8462, #0e4b36); box-shadow: 0 8px 25px rgba(38, 161, 123, 0.4);">
+                    <i class="fas fa-home mr-2"></i>Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Live Status Bar -->
+    <div class="text-white py-2" style="background: linear-gradient(45deg, #26a17b, #1a8462, #0e4b36) !important;">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-0 text-sm md:text-base">
+                <div class="flex items-center">
+                    <div class="pulse-dot w-3 h-3 bg-white rounded-full mr-2"></div>
+                    <span class="font-semibold">LIVE</span>
+                </div>
+                <div class="flex items-center gap-2 md:gap-4">
+                    <span class="hidden md:inline mx-2">•</span>
+                    <span><span id="active-users">1,847</span> active users</span>
+                    <span class="mx-2">•</span>
+                    <span><span id="total-transactions">12,847</span> transactions today</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-4 md:py-8">
+        <!-- Advanced Global Community Chat -->
+        <div class="bg-gradient-to-br from-white via-indigo-50/40 to-purple-50/30 rounded-2xl md:rounded-3xl shadow-2xl border border-gray-100/60 backdrop-blur-lg overflow-hidden mb-6 md:mb-8 relative">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-4 -right-4 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-xl animate-pulse"></div>
+                <div class="absolute -bottom-4 -left-4 w-20 h-20 md:w-32 md:h-32 bg-gradient-to-br from-green-400/15 to-blue-400/15 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s;"></div>
+            </div>
+            
+            <!-- Ultra Premium Header -->
+            <div class="p-4 md:p-8 relative overflow-hidden" style="background: linear-gradient(135deg, #0f1419 0%, #1a2e1a 25%, #26a17b 50%, #1a8462 75%, #0e4b36 100%) !important;">
+                <!-- Animated Particles -->
+                <div class="absolute inset-0">
+                    <div class="absolute top-4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-ping" style="animation-delay: 0.5s;"></div>
+                    <div class="absolute top-8 right-1/3 w-1 h-1 bg-blue-300/40 rounded-full animate-pulse" style="animation-delay: 1.2s;"></div>
+                    <div class="absolute bottom-6 left-1/2 w-1.5 h-1.5 bg-purple-300/30 rounded-full animate-ping" style="animation-delay: 2s;"></div>
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 gap-4">
+                        <div class="flex items-center">
+                            <div class="relative mr-4 md:mr-6">
+                                <div class="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg border-2 border-white/30"></div>
+                                <div class="absolute inset-0 w-5 h-5 md:w-6 md:h-6 bg-green-400 rounded-full animate-ping opacity-60"></div>
+                                <div class="absolute -inset-1 w-7 h-7 md:w-8 md:h-8 bg-green-400/20 rounded-full animate-ping opacity-40" style="animation-delay: 0.5s;"></div>
+                            </div>
+                            <div>
+                                <h2 class="text-xl md:text-3xl font-black text-white tracking-wide flex flex-col md:flex-row md:items-center">
+                                    <i class="fas fa-globe-americas mr-0 md:mr-4 text-emerald-400 text-lg md:text-2xl animate-pulse mb-1 md:mb-0"></i>
+                                    <span class="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">Global Community Hub</span>
+                                </h2>
+                                <p class="text-blue-200/80 text-xs md:text-sm mt-1 font-medium">Real-time worldwide conversations • Live support</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
+                            <div class="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-md rounded-2xl px-4 md:px-6 py-2 md:py-3 border border-white/20 shadow-lg w-full md:w-auto">
+                                <div class="flex items-center justify-center md:justify-start space-x-3">
+                                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse shadow-sm"></div>
+                                    <span class="text-white font-bold text-base md:text-lg">
+                                        <span id="online-count" class="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">2,847</span>
+                                    </span>
+                                    <span class="text-green-200 text-sm font-medium">Online</span>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-emerald-500/20 to-green-500/20 backdrop-blur-md rounded-xl px-3 md:px-4 py-2 border border-emerald-400/30 shadow-lg w-full md:w-auto">
+                                <span class="text-emerald-200 font-bold text-xs md:text-sm flex items-center justify-center md:justify-start">
+                                    <i class="fas fa-shield-check mr-2 text-emerald-300"></i>
+                                    VERIFIED PLATFORM
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Feature Bar -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mt-6">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                            <div class="flex items-center">
+                                <i class="fas fa-language mr-2 md:mr-3 text-yellow-300 text-sm md:text-lg"></i>
+                                <div>
+                                    <div class="text-white font-semibold text-xs md:text-sm">Multi-Language</div>
+                                    <div class="text-blue-200/70 text-xs hidden md:block">50+ Languages</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                            <div class="flex items-center">
+                                <i class="fas fa-lock mr-2 md:mr-3 text-green-300 text-sm md:text-lg"></i>
+                                <div>
+                                    <div class="text-white font-semibold text-xs md:text-sm">Encrypted</div>
+                                    <div class="text-blue-200/70 text-xs hidden md:block">Military Grade</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                            <div class="flex items-center">
+                                <i class="fas fa-bolt mr-2 md:mr-3 text-purple-300 text-sm md:text-lg"></i>
+                                <div>
+                                    <div class="text-white font-semibold text-xs md:text-sm">Real-time</div>
+                                    <div class="text-blue-200/70 text-xs hidden md:block">< 100ms Latency</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-2 md:p-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
+                            <div class="flex items-center">
+                                <i class="fas fa-headset mr-2 md:mr-3 text-blue-300 text-sm md:text-lg"></i>
+                                <div>
+                                    <div class="text-white font-semibold text-xs md:text-sm">24/7 Support</div>
+                                    <div class="text-blue-200/70 text-xs hidden md:block">AI + Human</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Enhanced Chat Container -->
+            <div class="p-4 md:p-8">
+                <!-- Advanced Messages Area -->
+                <div id="chat-messages" class="h-[300px] md:h-[500px] overflow-y-auto bg-gradient-to-b from-gray-50/60 via-white/80 to-blue-50/40 rounded-2xl p-3 md:p-6 mb-6 md:mb-8 border border-gray-200/60 shadow-inner backdrop-blur-sm custom-scrollbar relative">
+                    <!-- Loading Skeleton (will be replaced) -->
+                    <div class="flex items-center justify-center h-full text-gray-400">
+                        <div class="text-center">
+                            <div class="animate-spin rounded-full h-8 w-8 md:h-12 md:w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+                            <p class="text-xs md:text-sm font-medium">Loading global conversations...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Input Area -->
+                <div class="bg-gradient-to-r from-gray-50/80 via-white/90 to-blue-50/60 rounded-2xl p-4 md:p-6 border border-gray-200/60 shadow-lg backdrop-blur-sm">
+                    <div class="flex flex-col md:flex-row items-stretch md:items-center space-y-3 md:space-y-0 md:space-x-4">
+                        <div class="flex-1 relative">
+                            <div class="absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                                <i class="fas fa-comment-dots text-base md:text-lg"></i>
+                            </div>
+                            <input type="text" id="chat-input" placeholder="Join the global conversation..." 
+                                   class="w-full pl-10 md:pl-12 pr-4 md:pr-16 py-3 md:py-4 bg-white/90 border-2 border-gray-200/80 rounded-2xl focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 text-gray-700 placeholder-gray-400 shadow-sm font-medium text-sm md:text-lg backdrop-blur-sm">
+                            <div class="absolute right-3 md:right-4 top-1/2 transform -translate-y-1/2 hidden md:flex items-center space-x-2">
+                                <div class="text-gray-400 text-sm font-medium">Press Enter</div>
+                                <div class="w-8 h-6 bg-gray-200 rounded border flex items-center justify-center">
+                                    <i class="fas fa-level-down-alt text-xs text-gray-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="chat-send" onclick="sendUserMessage()" 
+                                class="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white px-4 md:px-8 py-3 md:py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl font-bold text-sm md:text-lg border border-white/20 backdrop-blur-sm">
+                            <i class="fas fa-paper-plane mr-2 md:mr-3 text-sm md:text-xl"></i>
+                            <span class="hidden md:inline">Send Message</span>
+                            <span class="md:hidden">Send</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Enhanced Status Bar -->
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between mt-4 md:mt-6 pt-4 border-t border-gray-200/50 gap-4">
+                        <div class="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-6 text-xs md:text-sm w-full md:w-auto">
+                            <div class="flex items-center text-gray-600 bg-blue-50 px-2 md:px-3 py-1 md:py-2 rounded-full">
+                                <i class="fas fa-users mr-1 md:mr-2 text-blue-500"></i>
+                                <span class="font-medium">Join 2,847 active members</span>
+                            </div>
+                            <div class="flex items-center text-gray-600 bg-green-50 px-2 md:px-3 py-1 md:py-2 rounded-full">
+                                <i class="fas fa-shield-alt mr-1 md:mr-2 text-green-500"></i>
+                                <span class="font-medium">AI-moderated & secure</span>
+                            </div>
+                            <div class="flex items-center text-gray-600 bg-purple-50 px-2 md:px-3 py-1 md:py-2 rounded-full">
+                                <i class="fas fa-globe mr-1 md:mr-2 text-purple-500"></i>
+                                <span class="font-medium">50+ countries online</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2 md:space-x-3 w-full md:w-auto justify-center md:justify-end">
+                            <div class="flex items-center space-x-1 md:space-x-2">
+                                <div class="w-2 h-2 md:w-3 md:h-3 bg-green-400 rounded-full animate-pulse shadow-sm"></div>
+                                <div class="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.3s;"></div>
+                                <div class="w-1 h-1 md:w-1.5 md:h-1.5 bg-green-200 rounded-full animate-pulse" style="animation-delay: 0.6s;"></div>
+                            </div>
+                            <span class="text-green-600 font-bold text-xs md:text-sm bg-green-50 px-2 md:px-3 py-1 rounded-full border border-green-200">Live Chat Active</span>
+                            <div class="text-gray-500 text-xs bg-gray-100 px-2 py-1 rounded-full">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span id="chat-uptime">24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supported Wallets Section -->
+        <div class="bg-white rounded-lg shadow-md p-4 md:p-6 mb-8">
+            <h2 class="text-lg md:text-xl font-bold text-gray-800 mb-4 text-center">Supported Wallets & Platforms</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="flex flex-col items-center p-3 md:p-4 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-lg text-white hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <img src="../img/bnb_cryptocurrencies_icon_188408.png" alt="Binance" class="w-8 h-8 md:w-12 md:h-12 mb-2 rounded-full bg-white p-1">
+                    <span class="font-bold text-xs md:text-sm">BINANCE</span>
+                    <span class="text-xs opacity-90 user-count">268</span> users
+                </div>
+                <div class="flex flex-col items-center p-3 md:p-4 bg-gradient-to-r from-orange-400 to-orange-600 rounded-lg text-white hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <img src="../img/BYBIT.jpg" alt="Bybit" class="w-8 h-8 md:w-12 md:h-12 mb-2 rounded-full bg-white p-1 object-cover">
+                    <span class="font-bold text-xs md:text-sm">BYBIT</span>
+                    <span class="text-xs opacity-90 user-count">148</span> users
+                </div>
+                <div class="flex flex-col items-center p-3 md:p-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg text-white hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <img src="../img/META MASK.png" alt="MetaMask" class="w-8 h-8 md:w-12 md:h-12 mb-2 rounded-full bg-white p-1">
+                    <span class="font-bold text-xs md:text-sm">METAMASK</span>
+                    <span class="text-xs opacity-90 user-count">391</span> users
+                </div>
+                <div class="flex flex-col items-center p-3 md:p-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg text-white hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <img src="../img/Trust_Wallet_2023_b-stacked.webp" alt="Trust Wallet" class="w-8 h-8 md:w-12 md:h-12 mb-2 rounded-full bg-white p-1">
+                    <span class="font-bold text-xs md:text-sm">TRUST WALLET</span>
+                    <span class="text-xs opacity-90 user-count">251</span> users
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6 text-center">
+                <div class="text-xl md:text-3xl font-bold text-green-600 total-volume stat-number">$47.8M</div>
+                <div class="text-xs md:text-sm text-gray-600">Total Volume</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6 text-center">
+                <div class="text-xl md:text-3xl font-bold text-blue-600 avg-transaction stat-number">$12,450</div>
+                <div class="text-xs md:text-sm text-gray-600">Avg Transaction</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6 text-center">
+                <div class="text-xl md:text-3xl font-bold text-purple-600 success-rate stat-number">99.97%</div>
+                <div class="text-xs md:text-sm text-gray-600">Success Rate</div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6 text-center">
+                <div class="text-xl md:text-3xl font-bold text-orange-600 response-time stat-number">0.8s</div>
+                <div class="text-xs md:text-sm text-gray-600">Avg Time</div>
+            </div>
+        </div>
+
+        <!-- Advanced Live Feed -->
+        <div class="bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 rounded-2xl shadow-2xl border border-gray-100/50 backdrop-blur-sm mb-6 md:mb-8 overflow-hidden">
+            <!-- Premium Header -->
+            <div class="p-4 md:p-6 relative overflow-hidden" style="background: linear-gradient(135deg, #0f1419 0%, #1a2e1a 25%, #26a17b 50%, #1a8462 75%, #0e4b36 100%) !important;">
+                <div class="absolute inset-0 bg-gradient-to-r from-emerald-400/20 to-cyan-400/20 animate-pulse"></div>
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div class="flex items-center">
+                            <div class="relative">
+                                <div class="w-3 h-3 md:w-4 md:h-4 bg-green-400 rounded-full animate-pulse shadow-lg"></div>
+                                <div class="absolute inset-0 w-3 h-3 md:w-4 md:h-4 bg-green-400 rounded-full animate-ping opacity-75"></div>
+                            </div>
+                            <h2 class="text-lg md:text-2xl font-black text-white ml-3 md:ml-4 tracking-wide">
+                                <i class="fas fa-chart-line mr-2 md:mr-3 text-yellow-300 text-sm md:text-base"></i>
+                                Live Transaction Feed
+                            </h2>
+                        </div>
+                        <div class="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
+                            <div class="bg-white/20 backdrop-blur-sm rounded-full px-3 md:px-4 py-1 md:py-2 border border-white/30 w-full md:w-auto">
+                                <span class="text-white font-bold text-xs md:text-sm flex items-center justify-center md:justify-start">
+                                    <i class="fas fa-bolt mr-1 md:mr-2 text-yellow-300"></i>
+                                    <span id="tps-counter">47.8</span> TPS
+                                </span>
+                            </div>
+                            <div class="bg-green-500/20 backdrop-blur-sm rounded-full px-2 md:px-3 py-1 border border-green-400/30 w-full md:w-auto">
+                                <span class="text-green-200 font-semibold text-xs flex items-center justify-center md:justify-start">
+                                    <i class="fas fa-shield-check mr-1"></i>
+                                    REAL-TIME
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-6 text-white/80 text-xs md:text-sm">
+                        <div class="flex items-center">
+                            <i class="fas fa-globe-americas mr-2 text-yellow-300"></i>
+                            <span>Global Network</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-database mr-2 text-green-300"></i>
+                            <span>Blockchain Verified</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-rocket mr-2 text-blue-300"></i>
+                            <span>Instant Processing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Advanced Feed Container -->
+            <div class="p-4 md:p-6">
+                <!-- Real-time Stats Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-4 md:mb-6">
+                    <div class="bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-xl p-3 md:p-4 border border-blue-200/30">
+                        <div class="text-lg md:text-2xl font-bold text-blue-600" id="live-volume">$2.4M</div>
+                        <div class="text-xs text-gray-600">Volume (1h)</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500/10 to-green-600/10 rounded-xl p-3 md:p-4 border border-green-200/30">
+                        <div class="text-lg md:text-2xl font-bold text-green-600" id="live-transactions">1,847</div>
+                        <div class="text-xs text-gray-600">Transactions</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500/10 to-purple-600/10 rounded-xl p-3 md:p-4 border border-purple-200/30">
+                        <div class="text-lg md:text-2xl font-bold text-purple-600" id="avg-amount">$8.2K</div>
+                        <div class="text-xs text-gray-600">Avg Amount</div>
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-xl p-3 md:p-4 border border-orange-200/30">
+                        <div class="text-lg md:text-2xl font-bold text-orange-600" id="success-rate">99.97%</div>
+                        <div class="text-xs text-gray-600">Success Rate</div>
+                    </div>
+                </div>
+                
+                <!-- Advanced Transaction Feed -->
+                <div class="bg-gradient-to-b from-gray-50/50 to-white rounded-xl border border-gray-200/50 shadow-inner backdrop-blur-sm overflow-hidden">
+                    <div class="h-64 md:h-96 overflow-y-auto custom-scrollbar" id="transaction-feed">
+                        <!-- Transactions will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Live Activity Indicator -->
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between mt-4 text-xs gap-2">
+                    <div class="flex flex-col md:flex-row items-start md:items-center space-y-1 md:space-y-0 md:space-x-4 text-gray-500">
+                        <span class="flex items-center">
+                            <i class="fas fa-satellite-dish mr-1 text-green-500"></i>
+                            <span class="hidden md:inline">Live blockchain monitoring</span>
+                            <span class="md:hidden">Live monitoring</span>
+                        </span>
+                        <span class="flex items-center">
+                            <i class="fas fa-shield-alt mr-1 text-blue-500"></i>
+                            <span class="hidden md:inline">Cryptographically verified</span>
+                            <span class="md:hidden">Verified</span>
+                        </span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-green-600 font-medium">Live Feed Active</span>
+                        <span class="text-gray-400 hidden md:inline">•</span>
+                        <span class="text-gray-500 hidden md:inline">Last update: <span id="last-update">now</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        // Global user names from all continents (500+ names)
+        const allUserNames = [
+            // North America
+            'Alexander Thompson', 'Sophia Martinez', 'Benjamin Rodriguez', 'Isabella Garcia', 'William Anderson',
+            'Emma Wilson', 'James Taylor', 'Olivia Brown', 'Lucas Davis', 'Ava Miller',
+            'Mason Johnson', 'Charlotte Williams', 'Ethan Jones', 'Amelia Garcia', 'Noah Martinez',
+            'Harper Anderson', 'Logan Wilson', 'Evelyn Taylor', 'Jacob Brown', 'Abigail Davis',
+            
+            // South America
+            'Carlos Silva', 'Maria Santos', 'João Oliveira', 'Ana Rodriguez', 'Luis Fernandez',
+            'Carmen Lopez', 'Diego Martinez', 'Isabella Garcia', 'Rafael Pereira', 'Lucia Gonzalez',
+            'Fernando Costa', 'Valentina Morales', 'Gabriel Herrera', 'Sofia Vargas', 'Alejandro Ruiz',
+            'Camila Torres', 'Sebastian Mendoza', 'Daniela Castro', 'Mateo Jimenez', 'Valeria Romero',
+            
+            // Europe
+            'Alessandro Rossi', 'Emma Schmidt', 'Pierre Dubois', 'Anna Kowalski', 'Hans Mueller',
+            'Sophie Martin', 'Marco Bianchi', 'Elena Popov', 'Jean Bernard', 'Ingrid Larsson',
+            'Antonio Conti', 'Marie Petit', 'Dimitri Volkov', 'Giulia Ferrari', 'Lars Nielsen',
+            'Francesca Romano', 'Erik Andersen', 'Chiara Greco', 'Nikos Papadopoulos', 'Astrid Johansson',
+            
+            // Asia
+            'Hiroshi Tanaka', 'Li Wei', 'Raj Patel', 'Yuki Yamamoto', 'Chen Ming',
+            'Priya Sharma', 'Takeshi Sato', 'Wang Lei', 'Arjun Gupta', 'Jin Park',
+            'Deepika Agarwal', 'Kenji Watanabe', 'Zhang Hua', 'Anita Singh', 'Kim So-young',
+            'Sanjay Verma', 'Akiko Suzuki', 'Liu Yang', 'Kavya Reddy', 'Lee Dong-hyun',
+            
+            // Africa
+            'Kwame Asante', 'Fatou Diallo', 'Amara Okafor', 'Nkem Okwu', 'Kofi Mensah',
+            'Aisha Hassan', 'Chidi Okonkwo', 'Zara Mwangi', 'Tunde Adebayo', 'Naledi Molefe',
+            'Omar Benali', 'Khadija Traore', 'Youssef Alami', 'Amina Kone', 'Rashid Mwalimu',
+            'Fatima Ouali', 'Ibrahim Keita', 'Mariam Diop', 'Hassan Benali', 'Aicha Benaissa',
+            
+            // Middle East
+            'Ahmed Al-Rashid', 'Sarah Al-Zahra', 'Omar Ibn Khaldun', 'Fatima Al-Noor', 'Khalid Al-Mansour',
+            'Nour Al-Din', 'Hassan Al-Bakri', 'Mona Al-Sharif', 'Youssef Al-Kindi', 'Rania Al-Qasemi',
+            'Ali Al-Farisi', 'Layla Al-Andalusi', 'Mahmoud Al-Tabari', 'Zeinab Al-Baghdadi', 'Tariq Al-Maghribi',
+            'Amina Al-Dimashqi', 'Samir Al-Halabi', 'Dina Al-Masri', 'Karim Al-Shami', 'Yasmin Al-Hijazi',
+            
+            // Oceania
+            'James Mitchell', 'Emma Thompson', 'Liam O\'Connor', 'Olivia Clarke', 'Noah Williams',
+            'Ava Johnson', 'William Brown', 'Isabella Davis', 'Jack Wilson', 'Sophia Miller',
+            'Lucas Anderson', 'Charlotte Taylor', 'Mason Thomas', 'Amelia Jackson', 'Ethan White',
+            'Mia Harris', 'Alexander Martin', 'Harper Garcia', 'Benjamin Rodriguez', 'Evelyn Lewis',
+            
+            // Additional Global Names
+            'Viktor Petrov', 'Anastasia Volkov', 'Mohammed Al-Saud', 'Leila Benali', 'Dmitri Kozlov',
+            'Fatima Zahra', 'Ivan Popovic', 'Nadia Yassine', 'Aleksandr Smirnov', 'Mariam Al-Tunisi',
+            'Pavel Novak', 'Amal Bugaighis', 'Sergei Ivanov', 'Khadija Al-Jazairi', 'Mikhail Petrov',
+            'Soraya Al-Somaliya', 'Andrei Volkov', 'Najwa Benghazi', 'Nikolai Kozlov', 'Salma Al-Kuwaiti',
+            // Algerian Names
+            'Mohamed Benali', 'Fatima Benaissa', 'Ahmed Boumediene', 'Aicha Belkacem', 'Karim Boudjelal',
+            'Samira Benabdallah', 'Youcef Benamara', 'Nadia Bencherif', 'Rachid Bensalem', 'Zohra Benali',
+            'Omar Bouteflika', 'Malika Benamar', 'Abderrahmane Benali', 'Khadija Benmohamed', 'Tahar Benabbes',
+            
+            // Tunisian Names
+            'Habib Bourguiba', 'Leila Ben Ali', 'Mongi Slim', 'Nawal Ghachem', 'Hedi Nouira',
+            'Samia Abbou', 'Moncef Marzouki', 'Bochra Belhaj', 'Beji Essebsi', 'Sihem Bensedrine',
+            
+            // Moroccan Names
+            'Mohammed Alaoui', 'Aicha Benali', 'Hassan Bennani', 'Fatima Zahra', 'Youssef Amrani',
+            'Nadia Yassine', 'Abdelilah Benkirane', 'Latifa Akharbach', 'Saad Eddine Othmani', 'Nezha Hayat',
+            
+            // Libyan Names
+            'Muammar Gaddafi', 'Aisha Gaddafi', 'Saif Al-Islam', 'Fatima Benali', 'Omar Al-Mukhtar',
+            'Najwa Benghazi', 'Khalifa Haftar', 'Salma Tripoli', 'Mustafa Sanalla', 'Amal Bugaighis',
+            
+            // Malian Names
+            'Amadou Toumani', 'Aminata Traore', 'Ibrahim Keita', 'Cisse Mariam', 'Modibo Sidibe',
+            'Fatoumata Diallo', 'Soumaila Cisse', 'Aissata Cisse', 'Dioncounda Traore', 'Mintou Dukure',
+            
+            // Arabic Names
+            'Mohammed Al-Zahra', 'Fatima Al-Rashid', 'Abdullah Al-Mansour', 'Aisha Al-Noor', 'Omar Al-Kindi',
+            'Mariam Al-Qasemi', 'Khalid Al-Farisi', 'Nour Al-Andalusi', 'Hassan Al-Tabari', 'Layla Al-Baghdadi',
+            'Ahmed Al-Maghribi', 'Zeinab Al-Dimashqi', 'Youssef Al-Halabi', 'Rania Al-Masri', 'Ali Al-Shami',
+            'Dina Al-Hijazi', 'Samir Al-Najdi', 'Hala Al-Qudsi', 'Rashid Al-Emirati', 'Salma Al-Kuwaiti',
+            'Faisal Al-Najdi', 'Hala Al-Qudsi', 'Rashid Al-Emirati', 'Salma Al-Kuwaiti', 'Nasser Al-Bahraini',
+            'Lina Al-Omani', 'Walid Al-Qatari', 'Mariam Al-Sudaniya', 'Adel Al-Tunisi', 'Rana Al-Jazairi',
+            'Sami Al-Libi', 'Nadia Al-Maghribia', 'Hakim Al-Mauritani', 'Soraya Al-Somaliya', 'Jamal Al-Yemeni',
+            'Khadija Al-Sudaniya', 'Munir Al-Urduni', 'Sawsan Al-Lubnaniya', 'Bashar Al-Suri', 'Ghada Al-Iraqiya',
+            
+            // Prominent Arabic Names
+            'Mohammed Al-Amoudi', 'Abdullah Al-Barrak', 'Abdulaziz Al-Hokair', 'Abdullah Al-Othaim', 'Abdulatif Al-Juffali',
+            'Abdullah Al-Khulaifi', 'Abdulaziz Al-Rasheed', 'Abdullah Al-Saud', 'Abdulaziz Al-Thabiti', 'Abdullah Al-Zaher',
+            'Mohamed Al-Fayed', 'Abdulaziz Al-Mutawa', 'Abdullah Al-Mulla', 'Abdulaziz Al-Nasser', 'Abdullah Al-Rajaan',
+            'Abdulaziz Al-Shaye', 'Abdullah Al-Turki', 'Abdulaziz Al-Zamil', 'Abdullah Al-Gosaibi', 'Abdulaziz Al-Tuwaijri',
+            'Abdullah Al-Dabal', 'Abdulaziz Al-Muhaisen', 'Abdulaziz Al-Moualimi', 'Abdulaziz Al-Mansour', 'Abdullah Al-Meshari',
+            'Abdulaziz Al-Khawajah', 'Abdullah Al-Mutairi', 'Abdulaziz Al-Rasheedy', 'Abdullah Al-Sowileh', 'Abdulaziz Al-Mosaibah',
+            'Abdullah Al-Saadoun', 'Abdulaziz Al-Ateeq', 'Abdullah Al-Bassam', 'Abdulaziz Al-Hamad', 'Abdullah Al-Jaleel',
+            'Abdulaziz Al-Mubarak', 'Abdulaziz Al-Mutawa', 'Abdulaziz Al-Othman', 'Abdullah Al-Rashed', 'Abdulaziz Al-Saif',
+            'Abdullah Al-Shaalan', 'Abdulaziz Al-Sheikh', 'Abdulaziz Al-Tamimi', 'Abdulaziz Al-Yami', 'Abdullah Al-Zamil',
+            
+            // English Names
+            'James Anderson', 'Emma Thompson', 'Michael Johnson', 'Olivia Williams', 'William Brown',
+            'Sophia Davis', 'Alexander Miller', 'Isabella Wilson', 'Benjamin Moore', 'Charlotte Taylor',
+            'Lucas Anderson', 'Amelia Jackson', 'Henry White', 'Mia Harris', 'Sebastian Martin',
+            'Harper Thompson', 'Theodore Garcia', 'Evelyn Martinez', 'Oliver Robinson', 'Abigail Clark',
+            'Elijah Rodriguez', 'Emily Lewis', 'Samuel Lee', 'Elizabeth Walker', 'David Hall',
+            'Sofia Allen', 'Joseph Young', 'Avery Hernandez', 'Grace Green', 'Anthony Adams',
+            'Chloe Baker', 'Christopher Gonzalez', 'Victoria Nelson', 'Grace Green', 'Anthony Adams',
+            'Chloe Baker', 'Christopher Gonzalez', 'Victoria Nelson', 'Avery Hernandez', 'Emily Lewis',
+            'Elijah Rodriguez', 'David Hall', 'Elizabeth Walker', 'Samuel Lee', 'Henry White',
+            'Emily Lewis', 'Chloe Baker', 'Christopher Gonzalez', 'Avery Hernandez', 'Victoria Nelson',
+            'Anthony Adams', 'David Hall', 'Elizabeth Walker', 'Samuel Lee', 'Henry White',
+            
+            // Jewish Names
+            'David Cohen', 'Sarah Goldberg', 'Michael Rosen', 'Rachel Stern', 'Joshua Levy',
+            'Rebecca Friedman', 'Daniel Katz', 'Miriam Shapiro', 'Aaron Weiss', 'Leah Goldman',
+            'Benjamin Klein', 'Hannah Rosenberg', 'Jacob Miller', 'Esther Schwartz', 'Samuel Green',
+            'Ruth Hoffman', 'Isaac Bernstein', 'Naomi Silver', 'Eli Goldstein', 'Deborah Wolf',
+            'Nathan Rubin', 'Judith Kaplan', 'Adam Feldman', 'Susan Newman', 'Jonathan Gross',
+            'Lisa Weinstein', 'Matthew Bloom', 'Jennifer Cohen', 'Mark Stein', 'Amy Roth',
+            'Steven Goldberg', 'Michelle Levy', 'Robert Kahn', 'Laura Weiss', 'Andrew Rosenberg',
+            'Karen Friedman', 'Brian Shapiro', 'Nancy Klein', 'Kevin Goldman', 'Sharon Wolf',
+            
+            // Indian Names
+            'Arjun Sharma', 'Priya Patel', 'Rahul Gupta', 'Anita Singh', 'Vikram Kumar',
+            'Deepika Agarwal', 'Sanjay Verma', 'Kavya Reddy', 'Amit Jain', 'Neha Chopra',
+            'Rajesh Mehta', 'Pooja Bansal', 'Suresh Yadav', 'Ritu Malhotra', 'Manoj Tiwari',
+            'Sunita Saxena', 'Ashok Pandey', 'Geeta Srivastava', 'Ravi Mishra', 'Shweta Dubey',
+            'Kiran Bhatt', 'Meera Joshi', 'Vinod Nair', 'Rekha Iyer', 'Ajay Menon',
+            'Lata Pillai', 'Sunil Krishnan', 'Usha Bhat', 'Prakash Rao', 'Vandana Kulkarni',
+            'Ramesh Desai', 'Sushma Shah', 'Dinesh Modi', 'Bharti Thakur', 'Yogesh Chandra',
+            'Madhuri Kapoor', 'Harish Bose', 'Seema Roy', 'Naresh Ghosh', 'Purnima Das',
+            'Santosh Mukherjee', 'Asha Banerjee', 'Mahesh Chatterjee', 'Kamala Sengupta', 'Subhash Dutta',
+            'Manju Bhattacharya', 'Dilip Chakraborty', 'Sudha Ganguly', 'Tapan Mitra', 'Ruma Sarkar',
+            
+            // Additional Mixed Names
+            'Chen Wei', 'Maria Garcia', 'Hiroshi Tanaka', 'Anna Kowalski', 'Pierre Dubois',
+            'Elena Rossi', 'Hans Mueller', 'Fatou Diallo', 'Kwame Asante', 'Yuki Yamamoto',
+            'Carlos Rodriguez', 'Ingrid Larsson', 'Dmitri Volkov', 'Aisha Hassan', 'Raj Patel',
+            'Sophie Martin', 'Ahmed Hassan', 'Olga Petrov', 'Jin Park', 'Isabella Santos',
+            'Mohammed Ali', 'Katarina Novak', 'Takeshi Sato', 'Fatima Benali', 'Viktor Kozlov',
+            'Amara Okafor', 'Liam O\'Connor', 'Zara Khan', 'Erik Andersen', 'Nkem Okwu',
+            
+            // Additional user profiles for existing names
+            'Ahmed Al-Rashid', 'Sarah Al-Zahra', 'Omar Ibn Khaldun', 'Fatima Al-Noor', 'Khalid Al-Mansour',
+            'Nour Al-Din', 'Hassan Al-Bakri', 'Mona Al-Sharif', 'Youssef Al-Kindi', 'Rania Al-Qasemi',
+            'Ali Al-Farisi', 'Layla Al-Andalusi', 'Mahmoud Al-Tabari', 'Zeinab Al-Baghdadi', 'Tariq Al-Maghribi',
+            'Amina Al-Dimashqi', 'Samir Al-Halabi', 'Dina Al-Masri', 'Karim Al-Shami', 'Yasmin Al-Hijazi',
+            'Faisal Al-Najdi', 'Hala Al-Qudsi', 'Rashid Al-Emirati', 'Salma Al-Kuwaiti', 'Nasser Al-Bahraini',
+            'Lina Al-Omani', 'Walid Al-Qatari', 'Mariam Al-Sudaniya', 'Adel Al-Tunisi', 'Rana Al-Jazairi',
+            'Sami Al-Libi', 'Nadia Al-Maghribia', 'Hakim Al-Mauritani', 'Soraya Al-Somaliya', 'Jamal Al-Yemeni',
+            'Khadija Al-Sudaniya', 'Munir Al-Urduni', 'Sawsan Al-Lubnaniya', 'Bashar Al-Suri', 'Ghada Al-Iraqiya',
+            
+            // Prominent Arabic users
+            'Mohammed Al-Amoudi', 'Abdullah Al-Barrak', 'Abdulaziz Al-Hokair', 'Abdullah Al-Othaim', 'Abdulatif Al-Juffali',
+            'Abdullah Al-Khulaifi', 'Abdulaziz Al-Rasheed', 'Abdullah Al-Saud', 'Abdulaziz Al-Thabiti', 'Abdullah Al-Zaher',
+            'Mohamed Al-Fayed', 'Abdulaziz Al-Mutawa', 'Abdullah Al-Mulla', 'Abdulaziz Al-Nasser', 'Abdullah Al-Rajaan',
+            'Abdulaziz Al-Shaye', 'Abdullah Al-Turki', 'Abdulaziz Al-Zamil', 'Abdullah Al-Gosaibi', 'Abdulaziz Al-Tuwaijri',
+            'Abdullah Al-Dabal', 'Abdulaziz Al-Muhaisen', 'Abdulaziz Al-Moualimi', 'Abdulaziz Al-Mansour', 'Abdullah Al-Meshari',
+            'Abdulaziz Al-Khawajah', 'Abdullah Al-Mutairi', 'Abdulaziz Al-Rasheedy', 'Abdullah Al-Sowileh', 'Abdulaziz Al-Mosaibah',
+            'Abdullah Al-Saadoun', 'Abdulaziz Al-Ateeq', 'Abdullah Al-Bassam', 'Abdulaziz Al-Hamad', 'Abdullah Al-Jaleel',
+            'Abdulaziz Al-Mubarak', 'Abdulaziz Al-Mutawa', 'Abdulaziz Al-Othman', 'Abdullah Al-Rashed', 'Abdulaziz Al-Saif',
+            'Abdullah Al-Shaalan', 'Abdulaziz Al-Sheikh', 'Abdulaziz Al-Tamimi', 'Abdulaziz Al-Yami', 'Abdullah Al-Zamil',
+            
+            // Additional Mixed Names
+            'Alessandro Rossi', 'Giulia Ferrari', 'Marco Bianchi', 'Francesca Romano', 'Andrea Conti',
+            'Elena Ricci', 'Matteo Marino', 'Chiara Greco', 'Davide Bruno', 'Valentina Gallo',
+            'Pierre Dubois', 'Marie Martin', 'Jean Bernard', 'Sophie Petit', 'Nicolas Durand',
+            'Camille Robert', 'Antoine Moreau', 'Isabelle Simon', 'Julien Laurent', 'Nathalie Michel',
+            'Hans Mueller', 'Anna Schmidt', 'Michael Weber', 'Sarah Wagner', 'Thomas Becker',
+            'Julia Fischer', 'Daniel Schulz', 'Lisa Hoffmann', 'Christian Koch', 'Petra Richter',
+            'Carlos Rodriguez', 'Maria Garcia', 'Antonio Martinez', 'Carmen Lopez', 'Francisco Gonzalez',
+            'Ana Fernandez', 'Manuel Perez', 'Isabel Sanchez', 'Jose Ramirez', 'Pilar Torres',
+            'João Silva', 'Maria Santos', 'António Ferreira', 'Ana Pereira', 'Manuel Rodrigues',
+            'Catarina Costa', 'Pedro Martins', 'Sofia Gomes', 'Rui Alves', 'Inês Ribeiro',
+            'Nikos Papadopoulos', 'Maria Georgiou', 'Dimitris Konstantinou', 'Eleni Nikolaou', 'Yannis Petrou',
+            'Sofia Christou', 'Kostas Dimitriou', 'Anna Stavrou', 'Michalis Andreou', 'Despina Ioannou',
+            'Erik Andersen', 'Ingrid Larsson', 'Lars Nielsen', 'Astrid Johansson', 'Nils Karlsson',
+            'Maja Andersson', 'Olof Lindberg', 'Elin Gustafsson', 'Magnus Persson', 'Lena Eriksson',
+            'Dmitri Volkov', 'Olga Petrov', 'Viktor Kozlov', 'Nadia Popov', 'Sergei Ivanov',
+            'Svetlana Ivanova', 'Alexei Smirnov', 'Tatiana Kuznetsova', 'Pavel Sokolov', 'Marina Fedorova',
+            'Jan Kowalski', 'Anna Nowak', 'Piotr Wiśniewski', 'Katarzyna Wójcik', 'Tomasz Kowalczyk',
+            'Agnieszka Kamińska', 'Marcin Lewandowski', 'Magdalena Zielińska', 'Paweł Szymański', 'Joanna Woźniak',
+            'Hiroshi Tanaka', 'Yuki Yamamoto', 'Takeshi Sato', 'Kenji Watanabe', 'Yuki Nakamura',
+            'Akiko Suzuki', 'Masaki Ito', 'Emi Kobayashi', 'Ryota Kato', 'Miki Yoshida',
+            'Chen Wei', 'Li Ming', 'Wang Lei', 'Zhang Hua', 'Liu Yang',
+            'Mei Lin', 'Ling Zhang', 'Li Wei', 'Mei Zhang', 'Jin Wang',
+            'Park Min-jun', 'Kim So-young', 'Lee Dong-hyun', 'Choi Ji-hye', 'Jung Seung-ho',
+            'Song Hye-jin', 'Kang Min-soo', 'Lim Ye-jin', 'Oh Jae-sung', 'Han Mi-young',
+            'Ahmad Rahman', 'Siti Nurhaliza', 'Muhammad Faiz', 'Nurul Ain', 'Azman Ibrahim',
+            'Fatimah Zahra', 'Hafiz Abdullah', 'Zarina Mohd', 'Ismail Hassan', 'Noraini Ahmad',
+            'Somchai Jaidee', 'Siriporn Kaewta', 'Niran Suksan', 'Malee Thongchai', 'Kamon Rattana',
+            'Pensri Sombat', 'Wichai Boonmee', 'Anchalee Pimpa', 'Somsak Chai', 'Wipada Niran',
+            'Nguyen Van Duc', 'Tran Thi Lan', 'Le Minh Tuan', 'Pham Thu Ha', 'Hoang Van Nam',
+            'Do Thi Hoa', 'Vu Quang Minh', 'Bui Thi Mai', 'Dang Van Hung', 'Ngo Thi Linh',
+            
+            // Additional 50 names for rotation
+            'Abdullah Al-Harbi', 'Fatima Al-Qasimi', 'Mohammed Al-Dosari', 'Aisha Al-Thani', 'Khalid Al-Sabah',
+            'Mariam Al-Maktoum', 'Salem Al-Rashid', 'Nora Al-Suwaidi', 'Faisal Al-Otaibi', 'Layla Al-Mansouri',
+            'Tariq Al-Zaabi', 'Huda Al-Kaabi', 'Saeed Al-Marri', 'Amina Al-Shamsi', 'Rashid Al-Nuaimi',
+            'Zara Al-Falasi', 'Omar Al-Blooshi', 'Mona Al-Dhaheri', 'Hamad Al-Mazrouei', 'Sara Al-Ketbi',
+            'Majid Al-Mansoori', 'Noura Al-Ahbabi', 'Sultan Al-Zahra', 'Reem Al-Hosani', 'Nasser Al-Shamsi',
+            'Latifa Al-Ameri', 'Saif Al-Muhairi', 'Shamma Al-Mazmi', 'Khalifa Al-Suwaidi', 'Meera Al-Kaabi',
+            'Ahmed Al-Blooshi', 'Fatma Al-Zaabi', 'Mohammed Al-Dhaheri', 'Amal Al-Mazrouei', 'Yousef Al-Ketbi',
+            'Hessa Al-Mansoori', 'Ali Al-Ahbabi', 'Maryam Al-Zahra', 'Hamdan Al-Hosani', 'Shaikha Al-Shamsi',
+            'Abdulla Al-Ameri', 'Nadia Al-Muhairi', 'Saud Al-Mazmi', 'Roudha Al-Suwaidi', 'Mansour Al-Kaabi',
+            'Asma Al-Blooshi', 'Khalid Al-Zaabi', 'Hanan Al-Dhaheri', 'Saeed Al-Mazrouei', 'Maitha Al-Ketbi'
+        ];
+        
+        // Function to get random subset of users for this session
+        function getRandomUserNames(count = 250) {
+            const shuffled = [...allUserNames].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+        
+        // Get random user names for this page load
+        const userNames = getRandomUserNames();
+
+        // User profiles with avatar info
+        const userProfiles = {
+            // Algerian users
+            'Mohamed Benali': { hasAvatar: true, location: 'Algiers' },
+            'Fatima Benaissa': { hasAvatar: false, location: 'Oran' },
+            'Ahmed Boumediene': { hasAvatar: true, location: 'Constantine' },
+            'Aicha Belkacem': { hasAvatar: false, location: 'Annaba' },
+            'Karim Boudjelal': { hasAvatar: true, location: 'Blida' },
+            'Samira Benabdallah': { hasAvatar: false, location: 'Setif' },
+            'Youcef Benamara': { hasAvatar: true, location: 'Sidi Bel Abbes' },
+            'Nadia Bencherif': { hasAvatar: false, location: 'Skikda' },
+            'Rachid Bensalem': { hasAvatar: true, location: 'Batna' },
+            'Zohra Benali': { hasAvatar: false, location: 'Djelfa' },
+            
+            // Tunisian users
+            'Habib Bourguiba': { hasAvatar: true, location: 'Tunis' },
+            'Leila Ben Ali': { hasAvatar: false, location: 'Sfax' },
+            'Mongi Slim': { hasAvatar: true, location: 'Sousse' },
+            'Nawal Ghachem': { hasAvatar: false, location: 'Kairouan' },
+            'Hedi Nouira': { hasAvatar: true, location: 'Bizerte' },
+            'Samia Abbou': { hasAvatar: false, location: 'Gabes' },
+            'Moncef Marzouki': { hasAvatar: true, location: 'Ariana' },
+            'Bochra Belhaj': { hasAvatar: false, location: 'Gafsa' },
+            'Beji Essebsi': { hasAvatar: true, location: 'Monastir' },
+            'Sihem Bensedrine': { hasAvatar: false, location: 'Mahdia' },
+            
+            // Moroccan users
+            'Mohammed Alaoui': { hasAvatar: true, location: 'Casablanca' },
+            'Aicha Benali': { hasAvatar: false, location: 'Rabat' },
+            'Hassan Bennani': { hasAvatar: true, location: 'Marrakech' },
+            'Fatima Zahra': { hasAvatar: false, location: 'Fes' },
+            'Youssef Amrani': { hasAvatar: true, location: 'Tangier' },
+            'Nadia Yassine': { hasAvatar: false, location: 'Meknes' },
+            'Abdelilah Benkirane': { hasAvatar: true, location: 'Agadir' },
+            'Latifa Akharbach': { hasAvatar: false, location: 'Oujda' },
+            'Saad Eddine Othmani': { hasAvatar: true, location: 'Kenitra' },
+            'Nezha Hayat': { hasAvatar: false, location: 'Tetouan' },
+            
+            // Libyan users
+            'Muammar Gaddafi': { hasAvatar: true, location: 'Tripoli' },
+            'Aisha Gaddafi': { hasAvatar: false, location: 'Benghazi' },
+            'Saif Al-Islam': { hasAvatar: true, location: 'Misrata' },
+            'Fatima Benali': { hasAvatar: false, location: 'Zawiya' },
+            'Omar Al-Mukhtar': { hasAvatar: true, location: 'Bayda' },
+            'Najwa Benghazi': { hasAvatar: false, location: 'Tobruk' },
+            'Khalifa Haftar': { hasAvatar: true, location: 'Sirte' },
+            'Salma Tripoli': { hasAvatar: false, location: 'Sabha' },
+            'Mustafa Sanalla': { hasAvatar: true, location: 'Zliten' },
+            'Amal Bugaighis': { hasAvatar: false, location: 'Derna' },
+            
+            // Malian users
+            'Amadou Toumani': { hasAvatar: true, location: 'Bamako' },
+            'Aminata Traore': { hasAvatar: false, location: 'Sikasso' },
+            'Ibrahim Keita': { hasAvatar: true, location: 'Segou' },
+            'Cisse Mariam': { hasAvatar: false, location: 'Mopti' },
+            'Modibo Sidibe': { hasAvatar: true, location: 'Koutiala' },
+            'Fatoumata Diallo': { hasAvatar: false, location: 'Kayes' },
+            'Soumaila Cisse': { hasAvatar: true, location: 'Gao' },
+            'Aissata Cisse': { hasAvatar: false, location: 'Timbuktu' },
+            'Dioncounda Traore': { hasAvatar: true, location: 'Kidal' },
+            'Mintou Dukure': { hasAvatar: false, location: 'Menaka' },
+            
+            // Prominent Arabic users
+            'Mohammed Al-Amoudi': { hasAvatar: true, location: 'Jeddah' },
+            'Abdullah Al-Barrak': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Hokair': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Othaim': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulatif Al-Juffali': { hasAvatar: true, location: 'Jeddah' },
+            'Abdullah Al-Khulaifi': { hasAvatar: true, location: 'Doha' },
+            'Abdulaziz Al-Rasheed': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Saud': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Thabiti': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Zaher': { hasAvatar: true, location: 'Dubai' },
+            'Mohamed Al-Fayed': { hasAvatar: true, location: 'Cairo' },
+            'Abdulaziz Al-Mutawa': { hasAvatar: true, location: 'Kuwait' },
+            'Abdullah Al-Mulla': { hasAvatar: true, location: 'Kuwait' },
+            'Abdulaziz Al-Nasser': { hasAvatar: true, location: 'Kuwait' },
+            'Abdullah Al-Rajaan': { hasAvatar: true, location: 'Kuwait' },
+            'Abdulaziz Al-Shaye': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Turki': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Zamil': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Gosaibi': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Tuwaijri': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Dabal': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Muhaisen': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Moualimi': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Mansour': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Meshari': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Khawajah': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Mutairi': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Rasheedy': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Sowileh': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Mosaibah': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Saadoun': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Ateeq': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Bassam': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Hamad': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Jaleel': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Mubarak': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Mutawa': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Othman': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Rashed': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Sheikh': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Tamimi': { hasAvatar: true, location: 'Riyadh' },
+            'Abdulaziz Al-Yami': { hasAvatar: true, location: 'Riyadh' },
+            'Abdullah Al-Zamil': { hasAvatar: true, location: 'Riyadh' },
+            
+            // Additional user profiles for existing names
+            'Ahmed Al-Rashid': { hasAvatar: true, location: 'Dubai' },
+            'Sarah Al-Zahra': { hasAvatar: false, location: 'Casablanca' },
+            'Omar Ibn Khaldun': { hasAvatar: true, location: 'Tunis' },
+            'Fatima Al-Noor': { hasAvatar: false, location: 'Riyadh' },
+            'Khalid Al-Mansour': { hasAvatar: true, location: 'Kuwait City' },
+            'Nour Al-Din': { hasAvatar: false, location: 'Beirut' },
+            'Hassan Al-Bakri': { hasAvatar: true, location: 'Amman' },
+            'Mona Al-Sharif': { hasAvatar: false, location: 'Cairo' },
+            'Youssef Al-Kindi': { hasAvatar: true, location: 'Algiers' },
+            'Rania Al-Qasemi': { hasAvatar: false, location: 'Nicosia' },
+            'Ali Al-Farisi': { hasAvatar: true, location: 'Muscat' },
+            'Layla Al-Andalusi': { hasAvatar: false, location: 'Granada' },
+            'Mahmoud Al-Tabari': { hasAvatar: true, location: 'Istanbul' },
+            'Zeinab Al-Baghdadi': { hasAvatar: false, location: 'Baghdad' },
+            'Tariq Al-Maghribi': { hasAvatar: true, location: 'Rabat' },
+            'Amina Al-Dimashqi': { hasAvatar: false, location: 'Damascus' },
+            'Samir Al-Halabi': { hasAvatar: true, location: 'Tripoli' },
+            'Dina Al-Masri': { hasAvatar: false, location: 'Alexandria' },
+            'Karim Al-Shami': { hasAvatar: true, location: 'Damascus' },
+            'Yasmin Al-Hijazi': { hasAvatar: false, location: 'Jerusalem' },
+            'Faisal Al-Najdi': { hasAvatar: true, location: 'Riyadh' },
+            'Hala Al-Qudsi': { hasAvatar: false, location: 'Jerusalem' },
+            'Rashid Al-Emirati': { hasAvatar: true, location: 'Abu Dhabi' },
+            'Salma Al-Kuwaiti': { hasAvatar: false, location: 'Kuwait City' },
+            'Nasser Al-Bahraini': { hasAvatar: true, location: 'Manama' },
+            'Lina Al-Omani': { hasAvatar: false, location: 'Mascat' },
+            'Walid Al-Qatari': { hasAvatar: true, location: 'Doha' },
+            'Mariam Al-Sudaniya': { hasAvatar: false, location: 'Khartoum' },
+            'Adel Al-Tunisi': { hasAvatar: true, location: 'Tunis' },
+            'Rana Al-Jazairi': { hasAvatar: false, location: 'Algiers' },
+            'Sami Al-Libi': { hasAvatar: true, location: 'Tripoli' },
+            'Nadia Al-Maghribia': { hasAvatar: false, location: 'Casablanca' },
+            'Hakim Al-Mauritani': { hasAvatar: true, location: 'Nouakchott' },
+            'Soraya Al-Somaliya': { hasAvatar: false, location: 'Mogadishu' },
+            'Jamal Al-Yemeni': { hasAvatar: true, location: 'Sanaa' },
+            'Khadija Al-Sudaniya': { hasAvatar: false, location: 'Khartoum' },
+            'Munir Al-Urduni': { hasAvatar: true, location: 'Amman' },
+            'Sawsan Al-Lubnaniya': { hasAvatar: false, location: 'Beirut' },
+            'Bashar Al-Suri': { hasAvatar: true, location: 'Damascus' },
+            'Ghada Al-Iraqiya': { hasAvatar: false, location: 'Baghdad' },
+        };
+
+        // Supported wallets with their icons
+        const supportedWallets = [
+            { name: 'BINANCE', icon: '../img/bnb_cryptocurrencies_icon_188408.png', color: 'from-yellow-400 to-yellow-600' },
+            { name: 'BYBIT', icon: '../img/BYBIT.jpg', color: 'from-orange-400 to-orange-600' },
+            { name: 'METAMASK', icon: '../img/META MASK.png', color: 'from-orange-500 to-red-500' },
+            { name: 'TRUST WALLET', icon: '../img/Trust_Wallet_2023_b-stacked.webp', color: 'from-blue-400 to-blue-600' },
+
+        ];
+
+        // Sample transaction data with USDT-FLASH amounts (Updated to current package prices)
+        const sampleTransactions = [
+            { user: userNames[0], amount: '500', type: 'Purchase', location: 'Dubai', time: 'now', wallet: supportedWallets[0], avatar: 'https://i.pravatar.cc/40?img=1' },
+            { user: userNames[1], amount: '3,000', type: 'Transfer', location: 'Cairo', time: '1m ago', wallet: supportedWallets[1], avatar: 'https://i.pravatar.cc/40?img=2' },
+            { user: userNames[2], amount: '10,000', type: 'Purchase', location: 'Riyadh', time: '2m ago', wallet: supportedWallets[2], avatar: 'https://i.pravatar.cc/40?img=3' },
+            { user: userNames[3], amount: '500', type: 'Exchange', location: 'Amman', time: '3m ago', wallet: supportedWallets[3], avatar: 'https://i.pravatar.cc/40?img=4' },
+            { user: userNames[4], amount: '3,000', type: 'Purchase', location: 'Kuwait', time: '4m ago', wallet: supportedWallets[4], avatar: 'https://i.pravatar.cc/40?img=5' },
+            { user: userNames[5], amount: '10,000', type: 'Transfer', location: 'Beirut', time: '5m ago', wallet: supportedWallets[0], avatar: 'https://i.pravatar.cc/40?img=6' }
+        ];
+
+        // Generate random transaction with USDT-FLASH amounts
+        function generateTransaction() {
+            const locations = ['Dubai', 'Cairo', 'Riyadh', 'Amman', 'Kuwait', 'Beirut', 'Doha', 'Casablanca', 'Rabat', 'Tunis', 'Algiers', 'Tripoli', 'Bamako', 'New York', 'London', 'Tokyo', 'Mumbai', 'Tel Aviv', 'Berlin', 'Paris', 'Sydney'];
+            const types = ['Purchase', 'Transfer', 'Exchange'];
+            const amounts = ['500', '3,000', '10,000'];
+            
+            const randomUser = userNames[Math.floor(Math.random() * userNames.length)];
+            const randomWallet = supportedWallets[Math.floor(Math.random() * supportedWallets.length)];
+            
+            // Check if user has profile info
+            const userProfile = userProfiles[randomUser];
+            let avatar, location;
+            
+            if (userProfile) {
+                location = userProfile.location;
+                if (userProfile.hasAvatar) {
+                    avatar = `https://i.pravatar.cc/40?img=${Math.floor(Math.random() * 70) + 1}`;
+                } else {
+                    // Generate initials avatar for users without photos
+                    const initials = randomUser.split(' ').map(name => name[0]).join('');
+                    avatar = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" fill="#${Math.floor(Math.random()*16777215).toString(16)}"/><text x="20" y="25" font-family="Arial" font-size="14" fill="white" text-anchor="middle">${initials}</text></svg>`)}`;
+                }
+            } else {
+                location = locations[Math.floor(Math.random() * locations.length)];
+                avatar = `https://i.pravatar.cc/40?img=${Math.floor(Math.random() * 70) + 1}`;
+            }
+            
+            return {
+                user: randomUser,
+                amount: amounts[Math.floor(Math.random() * amounts.length)],
+                type: types[Math.floor(Math.random() * types.length)],
+                location: location,
+                time: 'now',
+                wallet: randomWallet,
+                avatar: avatar
+            };
+        }
+
+        // Create advanced transaction element
+        function createTransactionElement(transaction) {
+            const typeColors = {
+                'Purchase': 'text-green-600 bg-gradient-to-r from-green-100 to-green-200 border-green-300',
+                'Transfer': 'text-blue-600 bg-gradient-to-r from-blue-100 to-blue-200 border-blue-300',
+                'Exchange': 'text-purple-600 bg-gradient-to-r from-purple-100 to-purple-200 border-purple-300'
+            };
+            
+            const typeIcons = {
+                'Purchase': 'fas fa-shopping-cart',
+                'Transfer': 'fas fa-exchange-alt', 
+                'Exchange': 'fas fa-sync-alt'
+            };
+            
+            const hashId = Math.random().toString(36).substr(2, 8).toUpperCase();
+            const blockHeight = Math.floor(Math.random() * 1000000) + 18500000;
+
+            return `
+                <div class="transaction-item bg-white rounded-xl p-3 md:p-4 mb-3 border border-gray-200/50 hover:border-blue-300/50 transition-all duration-300 hover:shadow-lg transform hover:scale-[1.02] backdrop-blur-sm">
+                    <div class="flex items-start md:items-center justify-between">
+                        <div class="flex items-start md:items-center flex-1">
+                            <div class="relative mr-3 md:mr-4 flex-shrink-0">
+                                <div class="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-0.5 shadow-lg">
+                                    <img src="${transaction.avatar}" alt="${transaction.user}" class="user-avatar w-full h-full rounded-full object-cover border-2 border-white">
+                                </div>
+                                <div class="absolute -bottom-1 -right-1 w-5 h-5 md:w-7 md:h-7 rounded-full overflow-hidden border-2 border-white shadow-lg wallet-glow">
+                                    <img src="${transaction.wallet.icon}" alt="${transaction.wallet.name}" class="w-full h-full object-cover">
+                                </div>
+                                <div class="absolute -top-1 -left-1 w-3 h-3 md:w-4 md:h-4 bg-green-500 rounded-full border-2 border-white pulse-dot shadow-sm">
+                                    <div class="w-full h-full bg-green-400 rounded-full animate-ping opacity-75"></div>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex flex-col md:flex-row md:items-center mb-1 gap-1 md:gap-2">
+                                    <div class="font-bold text-sm md:text-base text-gray-800 hover:text-blue-600 transition-colors truncate">${transaction.user}</div>
+                                    <div class="px-2 py-0.5 rounded-full text-xs font-bold ${typeColors[transaction.type]} border shadow-sm flex items-center w-fit">
+                                        <i class="${typeIcons[transaction.type]} mr-1"></i>
+                                        ${transaction.type}
+                                    </div>
+                                </div>
+                                <div class="text-xs md:text-sm text-gray-600 flex flex-col md:flex-row md:items-center gap-1 md:gap-2">
+                                    <span class="flex items-center bg-gray-100 px-2 py-1 rounded-full w-fit">
+                                        <i class="fas fa-map-marker-alt mr-1 text-red-500"></i>
+                                        ${transaction.location}
+                                    </span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-gradient-to-r ${transaction.wallet.color} text-white font-medium shadow-sm w-fit">
+                                        ${transaction.wallet.name}
+                                    </span>
+                                    <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full w-fit hidden md:inline-flex">
+                                        Block: ${blockHeight}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right ml-2 md:ml-4 flex-shrink-0">
+                            <div class="font-bold text-base md:text-xl text-gray-800 hover:text-green-600 transition-colors flex items-center justify-end mb-1">
+                                <img src="../img/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png" alt="USDT-FLASH" class="w-4 h-4 md:w-6 md:h-6 mr-1 md:mr-2">
+                                <span class="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">${transaction.amount}</span>
+                            </div>
+                            <div class="flex flex-col md:flex-row items-end md:items-center justify-end gap-1 md:gap-2 text-xs">
+                                <span class="text-gray-500 bg-gray-100 px-2 py-1 rounded-full flex items-center">
+                                    <i class="fas fa-clock mr-1"></i>
+                                    ${transaction.time}
+                                </span>
+                                <span class="text-blue-600 bg-blue-100 px-2 py-1 rounded-full font-mono">
+                                    #${hashId}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-100 flex flex-col md:flex-row items-start md:items-center justify-between text-xs text-gray-500 gap-2">
+                        <div class="flex items-center flex-wrap gap-2 md:gap-4">
+                            <span class="flex items-center">
+                                <i class="fas fa-shield-check mr-1 text-green-500"></i>
+                                Verified
+                            </span>
+                            <span class="flex items-center">
+                                <i class="fas fa-bolt mr-1 text-yellow-500"></i>
+                                Instant
+                            </span>
+                            <span class="flex items-center">
+                                <i class="fas fa-lock mr-1 text-blue-500"></i>
+                                Encrypted
+                            </span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                            <span class="text-green-600 font-medium">Confirmed</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize feed with sample data
+        function initializeFeed() {
+            const feed = document.getElementById('transaction-feed');
+            // Generate initial transactions with random users
+            const initialTransactions = [];
+            for (let i = 0; i < 10; i++) {
+                const randomUser = userNames[Math.floor(Math.random() * userNames.length)];
+                const randomWallet = supportedWallets[Math.floor(Math.random() * supportedWallets.length)];
+                const randomAvatar = `https://i.pravatar.cc/40?img=${Math.floor(Math.random() * 70) + 1}`;
+                const locations = ['Dubai', 'Cairo', 'Riyadh', 'Amman', 'Kuwait', 'Beirut', 'Doha', 'Casablanca', 'New York', 'London', 'Tokyo', 'Mumbai', 'Tel Aviv', 'Berlin', 'Paris', 'Sydney'];
+                const types = ['Purchase', 'Transfer', 'Exchange'];
+                const amounts = ['500', '3,000', '10,000'];
+                
+                initialTransactions.push({
+                    user: randomUser,
+                    amount: amounts[Math.floor(Math.random() * amounts.length)],
+                    type: types[Math.floor(Math.random() * types.length)],
+                    location: locations[Math.floor(Math.random() * locations.length)],
+                    time: `${i + 1}m ago`,
+                    wallet: randomWallet,
+                    avatar: randomAvatar
+                });
+            }
+            feed.innerHTML = initialTransactions.map(createTransactionElement).join('');
+        }
+
+        // Show live update indicator
+        function showLiveUpdateIndicator() {
+            const indicator = document.createElement('div');
+            indicator.className = 'fixed top-20 right-4 bg-green-500 text-white px-3 py-2 rounded-lg shadow-lg z-50 text-sm font-bold animate-pulse';
+            indicator.innerHTML = '<i class="fas fa-sync-alt mr-2 animate-spin"></i>Live Update';
+            document.body.appendChild(indicator);
+            
+            setTimeout(() => {
+                indicator.style.opacity = '0';
+                setTimeout(() => {
+                    if (indicator.parentNode) {
+                        document.body.removeChild(indicator);
+                    }
+                }, 300);
+            }, 2000);
+        }
+
+        // Add new transaction with auto-rotating names and amounts
+        function addNewTransaction() {
+            const feed = document.getElementById('transaction-feed');
+            
+            // Show update indicator
+            showLiveUpdateIndicator();
+            
+            // Auto-rotate through different user pools
+            const currentTime = Date.now();
+            const rotationIndex = Math.floor(currentTime / 10000) % 6;
+            const userPools = [
+                allUserNames.slice(0, 50),   // North America
+                allUserNames.slice(50, 100), // South America  
+                allUserNames.slice(100, 150), // Europe
+                allUserNames.slice(150, 200), // Asia
+                allUserNames.slice(200, 250), // Africa
+                allUserNames.slice(250, 300)  // Middle East
+            ];
+            
+            const currentPool = userPools[rotationIndex];
+            const randomUser = currentPool[Math.floor(Math.random() * currentPool.length)];
+            
+            // Dynamic amount generation based on time patterns
+            const hour = new Date().getHours();
+            let amounts;
+            if (hour >= 8 && hour <= 16) {
+                amounts = ['500', '3,000', '10,000']; // Business hours
+            } else if (hour >= 17 && hour <= 23) {
+                amounts = ['750', '4,500', '15,000']; // Evening peak
+            } else {
+                amounts = ['300', '2,000', '8,000']; // Night hours
+            }
+            
+            const newTransaction = {
+                user: randomUser,
+                amount: amounts[Math.floor(Math.random() * amounts.length)],
+                type: ['Purchase', 'Transfer', 'Exchange'][Math.floor(Math.random() * 3)],
+                location: getLocationForUser(randomUser),
+                time: 'now',
+                wallet: supportedWallets[Math.floor(Math.random() * supportedWallets.length)],
+                avatar: `https://i.pravatar.cc/40?img=${Math.floor(Math.random() * 70) + 1}`
+            };
+            
+            const transactionElement = createTransactionElement(newTransaction);
+            feed.insertAdjacentHTML('afterbegin', transactionElement);
+            
+            const newElement = feed.firstElementChild;
+            newElement.classList.add('new-transaction');
+            newElement.style.animation = 'slideIn 0.5s ease-out, newTransactionPulse 1s ease-out';
+            
+            setTimeout(() => {
+                newElement.classList.remove('new-transaction');
+                newElement.style.animation = '';
+            }, 1500);
+            
+            const transactions = feed.children;
+            if (transactions.length > 15) {
+                const oldestTransaction = transactions[transactions.length - 1];
+                oldestTransaction.style.transition = 'all 0.5s ease-out';
+                oldestTransaction.style.opacity = '0';
+                oldestTransaction.style.transform = 'translateX(-100%)';
+                setTimeout(() => {
+                    if (oldestTransaction.parentNode) {
+                        feed.removeChild(oldestTransaction);
+                    }
+                }, 500);
+            }
+        }
+        
+        // Get location based on user name origin
+        function getLocationForUser(userName) {
+            const locationMap = {
+                'Michael': 'New York', 'Sarah': 'Los Angeles', 'David': 'Chicago', 'Emily': 'Toronto',
+                'Carlos': 'São Paulo', 'Maria': 'Buenos Aires', 'João': 'Rio de Janeiro', 'Ana': 'Mexico City',
+                'Alessandro': 'Rome', 'Emma': 'Berlin', 'Pierre': 'Paris', 'Anna': 'Warsaw',
+                'Hiroshi': 'Tokyo', 'Li': 'Shanghai', 'Raj': 'Mumbai', 'Yuki': 'Osaka',
+                'Kwame': 'Accra', 'Fatou': 'Dakar', 'Amara': 'Lagos', 'Nkem': 'Abuja',
+                'Ahmed': 'Dubai', 'Omar': 'Cairo', 'Fatima': 'Riyadh', 'Hassan': 'Casablanca',
+                'James': 'Sydney', 'Liam': 'Melbourne', 'Noah': 'Auckland', 'Jack': 'Perth'
+            };
+            
+            const firstName = userName.split(' ')[0];
+            return locationMap[firstName] || ['Dubai', 'London', 'New York', 'Tokyo', 'Sydney'][Math.floor(Math.random() * 5)];
+        }
+
+        // Update advanced statistics with smooth animations
+        function updateStats() {
+            const elements = {
+                activeUsers: document.getElementById('active-users'),
+                totalTransactions: document.getElementById('total-transactions'),
+                tpsCounter: document.getElementById('tps-counter'),
+                liveVolume: document.getElementById('live-volume'),
+                liveTransactions: document.getElementById('live-transactions'),
+                avgAmount: document.getElementById('avg-amount'),
+                successRate: document.getElementById('success-rate'),
+                lastUpdate: document.getElementById('last-update')
+            };
+            
+            // Animate number changes
+            function animateNumber(element, newValue) {
+                if (!element) return;
+                element.style.transform = 'scale(1.1)';
+                element.style.color = '#10b981';
+                setTimeout(() => {
+                    element.textContent = newValue;
+                    element.style.transform = 'scale(1)';
+                    element.style.color = '';
+                }, 150);
+            }
+            
+            // Update with animations
+            if (elements.activeUsers) {
+                animateNumber(elements.activeUsers, Math.floor(Math.random() * 100) + 1800);
+            }
+            
+            if (elements.totalTransactions) {
+                const current = parseInt(elements.totalTransactions.textContent.replace(/,/g, ''));
+                const newValue = (current + Math.floor(Math.random() * 5) + 1).toLocaleString();
+                animateNumber(elements.totalTransactions, newValue);
+            }
+            
+            if (elements.tpsCounter) {
+                animateNumber(elements.tpsCounter, (Math.random() * 25 + 30).toFixed(1));
+            }
+            
+            if (elements.liveVolume) {
+                animateNumber(elements.liveVolume, '$' + (Math.random() * 3 + 2).toFixed(1) + 'M');
+            }
+            
+            if (elements.liveTransactions) {
+                const current = parseInt(elements.liveTransactions.textContent.replace(/,/g, ''));
+                const newValue = (current + Math.floor(Math.random() * 10) + 1).toLocaleString();
+                animateNumber(elements.liveTransactions, newValue);
+            }
+            
+            if (elements.avgAmount) {
+                animateNumber(elements.avgAmount, '$' + (Math.random() * 6 + 5).toFixed(1) + 'K');
+            }
+            
+            if (elements.successRate) {
+                animateNumber(elements.successRate, (99.94 + Math.random() * 0.05).toFixed(2) + '%');
+            }
+            
+            if (elements.lastUpdate) {
+                elements.lastUpdate.textContent = 'now';
+                elements.lastUpdate.style.color = '#10b981';
+                setTimeout(() => {
+                    elements.lastUpdate.style.color = '';
+                }, 1000);
+            }
+        }
+
+        // Update wallet statistics with animations
+        function updateWalletStats() {
+            const walletStats = document.querySelectorAll('.user-count');
+            walletStats.forEach(stat => {
+                const currentCount = parseInt(stat.textContent);
+                const change = Math.random() < 0.7 ? Math.floor(Math.random() * 8) + 1 : -Math.floor(Math.random() * 4);
+                const newCount = Math.max(80, Math.min(600, currentCount + change));
+                
+                // Animate the change
+                stat.style.transform = 'scale(1.2)';
+                stat.style.color = '#10b981';
+                stat.style.fontWeight = 'bold';
+                
+                setTimeout(() => {
+                    stat.textContent = `${newCount}`;
+                    stat.style.transform = 'scale(1)';
+                    stat.style.color = '';
+                    stat.style.fontWeight = '';
+                }, 200);
+            });
+        }
+
+        // Chat system with multiple languages
+        const chatMessages = [
+            { user: 'Mohammed Al-Zahra', message: 'استلمت 15,000 USDT-FLASH بنجاح! خدمة رائعة 💰', time: '2m ago', verified: true, lang: 'ar' },
+            { user: 'Alexander Thompson', message: 'Just received 7,500 USDT-FLASH instantly! Amazing platform ✅', time: '3m ago', verified: false, lang: 'en' },
+            { user: 'Abdullah Al-Mansour', message: 'تم تحويل 15,000 USDT-FLASH خلال دقائق، موقع احترافي', time: '5m ago', verified: true, lang: 'ar' },
+            { user: 'Sophia Martinez', message: 'Received 7,500 USDT-FLASH perfectly! Best service ever 👌', time: '7m ago', verified: false, lang: 'en' },
+            { user: 'Hassan Al-Tabari', message: 'والله موقع ممتاز، استلمت 1,200 USDT-FLASH بسرعة البرق ⚡', time: '9m ago', verified: true, lang: 'ar' },
+            { user: 'Isabella Garcia', message: 'Got my 1,200 USDT-FLASH in under 5 minutes! Incredible speed', time: '12m ago', verified: false, lang: 'en' },
+            { user: 'Omar Al-Kindi', message: 'تسلم الأيادي، 7,500 USDT-FLASH وصلت فوراً، خدمة من الطراز الأول', time: '15m ago', verified: true, lang: 'ar' },
+            { user: 'Emma Wilson', message: 'Perfect transaction! 15,000 USDT-FLASH delivered as promised', time: '18m ago', verified: true, lang: 'en' },
+            { user: 'Khalid Al-Farisi', message: 'ماشاء الله، 1,200 USDT-FLASH تم التحويل بأمان تام', time: '20m ago', verified: false, lang: 'ar' },
+            { user: 'Benjamin Rodriguez', message: 'Smooth 15,000 USDT-FLASH transaction! Will use again 💯', time: '22m ago', verified: false, lang: 'en' },
+            { user: 'Mariam Al-Qasemi', message: 'الحمد لله، 7,500 USDT-FLASH وصلت بسلام، موقع موثوق', time: '25m ago', verified: false, lang: 'ar' },
+            { user: 'Lucas Davis', message: 'Excellent service! 1,200 USDT-FLASH received instantly', time: '28m ago', verified: true, lang: 'en' }
+        ];
+
+        const allChatMessages = {
+            ar: [
+                'للتو استلمت 2,200 USDT-FLASH من البطاقة البريميوم! الخدمة أسطورية 🔥', 'تم تحويل 5,500 USDT-FLASH من البطاقة الإليت في 30 ثانية فقط!', 'سؤال: هل البطاقة الكلاسيك 650 USDT-FLASH تكفي للمبتدئين؟',
+                'استلمت 650 USDT-FLASH من البطاقة الكلاسيك، خدمة فورية!', 'أنصح بالبطاقة البريميوم 2,200 USDT-FLASH، قيمة ممتازة', 'فريق الدعم رد علي خلال دقيقتين! احترافية عالية 👨💼',
+                'موقع احترافي وآمن جداً', 'أحب سرعة المعالجة!', 'أسعار ممتازة مقارنة بالمواقع الأخرى', 'معاملة سلسة كالعادة',
+                'شكراً لكم على الخدمة الممتازة والسرعة الفائقة 🙏', 'أفضل موقع للـ USDT-FLASH على الإطلاق', 'سرعة في التنفيذ وأمان في التعامل، ما شاء الله', 'تم التحويل خلال دقائق معدودة، خدمة العملاء رائعة',
+                'شكراً لفريق خدمة العملاء المحترم 👨‍💼', 'خدمة العملاء تجاوبت معي في ثواني', 'فريق الدعم الفني محترف جداً ومتعاون', 'شكراً للسرعة الخيالية في التحويل ⚡',
+                'التحويل تم في أقل من دقيقة، مذهل!', 'سرعة التنفيذ تفوق كل التوقعات', 'ما شاء الله على السرعة والدقة', 'التحويل السريع وصل قبل ما أتوقع',
+                'والله موقع ممتاز، ما شاء الله عليكم', 'الحمد لله وصلت الفلوس بسرعة', 'ربنا يبارك فيكم، خدمة محترمة', 'ماشاء الله تبارك الله، سرعة في التنفيذ',
+                'بصراحة موقع يستاهل الثقة', 'الله يعطيكم العافية على الخدمة الممتازة', 'تسلم إيدكم، شغل نظيف ومرتب', 'بارك الله فيكم، استمروا كده',
+                'والله العظيم موقع رهيب، أنصح به بقوة', 'ربنا يوفقكم، خدمة من القلب', 'تسلموا على السرعة والدقة', 'الله يكرمكم، فعلاً موقع محترم',
+                'ماشاء الله عليكم، شغل احترافي', 'بجد موقع يستحق كل التقدير', 'الله يبارك في عملكم الطيب', 'تسلم الأيادي، خدمة من الطراز الأول',
+                'والله موقع فوق الممتاز', 'ربنا يزيدكم من فضله', 'بصراحة خدمة تستحق الإعجاب', 'الله يعطيكم الصحة والعافية',
+                'ماشاء الله، سرعة البرق في التنفيذ', 'تسلموا جميعاً على الاهتمام', 'بارك الله في جهودكم المبذولة', 'والله موقع يستحق الثناء والمدح',
+                'ربنا يكرمكم ويوفقكم دائماً', 'تسلم إيدكم على الشغل الحلو ده', 'الله يبارك فيكم ويزيدكم نجاحاً', 'بجد موقع محترم وأمين',
+                'ماشاء الله عليكم، استمروا في التميز', 'والله العظيم خدمة فوق الوصف', 'ربنا يحفظكم ويبارك في أعمالكم', 'تسلموا على الصدق والأمانة',
+                'بصراحة موقع يفتخر به كل عربي', 'الله يعطيكم القوة والنجاح', 'ماشاء الله، خدمة تستحق كل الاحترام', 'والله موقع رائع بكل المقاييس',
+                'تأكدت أن الموقع رسمي من شركة Tether 🏛️', 'شاهدت ترخيص Tether الرسمي، موقع موثوق 100%', 'فعلاً موقع معتمد من Tether Operations Limited',
+                'تحققت من الترخيص الرسمي، كله تمام ✅', 'موقع مرخص رسمياً من Tether، لا تخافوا', 'شركة Tether تدعم هذا الموقع رسمياً',
+                'رأيت شهادة الاعتماد من Tether بعيني', 'موقع معترف به من Tether Operations', 'تأكدت من الموقع الرسمي لـ Tether، هذا الموقع مذكور',
+                'شركة Tether تؤكد أن هذا موقعهم الرسمي', 'موقع مسجل في قاعدة بيانات Tether الرسمية', 'تحققت من SSL Certificate، كله رسمي من Tether',
+                'موقع حاصل على ترخيص Tether الذهبي 🥇', 'شركة Tether تضمن هذا الموقع شخصياً', 'موقع معتمد في قائمة Tether الرسمية',
+                'تأكدت من رقم الترخيص في موقع Tether الرسمي', 'موقع مدرج في دليل Tether للمواقع المعتمدة', 'شهادة ISO من Tether موجودة، موقع رسمي 100%'
+            ],
+            en: [
+                'Just received 5,500 USDT-FLASH from Elite card successfully! 💰', 'Premium card with 2,200 USDT-FLASH arrived instantly!', 'Quick question - is Classic card 650 USDT-FLASH good for beginners?',
+                'Received my funds instantly, amazing service!', 'Been recommending this to all my friends', 'Customer support is top-notch 👌',
+                'Very professional and secure platform', 'Love the fast processing times!', 'Great rates compared to other platforms', 'Smooth transaction as always',
+                'Thank you for the excellent service and lightning speed! 🙏', 'Best USDT-FLASH platform out there, hands down', 'Fast execution and secure handling, absolutely perfect', 'Transfer completed within minutes, customer service is amazing',
+                'Thanks to the incredible customer support team! 👨‍💼', 'Customer service responded within seconds', 'Support team is highly professional and helpful', 'Thank you for the incredible transfer speed ⚡',
+                'Transfer completed in under a minute, amazing!', 'Execution speed exceeds all expectations', 'Lightning-fast processing, truly impressive', 'Super quick transfer arrived before expected',
+                'Outstanding service quality, highly recommended!', 'Wow, that was incredibly fast!', 'Perfect platform for crypto transactions', 'Amazing customer experience every time',
+                'This is exactly what I was looking for', 'Superb platform, will definitely use again', 'Fantastic service, exceeded my expectations', 'Brilliant execution, very impressed',
+                'Top-tier platform, absolutely love it!', 'Exceptional service quality, thank you!', 'Incredible speed and reliability', 'Perfect transaction, no issues at all',
+                'Outstanding platform, highly professional', 'Excellent service, very satisfied customer', 'Amazing platform, works like a charm', 'Superb experience, will recommend to others',
+                'Fantastic service, very reliable platform', 'Brilliant platform, exceeded expectations', 'Top-quality service, very impressed', 'Excellent platform, highly recommended',
+                'Amazing service, very professional team', 'Outstanding platform, perfect execution', 'Superb service quality, thank you team', 'Incredible platform, works flawlessly',
+                'Fantastic experience, will use again', 'Excellent service, very satisfied', 'Amazing platform, highly professional', 'Outstanding service, exceeded expectations',
+                'Superb platform, very reliable service', 'Brilliant service, highly recommended', 'Top-tier platform, amazing experience', 'Excellent service, very impressed',
+                'Amazing platform, perfect for my needs', 'Outstanding service quality, thank you', 'Superb experience, will definitely return', 'Fantastic platform, highly professional',
+                'Verified this is official Tether partner! 🏛️', 'Checked Tether website, this platform is listed as authorized', 'Official Tether Operations Limited license confirmed ✅',
+                'This is legitimate Tether distributor, checked their SSL', 'Tether officially endorses this platform', 'Found this site on Tether\'s official partner list',
+                'Verified with Tether support, this is their official partner', 'Licensed by Tether Operations Limited since 2019', 'Official Tether certificate displayed, 100% legit',
+                'Tether headquarters confirmed this partnership', 'This platform has official Tether Gold status 🥇', 'Verified on Tether\'s blockchain, completely authentic',
+                'Official Tether API integration confirmed', 'Tether compliance team verified this platform', 'Licensed under Tether\'s regulatory framework',
+                'Official Tether Treasury backing confirmed', 'Verified Tether Operations Limited partnership', 'This platform is Tether-certified and regulated'
+            ],
+            fr: [
+                'Transaction réussie! Service fantastique 💰', 'Cette plateforme ne déçoit jamais, toujours fiable', 'Question rapide - combien de temps pour 10k USDT-FLASH?',
+                'Fonds reçus instantanément, service incroyable!', 'Je recommande à tous mes amis', 'Support client de première classe 👌',
+                'Plateforme très professionnelle et sécurisée', 'J\'adore la rapidité de traitement!', 'Excellents taux par rapport aux autres plateformes', 'Transaction fluide comme toujours',
+                'Merci pour l\'excellent service et la vitesse fulgurante! 🙏', 'Meilleure plateforme USDT-FLASH, sans aucun doute', 'Exécution rapide et manipulation sécurisée, absolument parfait', 'Transfert terminé en quelques minutes, service client incroyable',
+                'Merci à l\'équipe de support client exceptionnelle! 👨‍💼', 'Le service client a répondu en quelques secondes', 'L\'équipe de support est très professionnelle et serviable', 'Merci pour la vitesse de transfert incroyable ⚡',
+                'Transfert terminé en moins d\'une minute, fantastique!', 'La vitesse d\'exécution dépasse toutes les attentes', 'Traitement ultra-rapide, vraiment impressionnant', 'Transfert super rapide arrivé plus tôt que prévu',
+                'Service exceptionnel, je recommande vivement!', 'Incroyablement rapide, bravo!', 'Plateforme parfaite pour les transactions crypto', 'Expérience client remarquable à chaque fois',
+                'C\'est exactement ce que je cherchais', 'Superbe plateforme, je reviendrai certainement', 'Service fantastique, a dépassé mes attentes', 'Exécution brillante, très impressionné',
+                'Plateforme de premier plan, je l\'adore!', 'Qualité de service exceptionnelle, merci!', 'Vitesse et fiabilité incroyables', 'Transaction parfaite, aucun problème',
+                'Plateforme remarquable, très professionnelle', 'Excellent service, client très satisfait', 'Plateforme incroyable, fonctionne parfaitement', 'Expérience superbe, je recommanderai',
+                'Service fantastique, plateforme très fiable', 'Plateforme brillante, a dépassé les attentes', 'Service de qualité supérieure, impressionné', 'Excellente plateforme, hautement recommandée',
+                'Service incroyable, équipe très professionnelle', 'Plateforme remarquable, exécution parfaite', 'Qualité de service superbe, merci équipe', 'Plateforme incroyable, fonctionne sans faille',
+                'Expérience fantastique, je reviendrai', 'Excellent service, très satisfait', 'Plateforme incroyable, très professionnelle', 'Service remarquable, a dépassé les attentes',
+                'Plateforme superbe, service très fiable', 'Service brillant, hautement recommandé', 'Plateforme de premier plan, expérience incroyable', 'Excellent service, très impressionné',
+                'Plateforme incroyable, parfaite pour mes besoins', 'Qualité de service remarquable, merci', 'Expérience superbe, je reviendrai certainement', 'Plateforme fantastique, très professionnelle',
+                'Vérifié que c\'est un partenaire officiel Tether! 🏛️', 'Confirmé sur le site Tether, cette plateforme est autorisée', 'Licence officielle Tether Operations Limited vérifiée ✅',
+                'C\'est un distributeur Tether légitime, SSL vérifié', 'Tether approuve officiellement cette plateforme', 'Trouvé ce site sur la liste officielle des partenaires Tether',
+                'Vérifié avec le support Tether, c\'est leur partenaire officiel', 'Licencié par Tether Operations Limited depuis 2019', 'Certificat Tether officiel affiché, 100% légitime',
+                'Le siège de Tether a confirmé ce partenariat', 'Cette plateforme a le statut officiel Tether Gold 🥇', 'Vérifié sur la blockchain Tether, complètement authentique',
+                'Intégration API Tether officielle confirmée', 'L\'équipe de conformité Tether a vérifié cette plateforme', 'Licencié sous le cadre réglementaire de Tether',
+                'Support officiel du Trésor Tether confirmé', 'Partenariat Tether Operations Limited vérifié', 'Cette plateforme est certifiée et réglementée par Tether'
+            ],
+            hi: [
+                'सफल लेनदेन पूरा हुआ! शानदार सेवा 💰', 'यह प्लेटफॉर्म कभी निराश नहीं करता, हमेशा विश्वसनीय', 'त्वरित प्रश्न - 10k USDT-FLASH के लिए कितना समय?',
+                'तुरंत पैसे मिले, अद्भुत सेवा!', 'अपने सभी दोस्तों को सुझा रहा हूं', 'ग्राहक सहायता उत्कृष्ट है 👌',
+                'बहुत पेशेवर और सुरक्षित प्लेटफॉर्म', 'तेज़ प्रोसेसिंग का समय पसंद है!', 'अन्य प्लेटफॉर्म की तुलना में बेहतरीन दरें', 'हमेशा की तरह सुचारू लेनदेन',
+                'उत्कृष्ट सेवा और बिजली की गति के लिए धन्यवाद! 🙏', 'सबसे अच्छा USDT-FLASH प्लेटफॉर्म, निर्विवाद रूप से', 'तेज़ निष्पादन और सुरक्षित हैंडलिंग, बिल्कुल परफेक्ट', 'कुछ मिनटों में स्थानांतरण पूरा, ग्राहक सेवा अद्भुत',
+                'अविश्वसनीय ग्राहक सहायता टीम का धन्यवाद! 👨‍💼', 'ग्राहक सेवा ने सेकंडों में जवाब दिया', 'सहायता टीम अत्यधिक पेशेवर और सहायक है', 'अविश्वसनीय स्थानांतरण गति के लिए धन्यवाद ⚡',
+                'एक मिनट से कम में स्थानांतरण पूरा, शानदार!', 'निष्पादन की गति सभी अपेक्षाओं से अधिक', 'अति-तीव्र प्रसंस्करण, वास्तव में प्रभावशाली', 'सुपर तेज़ स्थानांतरण अपेक्षा से पहले पहुंचा',
+                'उत्कृष्ट सेवा गुणवत्ता, अत्यधिक अनुशंसित!', 'वाह, यह अविश्वसनीय रूप से तेज़ था!', 'क्रिप्टो लेनदेन के लिए परफेक्ट प्लेटफॉर्म', 'हर बार अद्भुत ग्राहक अनुभव',
+                'यह बिल्कुल वही है जिसकी मुझे तलाश थी', 'शानदार प्लेटफॉर्म, निश्चित रूप से फिर उपयोग करूंगा', 'शानदार सेवा, मेरी अपेक्षाओं से अधिक', 'शानदार निष्पादन, बहुत प्रभावित',
+                'शीर्ष स्तरीय प्लेटफॉर्म, बिल्कुल पसंद है!', 'असाधारण सेवा गुणवत्ता, धन्यवाद!', 'अविश्वसनीय गति और विश्वसनीयता', 'परफेक्ट लेनदेन, कोई समस्या नहीं',
+                'उत्कृष्ट प्लेटफॉर्म, अत्यधिक पेशेवर', 'उत्कृष्ट सेवा, बहुत संतुष्ट ग्राहक', 'अद्भुत प्लेटफॉर्म, एक आकर्षण की तरह काम करता है', 'शानदार अनुभव, दूसरों को सुझाऊंगा',
+                'शानदार सेवा, बहुत विश्वसनीय प्लेटफॉर्म', 'शानदार प्लेटफॉर्म, अपेक्षाओं से अधिक', 'उच्च गुणवत्ता सेवा, बहुत प्रभावित', 'उत्कृष्ट प्लेटफॉर्म, अत्यधिक अनुशंसित',
+                'अद्भुत सेवा, बहुत पेशेवर टीम', 'उत्कृष्ट प्लेटफॉर्म, परफेक्ट निष्पादन', 'शानदार सेवा गुणवत्ता, धन्यवाद टीम', 'अविश्वसनीय प्लेटफॉर्म, त्रुटिहीन काम करता है',
+                'शानदार अनुभव, फिर उपयोग करूंगा', 'उत्कृष्ट सेवा, बहुत संतुष्ट', 'अद्भुत प्लेटफॉर्म, अत्यधिक पेशेवर', 'उत्कृष्ट सेवा, अपेक्षाओं से अधिक',
+                'शानदार प्लेटफॉर्म, बहुत विश्वसनीय सेवा', 'शानदार सेवा, अत्यधिक अनुशंसित', 'शीर्ष स्तरीय प्लेटफॉर्म, अद्भुत अनुभव', 'उत्कृष्ट सेवा, बहुत प्रभावित',
+                'अद्भुत प्लेटफॉर्म, मेरी आवश्यकताओं के लिए परफेक्ट', 'उत्कृष्ट सेवा गुणवत्ता, धन्यवाद', 'शानदार अनुभव, निश्चित रूप से वापस आऊंगा', 'शानदार प्लेटफॉर्म, अत्यधिक पेशेवर',
+                'सत्यापित किया कि यह आधिकारिक Tether साझीदार है! 🏛️', 'Tether वेबसाइट पर जांचा, यह प्लेटफॉर्म अधिकृत सूची में है', 'आधिकारिक Tether Operations Limited लाइसेंस पुष्ट ✅',
+                'यह वैध Tether वितरक है, SSL जांचा गया', 'Tether आधिकारिक रूप से इस प्लेटफॉर्म का समर्थन करता है', 'Tether की आधिकारिक साझीदार सूची में यह साइट मिली',
+                'Tether सपोर्ट से सत्यापित, यह उनका आधिकारिक साझीदार है', '2019 से Tether Operations Limited द्वारा लाइसेंसप्राप्त', 'आधिकारिक Tether प्रमाणपत्र प्रदर्शित, 100% वैध',
+                'Tether मुख्यालय ने इस साझेदारी की पुष्टि की', 'इस प्लेटफॉर्म को आधिकारिक Tether Gold स्थिति प्राप्त है 🥇', 'Tether के ब्लॉकचेन पर सत्यापित, पूर्णतः प्रामाणिक',
+                'आधिकारिक Tether API एकीकरण पुष्ट', 'Tether अनुपालन टीम ने इस प्लेटफॉर्म को सत्यापित किया', 'Tether के नियामक ढांचे के तहत लाइसेंसप्राप्त',
+                'आधिकारिक Tether Treasury समर्थन पुष्ट', 'Tether Operations Limited साझेदारी सत्यापित', 'यह प्लेटफॉर्म Tether-प्रमाणित और नियंत्रित है'
+            ]
+        };
+
+        let displayedMessages = { ar: [], en: [], fr: [], hi: [] };
+
+        function getRandomMessages() {
+            const languages = ['ar', 'en', 'fr', 'hi'];
+            const selectedMessages = [];
+            
+            languages.forEach(lang => {
+                const availableMessages = allChatMessages[lang].filter(msg => !displayedMessages[lang].includes(msg));
+                if (availableMessages.length < 3) {
+                    displayedMessages[lang] = [];
+                    availableMessages.push(...allChatMessages[lang]);
+                }
+                
+                for (let i = 0; i < 2; i++) {
+                    if (availableMessages.length > 0) {
+                        const randomIndex = Math.floor(Math.random() * availableMessages.length);
+                        const selectedMsg = availableMessages.splice(randomIndex, 1)[0];
+                        selectedMessages.push({ message: selectedMsg, lang: lang });
+                        displayedMessages[lang].push(selectedMsg);
+                    }
+                }
+            });
+            
+            return selectedMessages.sort(() => Math.random() - 0.5);
+        }
+
+        function createChatMessage(msg) {
+            const verifiedBadge = msg.verified ? '<div class="inline-flex items-center ml-1 md:ml-2 bg-blue-500 text-white px-1 md:px-2 py-0.5 rounded-full text-xs font-bold"><i class="fas fa-check-circle mr-1"></i><span class="hidden md:inline">VERIFIED</span><span class="md:hidden">✓</span></div>' : '';
+            const isUserMessage = msg.isUser;
+            const userColor = msg.isUser ? 'from-green-500 to-emerald-600' : 'from-blue-500 to-purple-600';
+            const textAlign = (msg.lang === 'ar' || msg.lang === 'hi') ? 'text-right' : 'text-left';
+            const direction = (msg.lang === 'ar') ? 'dir="rtl"' : '';
+            const messageClass = isUserMessage ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 shadow-sm' : 'hover:bg-gray-50/50';
+            const avatarShadow = msg.verified ? 'shadow-lg ring-2 ring-blue-400/30' : 'shadow-md';
+            const langFlag = {
+                'ar': '🇸🇦',
+                'en': '🇺🇸', 
+                'fr': '🇫🇷',
+                'hi': '🇮🇳',
+                'user': '👤'
+            };
+            
+            return `
+                <div class="flex items-start mb-4 md:mb-6 chat-message ${messageClass} rounded-xl p-3 md:p-4 transition-all duration-300 hover:shadow-md" ${direction}>
+                    <div class="relative mr-3 md:mr-4 flex-shrink-0">
+                        <div class="w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r ${userColor} rounded-full flex items-center justify-center ${avatarShadow} border-2 border-white">
+                            <span class="text-white text-sm md:text-lg font-bold">${msg.user.charAt(0)}</span>
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 w-4 h-4 md:w-6 md:h-6 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200">
+                            <span class="text-xs">${langFlag[msg.lang] || '🌍'}</span>
+                        </div>
+                        ${msg.verified ? '<div class="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 bg-blue-500 rounded-full flex items-center justify-center"><i class="fas fa-check text-white text-xs"></i></div>' : ''}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-col md:flex-row md:items-center mb-2 gap-1">
+                            <div class="flex items-center flex-wrap">
+                                <span class="font-bold text-sm md:text-base text-gray-900 mr-1 md:mr-2 truncate">${msg.user}</span>
+                                ${verifiedBadge}
+                            </div>
+                            <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full w-fit md:ml-auto">
+                                <i class="fas fa-clock mr-1"></i>${msg.time}
+                            </span>
+                        </div>
+                        <div class="bg-white/70 rounded-lg p-2 md:p-3 shadow-sm border border-gray-100">
+                            <p class="text-gray-800 text-xs md:text-sm leading-relaxed ${textAlign}">${msg.message}</p>
+                        </div>
+                        <div class="flex items-center mt-2 space-x-2 md:space-x-3 text-xs text-gray-500">
+                            <button class="hover:text-blue-600 transition-colors flex items-center">
+                                <i class="fas fa-thumbs-up mr-1"></i>
+                                <span class="like-count">${Math.floor(Math.random() * 15) + 1}</span>
+                            </button>
+                            <button class="hover:text-gray-700 transition-colors flex items-center">
+                                <i class="fas fa-reply mr-1"></i>
+                                <span class="hidden md:inline">Reply</span>
+                            </button>
+                            <span class="flex items-center">
+                                <i class="fas fa-eye mr-1"></i>
+                                <span class="hidden md:inline">${Math.floor(Math.random() * 50) + 10} views</span>
+                                <span class="md:hidden">${Math.floor(Math.random() * 50) + 10}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Older English messages (appear first to look like history)
+        const olderEnglishMessages = [
+            { user: 'Michael Johnson', message: 'Been using this platform for months, absolutely reliable! 💯', time: '15m ago', verified: true, lang: 'en' },
+            { user: 'Sarah Williams', message: 'Customer support responded within minutes, impressive service!', time: '14m ago', verified: false, lang: 'en' },
+            { user: 'David Chen', message: 'Lightning fast transactions, exactly what I needed 🚀', time: '13m ago', verified: true, lang: 'en' },
+            { user: 'Emma Thompson', message: 'This platform has never let me down, highly recommended', time: '12m ago', verified: false, lang: 'en' },
+            { user: 'James Rodriguez', message: 'Seamless experience every single time, love it!', time: '11m ago', verified: true, lang: 'en' },
+            { user: 'Lisa Anderson', message: 'Professional service and great rates, thank you team!', time: '10m ago', verified: false, lang: 'en' },
+            { user: 'Robert Taylor', message: 'Been recommending this to all my colleagues, top-notch!', time: '9m ago', verified: true, lang: 'en' },
+            { user: 'Jennifer Davis', message: 'Secure, fast, and reliable - everything you need in one place', time: '8m ago', verified: false, lang: 'en' },
+            { user: 'Christopher Lee', message: 'Outstanding platform, exceeded all my expectations!', time: '7m ago', verified: true, lang: 'en' },
+            { user: 'Amanda Wilson', message: 'Quick processing and excellent customer service 👏', time: '6m ago', verified: false, lang: 'en' }
+        ];
+
+        // Initial welcome messages with diverse dialects and realistic crypto content
+        const initialWelcomeMessages = [
+            { user: 'Mohammed Al-Saud', message: 'والله يا جماعة وصلتني 2,200 USDT من البريميوم، حولتها لـ DOGE وطلعت فوق 🚀', time: '5m ago', verified: true, lang: 'ar' },
+            { user: 'Fatima Al-Zahra', message: 'بصح والله مبسوطة، الـ 650 USDT من الكلاسيك خلاني نشري SHIB 🐶', time: '4m ago', verified: false, lang: 'ar' },
+            { user: 'Abdullah Al-Rashid', message: 'مين يعرف عملة حتطلع قريباً؟ عندي 5,500 USDT من الإليت وبدي أاستثمر 🤔', time: '3m ago', verified: true, lang: 'ar' },
+            { user: 'Khadija Al-Tunisi', message: 'برشا مبسوطة، الفلوس جات بالزهر، نشريت PEPE وربحت 300% 🐸', time: '2m ago', verified: false, lang: 'ar' },
+            { user: 'Youssef Al-Maghribi', message: 'بزاف ديال الخير، الموقع كيخدم مزيان، والله نشريت BONK وطلعت 💰', time: '1m ago', verified: true, lang: 'ar' },
+            { user: 'Aisha Al-Jazairi', message: 'والله فرحانة بزاف، الخدمة رايحة جايا، ربي يحفظكم', time: '5m ago', verified: false, lang: 'ar' },
+            { user: 'Saad Al-Riyadhi', message: 'تسلم الأيادي، موقع محترم وأمين، ما شاء الله عليكم', time: '4m ago', verified: true, lang: 'ar' },
+            { user: 'Nour Al-Tunisi', message: 'الحمد لله، الفلوس جات في وقتها، موقع يستاهل الثقة', time: '3m ago', verified: false, lang: 'ar' },
+            { user: 'Hassan Al-Maghribi', message: 'الله يبارك، الخدمة فوق الممتاز، كنشكركم بزاف', time: '2m ago', verified: true, lang: 'ar' },
+            { user: 'Zeinab Al-Jazairi', message: 'والله العظيم موقع يستحق كل خير، والله نصحت بيه صحابي', time: '1m ago', verified: false, lang: 'ar' },
+            { user: 'Khalid Al-Saudi', message: 'بارك الله فيكم، سرعة في التنفيذ وأمانة في التعامل', time: '5m ago', verified: true, lang: 'ar' },
+            { user: 'Salma Al-Tunisi', message: 'برافو عليكم، الخدمة تستحق كل تقدير، ربي يوفقكم', time: '4m ago', verified: false, lang: 'ar' },
+            { user: 'Omar Al-Maghribi', message: 'بجد موقع كيستحق الاحترام، الله يعطيكم القوة', time: '3m ago', verified: true, lang: 'ar' },
+            { user: 'Mariam Al-Jazairi', message: 'ماشاء الله، الموقع يخدم كيما لازم، ربي يبارك في عملكم', time: '2m ago', verified: false, lang: 'ar' },
+            { user: 'Faisal Al-Saudi', message: 'الله يكرمكم، خدمة من الطراز الأول، تسلموا جميعاً', time: '1m ago', verified: true, lang: 'ar' },
+            { user: 'Layla Al-Tunisi', message: 'الحمد لله، كل شي تمام، موقع يستاهل كل الثناء', time: '5m ago', verified: false, lang: 'ar' },
+            { user: 'Rashid Al-Maghribi', message: 'الله يجازيكم بالخير، شغل نظيف ومضبوط', time: '4m ago', verified: true, lang: 'ar' },
+            { user: 'Huda Al-Jazairi', message: 'والله مبسوطة بزاف، الموقع أمين ومضمون', time: '3m ago', verified: false, lang: 'ar' },
+            { user: 'Tariq Al-Saudi', message: 'ما شاء الله تبارك الله، استمروا في التميز', time: '2m ago', verified: true, lang: 'ar' },
+            { user: 'Safaa Al-Tunisi', message: 'بصح موقع يفتخر بيه كل عربي، ربي يحفظكم', time: '1m ago', verified: false, lang: 'ar' }
+        ];
+
+        // New English conversation (15 users)
+        const newEnglishMessages = [
+            { user: 'Alex Thompson', message: 'Just got my 2,200 USDT from Premium card! Threw it all into DOGE and it\'s mooning! 🚀', time: 'now', verified: true, lang: 'en' },
+            { user: 'Maria Garcia', message: 'Elite card 5,500 USDT arrived! Anyone know which meme coin will pump next? Thinking SHIB 🐶', time: 'now', verified: false, lang: 'en' },
+            { user: 'Kevin O\'Connor', message: 'Classic card was perfect for a beginner like me. Put the 650 USDT into PEPE and made 300%! 🐸', time: 'now', verified: true, lang: 'en' },
+            { user: 'Sophie Martin', message: 'Customer service is absolutely phenomenal, thank you!', time: 'now', verified: false, lang: 'en' },
+            { user: 'Daniel Kim', message: 'Lightning fast processing, exactly what I needed today ⚡', time: 'now', verified: true, lang: 'en' },
+            { user: 'Rachel Green', message: 'Secure and reliable, couldn\'t ask for more from a platform', time: 'now', verified: false, lang: 'en' },
+            { user: 'Marcus Johnson', message: 'Outstanding service quality, highly recommend to everyone!', time: 'now', verified: true, lang: 'en' },
+            { user: 'Isabella Santos', message: 'Perfect transaction experience, will definitely use again', time: 'now', verified: false, lang: 'en' },
+            { user: 'Thomas Anderson', message: 'Professional team and excellent execution, well done! 👏', time: 'now', verified: true, lang: 'en' },
+            { user: 'Olivia Brown', message: 'This is exactly what the crypto space needed, amazing work', time: 'now', verified: false, lang: 'en' },
+            { user: 'Ryan Mitchell', message: 'Transparent, fast, and secure - the perfect combination', time: 'now', verified: true, lang: 'en' },
+            { user: 'Emily Davis', message: 'Been recommending this to all my friends, top-tier service', time: 'now', verified: false, lang: 'en' },
+            { user: 'Jacob Wilson', message: 'Impressive platform with excellent user experience design', time: 'now', verified: true, lang: 'en' },
+            { user: 'Chloe Taylor', message: 'Quick, reliable, and professional - everything I needed!', time: 'now', verified: false, lang: 'en' },
+            { user: 'Nathan Clark', message: 'This platform sets the standard for crypto services 🚀', time: 'now', verified: true, lang: 'en' }
+        ];
+
+        function showTypingIndicator(userName) {
+            const chatContainer = document.getElementById('chat-messages');
+            const typingHtml = `
+                <div class="typing-indicator-container flex items-start mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full flex items-center justify-center shadow-md border-2 border-white mr-4">
+                        <span class="text-white text-lg font-bold">${userName.charAt(0)}</span>
+                    </div>
+                    <div class="typing-indicator">
+                        <span class="text-gray-600 text-sm font-medium">${userName} is typing...</span>
+                        <div class="typing-dots ml-2">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            chatContainer.insertAdjacentHTML('beforeend', typingHtml);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.querySelector('.typing-indicator-container');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function initializeChat() {
+            const chatContainer = document.getElementById('chat-messages');
+            chatContainer.innerHTML = '';
+            
+            // First, add older English messages instantly (to show history)
+            olderEnglishMessages.forEach(msg => {
+                chatContainer.insertAdjacentHTML('beforeend', createChatMessage(msg));
+            });
+            
+            let messageIndex = 0;
+            
+            function addNextMessage() {
+                if (messageIndex >= initialWelcomeMessages.length) {
+                    // After Arabic messages, start English conversation
+                    setTimeout(() => {
+                        startEnglishConversation();
+                    }, 3000);
+                    return;
+                }
+                
+                const msg = initialWelcomeMessages[messageIndex];
+                
+                // Show typing indicator
+                showTypingIndicator(msg.user);
+                
+                // Simulate typing time based on message length
+                const typingTime = Math.min(msg.message.length * 50 + 1000, 4000);
+                
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    
+                    // Add the actual message
+                    chatContainer.insertAdjacentHTML('beforeend', createChatMessage(msg));
+                    
+                    const newMessage = chatContainer.lastElementChild;
+                    newMessage.style.opacity = '0';
+                    newMessage.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        newMessage.style.opacity = '1';
+                        newMessage.style.transform = 'translateY(0)';
+                        newMessage.classList.add('new-message');
+                    }, 100);
+                    
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                    messageIndex++;
+                    
+                    // Random delay before next message (2-6 seconds)
+                    const nextDelay = Math.random() * 4000 + 2000;
+                    setTimeout(addNextMessage, nextDelay);
+                }, typingTime);
+            }
+            
+            // Start with first Arabic message after 1 second
+            setTimeout(addNextMessage, 1000);
+        }
+
+        function startEnglishConversation() {
+            const chatContainer = document.getElementById('chat-messages');
+            let englishIndex = 0;
+            
+            function addNextEnglishMessage() {
+                if (englishIndex >= newEnglishMessages.length) {
+                    // Continue with regular mixed messages
+                    setTimeout(() => {
+                        setInterval(addNewChatMessage, Math.random() * 6000 + 6000);
+                    }, 2000);
+                    return;
+                }
+                
+                const msg = newEnglishMessages[englishIndex];
+                
+                // Show typing indicator
+                showTypingIndicator(msg.user);
+                
+                // Simulate typing time
+                const typingTime = Math.min(msg.message.length * 50 + 1000, 4000);
+                
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    
+                    // Add the actual message
+                    chatContainer.insertAdjacentHTML('beforeend', createChatMessage(msg));
+                    
+                    const newMessage = chatContainer.lastElementChild;
+                    newMessage.style.opacity = '0';
+                    newMessage.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        newMessage.style.opacity = '1';
+                        newMessage.style.transform = 'translateY(0)';
+                        newMessage.classList.add('new-message');
+                    }, 100);
+                    
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                    englishIndex++;
+                    
+                    // Random delay before next message (1-4 seconds)
+                    const nextDelay = Math.random() * 3000 + 1000;
+                    setTimeout(addNextEnglishMessage, nextDelay);
+                }, typingTime);
+            }
+            
+            addNextEnglishMessage();
+        }
+
+        function addNewChatMessage() {
+            const languages = ['ar', 'en', 'fr', 'hi'];
+            const randomLang = languages[Math.floor(Math.random() * languages.length)];
+            const availableMessages = allChatMessages[randomLang].filter(msg => !displayedMessages[randomLang].includes(msg));
+            
+            if (availableMessages.length === 0) {
+                displayedMessages[randomLang] = [];
+                availableMessages.push(...allChatMessages[randomLang]);
+            }
+            
+            const randomMessage = availableMessages[Math.floor(Math.random() * availableMessages.length)];
+            displayedMessages[randomLang].push(randomMessage);
+            
+            const randomUser = userNames[Math.floor(Math.random() * userNames.length)];
+            const isVerified = Math.random() > 0.6;
+            
+            const newMsg = {
+                user: randomUser,
+                message: randomMessage,
+                time: 'now',
+                verified: isVerified,
+                lang: randomLang
+            };
+            
+            const chatContainer = document.getElementById('chat-messages');
+            const messageElement = document.createElement('div');
+            messageElement.innerHTML = createChatMessage(newMsg);
+            messageElement.firstElementChild.style.opacity = '0';
+            messageElement.firstElementChild.style.transform = 'translateY(20px)';
+            
+            chatContainer.appendChild(messageElement.firstElementChild);
+            
+            messageElement.firstElementChild.classList.add('new-message');
+            setTimeout(() => {
+                messageElement.firstElementChild.style.opacity = '1';
+                messageElement.firstElementChild.style.transform = 'translateY(0)';
+            }, 100);
+            
+            const messages = chatContainer.children;
+            if (messages.length > 50) {
+                chatContainer.removeChild(messages[0]);
+            }
+            
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function sendUserMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                const userMsg = {
+                    user: 'You',
+                    message: message,
+                    time: 'now',
+                    verified: false,
+                    lang: 'user',
+                    isUser: true
+                };
+                
+                const chatContainer = document.getElementById('chat-messages');
+                const messageElement = document.createElement('div');
+                messageElement.innerHTML = createChatMessage(userMsg);
+                chatContainer.appendChild(messageElement.firstElementChild);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+                
+                input.value = '';
+                showMessageSent();
+                
+                // Trigger flood of messages after user message
+                setTimeout(() => {
+                    triggerMessageFlood();
+                }, 1000);
+            }
+        }
+
+        function triggerMessageFlood() {
+            let messageCount = 0;
+            const totalMessages = 40;
+            
+            const floodInterval = setInterval(() => {
+                if (messageCount >= totalMessages) {
+                    clearInterval(floodInterval);
+                    return;
+                }
+                
+                // Add multiple messages quickly
+                for (let i = 0; i < 3 && messageCount < totalMessages; i++) {
+                    setTimeout(() => {
+                        addNewChatMessage();
+                    }, i * 200);
+                    messageCount++;
+                }
+            }, 800);
+        }
+
+        function showMessageSent() {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl z-50 border border-green-400';
+            notification.innerHTML = '<i class="fas fa-check-circle mr-2 text-green-200"></i>Message sent! Community is responding...';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        function updateOnlineCount() {
+            const count = Math.floor(Math.random() * 100) + 1800;
+            document.getElementById('online-count').textContent = count;
+        }
+
+        // Live cards data with actual card designs
+        const cardPackages = [
+            { 
+                amount: '1,200', 
+                price: '$49', 
+                color: 'from-blue-500 to-blue-600', 
+                icon: 'fas fa-star',
+                cardType: 'classic',
+                cardImage: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 54"><defs><linearGradient id="classic" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23001f3f"/><stop offset="50%" stop-color="%23003366"/><stop offset="100%" stop-color="%23004080"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="1" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="85" height="54" rx="6" fill="url(%23classic)" stroke="%23ffffff" stroke-width="0.5" opacity="0.9"/><rect x="2" y="2" width="81" height="50" rx="4" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.3"/><text x="8" y="14" fill="white" font-size="7" font-weight="bold" filter="url(%23glow)">VISA</text><rect x="8" y="18" width="12" height="8" rx="2" fill="%23ffd700" opacity="0.8"/><text x="75" y="10" text-anchor="end" fill="%2326a17b" font-size="4" font-weight="bold">₮ TETHER</text><text x="75" y="14" text-anchor="end" fill="white" font-size="3" opacity="0.9">USDT</text><text x="42.5" y="32" text-anchor="middle" fill="white" font-size="6" font-family="monospace" font-weight="bold">4532 1234 5678</text><text x="8" y="46" fill="white" font-size="3" opacity="0.8">CLASSIC</text><text x="8" y="50" fill="white" font-size="3">JOHN DOE</text><text x="75" y="50" text-anchor="end" fill="white" font-size="3">12/28</text></svg>'
+            },
+            { 
+                amount: '7,500', 
+                price: '$150', 
+                color: 'from-purple-500 to-purple-600', 
+                icon: 'fas fa-crown',
+                cardType: 'premium',
+                cardImage: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 54"><defs><linearGradient id="premium" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%234b0082"/><stop offset="30%" stop-color="%238a2be2"/><stop offset="70%" stop-color="%239370db"/><stop offset="100%" stop-color="%237b68ee"/></linearGradient><filter id="glow2"><feGaussianBlur stdDeviation="1" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="85" height="54" rx="6" fill="url(%23premium)" stroke="%23ffffff" stroke-width="0.5" opacity="0.95"/><rect x="2" y="2" width="81" height="50" rx="4" fill="none" stroke="%23ffffff" stroke-width="0.3" opacity="0.4"/><text x="8" y="14" fill="white" font-size="7" font-weight="bold" filter="url(%23glow2)">VISA</text><rect x="8" y="18" width="12" height="8" rx="2" fill="%23ffd700" opacity="0.9"/><text x="75" y="10" text-anchor="end" fill="%2326a17b" font-size="4" font-weight="bold">₮ TETHER</text><text x="75" y="14" text-anchor="end" fill="white" font-size="3" opacity="0.9">USDT</text><text x="42.5" y="32" text-anchor="middle" fill="white" font-size="6" font-family="monospace" font-weight="bold">4532 8765 4321</text><text x="8" y="46" fill="%23ffd700" font-size="3" opacity="0.9" font-weight="bold">PREMIUM</text><text x="8" y="50" fill="white" font-size="3">JOHN DOE</text><text x="75" y="50" text-anchor="end" fill="white" font-size="3">12/28</text></svg>'
+            },
+            { 
+                amount: '15,000', 
+                price: '$300', 
+                color: 'from-gold-500 to-yellow-600', 
+                icon: 'fas fa-gem',
+                cardType: 'elite',
+                cardImage: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85 54"><defs><linearGradient id="elite" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23b8860b"/><stop offset="25%" stop-color="%23daa520"/><stop offset="50%" stop-color="%23ffd700"/><stop offset="75%" stop-color="%23ffed4e"/><stop offset="100%" stop-color="%23d4af37"/></linearGradient><filter id="glow3"><feGaussianBlur stdDeviation="1.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="85" height="54" rx="6" fill="url(%23elite)" stroke="%23ffffff" stroke-width="0.8" opacity="0.98"/><rect x="2" y="2" width="81" height="50" rx="4" fill="none" stroke="%23ffffff" stroke-width="0.4" opacity="0.5"/><text x="8" y="14" fill="%23000000" font-size="7" font-weight="bold" filter="url(%23glow3)">VISA</text><rect x="8" y="18" width="12" height="8" rx="2" fill="%23ffffff" opacity="0.9"/><text x="75" y="10" text-anchor="end" fill="%2326a17b" font-size="4" font-weight="bold">₮ TETHER</text><text x="75" y="14" text-anchor="end" fill="%23000000" font-size="3" opacity="0.8">USDT</text><text x="42.5" y="32" text-anchor="middle" fill="%23000000" font-size="6" font-family="monospace" font-weight="bold">4532 9876 5432</text><text x="8" y="46" fill="%23000000" font-size="3" opacity="0.9" font-weight="bold">ELITE</text><text x="8" y="50" fill="%23000000" font-size="3" font-weight="bold">JOHN DOE</text><text x="75" y="50" text-anchor="end" fill="%23000000" font-size="3" font-weight="bold">12/28</text></svg>'
+            }
+        ];
+
+        function generateLiveCard() {
+            const randomUser = userNames[Math.floor(Math.random() * userNames.length)];
+            const randomPackage = cardPackages[Math.floor(Math.random() * cardPackages.length)];
+            const locations = ['Dubai', 'Riyadh', 'Cairo', 'Kuwait', 'Doha', 'Amman', 'Beirut'];
+            const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+            
+            return {
+                user: randomUser,
+                package: randomPackage,
+                location: randomLocation,
+                time: 'الآن'
+            };
+        }
+
+        function createCardElement(card) {
+            const cardTypeLabels = {
+                'classic': 'Classic Card',
+                'premium': 'Premium Card', 
+                'elite': 'Elite Card'
+            };
+            
+            return `
+                <div class="bg-white rounded-lg shadow-md p-4 border-l-4 border-green-500 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-r ${card.package.color} rounded-full flex items-center justify-center text-white mr-3">
+                                <i class="${card.package.icon}"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-800">${card.package.amount} USDT</div>
+                                <div class="text-sm text-green-600 font-semibold">${card.package.price}</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="relative mb-2">
+                                <img src="${card.package.cardImage}" alt="${cardTypeLabels[card.package.cardType]}" class="w-20 h-12 rounded-lg shadow-xl border-2 border-white transform hover:scale-110 transition-transform duration-300" style="box-shadow: 0 8px 25px rgba(0,0,0,0.3);">
+                                <div class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                            </div>
+                            <div class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-bold">تم الشراء</div>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <div class="flex items-center mb-1">
+                            <i class="fas fa-user mr-2 text-blue-500"></i>
+                            <span class="font-medium">${card.user}</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-1 text-red-500"></i>
+                                ${card.location}
+                            </span>
+                            <span class="text-green-600 font-medium">${card.time}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function initializeLiveCards() {
+            const container = document.getElementById('live-cards');
+            for (let i = 0; i < 3; i++) {
+                const card = generateLiveCard();
+                container.innerHTML += createCardElement(card);
+            }
+        }
+
+        function addNewCard() {
+            const container = document.getElementById('live-cards');
+            const newCard = generateLiveCard();
+            const cardElement = createCardElement(newCard);
+            
+            container.insertAdjacentHTML('afterbegin', cardElement);
+            
+            const cards = container.children;
+            if (cards.length > 6) {
+                container.removeChild(cards[cards.length - 1]);
+            }
+        }
+
+        // Auto speech system
+        function speakText(text, lang = 'ar-SA') {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = lang;
+                utterance.rate = 0.9;
+                utterance.pitch = 1;
+                speechSynthesis.speak(utterance);
+            }
+        }
+        
+        function startAutoSpeech() {
+            const messages = [
+                'مرحباً بكم في منصة USDT-FLASH للمعاملات المباشرة',
+                'نحن نقدم أسرع خدمة تحويل في العالم',
+                'جميع المعاملات محمية ومؤمنة بالكامل',
+                'خدمة العملاء متاحة على مدار الساعة',
+                'معدل نجاح المعاملات يصل إلى 99.97%'
+            ];
+            
+            let index = 0;
+            setInterval(() => {
+                speakText(messages[index]);
+                index = (index + 1) % messages.length;
+            }, 15000);
+        }
+        
+        // Auto-update Live Transaction Feed every 5 seconds
+        function startLiveTransactionUpdates() {
+            // Start immediately then every 5 seconds
+            addNewTransaction();
+            setInterval(addNewTransaction, 5000);
+        }
+
+        // Auto-start all updates when page loads
+        window.addEventListener('load', function() {
+            initializeFeed();
+            initializeChat();
+            initializeLiveCards();
+            
+            // Start all automatic updates immediately
+            startLiveTransactionUpdates();
+            setInterval(updateStats, 5000);
+            setInterval(updateWalletStats, 5000);
+            setInterval(updateOnlineCount, 8000);
+            setInterval(() => {
+                document.getElementById('active-users').textContent = Math.floor(Math.random() * 100) + 1800;
+            }, 6000);
+            setInterval(addNewCard, 5000);
+            
+            // Auto speech
+            setTimeout(startAutoSpeech, 2000);
+            
+            // Visual effects
+            setInterval(() => {
+                document.querySelectorAll('.text-3xl, .text-xl, .text-lg').forEach(stat => {
+                    stat.style.transform = 'scale(1.05)';
+                    setTimeout(() => stat.style.transform = 'scale(1)', 200);
+                });
+            }, 20000);
+            
+            // Chat input
+            document.getElementById('chat-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendUserMessage();
+            });
+        });
+        
+        // Add click effects to wallet cards
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.bg-gradient-to-r')) {
+                const card = e.target.closest('.bg-gradient-to-r');
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.transform = 'scale(1)';
+                }, 150);
+            }
+        });
+    </script>
+    <script src="../js/live-stats.js"></script>
+</body>
+</html>
