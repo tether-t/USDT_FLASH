@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USDT-FLASH - Payment Pro Package</title>
+    <link rel="icon" type="image/png" href="../img/usdt_cryptocurrencies_icon_188337.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/flash.css">
+    <link rel="stylesheet" href="../css/tether-branding.css">
+    <script src="../js/how-it-works-modal.js"></script>
+    <style>
+        :root {
+            --tether-blue: #2563EB;
+            --tether-dark-blue: #1D4ED8;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../img/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png'), linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background-size: 80px, cover;
+            background-repeat: repeat, no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            animation: backgroundMove 15s linear infinite;
+        }
+        
+        @keyframes backgroundMove {
+            0% { background-position: 0 0, center; }
+            100% { background-position: 80px 80px, center; }
+        }
+        
+        .payment-card {
+            background: white;
+            border: 2px solid var(--tether-blue);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .tether-highlight {
+            color: var(--tether-blue);
+            font-weight: 600;
+        }
+        
+        .tether-button {
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 32px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tether-button:hover {
+            background: linear-gradient(45deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+        }
+        
+        .price-display {
+            background: white;
+            border: 3px solid var(--tether-blue);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+        }
+        
+        .simple-border {
+            border: 2px solid var(--tether-blue);
+            border-radius: 8px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--tether-blue);
+        }
+        
+        .wallet-address {
+            background: #F1F5F9;
+            border: 2px solid var(--tether-blue);
+            border-radius: 8px;
+            padding: 15px;
+            font-family: monospace;
+            font-weight: 600;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .floating-balls {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-image: url('../img/6180cdb6-8480-4a3c-a8a9-8a193a89fc5e.png');
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .ball1 { left: 10%; animation-delay: 0s; animation-duration: 6s; }
+        .ball2 { left: 25%; animation-delay: 1s; animation-duration: 8s; }
+        .ball3 { left: 50%; animation-delay: 2s; animation-duration: 7s; }
+        .ball4 { left: 75%; animation-delay: 3s; animation-duration: 9s; }
+        .ball5 { left: 90%; animation-delay: 4s; animation-duration: 5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(100px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Loading Modal */
+        .loading-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #374151;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="tether-logo-container">
+                    <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="Tether Logo" class="h-12 w-auto">
+                    <div class="divider"></div>
+                    <div>
+                        <h3 class="text-2xl font-bold">USDT-FLASH</h3>
+                        <span class="tether-badge">
+                            <i class="fas fa-check-circle text-xs"></i> Official Partner
+                        </span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="tether-button">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Package Info Banner -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-6 relative overflow-hidden">
+        <div class="floating-balls">
+            <div class="ball ball1"></div>
+            <div class="ball ball2"></div>
+            <div class="ball ball3"></div>
+            <div class="ball ball4"></div>
+            <div class="ball ball5"></div>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-3">Basic Package</h1>
+                <div class="flex justify-center items-center space-x-6 text-lg">
+                    <div class="flex items-center">
+                        <i class="fas fa-coins mr-2"></i>
+                        <span>3,000 USDT FLASH</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-dollar-sign mr-2"></i>
+                        <span>$249</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>1-3 minutes</span>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-sm font-bold">
+                        ⭐ Recommended by Tether
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="payment-card p-8">
+                    <h2 class="text-3xl font-bold mb-8 text-center tether-highlight">
+                        💳 Complete Payment - Basic Package
+                    </h2>
+                    
+                    <!-- Language Toggle -->
+                    <div class="flex justify-end mb-4">
+                        <div class="flex items-center space-x-2">
+                            <button onclick="toggleLanguage('en')" id="enBtn" class="flex items-center px-3 py-2 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200 transition-colors">
+                                <i class="fas fa-globe mr-2"></i>English
+                            </button>
+                            <button onclick="toggleLanguage('ar')" id="arBtn" class="flex items-center px-3 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors">
+                                <i class="fas fa-language mr-2"></i>العربية
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Critical Payment Amount Warning - English -->
+                    <div id="warningEn" class="bg-gradient-to-r from-red-50 to-orange-50 border-l-4 border-red-500 p-6 mb-8 rounded-lg shadow-lg">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-red-600 text-2xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold text-red-800 mb-3">
+                                    ⚠️ CRITICAL: Exact Payment Amount Required
+                                </h3>
+                                <div class="text-red-700 space-y-2">
+                                    <p class="font-semibold">
+                                        You must send <span class="bg-red-100 px-2 py-1 rounded font-black">EXACTLY 249 USDT</span> - no more, no less.
+                                    </p>
+                                    <p>
+                                        <strong>Any deviation will cause automatic transaction failure</strong> because our automated verification servers are programmed to match precise amounts for security compliance and anti-fraud protection.
+                                    </p>
+                                    <div class="bg-red-100 p-3 rounded mt-3">
+                                        <p class="text-sm font-medium">
+                                            <i class="fas fa-info-circle mr-2"></i>
+                                            <strong>Technical Reason:</strong> Our blockchain verification system uses smart contracts that validate exact amounts to prevent money laundering, ensure regulatory compliance, and maintain transaction integrity across our global network.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Critical Payment Amount Warning - Arabic -->
+                    <div id="warningAr" class="bg-gradient-to-r from-red-50 to-orange-50 border-r-4 border-red-500 p-6 mb-8 rounded-lg shadow-lg hidden" dir="rtl">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-red-600 text-2xl mt-1"></i>
+                            </div>
+                            <div class="mr-4">
+                                <h3 class="text-lg font-bold text-red-800 mb-3">
+                                    ⚠️ تحذير هام: مطلوب المبلغ الدقيق للدفع
+                                </h3>
+                                <div class="text-red-700 space-y-2">
+                                    <p class="font-semibold">
+                                        يجب إرسال <span class="bg-red-100 px-2 py-1 rounded font-black">249 USDT بالضبط</span> - لا أكثر ولا أقل.
+                                    </p>
+                                    <p>
+                                        <strong>أي انحراف سيؤدي إلى فشل تلقائي في المعاملة</strong> لأن خوادم التحقق الآلية مبرمجة لمطابقة المبالغ الدقيقة للامتثال الأمني ومكافحة الاحتيال.
+                                    </p>
+                                    <div class="bg-red-100 p-3 rounded mt-3">
+                                        <p class="text-sm font-medium">
+                                            <i class="fas fa-info-circle ml-2"></i>
+                                            <strong>السبب التقني:</strong> نظام التحقق من البلوك تشين يستخدم العقود الذكية التي تتحقق من المبالغ الدقيقة لمنع غسيل الأموال وضمان الامتثال التنظيمي والحفاظ على سلامة المعاملات عبر شبكتنا العالمية.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Amount Display -->
+                    <div class="price-display text-center mb-8">
+                        <h3 class="text-2xl font-bold tether-highlight mb-2">Payment Required</h3>
+                        <div class="text-4xl font-bold text-gray-800">$249</div>
+                        <p class="text-gray-600 mt-2">Send exactly this amount to complete your purchase</p>
+
+                    </div>
+                    
+                    <!-- Payment Form -->
+                    <form id="paymentForm">
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div class="simple-border text-center">
+                                <h4 class="text-lg font-bold tether-highlight mb-2">📱 Scan QR Code</h4>
+                                <div class="bg-white p-4 rounded-lg mb-4 border-2 border-tether-blue" style="min-height: 200px; display: flex; align-items: center; justify-content: center;">
+                                    <img src="../img/RC20.jpg" alt="USDT TRC20 QR Code" 
+                                         style="max-width: 180px; max-height: 180px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                                </div>
+                                <div class="wallet-address">
+                                    TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP
+                                </div>
+                                <button type="button" class="tether-button text-sm" onclick="copyAddress()">
+                                    <i class="fas fa-copy mr-2"></i>Copy Address
+                                </button>
+                                
+                            </div>
+                            
+                            <div class="simple-border">
+                                <h4 class="text-lg font-bold mb-4">📋 Payment Instructions</h4>
+                                <div class="space-y-3">
+                                    <p class="flex items-center">
+                                        <i class="fas fa-arrow-right text-blue-500 mr-2"></i>
+                                        Send exactly <strong class="tether-highlight">$249 USDT</strong>
+                                    </p>
+                                    <p class="flex items-center">
+                                        <i class="fas fa-network-wired text-blue-500 mr-2"></i>
+                                        Use <strong>Tron (TRC20)</strong> network
+                                    </p>
+                                    <p class="flex items-center">
+                                        <i class="fas fa-gift text-purple-500 mr-2"></i>
+                                        Receive <strong>3,000 USDT FLASH</strong>
+                                    </p>
+
+                                    <p class="flex items-center">
+                                        <i class="fas fa-clock text-orange-500 mr-2"></i>
+                                        Delivery in <strong>1-3 minutes</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold mb-2">Transaction ID (Hash) - TXID:</label>
+                            <input type="text" id="txId" name="txId" class="form-input" 
+                                   placeholder="Enter your TRC20 transaction hash"
+                                   required>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <button type="submit" class="tether-button text-lg py-4">
+                                <i class="fas fa-credit-card mr-2"></i>
+                                💳 COMPLETE PAYMENT
+                            </button>
+                            <button type="button" onclick="window.location.href='account-info.html'" 
+                                    class="tether-button text-lg py-4">
+                                <i class="fas fa-user mr-2"></i>
+                                GO TO DASHBOARD
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="../img/usdt_cryptocurrencies_icon_188337.png" alt="USDT Logo" class="h-8 w-8 mr-2">
+                <span class="text-lg font-bold">USDT-FLASH</span>
+                <span class="tether-badge ml-2">Official Partner</span>
+            </div>
+            <p class="text-gray-400">© 2025 USDT-FLASH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="loading-modal">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3 class="text-xl font-bold mb-2">Processing Payment...</h3>
+            <p class="text-gray-600">Please wait while we verify your transaction</p>
+        </div>
+    </div>
+
+    <script>
+        function copyAddress() {
+            const CORRECT_ADDRESS = 'TBq8h6hUrduk4hhf6owvc5PSGLm6pURqFP';
+            
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(CORRECT_ADDRESS).then(() => {
+                    alert('✅ Address Copied Successfully!\n\nSend exactly $249 USDT to this address');
+                });
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = CORRECT_ADDRESS;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('✅ Address Copied Successfully!\n\nSend exactly $249 USDT to this address');
+            }
+        }
+        
+        function toggleLanguage(lang) {
+            const warningEn = document.getElementById('warningEn');
+            const warningAr = document.getElementById('warningAr');
+            const enBtn = document.getElementById('enBtn');
+            const arBtn = document.getElementById('arBtn');
+            
+            if (lang === 'en') {
+                warningEn.classList.remove('hidden');
+                warningAr.classList.add('hidden');
+                enBtn.classList.add('bg-blue-100', 'text-blue-800');
+                enBtn.classList.remove('bg-gray-100', 'text-gray-600');
+                arBtn.classList.add('bg-gray-100', 'text-gray-600');
+                arBtn.classList.remove('bg-blue-100', 'text-blue-800');
+            } else {
+                warningEn.classList.add('hidden');
+                warningAr.classList.remove('hidden');
+                arBtn.classList.add('bg-blue-100', 'text-blue-800');
+                arBtn.classList.remove('bg-gray-100', 'text-gray-600');
+                enBtn.classList.add('bg-gray-100', 'text-gray-600');
+                enBtn.classList.remove('bg-blue-100', 'text-blue-800');
+            }
+        }
+        
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const txId = document.getElementById('txId').value;
+            
+            if (!txId) {
+                alert('⚠️ Please enter a transaction ID first');
+                return;
+            }
+            
+            document.getElementById('loadingModal').style.display = 'flex';
+            setTimeout(() => {
+                document.querySelector('.loading-content').innerHTML = `
+                    <div class="text-center">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4 text-red-600">Payment Required</h3>
+                        <p class="text-gray-600 mb-6">You must complete the payment first to activate your card.</p>
+                        <button onclick="document.getElementById('loadingModal').style.display='none'" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
+                            Close
+                        </button>
+                    </div>
+                `;
+            }, 15000);
+        });
+    </script>
+</body>
+</html>
