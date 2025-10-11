@@ -1,0 +1,37 @@
+/* تحسينات الباقات للهواتف المحمولة */
+
+@media (max-width: 768px) {
+    /* إزالة التأثيرات ثلاثية الأبعاد على الهواتف */
+    .grid[style*="perspective"] > div {
+        transform: none !important;
+        backdrop-filter: none !important;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+    }
+    
+    /* تحسين أسماء الباقات للهواتف */
+    .grid > div h3 {
+        font-size: 1.5rem !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* تحسين الأزرار للهواتف */
+    .grid > div button {
+        padding: 12px 20px !important;
+        font-size: 0.9rem !important;
+        animation: none !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    }
+    
+    /* تحسين المسافات */
+    .grid {
+        gap: 1.5rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* تحسين البطاقات */
+    .grid > div {
+        padding: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+}

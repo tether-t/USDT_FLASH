@@ -1,0 +1,245 @@
+/* إصلاح القائمة المنسدلة للهيدر على الهواتف */
+
+@media screen and (max-width: 768px) {
+    /* زر القائمة المنسدلة */
+    #mobileMenuBtn {
+        position: relative !important;
+        z-index: 99999 !important;
+        cursor: pointer !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        border-radius: 12px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    #mobileMenuBtn:active {
+        transform: scale(0.95) !important;
+        background-color: rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    #mobileMenuBtn i {
+        font-size: 18px !important;
+        color: white !important;
+        pointer-events: none !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    /* القائمة المنسدلة */
+    #mobileMenu {
+        position: absolute !important;
+        top: calc(100% + 12px) !important;
+        right: 0 !important;
+        left: auto !important;
+        width: 280px !important;
+        max-width: calc(100vw - 32px) !important;
+        background: linear-gradient(135deg, 
+            rgba(15, 23, 42, 0.98) 0%, 
+            rgba(30, 41, 59, 0.95) 50%, 
+            rgba(0, 0, 0, 0.98) 100%) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-radius: 16px !important;
+        box-shadow: 
+            0 20px 60px rgba(0, 0, 0, 0.5),
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        z-index: 99998 !important;
+        transform-origin: top right !important;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        overflow: hidden !important;
+    }
+    
+    /* حالة القائمة المغلقة */
+    #mobileMenu.opacity-0 {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: scale(0.9) translateY(-10px) !important;
+        pointer-events: none !important;
+    }
+    
+    /* حالة القائمة المفتوحة */
+    #mobileMenu.opacity-100 {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: scale(1) translateY(0) !important;
+        pointer-events: auto !important;
+    }
+    
+    /* محتوى القائمة */
+    #mobileMenu .p-2,
+    #mobileMenu .p-3 {
+        padding: 16px !important;
+    }
+    
+    /* عنوان القائمة */
+    #mobileMenu h3 {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 12px !important;
+        padding: 0 8px !important;
+    }
+    
+    /* أزرار القائمة */
+    #mobileMenu button {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 16px 12px !important;
+        margin-bottom: 8px !important;
+        border-radius: 12px !important;
+        background: transparent !important;
+        border: none !important;
+        color: white !important;
+        text-align: left !important;
+        cursor: pointer !important;
+        touch-action: manipulation !important;
+        -webkit-tap-highlight-color: transparent !important;
+        transition: all 0.3s ease !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    #mobileMenu button:hover,
+    #mobileMenu button:active {
+        background: rgba(255, 255, 255, 0.1) !important;
+        transform: translateX(4px) !important;
+    }
+    
+    #mobileMenu button:active {
+        transform: translateX(4px) scale(0.98) !important;
+    }
+    
+    /* أيقونات الأزرار */
+    #mobileMenu button .w-8,
+    #mobileMenu button .w-10,
+    #mobileMenu button .w-12 {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-right: 12px !important;
+        flex-shrink: 0 !important;
+        transition: transform 0.3s ease !important;
+    }
+    
+    #mobileMenu button:hover .w-8,
+    #mobileMenu button:hover .w-10,
+    #mobileMenu button:hover .w-12 {
+        transform: scale(1.1) !important;
+    }
+    
+    /* نصوص الأزرار */
+    #mobileMenu button .flex-1 {
+        flex: 1 !important;
+        text-align: left !important;
+    }
+    
+    #mobileMenu button .font-semibold {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: white !important;
+        margin-bottom: 2px !important;
+    }
+    
+    #mobileMenu button p {
+        font-size: 12px !important;
+        color: rgba(255, 255, 255, 0.7) !important;
+        margin: 0 !important;
+    }
+    
+    /* أسهم الأزرار */
+    #mobileMenu button .fa-chevron-right {
+        color: rgba(255, 255, 255, 0.5) !important;
+        font-size: 12px !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    #mobileMenu button:hover .fa-chevron-right {
+        color: rgba(255, 255, 255, 0.8) !important;
+        transform: translateX(2px) !important;
+    }
+    
+    /* الشارات والإشعارات */
+    #mobileMenu .absolute {
+        position: absolute !important;
+    }
+    
+    #mobileMenu .bg-red-500 {
+        background-color: #ef4444 !important;
+        color: white !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        min-width: 18px !important;
+        height: 18px !important;
+        border-radius: 9px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        animation: pulse 2s infinite !important;
+    }
+    
+    /* تأثيرات إضافية */
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+    
+    /* تحسين للشاشات الصغيرة جداً */
+    @media screen and (max-width: 480px) {
+        #mobileMenu {
+            width: calc(100vw - 24px) !important;
+            right: 12px !important;
+            left: auto !important;
+        }
+        
+        #mobileMenu button {
+            padding: 14px 10px !important;
+        }
+        
+        #mobileMenu button .w-8,
+        #mobileMenu button .w-10,
+        #mobileMenu button .w-12 {
+            width: 36px !important;
+            height: 36px !important;
+        }
+        
+        #mobileMenu button .font-semibold {
+            font-size: 14px !important;
+        }
+    }
+    
+    /* إصلاح للشاشات الكبيرة */
+    @media screen and (min-width: 769px) {
+        #mobileMenuBtn {
+            display: none !important;
+        }
+        
+        #mobileMenu {
+            display: none !important;
+        }
+    }
+    
+    /* تحسين الأداء */
+    #mobileMenu * {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+    
+    /* منع التمرير عند فتح القائمة */
+    body.menu-open {
+        overflow: hidden !important;
+    }
+}

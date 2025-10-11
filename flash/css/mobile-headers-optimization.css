@@ -1,0 +1,225 @@
+/* 📱 تحسين الهيدر 1 و 2 للهواتف */
+
+/* الهيدر الأول - تحسينات الهواتف */
+@media (max-width: 768px) {
+    .ultra-header {
+        height: 60px !important;
+    }
+    
+    .header-container {
+        padding: 0 1rem !important;
+    }
+    
+    .logo-wrapper {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .logo-img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.25rem !important;
+    }
+    
+    .logo-badges {
+        display: none !important;
+    }
+    
+    .auth-section {
+        gap: 0.5rem !important;
+    }
+    
+    .auth-section a {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* الهيدر الثانوي - تحسينات الهواتف */
+@media (max-width: 768px) {
+    .secondary-header {
+        top: 60px !important;
+        height: 50px !important;
+    }
+    
+    .secondary-icons-section {
+        gap: 1rem !important;
+    }
+    
+    .secondary-icon-wrapper {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .secondary-icon-wrapper i {
+        font-size: 16px !important;
+    }
+    
+    .secondary-badge {
+        min-width: 16px !important;
+        height: 16px !important;
+        font-size: 7px !important;
+    }
+    
+    body {
+        padding-top: 110px !important;
+    }
+}
+
+/* الهواتف الصغيرة */
+@media (max-width: 480px) {
+    .ultra-header {
+        height: 55px !important;
+    }
+    
+    .header-container {
+        padding: 0 0.75rem !important;
+    }
+    
+    .logo-wrapper {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .logo-img {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .logo-title {
+        font-size: 1.125rem !important;
+    }
+    
+    .auth-section a span {
+        display: none !important;
+    }
+    
+    .auth-section a {
+        padding: 0.4rem !important;
+        min-width: 40px !important;
+        justify-content: center !important;
+    }
+    
+    .secondary-header {
+        top: 55px !important;
+        height: 45px !important;
+    }
+    
+    .secondary-icons-section {
+        gap: 0.75rem !important;
+    }
+    
+    .secondary-icon-wrapper {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .secondary-icon-wrapper i {
+        font-size: 14px !important;
+    }
+    
+    .secondary-badge {
+        min-width: 14px !important;
+        height: 14px !important;
+        font-size: 6px !important;
+    }
+    
+    body {
+        padding-top: 100px !important;
+    }
+}
+
+/* الهواتف الصغيرة جداً */
+@media (max-width: 360px) {
+    .ultra-header {
+        height: 50px !important;
+    }
+    
+    .header-container {
+        padding: 0 0.5rem !important;
+    }
+    
+    .logo-wrapper {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .logo-img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .logo-title {
+        font-size: 1rem !important;
+    }
+    
+    .auth-section {
+        gap: 0.25rem !important;
+    }
+    
+    .auth-section a {
+        padding: 0.3rem !important;
+        min-width: 36px !important;
+    }
+    
+    .secondary-header {
+        top: 50px !important;
+        height: 40px !important;
+    }
+    
+    .secondary-icons-section {
+        gap: 0.5rem !important;
+    }
+    
+    .secondary-icon-wrapper {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .secondary-icon-wrapper i {
+        font-size: 12px !important;
+    }
+    
+    .secondary-badge {
+        min-width: 12px !important;
+        height: 12px !important;
+        font-size: 5px !important;
+    }
+    
+    body {
+        padding-top: 90px !important;
+    }
+}
+
+/* تحسينات اللمس */
+@media (pointer: coarse) {
+    .secondary-icon {
+        min-width: 44px !important;
+        min-height: 44px !important;
+        padding: 0.25rem !important;
+    }
+    
+    .auth-section a {
+        min-width: 44px !important;
+        min-height: 44px !important;
+    }
+}
+
+/* تحسينات الأداء للهواتف */
+@media (max-width: 768px) {
+    .header-glass {
+        backdrop-filter: blur(10px) !important;
+    }
+    
+    .secondary-header {
+        backdrop-filter: blur(10px) !important;
+    }
+    
+    .logo-glow,
+    .logo-pulse {
+        animation-duration: 4s !important;
+    }
+}

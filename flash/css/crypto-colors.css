@@ -1,0 +1,53 @@
+/* ألوان العملات الرقمية الأصلية */
+
+/* PEPE - أخضر */
+.text-pepe {
+    color: #00ff88 !important;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3) !important;
+}
+
+/* DOGE - ذهبي */
+.text-doge {
+    color: #c2a633 !important;
+    text-shadow: 0 0 10px rgba(194, 166, 51, 0.3) !important;
+}
+
+/* SHIBA - برتقالي */
+.text-shiba {
+    color: #ffa500 !important;
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.3) !important;
+}
+
+/* MetaMask - برتقالي */
+#main-content strong.text-orange-500 {
+    color: #f68c28 !important;
+    text-shadow: 0 0 10px rgba(246, 140, 40, 0.3) !important;
+}
+
+/* Trust Wallet - أزرق */
+#main-content strong.text-blue-500 {
+    color: #3375bb !important;
+    text-shadow: 0 0 10px rgba(51, 117, 187, 0.3) !important;
+}
+
+/* Binance - ذهبي */
+#main-content strong.text-yellow-500 {
+    color: #f0b90b !important;
+    text-shadow: 0 0 10px rgba(240, 185, 11, 0.3) !important;
+}
+
+/* تحديث الألوان في الهيرو */
+#main-content strong.text-green-400 {
+    color: #00ff88 !important;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3) !important;
+}
+
+#main-content strong.text-yellow-400 {
+    color: #c2a633 !important;
+    text-shadow: 0 0 10px rgba(194, 166, 51, 0.3) !important;
+}
+
+#main-content strong.text-orange-400 {
+    color: #ffa500 !important;
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.3) !important;
+}

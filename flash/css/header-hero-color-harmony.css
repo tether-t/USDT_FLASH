@@ -1,0 +1,266 @@
+/* تناسق ألوان الهيدر مع الهيرو - تصميم احترافي متقدم */
+
+:root {
+    /* ألوان Tether الأساسية المحدثة */
+    --tether-primary: #26a17b;
+    --tether-secondary: #1a8462;
+    --tether-accent: #2ecc71;
+    --tether-dark: #0e4b36;
+    --tether-light: #34d399;
+    
+    /* تدرجات احترافية متقدمة */
+    --header-gradient: linear-gradient(135deg, 
+        #0f1419 0%, 
+        #1a2e1a 15%, 
+        #26a17b 35%, 
+        #1a8462 65%, 
+        #0e4b36 85%, 
+        #0a3d2a 100%);
+    
+    --header-glass: rgba(15, 20, 25, 0.95);
+    --header-border: rgba(38, 161, 123, 0.3);
+    --header-shadow: 0 8px 32px rgba(14, 75, 54, 0.4);
+}
+
+/* الهيدر الرئيسي - تناسق مع الهيرو */
+header {
+    background: var(--header-gradient) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid var(--header-border) !important;
+    box-shadow: var(--header-shadow) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* تأثير الزجاج المتقدم للهيدر */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(38, 161, 123, 0.1) 0%,
+        rgba(26, 132, 98, 0.05) 50%,
+        rgba(14, 75, 54, 0.1) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* محتوى الهيدر */
+header .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* شعار الموقع */
+header h1 {
+    background: linear-gradient(45deg, 
+        #ffffff 0%,
+        #34d399 25%,
+        #26a17b 50%,
+        #ffffff 75%,
+        #2ecc71 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 0 0 30px rgba(38, 161, 123, 0.5) !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* النص التوضيحي للشعار */
+header p.text-green-200 {
+    color: rgba(52, 211, 153, 0.9) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* أيقونات التنقل */
+header button {
+    background: rgba(38, 161, 123, 0.15) !important;
+    border: 1px solid rgba(38, 161, 123, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+header button:hover {
+    background: rgba(38, 161, 123, 0.25) !important;
+    border-color: rgba(38, 161, 123, 0.5) !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(38, 161, 123, 0.3) !important;
+}
+
+/* أزرار تسجيل الدخول والتسجيل */
+header a[href*="login"] {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+header a[href*="register"] {
+    background: linear-gradient(45deg, #26a17b, #1a8462) !important;
+    border: 1px solid #26a17b !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(38, 161, 123, 0.3) !important;
+}
+
+header a[href*="register"]:hover {
+    background: linear-gradient(45deg, #1a8462, #0e4b36) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(38, 161, 123, 0.4) !important;
+}
+
+/* القائمة المنسدلة للهاتف */
+#mobileMenu {
+    background: linear-gradient(135deg, 
+        rgba(15, 20, 25, 0.98) 0%,
+        rgba(26, 46, 26, 0.95) 50%,
+        rgba(14, 75, 54, 0.98) 100%) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(38, 161, 123, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(14, 75, 54, 0.5) !important;
+}
+
+/* عناصر القائمة المنسدلة */
+#mobileMenu button {
+    background: rgba(38, 161, 123, 0.1) !important;
+    border: 1px solid rgba(38, 161, 123, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+#mobileMenu button:hover {
+    background: rgba(38, 161, 123, 0.2) !important;
+    border-color: rgba(38, 161, 123, 0.4) !important;
+    transform: translateX(5px) !important;
+}
+
+/* الأيقونات الملونة في القائمة */
+#mobileMenu .bg-gradient-to-br.from-blue-500 {
+    background: linear-gradient(135deg, #26a17b, #1a8462) !important;
+}
+
+#mobileMenu .bg-gradient-to-br.from-green-500 {
+    background: linear-gradient(135deg, #2ecc71, #26a17b) !important;
+}
+
+#mobileMenu .bg-gradient-to-br.from-purple-500 {
+    background: linear-gradient(135deg, #1a8462, #0e4b36) !important;
+}
+
+#mobileMenu .bg-gradient-to-br.from-yellow-500 {
+    background: linear-gradient(135deg, #34d399, #26a17b) !important;
+}
+
+#mobileMenu .bg-gradient-to-br.from-orange-500 {
+    background: linear-gradient(135deg, #26a17b, #2ecc71) !important;
+}
+
+/* تأثيرات الإشعارات */
+header .bg-red-500 {
+    background: linear-gradient(45deg, #ef4444, #dc2626) !important;
+    animation: pulse 2s infinite !important;
+}
+
+/* الفاصل العمودي */
+header .bg-white\\/30 {
+    background: rgba(38, 161, 123, 0.4) !important;
+}
+
+/* تأثيرات التمرير */
+@media (min-width: 768px) {
+    header {
+        transition: all 0.3s ease !important;
+    }
+    
+    header.scrolled {
+        background: rgba(15, 20, 25, 0.98) !important;
+        backdrop-filter: blur(25px) saturate(200%) !important;
+        box-shadow: 0 10px 40px rgba(14, 75, 54, 0.6) !important;
+    }
+}
+
+/* تحسينات الهاتف المحمول */
+@media (max-width: 767px) {
+    header {
+        background: linear-gradient(135deg, 
+            rgba(15, 20, 25, 0.95) 0%,
+            rgba(26, 46, 26, 0.9) 50%,
+            rgba(14, 75, 54, 0.95) 100%) !important;
+    }
+    
+    header h1 {
+        font-size: 1.25rem !important;
+    }
+    
+    header p {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* تأثيرات الأنيميشن المتقدمة */
+@keyframes headerGlow {
+    0%, 100% {
+        box-shadow: 0 8px 32px rgba(14, 75, 54, 0.4);
+    }
+    50% {
+        box-shadow: 0 12px 40px rgba(38, 161, 123, 0.5);
+    }
+}
+
+header {
+    animation: headerGlow 4s ease-in-out infinite !important;
+}
+
+/* تأثير الانعكاس */
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(38, 161, 123, 0.6) 25%,
+        rgba(52, 211, 153, 0.8) 50%,
+        rgba(38, 161, 123, 0.6) 75%,
+        transparent 100%);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* تحسين التباين للنصوص */
+header * {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* تأثيرات الهوفر المتقدمة */
+header button:hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, 
+        rgba(38, 161, 123, 0.2) 0%,
+        transparent 70%);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* تحسين الوضوح للأيقونات */
+header i {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)) !important;
+}
+
+/* تأثير التركيز للعناصر التفاعلية */
+header button:focus,
+header a:focus {
+    outline: 2px solid rgba(38, 161, 123, 0.6) !important;
+    outline-offset: 2px !important;
+}
