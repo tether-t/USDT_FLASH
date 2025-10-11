@@ -1,0 +1,466 @@
+/* 📱 Ultra Professional Mobile Experience */
+
+/* تحسينات الهيدر للهاتف */
+@media (max-width: 768px) {
+    header {
+        height: 70px !important;
+        padding: 0.5rem 0 !important;
+        backdrop-filter: blur(30px) saturate(200%) !important;
+        box-shadow: 0 8px 32px rgba(14, 75, 54, 0.6) !important;
+    }
+    
+    header .container {
+        padding: 0 1rem !important;
+    }
+    
+    header h1 {
+        font-size: 1.5rem !important;
+        font-weight: 900 !important;
+    }
+    
+    header p {
+        font-size: 0.7rem !important;
+        margin-top: 1px !important;
+    }
+    
+    header img {
+        width: 45px !important;
+        height: 45px !important;
+    }
+}
+
+/* تحسين الهيرو للهاتف */
+@media (max-width: 768px) {
+    #main-content {
+        margin-top: 70px !important;
+        padding: 2rem 1rem !important;
+        min-height: 90vh !important;
+    }
+    
+    .hero-main-title {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .partnership-badge {
+        font-size: 0.75rem !important;
+        padding: 0.5rem 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .live-stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+        margin: 1.5rem 0 !important;
+    }
+    
+    .stat-card {
+        padding: 1rem 0.75rem !important;
+    }
+    
+    .stat-number {
+        font-size: 1.25rem !important;
+    }
+    
+    .stat-label {
+        font-size: 0.65rem !important;
+    }
+    
+    .hero-cta-section {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        margin-top: 1.5rem !important;
+    }
+    
+    .cta-primary, .cta-secondary {
+        width: 100% !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* تحسين الباقات للهاتف */
+@media (max-width: 768px) {
+    #pricing {
+        padding: 3rem 0 !important;
+    }
+    
+    .packages-section-header {
+        padding: 2rem 1rem !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .packages-section-header h2 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .packages-section-header p {
+        font-size: 1rem !important;
+    }
+    
+    .pricing-card {
+        margin-bottom: 1.5rem !important;
+        padding: 1.5rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .pricing-card h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .pricing-card .text-5xl {
+        font-size: 2.5rem !important;
+    }
+    
+    .pricing-card button {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        border-radius: 12px !important;
+    }
+}
+
+/* تحسين المنصات للهاتف */
+@media (max-width: 768px) {
+    .platform-item .bg-white {
+        padding: 1rem !important;
+        border-radius: 12px !important;
+    }
+    
+    .platform-item img {
+        width: 40px !important;
+        height: 40px !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .platform-item h3 {
+        font-size: 0.75rem !important;
+        font-weight: 600 !important;
+    }
+}
+
+/* تحسين الفيديوهات للهاتف */
+@media (max-width: 768px) {
+    .video-section {
+        padding: 3rem 1rem !important;
+    }
+    
+    .video-section h2 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .video-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .video-card {
+        border-radius: 16px !important;
+    }
+    
+    .video-card video {
+        height: 200px !important;
+        border-radius: 12px 12px 0 0 !important;
+    }
+    
+    .video-card .p-6 {
+        padding: 1rem !important;
+    }
+}
+
+/* تحسين كيف يعمل للهاتف */
+@media (max-width: 768px) {
+    #how {
+        padding: 3rem 1rem !important;
+    }
+    
+    #how h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .step-card {
+        padding: 1.5rem !important;
+        margin-bottom: 1rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .step-card h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    .step-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+}
+
+/* تحسين البطاقات للهاتف */
+@media (max-width: 768px) {
+    .card-container {
+        width: 100% !important;
+        max-width: 320px !important;
+        height: 200px !important;
+        margin: 0 auto 2rem !important;
+    }
+    
+    .card-content {
+        padding: 1rem !important;
+    }
+    
+    .card-number {
+        font-size: 1rem !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .visa-logo {
+        font-size: 1.5rem !important;
+        top: 15px !important;
+        left: 15px !important;
+    }
+    
+    .site-branding {
+        top: 15px !important;
+        right: 15px !important;
+    }
+    
+    .site-logo {
+        font-size: 0.75rem !important;
+    }
+    
+    .card-holder, .card-expiry {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* تحسين آراء العملاء للهاتف */
+@media (max-width: 768px) {
+    #testimonials {
+        padding: 3rem 1rem !important;
+    }
+    
+    .testimonial-slide {
+        margin: 0 0.5rem !important;
+    }
+    
+    .testimonial-slide .bg-white {
+        padding: 1.5rem !important;
+        border-radius: 16px !important;
+    }
+    
+    .user-avatar {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.25rem !important;
+    }
+    
+    .testimonial-slide h3 {
+        font-size: 1rem !important;
+    }
+    
+    .testimonial-slide p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        min-height: auto !important;
+    }
+}
+
+/* تحسين التذييل للهاتف */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 1rem !important;
+    }
+    
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    footer h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    footer .text-2xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .social-links {
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+    
+    .social-links a {
+        padding: 0.75rem !important;
+        border-radius: 12px !important;
+    }
+}
+
+/* تحسينات عامة للهاتف */
+@media (max-width: 768px) {
+    /* تحسين النصوص */
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.5rem !important; }
+    h4 { font-size: 1.25rem !important; }
+    
+    /* تحسين الأزرار */
+    button, .btn {
+        min-height: 48px !important;
+        padding: 0.75rem 1.5rem !important;
+        border-radius: 12px !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+    }
+    
+    /* تحسين المسافات */
+    .py-20 { padding: 3rem 0 !important; }
+    .py-16 { padding: 2.5rem 0 !important; }
+    .py-12 { padding: 2rem 0 !important; }
+    
+    /* تحسين الحاويات */
+    .container {
+        padding: 0 1rem !important;
+        max-width: 100% !important;
+    }
+    
+    /* تحسين الشبكات */
+    .grid-cols-3 { grid-template-columns: 1fr !important; }
+    .grid-cols-2 { grid-template-columns: 1fr !important; }
+    .md\\:grid-cols-2 { grid-template-columns: 1fr !important; }
+    .md\\:grid-cols-3 { grid-template-columns: repeat(2, 1fr) !important; }
+    
+    /* تحسين الفجوات */
+    .gap-8 { gap: 1rem !important; }
+    .gap-6 { gap: 0.75rem !important; }
+    .gap-4 { gap: 0.5rem !important; }
+}
+
+/* تحسينات التفاعل للهاتف */
+@media (max-width: 768px) {
+    /* تحسين منطقة اللمس */
+    a, button, [role="button"] {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    /* تحسين التمرير */
+    html {
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* تحسين التركيز */
+    *:focus {
+        outline: 3px solid rgba(38, 161, 123, 0.6) !important;
+        outline-offset: 2px !important;
+    }
+    
+    /* تحسين الهوفر للمس */
+    @media (hover: none) {
+        .hover\\:scale-105:hover {
+            transform: scale(1.02) !important;
+        }
+        
+        .hover\\:shadow-xl:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+    }
+}
+
+/* تحسينات الأداء للهاتف */
+@media (max-width: 768px) {
+    /* تقليل الأنيميشن */
+    * {
+        animation-duration: 0.3s !important;
+        transition-duration: 0.3s !important;
+    }
+    
+    /* تحسين الصور */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+    }
+    
+    /* تحسين الفيديو */
+    video {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* تقليل التأثيرات البصرية */
+    .backdrop-blur-xl {
+        backdrop-filter: blur(10px) !important;
+    }
+    
+    .shadow-2xl {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+}
+
+/* تحسينات إضافية للهواتف الصغيرة */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.25rem !important;
+    }
+    
+    .hero-main-title {
+        font-size: 2rem !important;
+    }
+    
+    .pricing-card {
+        padding: 1rem !important;
+    }
+    
+    .pricing-card .text-5xl {
+        font-size: 2rem !important;
+    }
+    
+    .container {
+        padding: 0 0.75rem !important;
+    }
+    
+    button, .btn {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* تحسين القائمة المنسدلة للهاتف */
+@media (max-width: 768px) {
+    #mobileMenu {
+        width: calc(100vw - 2rem) !important;
+        max-width: 350px !important;
+        right: 1rem !important;
+        left: auto !important;
+        border-radius: 20px !important;
+        padding: 1rem !important;
+    }
+    
+    #mobileMenu button {
+        padding: 1rem !important;
+        border-radius: 16px !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    #mobileMenu .bg-gradient-to-br {
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 12px !important;
+    }
+    
+    #mobileMenu h3 {
+        font-size: 1rem !important;
+    }
+    
+    #mobileMenu p {
+        font-size: 0.8rem !important;
+    }
+}

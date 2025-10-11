@@ -1,0 +1,340 @@
+/* Ultra Professional Mobile Optimization */
+
+/* Mobile-First Responsive Design */
+@media (max-width: 768px) {
+    /* Header Mobile Optimization */
+    header {
+        padding: 0.5rem 0 !important;
+        backdrop-filter: blur(20px) !important;
+    }
+    
+    header .container {
+        padding: 0 1rem !important;
+    }
+    
+    header h1 {
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    header p {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Mobile Menu Enhancement */
+    #mobileMenu {
+        width: 95vw !important;
+        max-width: 350px !important;
+        right: 2.5vw !important;
+        border-radius: 1.5rem !important;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.3) !important;
+    }
+    
+    #mobileMenu button {
+        padding: 1rem !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    /* Hero Section Mobile */
+    #main-content {
+        margin-top: 70px !important;
+        padding: 2rem 0 !important;
+        min-height: auto !important;
+    }
+    
+    #main-content .container {
+        padding: 0 1rem !important;
+    }
+    
+    #main-content .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    #main-content h1 {
+        font-size: 3rem !important;
+        line-height: 0.9 !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    #main-content .text-lg {
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Mobile Circles Optimization */
+    .bg-white\/5 {
+        padding: 1.5rem !important;
+        margin: 1rem 0 !important;
+    }
+    
+    .w-48 {
+        width: 10rem !important;
+        height: 10rem !important;
+    }
+    
+    .w-48 img {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+    }
+    
+    .w-12 {
+        width: 2rem !important;
+        height: 2rem !important;
+    }
+    
+    /* Buttons Mobile */
+    #main-content button {
+        width: 100% !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    #main-content .flex {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    /* Pricing Section Mobile */
+    #pricing {
+        padding: 3rem 0 !important;
+    }
+    
+    #pricing .container {
+        padding: 0 1rem !important;
+    }
+    
+    #pricing .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    #pricing h2 {
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    #pricing .text-2xl {
+        font-size: 1.25rem !important;
+    }
+    
+    /* Package Cards Mobile */
+    .pricing-card {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        transform: none !important;
+        padding: 1.5rem !important;
+    }
+    
+    .pricing-card:hover {
+        transform: translateY(-2px) !important;
+    }
+    
+    .pricing-card h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .pricing-card .text-5xl {
+        font-size: 2.5rem !important;
+    }
+    
+    .pricing-card button {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        width: 100% !important;
+    }
+    
+    /* How It Works Mobile */
+    #how {
+        padding: 3rem 0 !important;
+    }
+    
+    #how .grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    #how h2 {
+        font-size: 2.5rem !important;
+    }
+    
+    #how .text-3xl {
+        font-size: 1.5rem !important;
+    }
+    
+    #how .text-xl {
+        font-size: 1rem !important;
+    }
+    
+    /* Warning Boxes Mobile */
+    .max-w-3xl {
+        max-width: 100% !important;
+        margin: 0 1rem !important;
+    }
+    
+    .bg-yellow-100, .bg-blue-100, .bg-red-100 {
+        padding: 1rem !important;
+        margin: 1rem 0 !important;
+        border-radius: 1rem !important;
+    }
+    
+    /* Cards Section Mobile */
+    .card-container {
+        width: 100% !important;
+        max-width: 300px !important;
+        height: 180px !important;
+        margin: 1rem auto !important;
+    }
+    
+    .card-number {
+        font-size: 1rem !important;
+        letter-spacing: 1px !important;
+    }
+    
+    .visa-logo {
+        font-size: 1.5rem !important;
+        top: 1rem !important;
+        left: 1rem !important;
+    }
+    
+    .site-branding {
+        top: 1rem !important;
+        right: 1rem !important;
+    }
+    
+    .site-logo {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Platforms Section Mobile */
+    .platform-item .bg-white {
+        padding: 1rem !important;
+    }
+    
+    .platform-item img {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+    
+    /* Video Section Mobile */
+    .video-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    video {
+        height: 200px !important;
+    }
+    
+    /* Testimonials Mobile */
+    .testimonial-slide {
+        margin: 0 1rem !important;
+    }
+    
+    .testimonial-slide .bg-white {
+        padding: 1rem !important;
+    }
+    
+    /* Footer Mobile */
+    footer {
+        padding: 2rem 0 !important;
+    }
+    
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center !important;
+    }
+    
+    footer .flex {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    /* Touch Optimization */
+    button, a, .cursor-pointer {
+        min-height: 44px !important;
+        min-width: 44px !important;
+        touch-action: manipulation !important;
+    }
+    
+    /* Scroll Optimization */
+    html {
+        scroll-behavior: smooth !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* Performance Optimization */
+    * {
+        -webkit-tap-highlight-color: transparent !important;
+        -webkit-touch-callout: none !important;
+    }
+    
+    /* Text Readability */
+    body {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+        -webkit-text-size-adjust: 100% !important;
+    }
+    
+    /* Input Optimization */
+    input, textarea, select {
+        font-size: 16px !important;
+        padding: 1rem !important;
+        border-radius: 0.5rem !important;
+    }
+    
+    /* Modal Mobile */
+    .modal, .popup {
+        width: 95vw !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        border-radius: 1rem !important;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    #main-content h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    #pricing h2 {
+        font-size: 2rem !important;
+    }
+    
+    .card-container {
+        height: 160px !important;
+    }
+    
+    .w-48 {
+        width: 8rem !important;
+        height: 8rem !important;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    #main-content {
+        margin-top: 60px !important;
+        padding: 1rem 0 !important;
+    }
+    
+    #main-content h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .w-48 {
+        width: 8rem !important;
+        height: 8rem !important;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+}

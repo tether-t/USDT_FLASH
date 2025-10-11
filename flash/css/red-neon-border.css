@@ -1,0 +1,71 @@
+/* تأثير النيون الأحمر حول محيط بطاقات الباقات */
+
+.package-card,
+#pricing .package-card,
+.bg-white.package-card {
+    position: relative !important;
+    border: 3px solid #ff0000 !important;
+    box-shadow: 
+        0 0 15px #ff0000,
+        0 0 25px #ff0000,
+        0 0 35px #ff0000,
+        0 0 45px #ff0000,
+        inset 0 0 15px rgba(255, 0, 0, 0.2) !important;
+    animation: red-neon-pulse 2s ease-in-out infinite alternate !important;
+}
+
+@keyframes red-neon-pulse {
+    0% {
+        border-color: #ff0000;
+        box-shadow: 
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 30px #ff0000,
+            0 0 40px #ff0000,
+            inset 0 0 10px rgba(255, 0, 0, 0.1);
+    }
+    100% {
+        border-color: #ff3333;
+        box-shadow: 
+            0 0 15px #ff0000,
+            0 0 25px #ff0000,
+            0 0 35px #ff0000,
+            0 0 50px #ff0000,
+            inset 0 0 15px rgba(255, 0, 0, 0.2);
+    }
+}
+
+.package-card:hover,
+#pricing .package-card:hover,
+.bg-white.package-card:hover {
+    border-color: #ff0000 !important;
+    box-shadow: 
+        0 0 25px #ff0000,
+        0 0 35px #ff0000,
+        0 0 45px #ff0000,
+        0 0 65px #ff0000,
+        0 20px 40px rgba(0,0,0,0.15),
+        inset 0 0 25px rgba(255, 0, 0, 0.3) !important;
+    animation: red-neon-intense 1.5s ease-in-out infinite alternate !important;
+}
+
+@keyframes red-neon-intense {
+    0% {
+        box-shadow: 
+            0 0 20px #ff0000,
+            0 0 30px #ff0000,
+            0 0 40px #ff0000,
+            0 0 60px #ff0000,
+            0 20px 40px rgba(0,0,0,0.15),
+            inset 0 0 20px rgba(255, 0, 0, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 0 25px #ff0000,
+            0 0 35px #ff0000,
+            0 0 50px #ff0000,
+            0 0 80px #ff0000,
+            0 25px 45px rgba(0,0,0,0.2),
+            inset 0 0 25px rgba(255, 0, 0, 0.3);
+    }
+}

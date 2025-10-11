@@ -1,0 +1,124 @@
+/* تأثيرات النيون الاحترافية للأزرار */
+
+/* الباقة الأساسية - نيون أخضر */
+#pricing .grid > div:nth-child(1) button,
+.max-w-6xl .grid > div:nth-child(1) button {
+    background: linear-gradient(45deg, #10b981, #059669) !important;
+    border: 2px solid #10b981 !important;
+    box-shadow: 
+        0 0 10px #10b981,
+        0 0 20px #10b981,
+        0 0 30px #10b981,
+        inset 0 0 10px rgba(16, 185, 129, 0.2) !important;
+    animation: green-neon-pulse 2s ease-in-out infinite alternate !important;
+}
+
+#pricing .grid > div:nth-child(1) button:hover,
+.max-w-6xl .grid > div:nth-child(1) button:hover {
+    box-shadow: 
+        0 0 15px #10b981,
+        0 0 25px #10b981,
+        0 0 35px #10b981,
+        0 0 45px #10b981,
+        inset 0 0 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* الباقة المتوسطة - نيون أزرق */
+#pricing .grid > div:nth-child(2) button,
+.max-w-6xl .grid > div:nth-child(2) button {
+    background: linear-gradient(45deg, #3b82f6, #2563eb) !important;
+    border: 2px solid #3b82f6 !important;
+    box-shadow: 
+        0 0 10px #3b82f6,
+        0 0 20px #3b82f6,
+        0 0 30px #3b82f6,
+        inset 0 0 10px rgba(59, 130, 246, 0.2) !important;
+    animation: blue-neon-pulse 2s ease-in-out infinite alternate !important;
+}
+
+#pricing .grid > div:nth-child(2) button:hover,
+.max-w-6xl .grid > div:nth-child(2) button:hover {
+    box-shadow: 
+        0 0 15px #3b82f6,
+        0 0 25px #3b82f6,
+        0 0 35px #3b82f6,
+        0 0 45px #3b82f6,
+        inset 0 0 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* الباقة المتقدمة - نيون بنفسجي */
+#pricing .grid > div:nth-child(3) button,
+.max-w-6xl .grid > div:nth-child(3) button {
+    background: linear-gradient(45deg, #7c3aed, #5b21b6) !important;
+    border: 2px solid #7c3aed !important;
+    box-shadow: 
+        0 0 10px #7c3aed,
+        0 0 20px #7c3aed,
+        0 0 30px #7c3aed,
+        inset 0 0 10px rgba(124, 58, 237, 0.2) !important;
+    animation: purple-neon-pulse 2s ease-in-out infinite alternate !important;
+}
+
+#pricing .grid > div:nth-child(3) button:hover,
+.max-w-6xl .grid > div:nth-child(3) button:hover {
+    box-shadow: 
+        0 0 15px #7c3aed,
+        0 0 25px #7c3aed,
+        0 0 35px #7c3aed,
+        0 0 45px #7c3aed,
+        inset 0 0 15px rgba(124, 58, 237, 0.3) !important;
+}
+
+/* أنيميشن النيون الأخضر */
+@keyframes green-neon-pulse {
+    0% {
+        box-shadow: 
+            0 0 10px #10b981,
+            0 0 20px #10b981,
+            0 0 30px #10b981,
+            inset 0 0 10px rgba(16, 185, 129, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 0 15px #10b981,
+            0 0 25px #10b981,
+            0 0 35px #10b981,
+            inset 0 0 15px rgba(16, 185, 129, 0.3);
+    }
+}
+
+/* أنيميشن النيون الأزرق */
+@keyframes blue-neon-pulse {
+    0% {
+        box-shadow: 
+            0 0 10px #3b82f6,
+            0 0 20px #3b82f6,
+            0 0 30px #3b82f6,
+            inset 0 0 10px rgba(59, 130, 246, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 0 15px #3b82f6,
+            0 0 25px #3b82f6,
+            0 0 35px #3b82f6,
+            inset 0 0 15px rgba(59, 130, 246, 0.3);
+    }
+}
+
+/* أنيميشن النيون البنفسجي */
+@keyframes purple-neon-pulse {
+    0% {
+        box-shadow: 
+            0 0 10px #7c3aed,
+            0 0 20px #7c3aed,
+            0 0 30px #7c3aed,
+            inset 0 0 10px rgba(124, 58, 237, 0.2);
+    }
+    100% {
+        box-shadow: 
+            0 0 15px #7c3aed,
+            0 0 25px #7c3aed,
+            0 0 35px #7c3aed,
+            inset 0 0 15px rgba(124, 58, 237, 0.3);
+    }
+}
